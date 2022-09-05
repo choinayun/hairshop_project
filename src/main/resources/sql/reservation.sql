@@ -14,3 +14,5 @@ CREATE TABLE reservation
 ALTER TABLE reservation
     ADD CONSTRAINT FK_reservation_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+        alter table reservation add (r_time varchar2(20));
+        alter table reservation modify(r_time varchar2(20) not null); 
