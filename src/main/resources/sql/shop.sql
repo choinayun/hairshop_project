@@ -6,10 +6,10 @@ CREATE TABLE shop
     grade      NUMBER(5,1)     default(0), 
     s_num      NUMBER          NOT NULL, 
     id         VARCHAR2(20)    NOT NULL, 
-    img1       VARCHAR2(30)    default('nan'), 
-    img2       VARCHAR2(30)    default('nan'), 
-    img3       VARCHAR2(30)    default('nan'), 
-    img4       VARCHAR2(30)    default('nan'), 
+    img1       VARCHAR2(100)    default('nan'), 
+    img2       VARCHAR2(100)    default('nan'), 
+    img3       VARCHAR2(100)    default('nan'), 
+    img4       VARCHAR2(100)    default('nan'), 
     PRIMARY KEY (s_num)
 );
 

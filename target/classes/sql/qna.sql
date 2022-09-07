@@ -3,7 +3,7 @@ CREATE TABLE QnA
     id         VARCHAR2(20)     NOT NULL, 
     title      VARCHAR2(30)     NOT NULL, 
     content    VARCHAR2(300)    NOT NULL, 
-    img        VARCHAR2(30)    default('nan'), 
+    img        VARCHAR2(100)    default('nan'), 
     q_date       DATE                default(sysdate), 
     num        NUMBER           NOT NULL, 
      PRIMARY KEY (num)
