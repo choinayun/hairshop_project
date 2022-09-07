@@ -14,8 +14,9 @@ CREATE TABLE reservation
 
 ALTER TABLE reservation
     ADD CONSTRAINT FK_reservation_id_member_id FOREIGN KEY (id)
-        REFERENCES member (id) ON DELETE CASCADE;""
+        REFERENCES member (id) ON DELETE CASCADE;
         
 ALTER TABLE reservation
     ADD CONSTRAINT FK_reser_s_num_shop_s_num FOREIGN KEY (s_shop)
         REFERENCES shop (s_num) ON DELETE CASCADE;
+          

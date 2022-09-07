@@ -1,10 +1,10 @@
 CREATE TABLE menu
 (
-	num			number			NOT NULL,
+	m_num		NUMBER			NOT NULL,
     info        VARCHAR2(30)    NOT NULL, 
     price       VARCHAR2(20)    NOT NULL, 
     category    NUMBER          NOT NULL
-    PRIMARY KEY (id)
+    PRIMARY KEY (m_num)
 );
 
 insert into menu values( '남성컷', '18,000', 0, 1); 
