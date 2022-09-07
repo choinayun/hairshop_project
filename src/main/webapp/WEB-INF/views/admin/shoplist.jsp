@@ -59,13 +59,13 @@ button:hover {
 			</tr>
 			<c:forEach var="dto" items="${list}">
 			<tr>
-				<td>${dto.s_num}</td>
-				<td>${dto.s_name}</td>
-				<td>${dto.s_addr}</td>
-				<td>${dto.s_phone}</td>
+				<td>${dto.sNum}</td>
+				<td>${dto.sName}</td>
+				<td>${dto.sAddr}</td>
+				<td>${dto.sPhone}</td>
 				
-				<td><button type="button"><a href="modifyshop?s_num=${dto.s_num}">수정</a></td>
-				<td><button type="button"><a href="deleteshop?s_num=${dto.s_num }">삭제</a></td>
+				<td><button type="button"><a href="modifyshop?sNum=${dto.sNum}">수정</a></td>
+				<td><button type="button"><a href="deleteshop?sNum=${dto.sNum}">삭제</a></td>
 			</tr>
 			</c:forEach>
 		</table>

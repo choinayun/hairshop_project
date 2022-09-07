@@ -37,13 +37,13 @@ public class AdminController {
 		return"admin/shoplist";
 	}
 	@GetMapping("modifyshop")
-	public String modifyshop(int s_num,Model model) {
-		as.modifyForm(s_num,model);
+	public String modifyshop(int sNum,Model model) {
+		as.modifyForm(sNum,model);
 		return"admin/modifyshop";
 	}
 	@GetMapping("deleteshop")
-	public String deleteshop(String s_num) {
-		as.delshop(s_num);
+	public String deleteshop(String sNum) {
+		as.delshop(sNum);
 		return"redirect:shoplist";
 	}
 	

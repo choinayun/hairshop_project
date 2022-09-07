@@ -2,8 +2,8 @@ package com.care.hair.member.dto;
 
 public class reservationDTO {
 	
-	private String id,name,info,r_date,price,r_time;
-	private int status,s_shop,num;
+	private String id,name,info,rDate,price,rTime;
+	private int status,sShop,num;
 	
 	public String getId() {
 		return id;
@@ -23,41 +23,44 @@ public class reservationDTO {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public String getR_date() {
-		return r_date;
-	}
-	public void setR_date(String r_date) {
-		this.r_date = r_date;
-	}
+	
 	public String getPrice() {
 		return price;
 	}
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getR_time() {
-		return r_time;
-	}
-	public void setR_time(String r_time) {
-		this.r_time = r_time;
-	}
+	
 	public int getStatus() {
 		return status;
 	}
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public int getS_shop() {
-		return s_shop;
-	}
-	public void setS_shop(int s_shop) {
-		this.s_shop = s_shop;
-	}
+	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getrDate() {
+		return rDate;
+	}
+	public void setrDate(String rDate) {
+		this.rDate = rDate;
+	}
+	public String getrTime() {
+		return rTime;
+	}
+	public void setrTime(String rTime) {
+		this.rTime = rTime;
+	}
+	public int getsShop() {
+		return sShop;
+	}
+	public void setsShop(int sShop) {
+		this.sShop = sShop;
 	}
 	
 	

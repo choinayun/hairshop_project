@@ -77,11 +77,11 @@ button:hover {
 				<td>${dto.num}</td>
 				<td>${dto.id}</td>
 				<td>${dto.name}</td>
-				<td>${dto.r_date}</td>
-				<td>${dto.r_time}</td>
+				<td>${dto.rDate}</td>
+				<td>${dto.rTime}</td>
 				<td>${dto.info}</td>
 				<td>${dto.price}</td>
-				<td>${dto.s_shop}</td>
+				<td>${dto.sShop}</td>
 				
 				<td hidden="">${dto.status}</td>
 				<td>

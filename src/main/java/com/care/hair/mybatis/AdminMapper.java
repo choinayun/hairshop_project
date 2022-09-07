@@ -11,7 +11,7 @@ import com.care.hair.member.dto.reservationDTO;
 
 public interface AdminMapper {
 	public List<memberShopDTO> shopinfo(Model model);
-	public void delshop(String s_num);
+	public void delshop(String sNum);
 	public List<registrationDTO>newshop(Model model);
 	public void shopOK(String num);
 	public void shopOKdel(String num);
@@ -19,6 +19,6 @@ public interface AdminMapper {
 	public void Bmodify(reservationDTO dto);
 	public void bookingDel(String num);
 	public void N_F(noticeDTO dto);
-	public memberShopDTO getShop(int s_num);
+	public memberShopDTO getShop(int sNum);
 	public void modify(memberShopDTO dto);
 }

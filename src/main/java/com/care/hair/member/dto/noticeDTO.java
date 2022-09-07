@@ -3,7 +3,7 @@ package com.care.hair.member.dto;
 public class noticeDTO {
 	
 	private String title,content,img;
-	private int num,n_date;
+	private int num,nDate;
 	public String getTitle() {
 		return title;
 	}
@@ -28,12 +28,13 @@ public class noticeDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getN_date() {
-		return n_date;
+	public int getnDate() {
+		return nDate;
 	}
-	public void setN_date(int n_date) {
-		this.n_date = n_date;
+	public void setnDate(int nDate) {
+		this.nDate = nDate;
 	}
+	
 	
 	    
 	

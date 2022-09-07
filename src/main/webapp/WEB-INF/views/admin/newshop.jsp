@@ -66,9 +66,9 @@ button:hover {
 			<tr>
 				<td>${dto.num}</td>
 				<td>${dto.id}</td>
-				<td>${dto.s_name}</td>
-				<td>${dto.s_addr}</td>
-				<td>${dto.s_phone}</td>
+				<td>${dto.sName}</td>
+				<td>${dto.sAddr}</td>
+				<td>${dto.sPhone}</td>
 				
 				<td><button type="button" onclick="location.href='newshopOK?num=${dto.num}&id=${dto.id}'">등록</button></td>
 				<td><button type="button" onclick="location.href='newshopNO?num=${dto.num}'">삭제</button></td>

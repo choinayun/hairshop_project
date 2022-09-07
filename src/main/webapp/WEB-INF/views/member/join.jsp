@@ -289,7 +289,6 @@ function userchk() {
 			
 		    <div id="joinbutton">
 		<input type="submit" value="회원가입" onclick="userchk();">
-		<!--  <input type="button" value="취소하기" onclick="history.back()">-->
 		   
 		</form>
  </div>

@@ -1,7 +1,7 @@
 package com.care.hair.member.dto;
 
 public class registrationDTO {
-	private String id,s_name,s_addr,s_phone,img1,img2,img3,img4;
+	private String id,sName,sAddr,sPhone,img1,img2,img3,img4;
 	private int num;
 	public String getId() {
 		return id;
@@ -9,23 +9,23 @@ public class registrationDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getS_name() {
-		return s_name;
+	public String getsName() {
+		return sName;
 	}
-	public void setS_name(String s_name) {
-		this.s_name = s_name;
+	public void setsName(String sName) {
+		this.sName = sName;
 	}
-	public String getS_addr() {
-		return s_addr;
+	public String getsAddr() {
+		return sAddr;
 	}
-	public void setS_addr(String s_addr) {
-		this.s_addr = s_addr;
+	public void setsAddr(String sAddr) {
+		this.sAddr = sAddr;
 	}
-	public String getS_phone() {
-		return s_phone;
+	public String getsPhone() {
+		return sPhone;
 	}
-	public void setS_phone(String s_phone) {
-		this.s_phone = s_phone;
+	public void setsPhone(String sPhone) {
+		this.sPhone = sPhone;
 	}
 	public String getImg1() {
 		return img1;

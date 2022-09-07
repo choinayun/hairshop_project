@@ -1,31 +1,25 @@
 package com.care.hair.member.dto;
 
 public class memberShopDTO {
-	private String s_name,s_addr,s_phone,id,img1,img2,img3,img4;
-	private int s_num,grade;
-	public int getGrade() {
-		return grade;
+	private String sName,sAddr,sPhone,id,img1,img2,img3,img4;
+	private int sNum,grade;
+	public String getsName() {
+		return sName;
 	}
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setsName(String sName) {
+		this.sName = sName;
 	}
-	public String getS_name() {
-		return s_name;
+	public String getsAddr() {
+		return sAddr;
 	}
-	public void setS_name(String s_name) {
-		this.s_name = s_name;
+	public void setsAddr(String sAddr) {
+		this.sAddr = sAddr;
 	}
-	public String getS_addr() {
-		return s_addr;
+	public String getsPhone() {
+		return sPhone;
 	}
-	public void setS_addr(String s_addr) {
-		this.s_addr = s_addr;
-	}
-	public String getS_phone() {
-		return s_phone;
-	}
-	public void setS_phone(String s_phone) {
-		this.s_phone = s_phone;
+	public void setsPhone(String sPhone) {
+		this.sPhone = sPhone;
 	}
 	public String getId() {
 		return id;
@@ -57,11 +51,17 @@ public class memberShopDTO {
 	public void setImg4(String img4) {
 		this.img4 = img4;
 	}
-	public int getS_num() {
-		return s_num;
+	public int getsNum() {
+		return sNum;
 	}
-	public void setS_num(int s_num) {
-		this.s_num = s_num;
+	public void setsNum(int sNum) {
+		this.sNum = sNum;
 	}
-
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	
 }

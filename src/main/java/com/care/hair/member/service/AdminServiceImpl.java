@@ -37,8 +37,8 @@ public class AdminServiceImpl implements AdminService {
 		List<memberShopDTO>list=admapper.shopinfo(model);
 		model.addAttribute("list",list);
 	}
-	public void delshop(String s_num) {
-		admapper.delshop(s_num);
+	public void delshop(String sNum) {
+		admapper.delshop(sNum);
 	}
 	public void newshop(Model model) {
 		List<registrationDTO>list=admapper.newshop(model);
@@ -50,7 +50,6 @@ public class AdminServiceImpl implements AdminService {
 		mapper.getemail(id);
 		model.addAttribute("email",mapper.getemail(id));
 		mapper.shopChange(id);
-		//System.out.println("shopOKID========"+id);
 		admapper.shopOKdel(num);
 	}
 	public void shopNO(String num) {
@@ -144,8 +143,8 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 	
-	public void modifyForm( int s_num , Model model) {
-		memberShopDTO dto = admapper.getShop(s_num);
+	public void modifyForm( int sNum , Model model) {
+		memberShopDTO dto = admapper.getShop(sNum);
 		model.addAttribute("dto", dto);
 	}
 	public void modify(MultipartHttpServletRequest mul) {
@@ -154,11 +153,11 @@ public class AdminServiceImpl implements AdminService {
 		String fileName;
 		String[] originNames = mul.getParameterValues("originName");
 		int index = 0;
-
-		dto.setS_num(Integer.parseInt(mul.getParameter("s_num")));
-		dto.setS_addr(mul.getParameter("s_addr"));
-		dto.setS_name(mul.getParameter("s_name"));
-		dto.setS_phone(mul.getParameter("s_phone"));
+	
+		dto.setsNum(Integer.parseInt(mul.getParameter("s_num")));
+		dto.setsAddr(mul.getParameter("s_addr"));
+		dto.setsName(mul.getParameter("s_name"));
+		dto.setsPhone(mul.getParameter("s_phone"));
 
 		for(MultipartFile file : mul.getFiles("img")) {
 			

@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.hair.mybatis.AdminMapper">
 <resultMap type="com.care.hair.member.dto.memberShopDTO" id="memberShop">
-		<id property="s_num" column="s_num"/>
-		<result property="s_name" column="s_name" />
-		<result property="s_addr" column="s_addr" />
-		<result property="s_phone" column="s_phone" />
+		<id property="sNum" column="s_num"/>
+		<result property="sName" column="s_name" />
+		<result property="sAddr" column="s_addr" />
+		<result property="sPhone" column="s_phone" />
 		<result property="grade" column="grade" />
 		<result property="id" column="id" />
 		<result property="img1" column="img1" />
@@ -19,9 +19,9 @@
 	<resultMap type="com.care.hair.member.dto.registrationDTO" id="newshop">
 	<id property="num" column="num"/>
 	<result property="id" column="id"/>
-	<result property="s_name" column="s_name"/>
-	<result property="s_addr" column="s_addr"/>
-	<result property="s_phone" column="s_phone"/>
+	<result property="sName" column="s_name"/>
+	<result property="sAddr" column="s_addr"/>
+	<result property="sPhone" column="s_phone"/>
 	<result property="img1" column="img1"/>
 	<result property="img2" column="img2"/>
 	<result property="img3" column="img3"/>
@@ -34,17 +34,17 @@
 	<result property="name" column="name"/>
 	<result property="status" column="status"/>
 	<result property="info" column="info"/>
-	<result property="r_date" column="r_date"/>
+	<result property="rDate" column="r_date"/>
 	<result property="price" column="price"/>
-	<result property="s_shop" column="s_shop"/>
-	<result property="r_time" column="r_time"/>
+	<result property="sShop" column="s_shop"/>
+	<result property="rTime" column="r_time"/>
 	</resultMap>
 	
 	<resultMap type="com.care.hair.member.dto.noticeDTO" id="notice">
 	<id property="num" column="num"/>
 	<result property="title" column="title"/>
 	<result property="content" column="content"/>
-	<result property="n_date" column="n_date"/>
+	<result property="nDate" column="n_date"/>
 	<result property="img" column="img"/>
 	</resultMap>
 	
@@ -53,7 +53,7 @@
 	</select>
 	
 	<delete id="delshop">
-		delete from shop where s_num=#{s_num}
+		delete from shop where s_num=#{sNum}
 	</delete>
 	
 	<select id="newshop" resultMap="newshop">
@@ -86,11 +86,11 @@
 	</insert>
 	
 	<select id="getShop" resultMap="memberShop">
-		select * from shop where s_num = #{s_num}
+		select * from shop where s_num = #{sNum}
 	</select>
 	
 	<update id="modify">
-		update shop set s_name=#{s_name},s_addr=#{s_addr},s_phone=#{s_phone},img1=#{img1},img2=#{img2},img3=#{img3},img4=#{img4} where s_num=#{s_num}
+		update shop set s_name=#{sName},s_addr=#{sAddr},s_phone=#{sPhone},img1=#{img1},img2=#{img2},img3=#{img3},img4=#{img4} where s_num=#{sNum}
 	</update>
 	
 	

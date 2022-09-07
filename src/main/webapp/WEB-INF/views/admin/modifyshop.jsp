@@ -91,7 +91,7 @@ Button:hover {
 	<tr>
 	<th>고유 번호</th>
 	<td>
-		<input type="text" value="${dto.s_num}" id="s_num"name="s_num" readonly="readonly" width="10px">
+		<input type="text" value="${dto.sNum}" id="s_num"name="s_num" readonly="readonly" width="10px">
 		<h4 style="color: red;">※변경 불가</h4>
 	</td>
 	
@@ -105,19 +105,19 @@ Button:hover {
 	
 	<tr>
 	<th>샵 이름</th>
-	<td><input type="text" value="${dto.s_name}" name="s_name" id="s_name"></td>
+	<td><input type="text" value="${dto.sName}" name="s_name" id="s_name"></td>
 	
 	
 	<th rowspan="2">샵 주소</th>
 	<td rowspan="2">
-		<input type="text" value="${dto.s_addr}" name="s_addr"id="s_addr" readonly="readonly">
+		<input type="text" value="${dto.sAddr}" name="s_addr"id="s_addr" readonly="readonly">
 		<button type="button" onclick="daumPost()">검색</button>
 	</td>
 	</tr>
 	
 	<tr>
 	<th>매장 번호</th>
-	<td><input type="text" value="${dto.s_phone}" name="s_phone" id="s_phone"></td>
+	<td><input type="text" value="${dto.sPhone}" name="s_phone" id="s_phone"></td>
 	</tr>
 	
 	<tr>
