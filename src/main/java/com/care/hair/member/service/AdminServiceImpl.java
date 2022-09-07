@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,13 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.care.hair.member.dto.memberDTO;
-import com.care.hair.member.dto.memberShopDTO;
-import com.care.hair.member.dto.noticeDTO;
-import com.care.hair.member.dto.registrationDTO;
-import com.care.hair.member.dto.reservationDTO;
-import com.care.hair.mybatis.AdminMapper;
-import com.care.hair.mybatis.MemberMapper;
+import com.care.hair.member.dto.MemberDTO;
+import com.care.hair.mybatis.member.AdminMapper;
+import com.care.hair.mybatis.member.MemberMapper;
+import com.care.hair.notice.dto.NoticeDTO;
+import com.care.hair.registration.dto.RegistrationDTO;
+import com.care.hair.reservation.dto.ReservationDTO;
+import com.care.hair.shop.dto.ShopDTO;
 
 
 @Service
@@ -34,14 +33,14 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired JavaMailSender mailSender;
 	
 	public void shopinfo(Model model) {
-		List<memberShopDTO>list=admapper.shopinfo(model);
+		List<ShopDTO>list=admapper.shopinfo(model);
 		model.addAttribute("list",list);
 	}
 	public void delshop(String sNum) {
 		admapper.delshop(sNum);
 	}
 	public void newshop(Model model) {
-		List<registrationDTO>list=admapper.newshop(model);
+		List<RegistrationDTO>list=admapper.newshop(model);
 		model.addAttribute("list",list);
 	}
 	public void shopOK(String num,String id,Model model) {
@@ -56,13 +55,13 @@ public class AdminServiceImpl implements AdminService {
 		admapper.shopOKdel(num);
 	}
 	public void reservation(Model model) {
-		List<reservationDTO>list=admapper.reservation(model);
+		List<ReservationDTO>list=admapper.reservation(model);
 		model.addAttribute("list",list);
 
 	}
 
 	public void Bmodify(int status, int num) {
-		reservationDTO dto=new reservationDTO();
+		ReservationDTO dto=new ReservationDTO();
 		dto.setNum(num);
 		dto.setStatus(status);
 		
@@ -77,7 +76,7 @@ public class AdminServiceImpl implements AdminService {
 	
 	public void sendmail(Model model) {
 		MimeMessage message = mailSender.createMimeMessage();
-		 memberDTO dto=new memberDTO();
+		 MemberDTO dto=new MemberDTO();
 		
 		 dto.setEmail((String)model.getAttribute("email"));
 			
@@ -117,7 +116,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	public void N_F(MultipartHttpServletRequest mul) {
-		noticeDTO dto = new noticeDTO();
+		NoticeDTO dto = new NoticeDTO();
 		dto.setTitle(mul.getParameter("title"));
 		dto.setContent(mul.getParameter("content"));
 		MultipartFile file = mul.getFile("img");
@@ -144,11 +143,11 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	public void modifyForm( int sNum , Model model) {
-		memberShopDTO dto = admapper.getShop(sNum);
+		ShopDTO dto = admapper.getShop(sNum);
 		model.addAttribute("dto", dto);
 	}
 	public void modify(MultipartHttpServletRequest mul) {
-		memberShopDTO dto= new memberShopDTO();
+		ShopDTO dto= new ShopDTO();
 		ArrayList<String> imgList = new ArrayList<String>();
 		String fileName;
 		String[] originNames = mul.getParameterValues("originName");

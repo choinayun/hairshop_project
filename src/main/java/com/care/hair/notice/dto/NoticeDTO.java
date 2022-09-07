@@ -1,6 +1,6 @@
-package com.care.hair.member.dto;
+package com.care.hair.notice.dto;
 
-public class noticeDTO {
+public class NoticeDTO {
 	
 	private String title,content,img;
 	private int num,nDate;

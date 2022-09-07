@@ -18,9 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.hair.common.SessionName;
-import com.care.hair.member.dto.memberDTO;
-import com.care.hair.member.dto.memberShopDTO;
-import com.care.hair.mybatis.MemberMapper;
+import com.care.hair.member.dto.MemberDTO;
+import com.care.hair.mybatis.member.MemberMapper;
+import com.care.hair.shop.dto.ShopDTO;
 
 
 
@@ -37,7 +37,7 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("cnt:"+cnt);
 		return cnt;
 	}	
-	public int register(memberDTO dto) {
+	public int register(MemberDTO dto) {
 		String seq = en.encode( dto.getPw() );
 		
 		dto.setPw( seq );
@@ -51,7 +51,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public int login_chk(HttpServletRequest request) {
-		memberDTO dto = 
+		MemberDTO dto = 
 				mapper.getUser(request.getParameter("id") );
 		if( dto != null ) {
 			if( en.matches(request.getParameter("pw"), dto.getPw() )  || dto.getPw().equals( request.getParameter("pw") )) {
@@ -91,7 +91,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	public String sendmail(Model model) {
 		MimeMessage message = mailSender.createMimeMessage();
-		 memberDTO dto=new memberDTO();
+		 MemberDTO dto=new MemberDTO();
 		
 		 dto.setEmail((String)model.getAttribute("email"));
 		 dto.setPw((String)model.getAttribute("pw"));
@@ -130,7 +130,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public void memberinfo(Model model) {
-		List<memberDTO> list=mapper.memberinfo(model);
+		List<MemberDTO> list=mapper.memberinfo(model);
 		model.addAttribute("list",list);
 	}
 	
@@ -139,7 +139,7 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 	public void Pmodify(String id,int position) {
-		memberDTO dto= new memberDTO();
+		MemberDTO dto= new MemberDTO();
 		dto.setId(id);
 		dto.setPosition(position);
 		mapper.Pmodify(dto);

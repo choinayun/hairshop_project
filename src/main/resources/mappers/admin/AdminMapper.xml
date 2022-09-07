@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.care.hair.mybatis.AdminMapper">
-<resultMap type="com.care.hair.member.dto.memberShopDTO" id="memberShop">
+<mapper namespace="com.care.hair.mybatis.member.AdminMapper">
+<resultMap type="com.care.hair.shop.dto.ShopDTO" id="shop">
 		<id property="sNum" column="s_num"/>
 		<result property="sName" column="s_name" />
 		<result property="sAddr" column="s_addr" />
@@ -16,7 +16,7 @@
 		<result property="img4" column="img4" />
 	</resultMap>
 	
-	<resultMap type="com.care.hair.member.dto.registrationDTO" id="newshop">
+	<resultMap type="com.care.hair.registration.dto.RegistrationDTO" id="newshop">
 	<id property="num" column="num"/>
 	<result property="id" column="id"/>
 	<result property="sName" column="s_name"/>
@@ -28,7 +28,7 @@
 	<result property="img4" column="img4"/>
 	</resultMap>
 	
-	<resultMap type="com.care.hair.member.dto.reservationDTO" id="reservation">
+	<resultMap type="com.care.hair.reservation.dto.ReservationDTO" id="reservation">
 	<id property="num" column="num"/>
 	<result property="id" column="id"/>
 	<result property="name" column="name"/>
@@ -40,7 +40,7 @@
 	<result property="rTime" column="r_time"/>
 	</resultMap>
 	
-	<resultMap type="com.care.hair.member.dto.noticeDTO" id="notice">
+	<resultMap type="com.care.hair.notice.dto.NoticeDTO" id="notice">
 	<id property="num" column="num"/>
 	<result property="title" column="title"/>
 	<result property="content" column="content"/>
@@ -48,7 +48,7 @@
 	<result property="img" column="img"/>
 	</resultMap>
 	
-	<select id="shopinfo" resultMap="memberShop">
+	<select id="shopinfo" resultMap="shop">
 		select * from shop order by s_num desc
 	</select>
 	
@@ -85,7 +85,7 @@
 		insert into notice(title,content,img,num) values(#{title},#{content},#{img},(select nvl(max(num)+1,1) from notice))
 	</insert>
 	
-	<select id="getShop" resultMap="memberShop">
+	<select id="getShop" resultMap="shop">
 		select * from shop where s_num = #{sNum}
 	</select>
 	

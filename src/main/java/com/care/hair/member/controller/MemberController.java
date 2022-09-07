@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.hair.common.SessionName;
-import com.care.hair.member.dto.memberDTO;
+import com.care.hair.member.dto.MemberDTO;
 import com.care.hair.member.service.MemberService;
 
 
@@ -45,7 +45,7 @@ public class MemberController implements SessionName {
 		
 	}
 	@PostMapping("/register")
-	public String register(memberDTO dto) {
+	public String register(MemberDTO dto) {
 		
 		int result = ms.register(dto);
 		if(result == 1) {

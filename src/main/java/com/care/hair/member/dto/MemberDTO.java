@@ -1,6 +1,6 @@
 package com.care.hair.member.dto;
 
-public class memberDTO {
+public class MemberDTO {
 	private String id,pw,name,email,phone,addr;
 	private int position;
 	//int 추가함

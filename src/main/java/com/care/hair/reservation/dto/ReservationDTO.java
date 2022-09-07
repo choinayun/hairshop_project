@@ -1,6 +1,6 @@
-package com.care.hair.member.dto;
+package com.care.hair.reservation.dto;
 
-public class reservationDTO {
+public class ReservationDTO {
 	
 	private String id,name,info,rDate,price,rTime;
 	private int status,sShop,num;

@@ -1,6 +1,6 @@
-package com.care.hair.member.dto;
+package com.care.hair.registration.dto;
 
-public class registrationDTO {
+public class RegistrationDTO {
 	private String id,sName,sAddr,sPhone,img1,img2,img3,img4;
 	private int num;
 	public String getId() {

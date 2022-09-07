@@ -1,11 +1,7 @@
 package com.care.hair.member.service;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-
-import com.care.hair.member.dto.noticeDTO;
 
 public interface AdminService {
 	String IMAGE_REPO="c:/spring/image_repo";

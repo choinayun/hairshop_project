@@ -1,6 +1,6 @@
-package com.care.hair.member.dto;
+package com.care.hair.shop.dto;
 
-public class memberShopDTO {
+public class ShopDTO {
 	private String sName,sAddr,sPhone,id,img1,img2,img3,img4;
 	private int sNum,grade;
 	public String getsName() {
