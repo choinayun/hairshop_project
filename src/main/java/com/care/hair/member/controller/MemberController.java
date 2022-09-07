@@ -26,7 +26,7 @@ import com.care.hair.member.service.MemberService;
 @Controller
 @RequestMapping("member")
 public class MemberController implements SessionName {
-	private static final String LOGIN = null;
+
 	@Autowired MemberService ms;
 	
 	@GetMapping("/login")
@@ -56,14 +56,12 @@ public class MemberController implements SessionName {
 	}
 	
 	@PostMapping("/login_chk")
-	public String user_check(HttpServletRequest request) {
+	public String user_check(HttpServletRequest request, HttpSession session) {
 		int result = ms.login_chk(request);
 		System.out.println("req:"+request);
 		if(result == 0) {
-			HttpSession session = request.getSession(true);
-			session.setAttribute(SessionName.LOGIN, request.getParameter("id"));
+			session.setAttribute(LOGIN, request.getParameter("id"));
 			
-			session.isNew();
 			return "redirect:main";
 		}
 		return "redirect:login";
