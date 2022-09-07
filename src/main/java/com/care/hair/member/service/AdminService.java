@@ -16,9 +16,10 @@ public interface AdminService {
 	public void shopNO(String num);
 	public void reservation(Model model);
 	public void Bmodify(int status, int num);
-	
+	public void modifyForm(int s_num,Model model);
 	public void sendmail(Model model);
 	public void bookingDel(String num);
 	public void N_F(MultipartHttpServletRequest mul);
+	public void modify(MultipartHttpServletRequest mul);
 
 }

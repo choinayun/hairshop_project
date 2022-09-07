@@ -145,6 +145,7 @@ public class MemberController implements SessionName {
 		ms.Pmodify(id,position);
 		return"redirect:memberinfo";
 	}
+
 	
 	
 	

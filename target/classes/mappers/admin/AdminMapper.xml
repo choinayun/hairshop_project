@@ -85,6 +85,14 @@
 		insert into notice(title,content,img,num) values(#{title},#{content},#{img},(select nvl(max(num)+1,1) from notice))
 	</insert>
 	
+	<select id="getShop" resultMap="memberShop">
+		select * from shop where s_num = #{s_num}
+	</select>
+	
+	<update id="modify">
+		update shop set s_name=#{s_name},s_addr=#{s_addr},s_phone=#{s_phone},img1=#{img1},img2=#{img2},img3=#{img3},img4=#{img4} where s_num=#{s_num}
+	</update>
+	
 	
 
 

@@ -19,5 +19,6 @@ public interface AdminMapper {
 	public void Bmodify(reservationDTO dto);
 	public void bookingDel(String num);
 	public void N_F(noticeDTO dto);
-	
+	public memberShopDTO getShop(int s_num);
+	public void modify(memberShopDTO dto);
 }

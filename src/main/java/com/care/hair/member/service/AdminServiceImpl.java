@@ -2,6 +2,7 @@ package com.care.hair.member.service;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import com.care.hair.member.dto.registrationDTO;
 import com.care.hair.member.dto.reservationDTO;
 import com.care.hair.mybatis.AdminMapper;
 import com.care.hair.mybatis.MemberMapper;
+
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -141,7 +143,66 @@ public class AdminServiceImpl implements AdminService {
 		}
 		
 	}
-		
+	
+	public void modifyForm( int s_num , Model model) {
+		memberShopDTO dto = admapper.getShop(s_num);
+		model.addAttribute("dto", dto);
 	}
+	public void modify(MultipartHttpServletRequest mul) {
+		memberShopDTO dto= new memberShopDTO();
+		ArrayList<String> imgList = new ArrayList<String>();
+		String fileName;
+		String[] originNames = mul.getParameterValues("originName");
+		int index = 0;
+
+		dto.setS_num(Integer.parseInt(mul.getParameter("s_num")));
+		dto.setS_addr(mul.getParameter("s_addr"));
+		dto.setS_name(mul.getParameter("s_name"));
+		dto.setS_phone(mul.getParameter("s_phone"));
+
+		for(MultipartFile file : mul.getFiles("img")) {
+			
+			if(file.getSize() != 0) {
+				SimpleDateFormat simpl = new SimpleDateFormat("_yyyyMMddHHmmss");
+				Date date = new Date();
+				fileName = "s" + simpl.format(date);
+				fileName += file.getOriginalFilename();
+				
+				imgList.add(fileName);
+				File f = new File(IMAGE_REPO+"/"+fileName);
+				try {
+					file.transferTo(f);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if(!originNames[index].equals("nan")) {
+					File originFile = new File(IMAGE_REPO+"/"+originNames[index]);
+					originFile.delete();
+				}
+				
+			}else {
+				imgList.add(originNames[index]);
+			}
+			
+			index++;
+			
+		}
+		
+		dto.setImg1(imgList.get(0));
+		dto.setImg2(imgList.get(1));
+		dto.setImg3(imgList.get(2));
+		dto.setImg4(imgList.get(3));
+		
+		try {
+			admapper.modify(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}	
+	
+
+
 	
 
