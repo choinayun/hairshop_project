@@ -5,7 +5,7 @@ CREATE TABLE review
     id         VARCHAR2(20)     NOT NULL, 
     num        NUMBER           NOT NULL, 
     s_num      NUMBER           NOT NULL, 
-    img        VARCHAR2(30)    default('nan'), 
+    img        VARCHAR2(100)    default('nan'), 
     grade      NUMBER           NOT NULL, 
     info       VARCHAR2(30)     NOT NULL, 
      PRIMARY KEY (num)
@@ -15,4 +15,3 @@ ALTER TABLE review
     ADD CONSTRAINT FK_review_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
 
-alter table review modify(img varchar2(100));
