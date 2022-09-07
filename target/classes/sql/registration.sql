@@ -15,3 +15,8 @@ CREATE TABLE registration
 ALTER TABLE registration
     ADD CONSTRAINT FK_registration_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+
+alter table registration modify(img1 varchar2(100));
+alter table registration modify(img2 varchar2(100));
+alter table registration modify(img3 varchar2(100));
+alter table registration modify(img4 varchar2(100));

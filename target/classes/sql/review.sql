@@ -14,3 +14,5 @@ CREATE TABLE review
 ALTER TABLE review
     ADD CONSTRAINT FK_review_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+
+alter table review modify(img varchar2(100));
