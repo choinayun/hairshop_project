@@ -147,6 +147,7 @@
 </style>
 </head>
 <body>
+<c:import url="../default/header.jsp"/>
 <div id="wrap">
 	<div class="address_area" onclick="addrUpdate()">
 		<p class="addr">주소를 입력해주세요</p>
@@ -170,5 +171,6 @@
 		<div onclick="slide_align_select(4)" class="align_select_set">리뷰 적은 순</div>
 	</div>
 </div>
+<c:import url="../default/footer.jsp"/>
 </body>
 </html>

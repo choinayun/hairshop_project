@@ -51,4 +51,5 @@ public class MemberDTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+
 }

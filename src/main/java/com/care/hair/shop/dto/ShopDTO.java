@@ -1,7 +1,5 @@
 package com.care.hair.shop.dto;
 
-import java.text.DecimalFormat;
-
 public class ShopDTO {
 	private String sName;
 	private String sAddr;

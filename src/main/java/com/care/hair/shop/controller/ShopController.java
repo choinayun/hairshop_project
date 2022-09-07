@@ -28,7 +28,6 @@ public class ShopController implements SessionName {
 	
 	@GetMapping("shopListForm")
 	public String shopSearchForm(@RequestParam(value = "result", required = false, defaultValue="0") String result, HttpSession session, Model model) {
-		session.setAttribute(LOGIN, "aaa");
 		ms.getMemberAddr(model, (String)session.getAttribute(LOGIN), result);
 		return "shop/shopListForm";
 	}
