@@ -11,10 +11,4 @@ CREATE TABLE QnA
 
 ALTER TABLE QnA
     ADD CONSTRAINT FK_QnA_id_member_id FOREIGN KEY (id)
-<<<<<<< HEAD
         REFERENCES member (id) ON DELETE CASCADE;
-
-alter table qna modify(img varchar2(100));
-=======
-        REFERENCES member (id) ON DELETE CASCADE;
->>>>>>> 7620099b61309e720d32bf3bc84e926d7382e9fa

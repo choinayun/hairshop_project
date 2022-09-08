@@ -9,7 +9,3 @@ CREATE TABLE member
     position NUMBER 		 DEFAULT(0)
     PRIMARY KEY (id)
 );
-
-alter table member modify(pw varchar2(100));
-
-alter table member add (position NUMBER DEFAULT(0));

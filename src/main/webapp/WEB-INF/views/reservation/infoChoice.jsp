@@ -46,17 +46,17 @@
   margin: 6px 2px !important;
 }
 
-ul{
-  position: fixed;
+.infoList{
+  position: absolute;
   width: 100%;
-  top:60px;
+  top:250px;
   z-index:2;
   display: flex;
   background-color: white;
   left: 250px;
 }
 
-ul li{
+.me{
   color:black;
   width: 10%;
   cursor:pointer;
@@ -97,17 +97,15 @@ ul li{
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
-<ul>
-  <li>컷</li>
-  <li>펌</li>
-  <li>염색</li>
-  <li>클리닉</li>
-  <li>스타일링</li>
+<ul class="infoList">
+  <li class="me">컷</li>
+  <li class="me">펌</li>
+  <li class="me">염색</li>
+  <li class="me">클리닉</li>
+  <li class="me">스타일링</li>
 </ul>
 <!-- swiper슬라이더 메인컨테이너 -->
 
-<input type="text" name="id" value="${loginUser }">
-<input type="text" name="sName" value="${shopInfo.sName}">
 <div class="selectMenu" >
 <div class="swiper-container">
   <!-- 보여지는 영역 -->

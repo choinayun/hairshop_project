@@ -14,16 +14,7 @@ CREATE TABLE review
 ALTER TABLE review
     ADD CONSTRAINT FK_review_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
-<<<<<<< HEAD
 
 ALTER TABLE review
     ADD CONSTRAINT FK_review_s_num_shop_s_num FOREIGN KEY (s_num)
         REFERENCES shop (s_num) ON DELETE CASCADE;
-        
-alter table review modify(img varchar2(100));
-=======
-        
-ALTER TABLE review
-    ADD CONSTRAINT FK_review_s_num_shop_s_num FOREIGN KEY (s_num)
-        REFERENCES shop (s_num) ON DELETE CASCADE;
->>>>>>> 7620099b61309e720d32bf3bc84e926d7382e9fa
