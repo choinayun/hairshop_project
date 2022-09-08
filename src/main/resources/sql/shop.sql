@@ -16,4 +16,3 @@ CREATE TABLE shop
 ALTER TABLE shop
     ADD CONSTRAINT FK_shop_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
-

@@ -6,12 +6,6 @@ public class MenuDTO {
 	private String price;
 	private int category;
 	
-	public int getmNum() {
-		return mNum;
-	}
-	public void setmNum(int mNum) {
-		this.mNum = mNum;
-	}
 	public String getInfo() {
 		return info;
 	}
@@ -23,6 +17,12 @@ public class MenuDTO {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	public int getmNum() {
+		return mNum;
+	}
+	public void setmNum(int mNum) {
+		this.mNum = mNum;
 	}
 	public int getCategory() {
 		return category;

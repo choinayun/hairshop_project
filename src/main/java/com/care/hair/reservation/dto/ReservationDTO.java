@@ -1,9 +1,15 @@
 package com.care.hair.reservation.dto;
 
+
+import com.care.hair.menu.dto.MenuDTO;
+
+
 public class ReservationDTO {
 	
 	private String id,name,info,rDate,price,rTime;
 	private int status,sShop,num;
+	
+	private MenuDTO menu;
 	
 	public String getId() {
 		return id;
@@ -23,26 +29,30 @@ public class ReservationDTO {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	
+
 	public String getPrice() {
 		return price;
 	}
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	
 	public int getStatus() {
 		return status;
 	}
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public MenuDTO getMenu() {
+		return menu;
+	}
+	public void setMenu(MenuDTO menu) {
+		this.menu = menu;
 	}
 	public String getrDate() {
 		return rDate;
@@ -63,6 +73,4 @@ public class ReservationDTO {
 		this.sShop = sShop;
 	}
 	
-	
-
 }

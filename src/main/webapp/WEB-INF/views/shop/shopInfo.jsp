@@ -74,7 +74,7 @@
 					obj.css({ color: 'red' })
 					obj.text("♥")
 				}else if(data == "false"){
-					obj.css({ color: 'black' }) 
+					obj.css({ color: 'black' })
 					obj.text("♡")
 				}
 			},error: function() {
@@ -97,8 +97,6 @@
 			index++
 			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
 		}
-		
-	}
 </script>
 
 <style type="text/css">
@@ -165,7 +163,7 @@
 					<span class="like" style="color: red;" onclick="starClick()">♥</span>
 				</c:otherwise>
 			</c:choose>
-			<input type="button" value="예약하기" onclick="reservation_btn()" class="reser_btn">
+			<input type="button" value="예약하기" onclick="location.href='${path}/menu/infoChoice?id=${loginUser}&sName=${shopInfo.sName}'" class="reser_btn">
 		</div>
 		<div id="shop_img_area">
 			<img src="${path}/shop/download?fileName=${shopInfo.img1}" width="100%" height="300px" class="img_slide">

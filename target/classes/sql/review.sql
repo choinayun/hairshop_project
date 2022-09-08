@@ -14,7 +14,7 @@ CREATE TABLE review
 ALTER TABLE review
     ADD CONSTRAINT FK_review_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
-        
+
 ALTER TABLE review
     ADD CONSTRAINT FK_review_s_num_shop_s_num FOREIGN KEY (s_num)
         REFERENCES shop (s_num) ON DELETE CASCADE;
