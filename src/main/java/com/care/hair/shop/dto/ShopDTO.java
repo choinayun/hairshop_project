@@ -1,8 +1,17 @@
 package com.care.hair.shop.dto;
 
 public class ShopDTO {
-	private String sName,sAddr,sPhone,id,img1,img2,img3,img4;
-	private int sNum,grade;
+	private String sName;
+	private String sAddr;
+	private String sPhone;
+	private double grade;
+	private int sNum;
+	private String id;
+	private String img1;
+	private String img2;
+	private String img3;
+	private String img4;
+	
 	public String getsName() {
 		return sName;
 	}
@@ -20,6 +29,18 @@ public class ShopDTO {
 	}
 	public void setsPhone(String sPhone) {
 		this.sPhone = sPhone;
+	}
+	public double getGrade() {
+		return grade;
+	}
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
+	public int getsNum() {
+		return sNum;
+	}
+	public void setsNum(int sNum) {
+		this.sNum = sNum;
 	}
 	public String getId() {
 		return id;
@@ -51,17 +72,4 @@ public class ShopDTO {
 	public void setImg4(String img4) {
 		this.img4 = img4;
 	}
-	public int getsNum() {
-		return sNum;
-	}
-	public void setsNum(int sNum) {
-		this.sNum = sNum;
-	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
-	
 }

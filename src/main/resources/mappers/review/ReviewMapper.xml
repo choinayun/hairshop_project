@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.review.ReviewMapper">
+	<resultMap type="com.care.hair.review.dto.ReviewDTO" id="review">
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="content" column="content"/>
+		<result property="rDate" column="r_date"/>
+		<result property="sNum" column="s_num"/>
+		<result property="grade" column="grade"/>
+		<result property="info" column="info"/>
+		<result property="img" column="img"/>
+	</resultMap>
+	
+	<select id="getReviewCnt" resultType="Integer">
+		select count(*) from review where s_num=#{sNum}
+	</select>
+	
+	<select id="getReviewList" resultMap="review">
+		select * from review where s_num=#{sNum} order by grade desc
+	</select>
+	
+	<select id="getGradeCnt" resultType="Integer">
+		select count(grade) from review where s_num=#{sNum} group by grade order by grade asc
+	</select>
+	
+	<select id="getReview" resultMap="review">
+		select * from review where s_num=#{sNum} order by grade desc
+	</select>
+	
+</mapper>

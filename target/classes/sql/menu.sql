@@ -1,10 +1,10 @@
 CREATE TABLE menu
-(	
+(
 	m_num		NUMBER			NOT NULL,
     info        VARCHAR2(30)    NOT NULL, 
     price       VARCHAR2(20)    NOT NULL, 
     category    NUMBER          NOT NULL
-    primary key (m_num)		
+    PRIMARY KEY (m_num)
 );
 
 insert into menu values( '남성컷', '18,000', 0, 1); 
@@ -32,4 +32,4 @@ insert into menu values( '모발클리닉', '40,000', 3, 19 );
 insert into menu values( '큐티클 보호 영양제', '40,000', 3, 20 ); 
 
 insert into menu values( '드라이 + 샴푸', '50,000', 4, 21 ); 
-insert into menu values( '드라이', '35,000', 4, 22 ); 
+insert into menu values( '드라이', '35,000', 4, 22 );  

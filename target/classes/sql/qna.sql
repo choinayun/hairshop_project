@@ -12,6 +12,3 @@ CREATE TABLE QnA
 ALTER TABLE QnA
     ADD CONSTRAINT FK_QnA_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
-
-
-

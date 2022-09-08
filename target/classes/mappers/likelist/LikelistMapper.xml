@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.likelist.LikelistMapper">
+	<resultMap type="com.care.hair.likelist.dto.LikelistDTO" id="likelist">
+		<result property="sNum" column="s_num"/>
+		<result property="id" column="id"/>
+	</resultMap>
+	
+	<select id="getLike" resultMap="likelist">
+		select * from like_list where id=#{id} and s_num=#{sNum}
+	</select>
+	
+	<insert id="saveLike">
+		insert into like_list values(#{sNum}, #{id})
+	</insert>
+	
+	<delete id="deleteLike">
+		delete from like_list where id=#{id} and s_num=#{sNum}
+	</delete>
+	
+</mapper>

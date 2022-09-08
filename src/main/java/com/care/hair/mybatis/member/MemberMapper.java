@@ -1,16 +1,15 @@
 package com.care.hair.mybatis.member;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 import org.springframework.ui.Model;
 
 import com.care.hair.member.dto.MemberDTO;
-import com.care.hair.shop.dto.ShopDTO;
-
 
 public interface MemberMapper {
+	public void addrUpdate(@Param("addr") String addr, @Param("id") String id);
+	public String getMemberAddr(String id);
 	public int idchk(String id);
 	public int register(MemberDTO dto);
 	public MemberDTO getUser( String id );

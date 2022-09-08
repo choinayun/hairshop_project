@@ -1,28 +1,22 @@
 package com.care.hair.member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+import com.care.hair.mybatis.member.MemberMapper;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.care.hair.common.SessionName;
 import com.care.hair.member.dto.MemberDTO;
-import com.care.hair.mybatis.member.MemberMapper;
-import com.care.hair.shop.dto.ShopDTO;
-
-
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -30,6 +24,21 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired MemberMapper mapper;
 	BCryptPasswordEncoder en = new BCryptPasswordEncoder();
 	@Autowired JavaMailSender mailSender;
+	
+	@Override
+	public void addrUpdate(String addr, String id) {
+		try {
+			mapper.addrUpdate(addr, id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void getMemberAddr(Model model, String id, String result) {
+		model.addAttribute("result", result);
+		model.addAttribute("userAddr", mapper.getMemberAddr(id));
+	}
 	
 	@Override
 	public int idchk(String id) {
@@ -144,7 +153,5 @@ public class MemberServiceImpl implements MemberService {
 		dto.setPosition(position);
 		mapper.Pmodify(dto);
 	}
-	
-	
 	
 }

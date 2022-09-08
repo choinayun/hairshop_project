@@ -36,41 +36,32 @@
 </head>
 <body>
 
-<!--  넘어오는 아이디:${id }-->
+	<!--  넘어오는 아이디:${id }-->
 	<div class="wrap">
 		<div class="header">
 			<h1 class="title">HAIR</h1>
 		</div>
 	</div>
-<%@ taglib prefix="c"
-			uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" 
-		value="${pageContext.request.contextPath}"/>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<div class="navdiv">
 		<div class="wrap">
 			<nav>
 				<ul>
-<li> <a href="${contextPath }/member/main">HOME</a> </li>
+					<li><a href="${contextPath}/shop/shopListForm">내 주변</a>
+					<li><a href="${contextPath }/member/main">HOME</a></li>
+					
+					<li><c:if test="${loginUser.equals('admin')}">
+							<a href="${contextPath }/admin/admin">관리자 페이지</a>
+						</c:if> <c:if test="${!loginUser.equals('admin')}">
+							<a href="${contextPath }/member/memberInfo">마이 페이지</a>
+						</c:if></li>
 
-<li> 
-	<c:if test="${loginUser.equals('admin')}">
-	<a href="${contextPath }/admin/admin">관리자 페이지</a>
-	</c:if>
-	
-	<c:if test="${!loginUser.equals('admin')}">
-	<a href="${contextPath }/member/memberInfo">마이 페이지</a>
-	</c:if>
-	
-</li>
-
-<li> 
-	<c:if test="${loginUser == null }">
-		<a href="${contextPath }/member/login">LOGIN</a> 
-	</c:if>
-	<c:if test="${loginUser != null }">
-		<a href="${contextPath }/member/logout">LOGOUT</a>
-	</c:if>
-</li>
+					<li><c:if test="${loginUser == null }">
+							<a href="${contextPath }/member/login">LOGIN</a>
+						</c:if> <c:if test="${loginUser != null }">
+							<a href="${contextPath }/member/logout">LOGOUT</a>
+						</c:if></li>
 				</ul>
 			</nav>
 		</div>

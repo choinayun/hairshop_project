@@ -1,10 +1,6 @@
 package com.care.hair.member.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,6 +24,12 @@ public class MemberController implements SessionName {
 
 	@Autowired MemberService ms;
 	
+	@GetMapping("addrUpdate")
+	public String addrUpdate(@RequestParam String addr, HttpSession session) {
+		ms.addrUpdate(addr, (String)session.getAttribute(LOGIN));
+		return "redirect:../shop/shopListForm";
+	}
+	
 	@GetMapping("/login")
 	public String login() {
 		return "member/login";
@@ -37,6 +38,7 @@ public class MemberController implements SessionName {
 	public String join() {
 		return "member/join";
 	}
+	
 	@PostMapping("/idchk")
 	@ResponseBody
 	public int idchk(@RequestParam("id") String id) {
@@ -44,6 +46,7 @@ public class MemberController implements SessionName {
 		return cnt;
 		
 	}
+	
 	@PostMapping("/register")
 	public String register(MemberDTO dto) {
 		
@@ -58,7 +61,7 @@ public class MemberController implements SessionName {
 	@PostMapping("/login_chk")
 	public String user_check(HttpServletRequest request, HttpSession session) {
 		int result = ms.login_chk(request);
-		System.out.println("req:"+request);
+		
 		if(result == 0) {
 			session.setAttribute(LOGIN, request.getParameter("id"));
 			
@@ -143,10 +146,5 @@ public class MemberController implements SessionName {
 		ms.Pmodify(id,position);
 		return"redirect:memberinfo";
 	}
-
-	
-	
-	
-
 	
 }
