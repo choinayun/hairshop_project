@@ -16,3 +16,8 @@ CREATE TABLE shop
 ALTER TABLE shop
     ADD CONSTRAINT FK_shop_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+        
+alter table shop modify(img1 varchar2(100));
+alter table shop modify(img2 varchar2(100));
+alter table shop modify(img3 varchar2(100));
+alter table shop modify(img4 varchar2(100));

@@ -7,3 +7,4 @@ CREATE TABLE notice
     num        NUMBER           NOT NULL, 
     PRIMARY KEY (num)
 );
+alter table notice modify(img varchar2(100));
