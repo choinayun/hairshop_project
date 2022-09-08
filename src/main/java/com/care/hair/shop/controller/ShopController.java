@@ -34,10 +34,12 @@ public class ShopController implements SessionName {
 	
 	@GetMapping("download")
 	public void download(@RequestParam String fileName, HttpServletResponse response) throws Exception {
-		response.addHeader("Content-disposition", "attachment; fileName=" + fileName);
-		File file = new File(Repository.IMAGE_REPO + "\\" + fileName);
-		FileInputStream in = new FileInputStream(file);
-		FileCopyUtils.copy(in, response.getOutputStream());
+		if(!fileName.equals("nan")) {
+			response.addHeader("Content-disposition", "attachment; fileName=" + fileName);
+			File file = new File(Repository.IMAGE_REPO + "\\" + fileName);
+			FileInputStream in = new FileInputStream(file);
+			FileCopyUtils.copy(in, response.getOutputStream());
+		}
 	}
 	
 	@GetMapping("shopInfo")

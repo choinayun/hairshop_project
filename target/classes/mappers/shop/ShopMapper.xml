@@ -21,8 +21,8 @@
 	</delete>
 	
 	<select id="shopListAlign" resultMap="shop">
-		select s.s_name, s.s_addr, s.s_phone, s.grade, s.s_num, s.id, s.img1, s.img2, s.img3, s.img4 
-		from shop s inner join (select s_num, count(*) as cnt from review group by s_num) r on s.s_num=r.s_num
+		select s.s_name, s.s_addr, s.s_phone, s.grade, s.s_num, s.id, s.img1, s.img2, s.img3, s.img4, nvl(r.cnt, 0) cnt
+		from shop s left join (select s_num, count(*) as cnt from review group by s_num) r on s.s_num=r.s_num
 		order by case when #{result} = 0 then s_num end asc 
 			   ,case when #{result} = 1 then grade end desc
 			   , case when #{result} = 2 then grade end asc

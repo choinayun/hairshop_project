@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	function load(){
 		var grade = ${shopInfo.grade}
-	
+		var index = 0	
 		if(grade > 0 && grade < 1) {
 			$(".star_size").css({ width: '10%' })
 		}else if(grade == 1) {
@@ -38,7 +38,11 @@
 			url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
 			dataType: "json",
 			success: function(data) {
-				for(var i = 0; i < 6; i++){
+				for(var i = 0; i < data.length; i++){
+					if(index == 6) {
+						return
+					}
+					
 					if(data[i].grade == 1) {
 						$("." + data[i].num).css({ width: '20%' })
 					}else if (data[i].grade == 2){
@@ -50,6 +54,7 @@
 					}else if(data[i].grade == 5){
 						$("." + data[i].num).css({ width: '100%' })
 					}
+					index++
 				}
 			},error: function() {
 				alert("ERROR")
@@ -88,7 +93,7 @@
 	}
 	
 	function arrow_right_click(){
-		if(index < 4 && img[index + 1] != 'nan'){
+		if(index < 3 && img[index + 1] != 'nan'){
 			index++
 			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
 		}

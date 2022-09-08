@@ -28,7 +28,6 @@
 				url: "${path}/shop/getShopSearch?word=${word}", type: "get",
 				dataType: "json",
 				success: function(data) {
-					console.log(data)
 					arr = data
 					distance()
 				},error: function(){
@@ -130,6 +129,7 @@
 </style>
 </head>
 <body onload="load()">
+<c:import url="../default/header.jsp"/>
 <div id="wrap">
 	<div class="address_area" onclick="addrUpdate()">
 		<p class="addr">주소를 입력해주세요</p>
@@ -141,5 +141,6 @@
 		
 	</div>
 </div>
+<c:import url="../default/footer.jsp"/>
 </body>
 </html>
