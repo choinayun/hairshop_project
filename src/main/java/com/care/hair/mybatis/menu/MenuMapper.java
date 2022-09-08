@@ -6,4 +6,5 @@ import com.care.hair.menu.dto.MenuDTO;
 
 public interface MenuMapper {
 	public List<MenuDTO> getMenu();
+	public List<MenuDTO> getMenuList();
 }

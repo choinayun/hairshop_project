@@ -11,13 +11,18 @@ import com.care.hair.menu.service.MenuService;
 @Controller
 @RequestMapping("menu")
 public class MenuController {
-	@Autowired MenuService me;
+	@Autowired MenuService ms;
 	
 	@GetMapping("infoChoice")
 	public String infoChoice(Model model) {
-		me.getMenu(model);
+		ms.getMenu(model);
 		
 		return "reservation/infoChoice";
 	}
 	
+	@GetMapping("menuListForm")
+	public String menuListForm(Model model) {
+		ms.getMenuList(model);
+		return "menu/menuListForm";
+	}
 }

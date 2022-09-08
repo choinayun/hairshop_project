@@ -16,4 +16,8 @@
 <select id="getMenu" resultMap="menu">
 	select * from menu
 </select>
+
+<select id="getMenuList" resultMap="menu">
+	select * from menu
+</select>
 </mapper>

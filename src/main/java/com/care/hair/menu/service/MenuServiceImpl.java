@@ -21,4 +21,14 @@ public class MenuServiceImpl
 		}
 		
 	}
+	
+	@Override
+	public void getMenuList(Model model) {
+		try {
+			model.addAttribute("menuList", mapper.getMenuList());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

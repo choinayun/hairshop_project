@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.member.AdminMapper">
+<resultMap type="com.care.hair.shop.dto.ShopDTO" id="shop">
+		<id property="sNum" column="s_num"/>
+		<result property="sName" column="s_name" />
+		<result property="sAddr" column="s_addr" />
+		<result property="sPhone" column="s_phone" />
+		<result property="grade" column="grade" />
+		<result property="id" column="id" />
+		<result property="img1" column="img1" />
+		<result property="img2" column="img2" />
+		<result property="img3" column="img3" />
+		<result property="img4" column="img4" />
+	</resultMap>
+	
+	<resultMap type="com.care.hair.registration.dto.RegistrationDTO" id="newshop">
+	<id property="num" column="num"/>
+	<result property="id" column="id"/>
+	<result property="sName" column="s_name"/>
+	<result property="sAddr" column="s_addr"/>
+	<result property="sPhone" column="s_phone"/>
+	<result property="img1" column="img1"/>
+	<result property="img2" column="img2"/>
+	<result property="img3" column="img3"/>
+	<result property="img4" column="img4"/>
+	</resultMap>
+	
+	<resultMap type="com.care.hair.reservation.dto.ReservationDTO" id="reservation">
+	<id property="num" column="num"/>
+	<result property="id" column="id"/>
+	<result property="name" column="name"/>
+	<result property="status" column="status"/>
+	<result property="info" column="info"/>
+	<result property="rDate" column="r_date"/>
+	<result property="price" column="price"/>
+	<result property="sShop" column="s_shop"/>
+	<result property="rTime" column="r_time"/>
+	</resultMap>
+	
+	<resultMap type="com.care.hair.notice.dto.NoticeDTO" id="notice">
+	<id property="num" column="num"/>
+	<result property="title" column="title"/>
+	<result property="content" column="content"/>
+	<result property="nDate" column="n_date"/>
+	<result property="img" column="img"/>
+	</resultMap>
+	
+	<select id="shopinfo" resultMap="shop">
+		select * from shop order by s_num desc
+	</select>
+	
+	<delete id="delshop">
+		delete from shop where s_num=#{sNum}
+	</delete>
+	
+	<select id="newshop" resultMap="newshop">
+		select * from registration order by num desc
+	</select>
+	
+	<insert id="shopOK">
+		INSERT INTO shop(s_num,id,s_name,s_addr,s_phone)SELECT
+		 num,id,s_name,s_addr,s_phone FROM registration WHERE num=#{num}
+	</insert>
+	
+	<delete id="shopOKdel">
+		delete from registration where num=#{num}
+	</delete>
+	
+	
+	<select id="reservation" resultMap="reservation">
+		select * from reservation
+	</select>
+	
+	<update id="Bmodify">
+		update reservation set status=#{status} where num=#{num}
+	</update>
+	
+	<delete id="bookingDel">
+		delete from reservation where num=#{num}
+	</delete>
+	<insert id="N_F">
+		insert into notice(title,content,img,num) values(#{title},#{content},#{img},(select nvl(max(num)+1,1) from notice))
+	</insert>
+	
+	<select id="getShop" resultMap="shop">
+		select * from shop where s_num = #{sNum}
+	</select>
+	
+	<update id="modify">
+		update shop set s_name=#{sName},s_addr=#{sAddr},s_phone=#{sPhone},img1=#{img1},img2=#{img2},img3=#{img3},img4=#{img4} where s_num=#{sNum}
+	</update>
+	
+	
+
+
+</mapper>

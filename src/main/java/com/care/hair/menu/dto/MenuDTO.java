@@ -1,15 +1,11 @@
 package com.care.hair.menu.dto;
 
 public class MenuDTO {
-	private int category, mNum;
-	private String info, price;
+	private int mNum;
+	private String info;
+	private String price;
+	private int category;
 	
-	public int getCategory() {
-		return category;
-	}
-	public void setCategory(int category) {
-		this.category = category;
-	}
 	public String getInfo() {
 		return info;
 	}
@@ -28,5 +24,10 @@ public class MenuDTO {
 	public void setmNum(int mNum) {
 		this.mNum = mNum;
 	}
-	
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
+	}
 }

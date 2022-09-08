@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.shop.ShopMapper">
+	<resultMap type="com.care.hair.shop.dto.ShopDTO" id="shop">
+		<id property="sNum" column="s_num"/>
+		<result property="sName" column="s_name"/>
+		<result property="sAddr" column="s_addr"/>
+		<result property="sPhone" column="s_phone"/>
+		<result property="grade" column="grade"/>
+		<result property="id" column="id"/>
+		<result property="img1" column="img1"/>
+		<result property="img2" column="img2"/>
+		<result property="img3" column="img3"/>
+		<result property="img4" column="img4"/>
+	</resultMap>
+
+	<delete id="shopDelete">
+		delete from shop where id=#{id}
+	</delete>
+	
+	<select id="shopListAlign" resultMap="shop">
+		select s.s_name, s.s_addr, s.s_phone, s.grade, s.s_num, s.id, s.img1, s.img2, s.img3, s.img4, nvl(r.cnt, 0) cnt
+		from shop s left join (select s_num, count(*) as cnt from review group by s_num) r on s.s_num=r.s_num
+		order by case when #{result} = 0 then s_num end asc 
+			   ,case when #{result} = 1 then grade end desc
+			   , case when #{result} = 2 then grade end asc
+		       , case when #{result} = 3 then cnt end desc
+		       , case when #{result} = 4 then cnt end asc
+	</select>
+	
+	<select id="getShopInfo" resultMap="shop">
+		select * from shop where s_num=#{sNum}
+	</select>	
+	
+	<select id="getShopSearch" resultMap="shop">
+		select * from shop where s_name like '%' || #{word} ||'%'
+	</select>
+	
+</mapper>

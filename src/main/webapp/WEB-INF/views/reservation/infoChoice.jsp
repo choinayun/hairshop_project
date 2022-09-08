@@ -106,7 +106,8 @@ ul li{
 </ul>
 <!-- swiper슬라이더 메인컨테이너 -->
 
-<input type="hidden" name="id" value="${loginUser }">
+<input type="text" name="id" value="${loginUser }">
+<input type="text" name="sName" value="${shopInfo.sName}">
 <div class="selectMenu" >
 <div class="swiper-container">
   <!-- 보여지는 영역 -->
