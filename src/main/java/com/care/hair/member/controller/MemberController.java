@@ -64,7 +64,7 @@ public class MemberController implements SessionName {
 		if(result == 0) {
 			HttpSession session = request.getSession();
 			session.setAttribute(LOGIN, request.getParameter("id"));
-			
+			session.setMaxInactiveInterval(60 * 60 * 24);
 			return "redirect:main";
 		}
 		return "redirect:login";
