@@ -22,8 +22,6 @@ public class ReservationController {
 	
 	@GetMapping("dateChoice")
 	public String dateChoice(@RequestParam int mNum, Model model) {
-		System.out.println("mNum : " + mNum);
-		
 		res.menuSave(mNum, model);
 		
 		return "reservation/dateChoice";

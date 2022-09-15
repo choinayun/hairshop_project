@@ -65,7 +65,7 @@ public class MemberController implements SessionName {
 			HttpSession session = request.getSession();
 			session.setAttribute(LOGIN, request.getParameter("id"));
 			session.setMaxInactiveInterval(60 * 60 * 24);
-			return "redirect:main";
+			return "redirect:../";
 		}
 		return "redirect:login";
 	}
@@ -79,7 +79,7 @@ public class MemberController implements SessionName {
 	public String logout(HttpSession session){
 		
 		session.invalidate();
-		return "redirect:/member/main";
+		return "redirect:/";
 	}
 	@GetMapping("findid")
 	public String findid(){

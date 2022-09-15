@@ -173,9 +173,6 @@ const swiper = new Swiper('.swiper-container', {
 	  mousewheel: false,
 	  loop: false,
 	  centeredSlides: true,
-
-
-	  
 	});
 
 	$('ul li').click(function(){

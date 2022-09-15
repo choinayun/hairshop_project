@@ -33,7 +33,7 @@
 		}else if(grade == 5) {
 			$(".star_size").css({ width: '100%' })
 		}
-		
+			
 		$.ajax({
 			url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
 			dataType: "json",
@@ -97,6 +97,7 @@
 			index++
 			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
 		}
+	}
 </script>
 
 <style type="text/css">
@@ -115,12 +116,14 @@
 	#reservation_area { width: 100%; position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0); background-color: #FFFFFF; }
 	.reser_btn { 
 		background-color: #FF4848; width: 650px; height: 80px; 
-		border-radius: 10px; 
+		border-radius: 10px; cursor: pointer;
 		color: white; font-size: 20pt;
 	}
-	.like { font-size: 28pt; margin-right: 30px; }
+	.like { font-size: 28pt; margin-right: 30px; cursor: pointer; }
 	#menu_list { margin-top: 30px; }
-	.menu_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); font-size: 18pt; text-align: left; padding: 20px 10px 20px 10px;
+	.menu_info { 
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1); font-size: 18pt; text-align: left; 
+		padding: 20px 10px 20px 10px; cursor: pointer;
 	}
 	.list_all_btn { 
 		border-radius: 6px; padding: 10px; margin-top: 20px; margin-bottom: 60px;
@@ -132,6 +135,7 @@
 		margin: auto; height: 800px; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
 		text-align: left;
+		margin-bottom: 100px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }
@@ -141,6 +145,7 @@
 		position: relative; color: white; font-size: 36pt; cursor: pointer; 
 		display: inline-block; background-color: gray; height: 80px; opacity: 0.6; 
 	}
+	#shop_img_area b { opacity: 0.9; }
 	.arrow_btn_left { position: relative; top: -65%; left: -44.5%; }
 	.arrow_btn_right { position: relative; top: -65%; left: 44.5%; }
 	.star { width: 80px; }
@@ -190,7 +195,7 @@
 		<div id="menu_list">
 			<div class="menu"><strong>메뉴</strong></div>
 			<c:forEach var="menu" items="${menu}" begin="1" end="6">
-				<div class="menu_info">
+				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>
@@ -222,10 +227,11 @@
 			</div>
 		</c:forEach>
 		<div class="btn_area">
-			<input type="button" onclick="location.href='${path}/review/reviewListForm?sNum=${shopInfo.sNum}'" value="리뷰 전체보기" class="list_all_btn">
+			<c:if test="${review.size() > 6}">
+				<input type="button" onclick="location.href='${path}/review/reviewListForm?sNum=${shopInfo.sNum}'" value="리뷰 전체보기" class="list_all_btn">
+			</c:if>
 		</div>
 	</div>
 </div>
-<c:import url="../default/footer.jsp"/>
 </body>
 </html>

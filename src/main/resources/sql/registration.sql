@@ -3,7 +3,7 @@ CREATE TABLE registration
     num        NUMBER          NOT NULL, 
     id         VARCHAR2(20)    NOT NULL, 
     s_name     VARCHAR2(40)    NOT NULL, 
-    s_addr     VARCHAR2(50)    NOT NULL, 
+    s_addr     VARCHAR2(200)    NOT NULL, 
     s_phone    VARCHAR2(20)    NOT NULL, 
     img1       VARCHAR2(100)    default('nan'), 
     img2       VARCHAR2(100)    default('nan'), 

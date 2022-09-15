@@ -1,77 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <style type="text/css">
-	* { margin: 0; }
-	.wrap { width: 1000px; margin: auto; }
-	.header { width: 1000px; }
-	.navdiv { width: 100%; background-color: none; }
-	nav { background-color: none; width: 1000px;}
-	nav ul { list-style: none; display: flex;
-			justify-content: end; }
-	nav ul li { padding: 10px; }
-	
-	nav ul li a { text-decoration:none; color:black; }
-	nav ul li a:hover{
-	color: black; border-bottom: 2px solid black;
-	transition : all 0.25s; padding-bottom: 3px;
-	}
-	.title{ text-shadow: 10px 10px 15px black; 
-	    
-		font-size: 70pt;
-		text-align: center;
-		margin-top: 0; 
-		padding-bottom: 20px;
-		color: black;
-		font-family: Gabriola;
-	}
-	.content { margin-top: 50px; }
+	#header { margin: 0 auto; width: 800px; text-align: center; }
+	#back_btn { position: relative; top: 0; left: -20px; width: 50px; height: 50px; }
+	#back_btn img { cursor: pointer; }
+	#header_area { padding: 50px; }
+	#nav ul { list-style: none; display: flex; }
+	#nav ul li { width: 150px; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer; }
 </style>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	function load(){
+		var path = window.location.pathname
+		if("${path}/" == path){
+			$("#back_btn").css({ display: 'none' })
+			$("#header_area").css({ paddingTop: '50px' })
+		}else {
+			$("#back_btn").css({ display: 'block' })
+			$("#header_area").css({ paddingTop: '0px' })
+		}
+		
+		var arrPath = path.split("/")
+		$(".nav_btn").css({ borderBottom: 'none' })
+		if(arrPath[2] == "") {
+			$(".nav_btn1").css({ borderBottom: '2px solid black' })
+		}else if(arrPath[2] == "shop") {
+			$(".nav_btn2").css({ borderBottom: '2px solid black' })
+		}else if(arrPath[2] == "reservation") {
+			$(".nav_btn3").css({ borderBottom: '2px solid black' })
+		}else if(arrPath[2] == "myPage" || arrPath[2] == "admin"){
+			$(".nav_btn4").css({ borderBottom: '2px solid black' })
+		}else if(arrPath[2] == "member") {
+			$(".nav_btn5").css({ borderBottom: '2px solid black' })
+		}
+	}
+	
+	function back_btn(){
+		location.href = "../"
+	}
+	
+</script>
 </head>
-<body>
-
-	<!--  넘어오는 아이디:${id }-->
-	<div class="wrap">
-		<div class="header">
-			<h1 class="title">HAIR</h1>
+<body onload="load()">
+<div id="header">
+	<div id="header_area">
+		<div id="back_btn">
+			<img src="${path}/resources/images/arrow.png" onclick="back_btn()">
 		</div>
+		<h1>HairShop</h1>
 	</div>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-	<div class="navdiv">
-		<div class="wrap">
-			<nav>
-				<ul>
-					<li><a href="${contextPath}/shop/shopListForm">내 주변</a>
-					<li><a href="${contextPath }/member/main">HOME</a></li>
-					
-					<li><c:if test="${loginUser.equals('admin')}">
-							<a href="${contextPath }/admin/admin">관리자 페이지</a>
-						</c:if> <c:if test="${!loginUser.equals('admin')}">
-							<a href="${contextPath }/member/memberInfo">마이 페이지</a>
-						</c:if></li>
-
-					<li><c:if test="${loginUser == null }">
-							<a href="${contextPath }/member/login">LOGIN</a>
-						</c:if> <c:if test="${loginUser != null }">
-							<a href="${contextPath }/member/logout">LOGOUT</a>
-						</c:if></li>
-				</ul>
-			</nav>
-		</div>
+	<div id="nav">
+		<ul>
+			<li onclick="location.href='${path}/'" class="nav_btn1 nav_btn" style="border-bottom: 2px solid black;">홈</li>
+			<li onclick="location.href='${path}/shop/shopListForm'" class="nav_btn2 nav_btn">내주변</li>
+			<li onclick="location.href='${path}/'" class="nav_btn3 nav_btn">예약</li>
+			<c:if test="${loginUser.equals('admin')}">
+				<li onclick="location.href='${path}/admin/admin'" class="nav_btn4 nav_btn">관리자페이지</li>
+			</c:if> 
+			<c:if test="${!loginUser.equals('admin')}">
+				<li onclick="location.href='${path}/'" class="nav_btn4 nav_btn">마이 페이지</li>
+			</c:if>
+			<c:if test="${loginUser == null}">
+				<li onclick="location.href='${path}/member/login'" class="nav_btn5 nav_btn">로그인</li>
+			</c:if>
+			<c:if test="${loginUser != null}">
+				<li onclick="location.href='${path}/member/logout'" class="nav_btn5 nav_btn">로그아웃</li>
+			</c:if>
+		</ul>
 	</div>
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
