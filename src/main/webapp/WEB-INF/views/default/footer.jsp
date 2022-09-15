@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html class="ht">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-footer{	
+footer {
 	position: relative;
 	bottom: 0px;
 	background-color: black;
@@ -17,29 +17,41 @@ footer{
 	width: 100%;
 	font-size: x-small;
 	z-index: 2;
+	bottom: 0;
 }
+
+.ht { height: 100%; }
 
 .copyright {
 	font-size: small;
 }
-.topBtn { 
-	position: fixed; 
-	bottom: 130px; 
-	right: 20px; 
-	z-index: 3}
+
+.topBtn {
+	position: fixed;
+	bottom: 130px;
+	right: 20px;
+	z-index: 3
+}
+
 .a {
- text-decoration-line: none;
- color: white;
+	text-decoration-line: none;
+	color: white;
+}
+
+#wrap {
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 60px;
 }
 </style>
 </head>
-<body>
+<body class="ht">
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
 	<div class="topBtn">
 		<input type="button" value="Top" onclick="location.href='#'" >
 	</div>
-	<footer>
+<footer>
 	<div class="container" style="padding: 30px 30px 0 30px;">
 		<div class="f_text">
 				<a class="a" href="member/memberQ&A">문의사항</a> ● <a class="a" href="#">공지사항</a> ● <a class="a" href="${contextPath}/hairshop_policy">이용약관</a> ● <a class="a" href="#">개인정보처리방침</a>

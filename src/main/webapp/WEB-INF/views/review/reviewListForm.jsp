@@ -78,7 +78,7 @@
 	#review_area { 
 		margin: auto; height: 800px; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
-		text-align: left;
+		text-align: left; margin-bottom: 100px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }

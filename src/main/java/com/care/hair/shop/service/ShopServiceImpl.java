@@ -36,11 +36,14 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public void getShopInfo(int sNum, Model model, String id) {
+		ShopDTO dto = mapper.getShopInfo(sNum);
+		model.addAttribute("shopInfo", dto);
+		model.addAttribute("grade", (int)dto.getGrade());
+		
 		try {
-			ShopDTO dto = mapper.getShopInfo(sNum);
-			model.addAttribute("shopInfo", dto);
-			model.addAttribute("grade", (int)dto.getGrade());
-			model.addAttribute("like", likelistMapper.getLike(sNum, id));
+			if(id != null) {
+				model.addAttribute("like", likelistMapper.getLike(sNum, id));
+			}
 			model.addAttribute("menu", menuMapper.getMenuList());
 			model.addAttribute("review", reviewMapper.getReviewList(sNum));
 		} catch (Exception e) {

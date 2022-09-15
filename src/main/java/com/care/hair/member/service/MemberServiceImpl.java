@@ -36,8 +36,16 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void getMemberAddr(Model model, String id, String result) {
-		model.addAttribute("result", result);
-		model.addAttribute("userAddr", mapper.getMemberAddr(id));
+		try {
+			model.addAttribute("result", result);
+			if(id == null) {
+				model.addAttribute("userAddr", "서울 강남구 신사동 668-33");
+			}else {
+				model.addAttribute("userAddr", mapper.getMemberAddr(id));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -118,25 +126,25 @@ public class MemberServiceImpl implements MemberService {
 		// 받는 사람 E-Mail 주소
 		String mail = dto.getEmail();
 		try {
-			MimeMessageHelper mm =new MimeMessageHelper(message,true,"UTF-8");
+			MimeMessageHelper mm = new MimeMessageHelper(message,true,"UTF-8");
 			mm.setSubject(subject);
 			mm.setTo(dto.getEmail());
 			mm.setText(dto.getPw());
 			mailSender.send(message);
-			
-			
-			
 		} catch (Exception e) {
-			System.out.println("메일발송 실패 : " + e);
+			e.printStackTrace();
 		}
-	
 		
 		return result;
 	}
 	
 	public void memberinfo(Model model) {
-		List<MemberDTO> list=mapper.memberinfo(model);
-		model.addAttribute("list",list);
+		try {
+			List<MemberDTO> list = mapper.memberinfo(model);
+			model.addAttribute("list",list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void del(String id) {
