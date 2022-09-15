@@ -121,16 +121,17 @@ button:hover {
 				
 				
 				<c:if test="${!dto.id.equals('admin')}">
-				<td><button type="button"><a href="del?id=${dto.id}">탈퇴</a></button></td>
+				<td><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
 				</c:if>
 				<c:if test="${dto.id.equals('admin')}">
-				<td hidden=""><button type="button"><a href="del?id=${dto.id}">탈퇴</a></button></td>
+				<td hidden=""><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
 				</c:if>
 				
 			</tr>
 			</c:forEach>
 		</table>
 								<!-- 관리자는 탈퇴 버튼이 안보이게 설정 -->
+						
 </div>
 
 </body>

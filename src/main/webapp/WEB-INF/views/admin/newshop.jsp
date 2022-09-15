@@ -22,6 +22,7 @@ a{
   }
 
  button {
+ 	cursor:pointer;
 	width: 100%;
 	background: white;
 	border: 0;

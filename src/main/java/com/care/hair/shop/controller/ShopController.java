@@ -54,5 +54,9 @@ public class ShopController implements SessionName {
 		return "shop/shopSearch";
 	}
 
-	
+	@GetMapping("infoChoice")
+	public String shopReservIn(@RequestParam int sNum, Model model, HttpSession session) {
+		ss.getShopInfo(sNum, model, (String)session.getAttribute(LOGIN));
+		return "menu/infoChoice";
+	}
 }

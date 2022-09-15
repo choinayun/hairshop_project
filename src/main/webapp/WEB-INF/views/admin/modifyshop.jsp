@@ -42,6 +42,7 @@ a{
   }
 
  Button {
+ 	cursor:pointer;
 	width: 20%;
 	background: white;
 	border:1px solid #e7e7e7;	

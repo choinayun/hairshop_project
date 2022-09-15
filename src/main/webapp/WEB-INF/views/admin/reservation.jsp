@@ -22,15 +22,16 @@
 	}
 	
  button {
+ 	cursor:pointer;
 	width: 100%;
 	background: white;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
-  transition-duration: 0.4s;
-  background-color: white;
-  color: black;
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
   
 }
 button:hover {
@@ -110,11 +111,10 @@ button:hover {
 				1:이용 완료
 				2:예약 취소 요청으로 나오게 함
 				
-				
 				 -->
 				
 				<td><button type="button" onclick="func('${dto.num}')" >변경</button></td>
-				<td><button type="button"><a href="bookingDel?num=${dto.num}">삭제</a></td>
+				<td><button type="button" onclick="location.href='${contextPath }/admin/bookingDel?num=${dto.num}'">삭제</button></td>
 			</tr>
 			</c:forEach>
 		</table>

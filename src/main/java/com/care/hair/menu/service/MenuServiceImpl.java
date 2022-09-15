@@ -7,9 +7,20 @@ import org.springframework.ui.Model;
 import com.care.hair.mybatis.menu.MenuMapper;
 
 @Service
-public class MenuServiceImpl implements MenuService {
-
+public class MenuServiceImpl 
+				implements MenuService{
+	
 	@Autowired MenuMapper mapper;
+
+	@Override
+	public void getMenu(Model model) {
+		try {
+			model.addAttribute("mInfo", mapper.getMenu());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	@Override
 	public void getMenuList(Model model) {
@@ -20,5 +31,4 @@ public class MenuServiceImpl implements MenuService {
 		}
 	}
 
-	
 }

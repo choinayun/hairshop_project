@@ -22,15 +22,16 @@ a{
 	color: black;
 }
  button {
+ 	cursor:pointer;
 	width: 100%;
 	background: white;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
-  transition-duration: 0.4s;
-  background-color: white;
-  color: black;
+ 	transition-duration: 0.4s;
+    background-color: white;
+    color: black;
   
 }
 button:hover {
@@ -64,13 +65,14 @@ button:hover {
 				<td>${dto.sAddr}</td>
 				<td>${dto.sPhone}</td>
 				
-				<td><button type="button"><a href="modifyshop?sNum=${dto.sNum}">수정</a></td>
-				<td><button type="button"><a href="deleteshop?sNum=${dto.sNum}">삭제</a></td>
+				<td><button type="button"onclick="location.href='${contextPath }/admin/modifyshop?sNum=${dto.sNum}'">수정</button></td>
+				<td><button type="button"onclick="location.href='${contextPath }/admin/deleteshop?sNum=${dto.sNum}'">삭제</button></td>
 			</tr>
 			</c:forEach>
 		</table>
 	
-
+<!-- <a href="modifyshop?sNum=${dto.sNum}">
+<a href="deleteshop?sNum=${dto.sNum}"> -->
 </div>
 
 </body>

@@ -91,14 +91,13 @@ public class MemberController implements SessionName {
 		
 		ms.find_id(rs, name, phone);
 			
-			System.out.println("result:"+rs);
-
 		return "redirect:/member/result";			
 			
 	}
 	
 	@GetMapping("result")
 	public String result(@RequestParam String id, Model model) {
+		
 		model.addAttribute("id", id);
 		return"member/result";
 	}
@@ -146,5 +145,7 @@ public class MemberController implements SessionName {
 		ms.Pmodify(id,position);
 		return"redirect:memberinfo";
 	}
+	
+	
 	
 }

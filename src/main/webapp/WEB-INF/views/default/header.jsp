@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 
 <style type="text/css">
+
+@font-face {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 	* { margin: 0; }
 	.wrap { width: 1000px; margin: auto; }
 	.header { width: 1000px; }
@@ -21,25 +29,28 @@
 	color: black; border-bottom: 2px solid black;
 	transition : all 0.25s; padding-bottom: 3px;
 	}
-	.title{ text-shadow: 10px 10px 15px black; 
-	    
-		font-size: 70pt;
+	.title{ 
+	    font-family: 'LeferiPoint-WhiteObliqueA';
+    	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    	font-weight: normal;
+   		font-style: normal;
+		font-size: 40pt;
 		text-align: center;
-		margin-top: 0; 
+		margin-top: 30px; 
 		padding-bottom: 20px;
 		color: black;
-		font-family: Gabriola;
+		
 	}
 	.content { margin-top: 50px; }
 </style>
 
 </head>
 <body>
-
-	<!--  넘어오는 아이디:${id }-->
+	
+	
 	<div class="wrap">
 		<div class="header">
-			<h1 class="title">HAIR</h1>
+			<h1 class="title">HAIR SHOP</h1>
 		</div>
 	</div>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

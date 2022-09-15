@@ -1,7 +1,7 @@
 CREATE TABLE shop
 (
     s_name     VARCHAR2(40)    NOT NULL, 
-    s_addr     VARCHAR2(50)    NOT NULL, 
+    s_addr     VARCHAR2(200)    NOT NULL, 
     s_phone    VARCHAR2(20)    NOT NULL, 
     grade      NUMBER(5,1)     default(0), 
     s_num      NUMBER          NOT NULL, 
@@ -16,4 +16,3 @@ CREATE TABLE shop
 ALTER TABLE shop
     ADD CONSTRAINT FK_shop_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
-

@@ -5,6 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+
+	function check(){
+		var name = $("#name").val();
+		var phone = $("#phone").val();
+		
+		if(name == ""){
+			alert("이름을 입력해주세요.");
+			$("#name").focus();
+		}else if(phone == ""){
+			alert("핸드폰를 입력해주세요.");
+			$("#phone").focus();
+		}else {
+			idtest.submit()
+		}
+	}
+
+</script>
 <style>
 body{
 background-color:rgba(234,234,234,0.12);
@@ -61,10 +80,12 @@ background-color:rgba(234,234,234,0.12);
 
 </head>
 <body>
+
+
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
 	
-	<form action="find_id" method="post">
+	<form action="find_id" method="post" id="idtest">
 		<table border="1">
 			<tr>
 				<td>이름</td>
@@ -80,7 +101,7 @@ background-color:rgba(234,234,234,0.12);
 			</tr>
 		</table>
 		<div id="findButton">
-		<input type="submit" value="아이디 찾기" >
+		<input type="button" value="아이디 찾기" onclick="check()">
 		<input type="button" value="취소하기" onclick="history.back()">
 		</div>
 	</form>
