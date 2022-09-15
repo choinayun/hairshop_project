@@ -14,6 +14,7 @@
 	#header_area { padding: 50px; }
 	#nav ul { list-style: none; display: flex; }
 	#nav ul li { width: 150px; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer; }
+	.nav_btn { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -28,17 +29,17 @@
 		}
 		
 		var arrPath = path.split("/")
-		$(".nav_btn").css({ borderBottom: 'none' })
+		$(".nav_btn").css({ borderBottom: '1px solid rgb(0, 0, 0, 0.2)' })
 		if(arrPath[2] == "") {
-			$(".nav_btn1").css({ borderBottom: '2px solid black' })
+			$(".nav_btn1").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "shop") {
-			$(".nav_btn2").css({ borderBottom: '2px solid black' })
+			$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "reservation") {
-			$(".nav_btn3").css({ borderBottom: '2px solid black' })
+			$(".nav_btn3").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "myPage" || arrPath[2] == "admin"){
-			$(".nav_btn4").css({ borderBottom: '2px solid black' })
+			$(".nav_btn4").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "member") {
-			$(".nav_btn5").css({ borderBottom: '2px solid black' })
+			$(".nav_btn5").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}
 	}
 	
