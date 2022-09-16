@@ -5,17 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-.id_ok{
-color:#008000;
-display: none;
-}
-
-.id_no{
-color:#FF0000;
-display: none;
-}
-</style>
 <style type="text/css">
 
  button {
@@ -36,7 +25,7 @@ button:hover {
   background-color: #e7e7e7;
 
 }
-
+}
 </style>
 
 </head>
@@ -61,7 +50,7 @@ button:hover {
  <br>
 
  <button style="margin-left: 300px;" type="button"onclick="location.href='${contextPath }/member/login'">로그인으로 이동</button>
- <button type="button" onclick="location.href='${contextPath }/member/findpw'">비밀번호 찾기</button>
+ <button type="button" onclick="location.href='findpw'">비밀번호 찾기</button>
 </div>
 </body>
 </html>

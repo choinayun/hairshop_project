@@ -6,12 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.wrap{
+	width: 800px;
+ 	margin: auto;
+ 	text-align: center;
+}
 a {
 	text-decoration: none;
 	color: black;
 }
 button{
-	width: 50%;
+	width: 80%;
 	height:50px;
 	font-size:20px;
 	border: 0;

@@ -148,7 +148,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public void del(String id) {
-		mapper.del(id);
+		try {
+			mapper.del(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	public void Pmodify(String id,int position) {
