@@ -104,6 +104,7 @@
   <li class="me">클리닉</li>
   <li class="me">스타일링</li>
 </ul>
+
 <!-- swiper슬라이더 메인컨테이너 -->
 
 <div class="selectMenu" >
@@ -186,7 +187,7 @@ const swiper = new Swiper('.swiper-container', {
 	function reserv(){
 		var id = $('input[name="num"]:checked').attr('id');
 		var value = $('input[name="num"]:checked').val();
-		location.href = "${contextPath}/reservation/dateChoice?mNum="+ value
+		location.href = "${contextPath}/reservation/dateChoice?mNum="+ value+"&sNum=${param.sNum}&sName=${param.sName}";
 	}
 	
 	$(function (){
@@ -206,6 +207,7 @@ const swiper = new Swiper('.swiper-container', {
     function func(price) {
     	$(".price").val(price)
     }
+	
 </script>
 
 <!--  <c:import url="../default/footer.jsp"/> -->

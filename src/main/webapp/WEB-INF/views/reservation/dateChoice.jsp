@@ -10,8 +10,29 @@
 .mInfo{
    border: 0; solid: black;
 }
+.resbtn{
+ 	position: fixed;
+ 	bottom: 20px;
+ 	right: 30px;
+ 	height: 50px;
+ 	width: 500px;
+ 	z-index: 4;
+ }
+  .price{
+ 	position: fixed;
+ 	bottom: 20px;
+ 	left: 30px;
+ 	width: 300px;
+ 	height: 50px;
+ 	z-index: 4;
+ 	text-align: center;
+ }
+ .bottomvar{
+ 	display: flex;
+ }
 </style>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 var today = new Date();
 //today 보조. 고정
@@ -45,6 +66,10 @@ function buildCalendar(){
   
    //현재 참조중인 월 
    nowMonth = today.getMonth()+1;
+   
+   //현재 참조중인 일
+   nowDate = today.getDate();
+   
    //테이블 초기화
   while(calendarTable.rows.length > 2){
      calendarTable.deleteRow(calendarTable.rows.length -1);
@@ -65,24 +90,15 @@ function buildCalendar(){
      cell = row.insertCell();
    //셀 생성 후 count 증가
      cnt += 1;
+   console.log("cnt >>>" + cnt);
    //cell에 id 부여
     cell.setAttribute('id', i);
+    //cell.setAttribute('onClick', "alert();");
      cell.innerHTML = i;
      cell.align = "center";
 
-    cell.onclick = function(){
-       clickedYear = today.getFullYear();
-       clickedMonth = ( 1 + today.getMonth() );
-       clickedDate = this.getAttribute('id');
-
-       clickedDate = clickedDate >= 10 ? clickedDate : '0' + clickedDate;
-       clickedMonth = clickedMonth >= 10 ? clickedMonth : '0' + clickedMonth;
-       clickedYMD = clickedYear + "-" + clickedMonth + "-" + clickedDate;
-
-       opener.document.getElementById("date").value = clickedYMD;
-       self.close();
-    }
-
+     
+    cell.onclick = function(){jsDateClick(this)}; // 날짜를 생성한 td 영역의 객체
     if (cnt % 7 == 1) {
        cell.innerHTML = "<font color=red>" + i + "</font>";
     }
@@ -98,6 +114,7 @@ function buildCalendar(){
         cell = row.insertCell();
      }
   }
+  
 }
 //전달 달력
 function prevCalendar(){
@@ -120,14 +137,25 @@ function nextCalendar(){
 </script>
 <body>
 <c:import url="../default/header.jsp" />
+<c:set var="contextPath" 
+			value="${ pageContext.request.contextPath}"/>
 <hr>
 <div class="mInfo">
-<input type="hidden" value="${dto.mNum }"><br>
-매장 : <input type="text" readonly="readonly" value=""><br>
-메뉴 : <input type="text" readonly="readonly" id="info" value="${dto.info }"><br>
-가격 : <input type="text" readonly="readonly" id="price" value="${dto.price }"><br>
+ <form>
+<input type="hidden" name="id" value="${loginUser }">
+<input type="hidden" value="${dto.mNum }">
+<input type="hidden" name="sNum" value="${param.sNum}">
+<input type="text" name="phone" value="${getUser.phone }"><br>
+매장 : <input type="text" name="sName" readonly="readonly" value="${param.sName }"><br>
+메뉴 : <input type="text" name="info" readonly="readonly" id="info" value="${dto.info }"><br>
+<input class="price" type="text" readonly="readonly" id="price" name="price" value="${dto.price }">
 <!-- 선택한 예약일시를 출력할 위치 -->
-예약시간 : <input id="selectedDate" readonly="readonly" name="selectedDate" value="" >
+예약날짜 : <input id="selectDate" name="rDate" readonly="readonly" name ="selectDate"><br>
+예약시간 : <input id="selectTime" name="rTime" readonly="readonly" name="selectTime" >
+ <input class="resbtn" type="submit" value="결제하기" onclick="payment()">
+</form>
+ 
+
 </div>
 <hr>
 <table id="calendar" align="center">
@@ -147,43 +175,164 @@ function nextCalendar(){
       </tr>
       <script type="text/javascript">buildCalendar();</script>
    </table>
-   <form action="choiceSave" method="post">
+
 <table id="timetable" align="center">
    <tr>
-      <td><input type="button" name="time" value="09:00~10:00" onclick="timeChoice(1)"></td>
-      <td><input type="button" name="time" value="10:00~11:00" onclick="timeChoice(2)"></td>
-      <td><input type="button" name="time" value="11:00~12:00" onclick="timeChoice(3)"></td>
+      <td><input type="button" name="time" value="09:00~10:00" id="time_0900" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="10:00~11:00" id="time_1000" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="11:00~12:00" id="time_1100" onclick="timeChoice(this.value)"></td>
    </tr>
    <tr>
-      <td><input type="button" name="time" value="13:00~14:00" onclick="timeChoice(4)"></td>
-      <td><input type="button" name="time" value="14:00~15:00" onclick="timeChoice(5)"></td>
-      <td><input type="button" name="time" value="15:00~16:00" onclick="timeChoice(6)"></td>
+      <td><input type="button" name="time" value="13:00~14:00" id="time_1300" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="14:00~15:00" id="time_1400" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="15:00~16:00" id="time_1500" onclick="timeChoice(this.value)"></td>
    </tr>
    <tr>
-      <td><input type="button" name="time" value="16:00~17:00" onclick="timeChoice(7)"></td>
-      <td><input type="button" name="time" value="17:00~18:00" onclick="timeChoice(8)"></td>
-      <td><input type="button" name="time" value="18:00~19:00" onclick="timeChoice(9)"></td>
+      <td><input type="button" name="time" value="16:00~17:00" id="time_1600" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="17:00~18:00" id="time_1700" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="18:00~19:00" id="time_1800" onclick="timeChoice(this.value)"></td>
    </tr>
    <tr>
-      <td><input type="button" name="time" value="19:00~20:00" onclick="timeChoice(10)"></td>
-      <td><input type="button" name="time" value="20:00~21:00" onclick="timeChoice(11)"></td>
-      <td><input type="button" name="time" value="21:00~22:00" onclick="timeChoice(12)"></td>
+      <td><input type="button" name="time" value="19:00~20:00" id="time_1900" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="20:00~21:00" id="time_2000" onclick="timeChoice(this.value)"></td>
+      <td><input type="button" name="time" value="21:00~22:00" id="time_2100" onclick="timeChoice(this.value)"></td>
    </tr>
-</table>
-
-   
-   <input type="submit" value="예약하기">
-</form>
-
+   </table>
 
 <script type="text/javascript">
 
 
 function timeChoice(time){
+   alert('time >>>' + time);
    
-   $("#time").val(time)
-   
-  
+   $("#selectTime").val(time)
+}
+
+/*
+ * 날짜 영역의 객체를 받아서 년월일의 파라미터로 해당 날짜의 예약정보를 리턴받음 
+ */
+function jsDateClick(obj){
+	// 닫력에서 선택한 년월일
+	var ymd = today.getFullYear().toString() +  (nowMonth < 10 ? "0"+nowMonth : nowMonth).toString() + (obj.id < 10 ? "0"+obj.id : obj.id).toString(); 
+	
+	$("#selectDate").val(ymd)
+	
+	
+	$("input[name=time]").attr("disabled",false); // 달력의 disabled를 false
+	// 입력받은 날짜를 파라미터로 해당 날짜에 예약된 시간대를 가져옴[list json]
+	$.ajax({
+	    url:'${contextPath}/reservation/dateCheck?ymd='+ymd+"&sNum=${param.sNum}", //Controller에서 요청 받을 주소///member/
+	    type:'get', //get 방식으로 전달
+	    success:function(obj){ // 해당 날짜의 예약정보 리스트를 받음
+	 		$.each(obj, function(i, item) {
+	 			// 예약된 시간이 있으면 disabled 처리함.
+				$('#time_'+item.rTime).attr("disabled", true);
+	 		});
+	    },
+	    error:function(){
+	        alert("에러");
+	    }
+	});
+}
+</script>
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
+<script type="text/javascript">
+function payment(){
+	const data={
+			payMethod : 'card',
+			reservNum : createReservNum(),
+			sName : $("input[name='sName']").val(),
+			sNum : $("input[name='sNum']").val(),
+			id : $("input[name='id']").val(),
+			rDate : $("input[name='rDate']").val(),
+			rTime : $("input[name='rTime']").val(),
+			amount : $("input[name='price']").val()
+	}
+	if(!data.rDate){
+		swal('날짜를 선택해주세요');
+		return;
+	}
+	if(!data.rTime){
+		swal('시간을 선택해주세요');
+		return;
+	}
+	
+	paymentCard(data);
+}
+
+//주문번호 만들기
+function createReservNum(){
+	const date = new Date();
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, "0");
+	const day = String(date.getDate()).padStart(2, "0");
+	
+	let reservNum = year + month + day;
+	for(let i=0;i<10;i++) {
+		reservNum += Math.floor(Math.random() * 8);	
+	}
+	return reservNum;
+}
+
+//카드 결제
+function paymentCard(data) {
+	// 모바일로 결제시 이동페이지
+	const pathName = location.pathname;
+	const href = location.href;
+	const m_redirect = href.replaceAll(pathName, "");
+	
+	  const IMP = window.IMP; // 생략 가능
+	  IMP.init("imp08025075");
+		
+	IMP.request_pay({ // param
+		pg: "html5_inicis",
+	  	pay_method: data.payMethod,
+	  	merchant_uid: data.reservNum,
+	  	name: data.sName,
+	  	num:data.sNum,
+	  	rdate:data.rDate,
+	  	rtime:data.rTime,
+	  	amount: data.amount,
+	  	buyer_postcode : data.id,
+	  	m_redirect_url: m_redirect, 
+  	}, 
+	function (rsp) { // callback
+		if (rsp.success) {
+         // 결제 성공 시 로직,
+	        data.impUid = rsp.imp_uid;
+	        data.merchant_uid = rsp.merchant_uid;
+	        paymentComplete(data);  
+			
+		} else {
+          // 결제 실패 시 로직,
+		}
+	});
+}
+
+//계산 완료
+function paymentComplete(data){
+	$.ajax({
+		url:'${contextPath}/reservation/complete',
+		method : "POST",
+		data: data,
+	})
+	.done(function(result){
+		messageSend();
+		swal({
+			text:result,
+			closeOnClickOutside : false
+		})
+		.then(function(){
+			location.replace("${contextPath}/member/main");
+		})
+	})
+	.fail(function(){
+		alert("결제 실패");
+		location.replace("/")
+	})
 }
 
 </script>

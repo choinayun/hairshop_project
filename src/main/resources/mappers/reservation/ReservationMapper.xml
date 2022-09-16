@@ -35,7 +35,15 @@
 	select r_date, r_time from reservation where r_date=#{rDate}
 </select>
 
+<select id="dateCheck" resultMap="reservation">
+	SELECT * 
+		FROM RESERVATION
+	  WHERE R_DATE = #{param1}
+	    AND S_SHOP = #{param2}
+</select>
+
 <select id="selectMenu" resultMap="menu">
 	select * from menu where m_num = #{mNum}
 </select>
+
 </mapper>
