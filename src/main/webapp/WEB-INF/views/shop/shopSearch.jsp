@@ -88,7 +88,7 @@
 		}
 	}
 	
-	function load() {
+	function searchLoad() {
 		$("#word").focus()
 	}
 </script>
@@ -96,17 +96,21 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function addrUpdate() {
-	    new daum.Postcode({
-	        oncomplete: function(data) {
-	        	var address = ""
-	            if(data.addressType == 'R'){
-	            	address = data.roadAddress
-	            }else if(data.addressType == 'J') {
-	            	address = data.jibunAddress
-	            }
-	        	location.href = "${path}/member/addrUpdate?addr="+address
-	        }
-	    }).open();
+		if(${loginUser != null}) {
+		    new daum.Postcode({
+		        oncomplete: function(data) {
+		        	var address = ""
+		            if(data.addressType == 'R'){
+		            	address = data.roadAddress
+		            }else if(data.addressType == 'J') {
+		            	address = data.jibunAddress
+		            }
+		        	location.href = "${path}/member/addrUpdate?addr="+address
+		        }
+		    }).open();
+		}else{
+			alert("로그인후 지역설정이 가능합니다.")
+		}
 	}
 </script>
 
@@ -121,21 +125,27 @@
 	.info_area { width: 600px; text-align: left; margin: auto; }
 	.shop { padding-top: 50px; padding-bottom: 30px; border-bottom: 1px solid rgb(0, 0, 0, 0.1); }
 	a { text-decoration: none; }
-	.address_area {
-		width: 300px;
-		cursor: pointer;
-		background-color: gray; 
-	}
+	.address_area { text-align: left; }
+	.addr { cursor: pointer; display: inline-block; }
+	#addr_flex { display: flex; padding-top: 20px; padding-bottom: 20px; }
+	#search { margin-left: auto; }
+	.search_icon { position: absolute; top: 23px; right: 0; }
+	#search input { width: 250px; height: 40px; border-radius: 10px; font-size: 12pt; }
 </style>
 </head>
-<body onload="load()">
+<body onload="searchLoad()">
 <c:import url="../default/header.jsp"/>
 <div id="wrap">
-	<div class="address_area" onclick="addrUpdate()">
-		<p class="addr">주소를 입력해주세요</p>
-	</div>
-	<div id="search">
-		<input type="text" id="word" placeholder="Search" onkeyup="search_btn()"><input type="button" value="검색">
+	<div id="addr_flex">
+		<div class="address_area">
+			<div class="addr" onclick="addrUpdate()">
+				<span class="addr" style="font-weight: bold; font-size: 14pt;">${userAddr}</span>
+				<p class="set_addr" style="opacity: 0.8; font-size: 12pt; margin-top: 5px; margin-bottom: 5px;">지역 설정</p>
+			</div>
+		</div>
+		<div id="search">
+			<input type="text" id="word" placeholder="내주변 매장 이름 검색" onkeyup="search_btn()" value="${word}"><img src="${path}/resources/images/search.png" width="40px" height="40px" class="search_icon">
+		</div>
 	</div>
 	<div id="shop_area">
 		

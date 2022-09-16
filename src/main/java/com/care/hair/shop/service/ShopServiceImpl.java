@@ -52,12 +52,16 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public void saveWord(String word, Model model, String id) {
+		model.addAttribute("word", word);
 		try {
-			model.addAttribute("userAddr", memberMapper.getMemberAddr(id));
+			if(id == null) {
+				model.addAttribute("userAddr", "서울 강남구 신사동 668-33");
+			}else {
+				model.addAttribute("userAddr", memberMapper.getMemberAddr(id));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("word", word);
 	}
 
 	@Override

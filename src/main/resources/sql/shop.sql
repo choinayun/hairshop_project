@@ -24,7 +24,7 @@ insert into shop(s_name, s_addr, s_phone, s_num, id, img1, img2, img3)
 values('가꿈헤어드림', '서울특별시 강남구 신사동 598-4', '02-0000-0001', 2, 'aaa', '가꿈헤어드림1.jpg', '가꿈헤어드림2.jpg', '가꿈헤어드림3.jpg');
 
 insert into shop(s_name, s_addr, s_phone, s_num, id, img1, img2, img3, img4) 
-values('감동을더하다', '서울특별시 강남구 논현로 833', '02-0000-0002', 3, 'aaa', '감동을더하다1.jpg', '감동을더하다1.jpg', '감동을더하다1.jpg', '감동을더하다1.jpg');
+values('감동을더하다', '서울특별시 강남구 논현로 833', '02-0000-0002', 3, 'aaa', '감동을더하다1.jpg', '감동을더하다2.jpg', '감동을더하다3.jpg', '감동을더하다4.jpg');
 
 insert into shop(s_name, s_addr, s_phone, s_num, id, img1, img2, img3, img4) 
 values('김효리헤어', '서울특별시 강남구 압구정로30길 45', '02-0000-0003', 4, 'aaa', '김효리헤어1.jpg', '김효리헤어2.jpg', '김효리헤어3.jpg', '김효리헤어4.jpg');

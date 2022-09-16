@@ -25,6 +25,6 @@ public class ShopRestController {
 
 	@GetMapping(value = "getShopSearch", produces = "application/json; charset=utf-8")
 	public ArrayList<ShopDTO> getShopSearch(@RequestParam String word){
-		return ss.getShopSearch(word);
+		return ss.getShopSearch(word.toUpperCase());
 	}
 }
