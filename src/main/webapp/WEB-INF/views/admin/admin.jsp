@@ -33,6 +33,8 @@ button:hover {
 </head>
 <body>
 <%@ include file="../default/header.jsp" %>
+<c:set var="contextPath" 
+			value="${ pageContext.request.contextPath}"/>
 <div class="wrap">
 	
 	<br>

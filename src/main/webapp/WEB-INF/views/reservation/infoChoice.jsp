@@ -45,17 +45,15 @@
   display : inline-block !important;
   margin: 6px 2px !important;
 }
-
 .infoList{
   position: absolute;
-  width: 100%;
+  width: 800px;
   top:250px;
   z-index:2;
   display: flex;
   background-color: white;
   left: 250px;
 }
-
 .me{
   color:black;
   width: 10%;
@@ -72,18 +70,21 @@
  	position: fixed;
  	bottom: 20px;
  	right: 30px;
- 	height: 50px;
  	width: 500px;
  	z-index: 4;
+ 	background-color: #FF4848; width: 650px; height: 80px; 
+	border-radius: 10px; cursor: pointer;
+	color: white; font-size: 20pt;
  }
  .price{
  	position: fixed;
  	bottom: 20px;
  	left: 30px;
  	width: 300px;
- 	height: 50px;
+ 	height: 78px;
  	z-index: 4;
  	text-align: center;
+ 	border-radius: 10px;
  }
  .bottomvar{
  	display: flex;
@@ -97,6 +98,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
+<div>
 <ul class="infoList">
   <li class="me">컷</li>
   <li class="me">펌</li>
@@ -104,7 +106,7 @@
   <li class="me">클리닉</li>
   <li class="me">스타일링</li>
 </ul>
-
+</div>
 <!-- swiper슬라이더 메인컨테이너 -->
 
 <div class="selectMenu" >
@@ -174,9 +176,6 @@ const swiper = new Swiper('.swiper-container', {
 	  mousewheel: false,
 	  loop: false,
 	  centeredSlides: true,
-
-
-	  
 	});
 
 	$('ul li').click(function(){

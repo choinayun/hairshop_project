@@ -10,8 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.care.hair.member.dto.MemberDTO;
-import com.care.hair.mybatis.member.MemberMapper;
 import com.care.hair.mybatis.reservation.ReservationMapper;
 import com.care.hair.mybatis.shop.ShopMapper;
 import com.care.hair.reservation.dto.ReservationDTO;
@@ -23,10 +21,13 @@ public class ReservationServiceImpl
 
 	@Autowired ReservationMapper mapper;
 	@Autowired ShopMapper shopMapper;
-	@Autowired MemberMapper memberMapper;
 	
 	public void menuSave(int mNum, Model model) {
-		model.addAttribute("dto", mapper.selectMenu(mNum));
+		try {
+		 model.addAttribute("dto", mapper.selectMenu(mNum));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -42,8 +43,12 @@ public class ReservationServiceImpl
 	
 	public List<ReservationDTO> dateCheck(String ymd, String sNum) {
 		System.out.println("ymd >>>" + ymd);
-		return mapper.dateCheck(ymd, sNum);
-		
+		try {
+			return mapper.dateCheck(ymd, sNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
@@ -56,15 +61,5 @@ public class ReservationServiceImpl
 		}
 		return 0;
 	}
-
-	public List<MemberDTO> getPhone(String id, Model model) {
-		try {
-			return memberMapper.memberinfo(model);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 
 }

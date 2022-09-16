@@ -145,7 +145,6 @@ function nextCalendar(){
 <input type="hidden" name="id" value="${loginUser }">
 <input type="hidden" value="${dto.mNum }">
 <input type="hidden" name="sNum" value="${param.sNum}">
-<input type="text" name="phone" value="${getUser.phone }"><br>
 매장 : <input type="text" name="sName" readonly="readonly" value="${param.sName }"><br>
 메뉴 : <input type="text" name="info" readonly="readonly" id="info" value="${dto.info }"><br>
 <input class="price" type="text" readonly="readonly" id="price" name="price" value="${dto.price }">
@@ -208,9 +207,13 @@ function timeChoice(time){
    $("#selectTime").val(time)
 }
 
+
 /*
  * 날짜 영역의 객체를 받아서 년월일의 파라미터로 해당 날짜의 예약정보를 리턴받음 
  */
+ 
+
+ 
 function jsDateClick(obj){
 	// 닫력에서 선택한 년월일
 	var ymd = today.getFullYear().toString() +  (nowMonth < 10 ? "0"+nowMonth : nowMonth).toString() + (obj.id < 10 ? "0"+obj.id : obj.id).toString(); 
