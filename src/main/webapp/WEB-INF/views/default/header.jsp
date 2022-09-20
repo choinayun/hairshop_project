@@ -11,13 +11,14 @@
 	#header { margin: 0 auto; width: 800px; text-align: center; }
 	#back_btn { position: relative; top: 0; left: -20px; width: 50px; height: 50px; }
 	#back_btn img { cursor: pointer; }
-	#header_area { padding: 50px; }
+	#header_area { padding: 0 50px 50px 50px; }
 	#nav ul { list-style: none; display: flex; }
 	#nav ul li { width: 150px; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer; }
+	.nav_btn { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-	function load(){
+	function headerLoad(){
 		var path = window.location.pathname
 		if("${path}/" == path){
 			$("#back_btn").css({ display: 'none' })
@@ -28,17 +29,17 @@
 		}
 		
 		var arrPath = path.split("/")
-		$(".nav_btn").css({ borderBottom: 'none' })
+		$(".nav_btn").css({ borderBottom: '1px solid rgb(0, 0, 0, 0.2)' })
 		if(arrPath[2] == "") {
-			$(".nav_btn1").css({ borderBottom: '2px solid black' })
+			$(".nav_btn1").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "shop") {
-			$(".nav_btn2").css({ borderBottom: '2px solid black' })
+			$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "reservation") {
-			$(".nav_btn3").css({ borderBottom: '2px solid black' })
-		}else if(arrPath[2] == "myPage" || arrPath[2] == "admin"){
-			$(".nav_btn4").css({ borderBottom: '2px solid black' })
+			$(".nav_btn3").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
+		}else if(arrPath[2] == "mypage" || arrPath[2] == "admin"){
+			$(".nav_btn4").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "member") {
-			$(".nav_btn5").css({ borderBottom: '2px solid black' })
+			$(".nav_btn5").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}
 	}
 	
@@ -48,7 +49,7 @@
 	
 </script>
 </head>
-<body onload="load()">
+<body onload="headerLoad()">
 <div id="header">
 	<div id="header_area">
 		<div id="back_btn">

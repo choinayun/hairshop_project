@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,8 +49,8 @@
 				<td colspan="2"><c:if test="${ dto.img == 'nan' }">
 						<b>이미지가 없습니다</b>
 					</c:if> <c:if test="${ dto.img != 'nan' }">
-						<img width="200px" height="100px"
-							src="#">
+						<img width="100px" height="100px" 
+							 src="${contextPath}/admin/download?img=${dto.img}">
 					</c:if></td>
 			</tr>
 

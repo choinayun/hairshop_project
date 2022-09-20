@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +25,11 @@ function daumPost(){
 }
 </script>
 <style type="text/css">
+.wrap{
+		width: 800px;
+ 		margin: auto;
+ 		text-align: center;
+}
 a{
 	text-decoration: none;
 	color: black;

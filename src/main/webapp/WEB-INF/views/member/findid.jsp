@@ -25,8 +25,13 @@
 
 </script>
 <style>
+.wrap{
+	width: 800px;
+ 	margin: auto;
+ 	text-align: center;
+}
 body{
-background-color:rgba(234,234,234,0.12);
+    background-color:rgba(234,234,234,0.12);
 
 }
   table {

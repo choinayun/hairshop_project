@@ -50,8 +50,6 @@ public class QnaController {
 	public String contentView(int num,Model model) {
 		qs.contentView(num,model);
 		qs.replyView(num, model);
-		System.out.println(model);
-		System.out.println(num);
 		return "qna/contentView";
 	}
 	

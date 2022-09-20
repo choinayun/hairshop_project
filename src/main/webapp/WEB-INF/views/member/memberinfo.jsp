@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+  .wrap{
+    width: 800px;
+    margin: auto;
+ 	text-align: center;
+  }
   table {
     width: 100%;
     border: 1px solid #A6A6A6;
@@ -65,9 +72,9 @@ button:hover {
 				<th>아이디</th>
 				<th width="60px">이름</th>
 				<th>이메일</th>
-				<th width="150px">전화번호</th>
+				<th width="120px">전화번호</th>
 				<th>주소</th>
-				<th>회원 분류</th>
+				<th width="100px">회원 분류</th>
 				<th>회원 등급 변경</th>
 				<th>변경</th>
 				<th>탈퇴</th>
