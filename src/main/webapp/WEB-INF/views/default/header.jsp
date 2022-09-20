@@ -19,6 +19,21 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function headerLoad(){
+		
+		//shopList load
+		$(".align_select_set").css({ fontWeight: 'normal' })
+		if(${result == 1}){
+			$(".align_btn1").css({ fontWeight: 'bold' })
+		}else if(${result == 2}) {
+			$(".align_btn2").css({ fontWeight: 'bold' })
+		}else if(${result == 3}) {
+			$(".align_btn3").css({ fontWeight: 'bold' })
+		}else if(${result == 4}) {
+			$(".align_btn4").css({ fontWeight: 'bold' })
+		}else {
+			$(".align_btn0").css({ fontWeight: 'bold' })
+		}
+		
 		var path = window.location.pathname
 		if("${path}/" == path){
 			$("#back_btn").css({ display: 'none' })

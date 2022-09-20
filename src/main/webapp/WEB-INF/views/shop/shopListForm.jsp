@@ -10,6 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe7ed52025268bb4958928de839fbbf4&libraries=services"></script>
 <script type="text/javascript">
+	
    	var memberLoc, shopLoc 
    	
    	// 주소-좌표 변환 객체를 생성합니다
@@ -83,11 +84,13 @@
    	}
    	
 	function slide_block(){
-		$("#align_select_wrap").css({ display: 'block' })
+		$("#align_select_wrap").css({ visibility: 'visible' })
+		$("#align_select").css({ bottom: '0', transition: '0.5s' })
 	}
 	
 	function slide_none() {
-		$("#align_select_wrap").css({ display: 'none' })
+		$("#align_select").css({ bottom: '-295px', transition: '0.5s' })
+		$("#align_select_wrap").css({ visibility: 'hidden' })
 	}
 	
 	function slide_align_select(num) {
@@ -100,12 +103,17 @@
 			location.href = "${path}/shop/shopSearch?word=" + word
 		}
 	}
+	
+	function align_wrap_none(){
+		$("#align_select").css({ bottom: '-295px', transition: '0.5s' })
+		$("#align_select_wrap").css({ visibility: 'hidden' })
+	}
 </script>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function addrUpdate() {
-		if(${loginUser} != null) {
+		if(${loginUser != null}) {
 		    new daum.Postcode({
 		        oncomplete: function(data) {
 		        	var address = ""
@@ -137,14 +145,14 @@
 	.address_area { text-align: left; }
 	.addr { cursor: pointer; display: inline-block; }
 	#align_select {
-		position: fixed; bottom: 0; left: 50%;
+		position: fixed; bottom: -295px; left: 50%;
 		transform: translate(-50%, 0); 
-		width: 600px; background-color: rgb(234, 234, 234);
-		font-size: 22pt;
+		width: 640px; background-color: rgb(234, 234, 234); text-align: center;
+		font-size: 15pt; font-weight: lighter; border-top-left-radius: 10px; border-top-right-radius: 10px; 
 	}
-	.align_select_set { padding-top: 10px; padding-bottom: 10px; cursor: pointer; }
+	.align_select_set { padding-top: 15px; padding-bottom: 15px; cursor: pointer; }
 	#shop_list { width:100%; height: 100%; }
-	#align_select_wrap { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgb(0, 0, 0, 0.4); z-index: 9; }
+	#align_select_wrap { visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgb(0, 0, 0, 0.4); z-index: 9; }
 	#addr_flex { display: flex; padding-top: 20px; padding-bottom: 20px; }
 	#search { margin-left: auto; }
 	#search input { width: 250px; height: 40px; border-radius: 10px; font-size: 12pt; }
@@ -177,13 +185,13 @@
 		
 	</div>
 </div>
-<div id="align_select_wrap">
+<div id="align_select_wrap" onclick="align_wrap_none()">
 	<div id="align_select">
-		<div onclick="slide_none()" class="align_select_set">정렬 선택</div>
-		<div onclick="slide_align_select(1)" class="align_select_set">평점 높은 순</div>
-		<div onclick="slide_align_select(2)" class="align_select_set">평점 낮은 순</div>
-		<div onclick="slide_align_select(3)" class="align_select_set">리뷰 많은 순</div>
-		<div onclick="slide_align_select(4)" class="align_select_set">리뷰 적은 순</div>
+		<div onclick="slide_none()" class="align_btn0 align_select_set" style="font-weight: bold;">정렬 선택</div>
+		<div onclick="slide_align_select(1)" class="align_btn1 align_select_set">평점 높은 순</div>
+		<div onclick="slide_align_select(2)" class="align_btn2 align_select_set">평점 낮은 순</div>
+		<div onclick="slide_align_select(3)" class="align_btn3 align_select_set">리뷰 많은 순</div>
+		<div onclick="slide_align_select(4)" class="align_btn4 align_select_set">리뷰 적은 순</div>
 	</div>
 </div>
 <c:import url="../default/footer.jsp"/>

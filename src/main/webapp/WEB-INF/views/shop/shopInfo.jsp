@@ -11,6 +11,9 @@
 <script type="text/javascript">
 	function infoLoad() {
 		
+		$(".nav_btn").css({ borderBottom: '1px solid rgb(0, 0, 0, 0.2)' })
+		$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
+		
 		var grade = ${shopInfo.grade}
 		var index = 0	
 		$("#header_area").css({ paddingTop: '0' })
@@ -107,7 +110,7 @@
 		-webkit-user-select: none;
 		user-select: none; 
 	}
-	#shop_img_area { height: 300px; }
+	#shop_img_area { height: 300px; overflow: hidden; }
 	#shop_info_area { width: 700px; margin: auto; }
 	#shop_info { text-align: left; margin-top: 20px; }
 	#shop_info div { margin-bottom: 20px; }
@@ -144,8 +147,8 @@
 		display: inline-block; background-color: rgb(140, 140, 140, 0.6); height: 80px;  
 	}
 	#shop_img_area b { opacity: 0.9; }
-	.arrow_btn_left { position: relative; top: -65%; left: -44.5%; }
-	.arrow_btn_right { position: relative; top: -65%; left: 44.5%; }
+	.arrow_btn_left { position: relative; top: -65%; left: -45%; }
+	.arrow_btn_right { position: relative; top: -65%; left: 45%; }
 	.star { width: 80px; }
 	.star,.star span { 
 			display:inline-block; height:16px; 
