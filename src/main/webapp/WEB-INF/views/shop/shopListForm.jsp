@@ -21,7 +21,6 @@
 	var polyline = new kakao.maps.Polyline({
 		path : []
 	});
-   	
    	geocoder.addressSearch("${userAddr}", function(result, status) {
    	    // 정상적으로 검색이 완료됐으면 
    	     if (status === kakao.maps.services.Status.OK) {
@@ -30,6 +29,7 @@
 				url: "${path}/shop/getShopList?result=${result}", type: "get",
 				dataType: "json",
 				success: function(data) {
+					console.log(data)
 					arr = data
 					distance()
 				},error: function(){

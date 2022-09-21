@@ -33,15 +33,30 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired JavaMailSender mailSender;
 	
 	public void shopinfo(Model model) {
-		List<ShopDTO>list=admapper.shopinfo(model);
-		model.addAttribute("list",list);
+		try {
+			List<ShopDTO>list=admapper.shopinfo(model);
+			model.addAttribute("list",list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public void delshop(String sNum) {
-		admapper.delshop(sNum);
+		try {
+			admapper.delshop(sNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public void newshop(Model model) {
-		List<RegistrationDTO>list=admapper.newshop(model);
-		model.addAttribute("list",list);
+		try {
+			List<RegistrationDTO>list=admapper.newshop(model);
+			model.addAttribute("list",list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public void shopOK(String num,String id,Model model) {
 
@@ -52,11 +67,21 @@ public class AdminServiceImpl implements AdminService {
 		admapper.shopOKdel(num);
 	}
 	public void shopNO(String num) {
-		admapper.shopOKdel(num);
+		try {
+			admapper.shopOKdel(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public void reservation(Model model) {
-		List<ReservationDTO>list=admapper.reservation(model);
-		model.addAttribute("list",list);
+		try {
+			List<ReservationDTO>list=admapper.reservation(model);
+			model.addAttribute("list",list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 
 	}
 
@@ -112,7 +137,12 @@ public class AdminServiceImpl implements AdminService {
 	
 	}
 	public void bookingDel(String num) {
-		admapper.bookingDel(num);
+		try {
+			admapper.bookingDel(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void N_F(MultipartHttpServletRequest mul) {
@@ -143,8 +173,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	public void modifyForm( int sNum , Model model) {
-		ShopDTO dto = admapper.getShop(sNum);
-		model.addAttribute("dto", dto);
+		try {
+			ShopDTO dto = admapper.getShop(sNum);
+			model.addAttribute("dto", dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	public void modify(MultipartHttpServletRequest mul) {
 		ShopDTO dto= new ShopDTO();

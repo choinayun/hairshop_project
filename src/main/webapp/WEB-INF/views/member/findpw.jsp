@@ -12,7 +12,7 @@ function userchk(){
     var id = $("#id").val();
     $.ajax({
         url:'userchk?id='+id, //Controller에서 요청 받을 주소///member/
-        type:'get', //POST 방식으로 전달
+        type:'get', 
 
         success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
             if(cnt == 1){ //cnt가 1이면 -> 해당 유저의 이메일로 이메일 전송
@@ -33,8 +33,13 @@ function userchk(){
 
 </script>
 <style>
-body{
-background-color:rgba(234,234,234,0.12);
+  .wrap{
+	width: 800px;
+ 	margin: auto;
+ 	text-align: center;
+	}
+  body{
+    background-color:rgba(234,234,234,0.12);
 
 }
   table {

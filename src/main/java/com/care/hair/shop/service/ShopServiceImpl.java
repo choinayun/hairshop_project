@@ -26,6 +26,7 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public ArrayList<ShopDTO> getShopList(int result) {
 		try {
+			System.out.println(mapper.shopListAlign(result));
 			return mapper.shopListAlign(result);
 		} catch (Exception e) {
 			e.printStackTrace();

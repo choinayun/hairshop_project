@@ -21,6 +21,7 @@ import com.care.hair.member.service.MemberService;
 @Controller
 @RequestMapping("member")
 public class MemberController implements SessionName {
+
 	@Autowired MemberService ms;
 	
 	@GetMapping("addrUpdate")
@@ -58,11 +59,10 @@ public class MemberController implements SessionName {
 	}
 	
 	@PostMapping("/login_chk")
-	public String user_check(HttpServletRequest request) {
+	public String user_check(HttpServletRequest request, HttpSession session) {
 		int result = ms.login_chk(request);
 		
 		if(result == 0) {
-			HttpSession session = request.getSession();
 			session.setAttribute(LOGIN, request.getParameter("id"));
 			session.setMaxInactiveInterval(60 * 60 * 24);
 			return "redirect:../";
@@ -91,14 +91,13 @@ public class MemberController implements SessionName {
 		
 		ms.find_id(rs, name, phone);
 			
-			System.out.println("result:"+rs);
-
 		return "redirect:/member/result";			
 			
 	}
 	
 	@GetMapping("result")
 	public String result(@RequestParam String id, Model model) {
+		
 		model.addAttribute("id", id);
 		return"member/result";
 	}
@@ -146,5 +145,7 @@ public class MemberController implements SessionName {
 		ms.Pmodify(id,position);
 		return"redirect:memberinfo";
 	}
+	
+	
 	
 }

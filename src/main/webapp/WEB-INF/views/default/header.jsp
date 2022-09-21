@@ -75,13 +75,15 @@
 	<div id="nav">
 		<ul>
 			<li onclick="location.href='${path}/'" class="nav_btn1 nav_btn" style="border-bottom: 2px solid black;">홈</li>
+			
 			<li onclick="location.href='${path}/shop/shopListForm'" class="nav_btn2 nav_btn">내주변</li>
+			<li onclick="location.href='${path}/qna/qnaList'" class="nav_btn5 nav_btn">Q&A</li>
 			<li onclick="location.href='${path}/'" class="nav_btn3 nav_btn">예약</li>
 			<c:if test="${loginUser.equals('admin')}">
 				<li onclick="location.href='${path}/admin/admin'" class="nav_btn4 nav_btn">관리자페이지</li>
 			</c:if> 
 			<c:if test="${!loginUser.equals('admin')}">
-				<li onclick="location.href='${path}/'" class="nav_btn4 nav_btn">마이 페이지</li>
+				<li onclick="location.href='${path}/mypage/main'" class="nav_btn4 nav_btn">마이 페이지</li>
 			</c:if>
 			<c:if test="${loginUser == null}">
 				<li onclick="location.href='${path}/member/login'" class="nav_btn5 nav_btn">로그인</li>

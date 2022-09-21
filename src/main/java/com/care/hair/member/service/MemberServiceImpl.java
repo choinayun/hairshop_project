@@ -51,12 +51,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int idchk(String id) {
 		int cnt= mapper.idchk(id);
-		System.out.println("cnt:"+cnt);
 		return cnt;
 	}	
 	public int register(MemberDTO dto) {
 		String seq = en.encode( dto.getPw() );
-		
 		dto.setPw( seq );
 		
 		try {
@@ -77,21 +75,19 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return 1;
 	}
-	public String find_id(RedirectAttributes rs,String name,String phone) {
-		String result = "";
-		System.out.println("name:"+name);
-		System.out.println("phone:"+phone);
-	
-		
+	public void find_id(RedirectAttributes rs,String name,String phone) {
 		try {
-			rs.addAttribute("id", mapper.find_id(name, phone));
+			String findId = mapper.find_id(name, phone);
+			if(findId == null) {
+				rs.addAttribute("id", "없음");
+			}else {
+				rs.addAttribute("id", findId);
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		return result ;
-		
 	}
+	
 	public String getemail(String id,Model model) {
 		
 		mapper.getemail(id);
@@ -107,7 +103,7 @@ public class MemberServiceImpl implements MemberService {
 		return pw;
 	}
 	public String sendmail(Model model) {
-		MimeMessage message = mailSender.createMimeMessage();
+		 MimeMessage message = mailSender.createMimeMessage();
 		 MemberDTO dto=new MemberDTO();
 		
 		 dto.setEmail((String)model.getAttribute("email"));
@@ -152,7 +148,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	public void del(String id) {
-		mapper.del(id);
+		try {
+			mapper.del(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	public void Pmodify(String id,int position) {

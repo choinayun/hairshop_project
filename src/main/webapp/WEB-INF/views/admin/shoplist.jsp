@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+.wrap{
+	width: 800px;
+ 	margin: auto;
+ 	text-align: center;
+}
   table {
     width: 100%;
     border: 1px solid #A6A6A6;
@@ -22,15 +29,16 @@ a{
 	color: black;
 }
  button {
+ 	cursor:pointer;
 	width: 100%;
 	background: white;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
-  transition-duration: 0.4s;
-  background-color: white;
-  color: black;
+ 	transition-duration: 0.4s;
+    background-color: white;
+    color: black;
   
 }
 button:hover {
@@ -64,13 +72,14 @@ button:hover {
 				<td>${dto.sAddr}</td>
 				<td>${dto.sPhone}</td>
 				
-				<td><button type="button"><a href="modifyshop?sNum=${dto.sNum}">수정</a></td>
-				<td><button type="button"><a href="deleteshop?sNum=${dto.sNum}">삭제</a></td>
+				<td><button type="button"onclick="location.href='${contextPath }/admin/modifyshop?sNum=${dto.sNum}'">수정</button></td>
+				<td><button type="button"onclick="location.href='${contextPath }/admin/deleteshop?sNum=${dto.sNum}'">삭제</button></td>
 			</tr>
 			</c:forEach>
 		</table>
 	
-
+<!-- <a href="modifyshop?sNum=${dto.sNum}">
+<a href="deleteshop?sNum=${dto.sNum}"> -->
 </div>
 
 </body>

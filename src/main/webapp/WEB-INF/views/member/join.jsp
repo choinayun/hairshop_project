@@ -30,10 +30,15 @@ display: none;
 </style>
 
 <style>
-body{
-background-color:rgba(234,234,234,0.12);
+  .wrap{
+	width: 800px;
+ 	margin: auto;
+ 	text-align: center;
+	}
+  body{
+    background-color:rgba(234,234,234,0.12);
 
-}
+   }
   table {
   	
     width: 580px;
@@ -268,11 +273,11 @@ function userchk() {
 				<tr>
 					<td>지역 설정<br></td> 
 				</tr>
+				
 				<tr>
-					<td><input type="text" name="addr" id="addr" size="20" placeholder="서울특별시  종로구 홍길동로 123길" readonly="readonly">
+					<td><input type="text" name="addr" id="addr" size="20" placeholder="서울특별시  종로구 홍길동로 123길" 
+					readonly="readonly"onclick="daumPost()"style="cursor:pointer;">
 				
-				
-					<button type="button" id="search" onclick="daumPost()">검색</button></td>
 				</tr>
 				
 				
