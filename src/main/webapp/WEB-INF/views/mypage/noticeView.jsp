@@ -17,11 +17,6 @@
 
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
-	
-		<div class="top">
-			<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-			<a href="${contextPath }/"><span>홈</span></a>
-		</div>
 		
 		<div class="title">	
 			<br>

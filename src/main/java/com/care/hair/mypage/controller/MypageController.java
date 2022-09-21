@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,16 +66,8 @@ public class MypageController {
 	// 회원정보 수정 저장하기 
 	@PostMapping("/memberInfoModify")
 	public String memberInfoModify(HttpServletRequest req) {
-		
-		System.out.println(req.getParameter("id"));
-		System.out.println(req.getParameter("new_pw"));
-		System.out.println(req.getParameter("name"));
-		System.out.println(req.getParameter("email"));
-		System.out.println(req.getParameter("addr"));
-		System.out.println(req.getParameter("phone"));
-		
 		ms.memberInfoModify(req);
-		return "../member/memberinfo?id="+req.getParameter("id"); 
+		return "redirect:main"; 
 	}
 	
 	@GetMapping("/likeShop")
@@ -121,9 +114,10 @@ public class MypageController {
 	}
 	
 	@GetMapping("/delete")
-	public String delete(String id) {
+	public String delete(String id, HttpSession session) {
 		ms.delete(id);
-		return "member/memberInfo";
+		session.invalidate();
+		return "redirect:../";
 	}
 	
 	@GetMapping("download")

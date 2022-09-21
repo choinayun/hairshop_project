@@ -58,7 +58,7 @@
 		select * from notice where num=#{num}
 	</select>
 	
-	<delete id="del">
+	<delete id="delete">
 		delete from member where id=#{id}
 	</delete>
 	
@@ -72,7 +72,11 @@
 	
 	<insert id="registerSave">
 		insert into registration(num, id, s_name, s_addr, s_phone, img1, img2, img3, img4)
-		 values(registration_seq.nextval, #{id}, #{sName}, #{sAddr}, #{sPhone}, #{img1}, #{img2}, #{img3}, #{img4})
+		 values((select nvl(max(num) + 1, 1) from registration), #{id}, #{sName}, #{sAddr}, #{sPhone}, #{img1}, #{img2}, #{img3}, #{img4})
 	</insert>
+	
+	<update id="modify">
+		update member set pw=#{pw}, name=#{name}, email=#{email}, addr=#{addr}, phone=#{phone} where id=#{id} 
+	</update>
 
 </mapper>

@@ -21,7 +21,7 @@
 
 	<insert id="reviewSave">
 		insert into review(num, id, s_num ,info, grade, content, img)
-			values(review_seq.nextval, #{id}, #{sNum} ,#{info}, #{grade}, #{content}, #{img})
+			values((select nvl(max(num) + 1, 1) from review), #{id}, #{sNum} ,#{info}, #{grade}, #{content}, #{img})
 	</insert>
 	
 	<delete id="delete">

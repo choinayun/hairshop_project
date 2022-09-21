@@ -44,23 +44,25 @@
 					</tr>
 				</c:if>
 				
-				<c:forEach var="dto" items="${list }">
-					<c:when test="${dto.status == 1 }">
-						<tr>
-							<th>${dto.rDate }</th>
-							<th>${dto.rTime }</th>
-							<th>${dto.sShop }</th>
-							<th>${dto.info }</th>
-							<th>${dto.price }</th>
-						</tr>
-					</c:when>
-					<c:otherwise>
-						<tr>
-							<th colspan="5">
-								<font color="#A6A6A6">최근 이용내역이 없습니다.</font>
-							</th>
-						</tr>
-					</c:otherwise>
+				<c:forEach var="dto" items="${list}">
+					<c:choose>
+						<c:when test="${dto.status == 1 }">
+							<tr>
+								<th>${dto.rDate }</th>
+								<th>${dto.rTime }</th>
+								<th>${dto.sShop }</th>
+								<th>${dto.info }</th>
+								<th>${dto.price }</th>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<th colspan="5">
+									<font color="#A6A6A6">최근 이용내역이 없습니다.</font>
+								</th>
+							</tr>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 				
 			</table>

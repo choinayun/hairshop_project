@@ -42,7 +42,7 @@
 			<b>작성자</b>
 			<input type="text" value="${loginUser }" name="id" readonly><br>
 			<b>방문한 헤어샵</b>
-			<input type="text" name="s_num" ><br>
+			<input type="text" name="s_num" value="" ><br>
 			<b>시술 정보</b>
 			<input type="text" name="info" ><br>
 			

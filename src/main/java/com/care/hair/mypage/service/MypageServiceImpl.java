@@ -137,7 +137,11 @@ public class MypageServiceImpl implements MypageService {
 	
 	// 회원 탈퇴
 	public void delete(String id) {
-		mymapper.delete(id);
+		try {
+			mymapper.delete(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 이용 내역 

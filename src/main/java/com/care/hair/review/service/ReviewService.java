@@ -20,6 +20,7 @@ public interface ReviewService {
 						 HttpServletRequest request); 	
 	
 	public void contentView(int num, Model model);
+	public void reviewForm(Model model, int num);
 	
 	// 성근이 작업
 	public String getReviewCnt(int sNum);
