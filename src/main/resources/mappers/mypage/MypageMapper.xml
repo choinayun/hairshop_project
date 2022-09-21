@@ -67,7 +67,7 @@
 	</select>
 	
 	<select id="history" resultMap="reservation">
-		select * from reservation 
+		select * from reservation order by num desc
 	</select>
 	
 	<insert id="registerSave">

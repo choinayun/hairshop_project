@@ -26,5 +26,5 @@ public interface ReviewService {
 	public void getReviewList(int sNum, Model model);
 	public List<Integer> getGradeCnt(int sNum);
 	public List<ReviewDTO> getReview(int sNum);
-
+	public void reviewForm(Model model, int num, int sNum);
 }

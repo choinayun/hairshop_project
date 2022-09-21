@@ -13,7 +13,7 @@ public interface MypageService {
 	public void memberInfoModify(HttpServletRequest req);
 	
 	public void reservationCheck(Model model);
-	public void bookingDel(String num);
+	public void statusUpdate(int num);
 	
 	public void notice(Model model);
 	public void noticeView(int num, Model model);

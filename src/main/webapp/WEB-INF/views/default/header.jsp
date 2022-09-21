@@ -49,7 +49,7 @@
 			$(".nav_btn1").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "shop") {
 			$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
-		}else if(arrPath[2] == "reservation") {
+		}else if(arrPath[2] == "qna") {
 			$(".nav_btn3").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
 		}else if(arrPath[2] == "mypage" || arrPath[2] == "admin"){
 			$(".nav_btn4").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
@@ -58,17 +58,13 @@
 		}
 	}
 	
-	function back_btn(){
-		location.href = "../"
-	}
-	
 </script>
 </head>
 <body onload="headerLoad()">
 <div id="header">
 	<div id="header_area">
 		<div id="back_btn">
-			<img src="${path}/resources/images/arrow.png" onclick="back_btn()">
+			<img src="${path}/resources/images/arrow.png" onclick="history.back()">
 		</div>
 		<h1>HairShop</h1>
 	</div>
@@ -77,8 +73,7 @@
 			<li onclick="location.href='${path}/'" class="nav_btn1 nav_btn" style="border-bottom: 2px solid black;">홈</li>
 			
 			<li onclick="location.href='${path}/shop/shopListForm'" class="nav_btn2 nav_btn">내주변</li>
-			<li onclick="location.href='${path}/qna/qnaList'" class="nav_btn5 nav_btn">Q&A</li>
-			<li onclick="location.href='${path}/'" class="nav_btn3 nav_btn">예약</li>
+			<li onclick="location.href='${path}/qna/qnaList'" class="nav_btn3 nav_btn">Q&A</li>
 			<c:if test="${loginUser.equals('admin')}">
 				<li onclick="location.href='${path}/admin/admin'" class="nav_btn4 nav_btn">관리자페이지</li>
 			</c:if> 

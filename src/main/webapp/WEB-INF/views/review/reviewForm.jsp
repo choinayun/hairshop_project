@@ -42,9 +42,9 @@
 			<b>작성자</b>
 			<input type="text" value="${loginUser }" name="id" readonly><br>
 			<b>방문한 헤어샵</b>
-			<input type="text" name="s_num" ><br>
+			<input type="text" name="s_name" value="${shop.sName}" readonly><br>
 			<b>시술 정보</b>
-			<input type="text" name="info" ><br>
+			<input type="text" name="info" value="${reservation.info}" readonly><br>
 			
 			<b>별점</b>
 			<select name="grade">
@@ -63,6 +63,8 @@
 			<img id="preview" src="#" width=100
 							  height=100 alt="선택된 이미지가 없습니다" />
 			<br><hr> 						  
+			<input type="hidden" name="s_num" value="${shop.sNum}">
+			<input type="hidden" name="num" value="${reservation.num}">
 			<input type="submit" value="작성하기">
 			<input type="button" value="목록보기" 
 				   onclick="location.href='${contextPath }/review/reviewAllList'">

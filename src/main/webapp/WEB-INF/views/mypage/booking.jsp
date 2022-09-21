@@ -74,7 +74,7 @@
 		            	<a href="bookingDel?num=${dto.num}">취소</a>
 	            	</c:if>
 	            	<c:if test="${dto.status == 1}">
-	            		<input type="button" value="리뷰작성" onclick="location.href='${contextPath }/review/reviewForm'">
+	            		<input type="button" value="리뷰작성" onclick="location.href='${contextPath }/review/reviewForm?sShop=${dto.sShop}&num=${dto.num}'">
 	            	</c:if>
 	            </td>
 			</tr>

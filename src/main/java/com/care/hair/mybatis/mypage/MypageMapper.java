@@ -1,6 +1,7 @@
 package com.care.hair.mybatis.mypage;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.ui.Model;
 
@@ -17,7 +18,6 @@ public interface MypageMapper {
 	public void modify( MemberDTO dto );
 	public MemberDTO getUser( String id );
 	public void delete(String id);
-	public List<ReservationDTO> history(Model model);
-
+	public List<ReservationDTO> history();
 	public int registerSave(RegistrationDTO dto);
 }

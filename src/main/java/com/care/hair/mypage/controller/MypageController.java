@@ -44,10 +44,10 @@ public class MypageController {
 		return "redirect:booking"; 
 	}
 	
-	@GetMapping("bookingDel")
-	public String bookingDel(String num) {
-	    ms.bookingDel(num);
-	    return"redirect:booking";
+	@GetMapping("statusUpdate")
+	public String statusUpdate(int num) {
+	    ms.statusUpdate(num);
+	    return"redirect:history";
 	}
 	
 	@GetMapping("/history")

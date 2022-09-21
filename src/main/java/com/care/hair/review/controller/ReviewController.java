@@ -43,7 +43,8 @@ public class ReviewController {
 	}
 	
 	@GetMapping("reviewForm")
-	public String reviewForm() {
+	public String reviewForm(Model model, @RequestParam int num, @RequestParam int sNum) {
+		rs.reviewForm(model, num, sNum);
 		return "review/reviewForm";
 	}
 	

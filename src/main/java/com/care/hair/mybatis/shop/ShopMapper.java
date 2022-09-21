@@ -11,4 +11,5 @@ public interface ShopMapper {
 	public ArrayList<ShopDTO> shopListAlign(int result);
 	public ArrayList<ShopDTO> getShopSearch(String word);
 	public ShopDTO getShopInfo(int sNum);
+	public List<ShopDTO> shopList();
 }

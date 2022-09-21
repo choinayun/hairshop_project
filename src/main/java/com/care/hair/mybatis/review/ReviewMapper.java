@@ -23,5 +23,4 @@ public interface ReviewMapper {
 	public List<ReviewDTO> getReviewList(int sNum);
 	public List<Integer> getGradeCnt(int sNum);
 	public List<ReviewDTO> getReview(int sNum);
-
 }

@@ -1,6 +1,8 @@
 package com.care.hair.mypage.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,10 +16,12 @@ import com.care.hair.member.dto.MemberDTO;
 import com.care.hair.mybatis.member.MemberMapper;
 import com.care.hair.mybatis.mypage.MypageMapper;
 import com.care.hair.mybatis.reservation.ReservationMapper;
+import com.care.hair.mybatis.shop.ShopMapper;
 import com.care.hair.notice.dto.NoticeDTO;
 import com.care.hair.registration.dto.RegistrationDTO;
 import com.care.hair.registration.service.RegistrationFileService;
 import com.care.hair.reservation.dto.ReservationDTO;
+import com.care.hair.shop.dto.ShopDTO;
 
 @Service
 public class MypageServiceImpl implements MypageService {
@@ -26,6 +30,7 @@ public class MypageServiceImpl implements MypageService {
 	@Autowired MemberMapper mmapper; 
 	@Autowired RegistrationFileService rfs;
 	@Autowired MypageMapper mymapper; 
+	@Autowired ShopMapper shopMapper;
 	
 	// 입점신청 정보 저장하기 
 	public String registerSave(MultipartHttpServletRequest mul,
@@ -123,8 +128,12 @@ public class MypageServiceImpl implements MypageService {
 		model.addAttribute("list", list);
 	}
 	
-	public void bookingDel(String num) {
-		mapper.bookingDel(num);
+	public void statusUpdate(int num) {
+		try {
+			mapper.statusUpdate(num, 2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 공지사항 내용 불러오기
@@ -148,7 +157,10 @@ public class MypageServiceImpl implements MypageService {
 	
 	// 이용 내역 
 	public void history(Model model) {
-		List<ReservationDTO> list = mymapper.history(model);
-		model.addAttribute("list", list);
+		try {
+			model.addAttribute("list", mymapper.history());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
