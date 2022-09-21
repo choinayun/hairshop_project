@@ -21,15 +21,20 @@
 	<script type="text/javascript">
 		function readURL(input) {
 			var file = input.files[0]
-			console.log(file)
 			if (file != ''){
 				var reader = new FileReader();
 				reader.readAsDataURL(file);
 				reader.onload = function (e){
-					$('#preview1').attr('src', e.target.result); 
-					$('#preview2').attr('src', e.target.result); 
-					$('#preview3').attr('src', e.target.result); 
-					$('#preview4').attr('src', e.target.result); 
+					var name = input.name
+					if(name == "img1"){
+						$('#preview1').attr('src', e.target.result); 
+					}else if(name == "img2"){
+						$('#preview2').attr('src', e.target.result); 
+					}else if(name == "img3"){
+						$('#preview3').attr('src', e.target.result); 
+					}else if(name == "img4"){
+						$('#preview4').attr('src', e.target.result); 
+					}
 				}
 			}
 		}

@@ -56,7 +56,7 @@
 						<td>${dto.id }</td>						
 						<td>${dto.sNum }</td>						
 						<td>${dto.info }</td>						
-						<td>${dto.grade }</td>						
+						<td><c:forEach begin="1" end="${dto.grade}">★</c:forEach></td>						
 						<td>${dto.rDate }</td>										
 					</tr>
 				</c:forEach>

@@ -61,7 +61,7 @@
 				
 		<div class="box">
     		<button class="btn" type="button" disabled="disabled"
-    				onclick="delete?id=${dto.id }">서비스 탈퇴하기</button>
+    				onclick="location.href='${contextPath}/mypage/delete?id=${loginUser}'">서비스 탈퇴하기</button>
 		</div>	
 		
 	 </div>

@@ -100,31 +100,20 @@
 		    if(pw.length == 0){
 		        alert("비밀번호를 입력해 주세요"); 
 		        $("#pw").focus();
-		        return false;
-		    }
-	
-		    if(name.length == 0){
+		    }else if(name.length == 0){
 		        alert("이름을 입력해주세요");
 		        $("#name").focus();
-		        return false;
-		    }
-		    
-		    if(email.length == 0){
+		    }else if(email.length == 0){
 		        alert("이메일을 입력해주세요");
 		        $("#email").focus();
-		        return false;
-		    }
-		    
-		    if(phone.length == 0){
+		    }else if(phone.length == 0){
 		        alert("전화번호를 입력해주세요");
 		        $("#phone").focus();
-		        return false;
-		    }
-		    
-		    if(addr.length == 0){
+		    }else if(addr.length == 0){
 		        alert("주소를 입력해주세요");
 		        $("#addr").focus();
-		        return false;
+		    }else{
+		    	fo.submit()
 		    }
 		}
 	</script>
@@ -143,65 +132,69 @@
 			<div id="modifyWrap">
 			<h1>회원 정보 수정</h1>
 			<br>
-		
-			<form action="memberInfoModify" method="post">
-			<table border="1">
-				<tr>
-					<td>아이디<br></td> 
+
+			<form action="memberInfoModify" method="post" id="fo">
+				<table border="1">
+					<tr>
+						<td>아이디<br></td>
 					</tr>
-				<tr>
-					<td><input type="text" name="id" id="id" size="20"  value="${loginUser }" readonly></td>
-				</tr>
-				<tr>
-					<td>비밀번호<br></td> 
-				</tr>
-				<tr>
-					<td><input type="password" name="new_pw" id="pw" size="20" >
-					<input type="hidden" value="${dto.pw }" name="old_pw"></td>
-				</tr>
-				<tr>
-					<td>비밀번호 확인<br></td> 
-				</tr>
-				<tr>
-					<td><input type="password" name="new_pw2" id="pw2" size="20" onchange="pwchk()"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<span class="pw_ok">비밀번호가 일치합니다.</span>
-						<span class="pw_no">비밀번호가 일치하지 않습니다.</span>
-					</td>
-				</tr>
-				<tr>
-					<td>이름<br></td> 
-				</tr>
-				<tr>
-					<td><input type="text" name="name" id="name" size="20" value="${dto.name }"></td>
-				</tr>
-				<tr>
-					<td>이메일<br></td> 
-				</tr>
-				<tr>
-					<td><input type="text" name="email" id="email" size="20" value="${dto.email }"></td>
-				</tr>
-				<tr>
-					<td>지역 설정<br></td> 
-				</tr>
-				<tr>
-					<td><input type="text" name="addr" id="addr" size="20"  value="${dto.addr }" readonly="readonly">
-					<button type="button" id="search" onclick="daumPost()">검색</button></td>
-				</tr>
-				<tr>
-					<td>전화번호<br></td> 
-				</tr>
-				<tr>
-				<td><input type="text" name="phone" id="phone" size="20" value="${dto.phone }"></td>
-				</tr>
-			</table>
-			
-			<input type="submit" value="수정하기" onclick="modifychk();">
-				
+					<tr>
+						<td><input type="text" name="id" id="id" size="20"
+							value="${loginUser }" readonly></td>
+					</tr>
+					<tr>
+						<td>비밀번호<br></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="new_pw" id="pw" size="20">
+							<input type="hidden" value="${dto.pw }" name="old_pw"></td>
+					</tr>
+					<tr>
+						<td>비밀번호 확인<br></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="new_pw2" id="pw2" size="20"
+							oninput="pwchk()"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span class="pw_ok">비밀번호가 일치합니다.</span> <span
+							class="pw_no">비밀번호가 일치하지 않습니다.</span></td>
+					</tr>
+					<tr>
+						<td>이름<br></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="name" id="name" size="20"
+							value="${dto.name }"></td>
+					</tr>
+					<tr>
+						<td>이메일<br></td>
+					</tr>
+					<tr>
+						<td><input type="email" name="email" id="email" size="20"
+							value="${dto.email }"></td>
+					</tr>
+					<tr>
+						<td>지역 설정<br></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="addr" id="addr" size="20"
+							value="${dto.addr }" readonly="readonly">
+							<button type="button" id="search" onclick="daumPost()">검색</button></td>
+					</tr>
+					<tr>
+						<td>전화번호<br></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="phone" id="phone" size="20"
+							value="${dto.phone }"></td>
+					</tr>
+				</table>
+
+				<input type="button" value="수정하기" onclick="modifychk()">
+
 			</form>
-			</div>
+		</div>
 		</div>	
 
 </body>
