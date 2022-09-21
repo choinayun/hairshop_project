@@ -154,7 +154,6 @@ public class MemberServiceImpl implements MemberService {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	public void Pmodify(String id,int position) {
 		MemberDTO dto= new MemberDTO();

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,7 @@ public class MypageServiceImpl implements MypageService {
 	@Autowired MemberMapper mmapper; 
 	@Autowired RegistrationFileService rfs;
 	@Autowired MypageMapper mymapper; 
+	BCryptPasswordEncoder en = new BCryptPasswordEncoder();
 	
 	// 입점신청 정보 저장하기 
 	public String registerSave(MultipartHttpServletRequest mul,
@@ -95,10 +97,6 @@ public class MypageServiceImpl implements MypageService {
 	public void infoModify(String id, Model model) {
 		
 		MemberDTO dto = mmapper.getUser(id);
-		
-		System.out.println( dto.getEmail() );
-		System.out.println( dto.getAddr() );
-		
 		model.addAttribute("dto", dto);
 	}
 	

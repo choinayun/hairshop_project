@@ -100,33 +100,22 @@
 		    if(pw.length == 0){
 		        alert("비밀번호를 입력해 주세요"); 
 		        $("#pw").focus();
-		        return false;
-		    }
-	
-		    if(name.length == 0){
+		    }else if(name.length == 0){
 		        alert("이름을 입력해주세요");
 		        $("#name").focus();
-		        return false;
-		    }
-		    
-		    if(email.length == 0){
+		    }else if(email.length == 0){
 		        alert("이메일을 입력해주세요");
 		        $("#email").focus();
-		        return false;
-		    }
-		    
-		    if(phone.length == 0){
+		    }else if(phone.length == 0){
 		        alert("전화번호를 입력해주세요");
 		        $("#phone").focus();
-		        return false;
-		    }
-		    
-		    if(addr.length == 0){
+		    }else if(addr.length == 0){
 		        alert("주소를 입력해주세요");
 		        $("#addr").focus();
-		        return false;
+		    }else {
+		    	fo.submit();
 		    }
-		}
+			}
 	</script>
 	
  	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
@@ -144,7 +133,7 @@
 			<h1>회원 정보 수정</h1>
 			<br>
 		
-			<form action="memberInfoModify" method="post">
+			<form action="memberInfoModify" method="post" id="fo">
 			<table border="1">
 				<tr>
 					<td>아이디<br></td> 
@@ -198,7 +187,7 @@
 				</tr>
 			</table>
 			
-			<input type="submit" value="수정하기" onclick="modifychk();">
+			<input type="button" value="수정하기" onclick="modifychk();">
 				
 			</form>
 			</div>
