@@ -83,7 +83,7 @@
 				<li onclick="location.href='${path}/admin/admin'" class="nav_btn4 nav_btn">관리자페이지</li>
 			</c:if> 
 			<c:if test="${!loginUser.equals('admin')}">
-				<li onclick="location.href='${path}/'" class="nav_btn4 nav_btn">마이 페이지</li>
+				<li onclick="location.href='${path}/mypage/main'" class="nav_btn4 nav_btn">마이 페이지</li>
 			</c:if>
 			<c:if test="${loginUser == null}">
 				<li onclick="location.href='${path}/member/login'" class="nav_btn5 nav_btn">로그인</li>

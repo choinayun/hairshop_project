@@ -8,6 +8,7 @@ public class QnaDTO {
 	private String id, title, content, img; 
 	private Timestamp qDate; 
 	private int num, groupNum;
+	
 	public int getGroupNum() {
 		return groupNum;
 	}

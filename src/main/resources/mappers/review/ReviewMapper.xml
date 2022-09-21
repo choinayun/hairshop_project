@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.care.hair.mybatis.review.ReviewMapper">
+
 	<resultMap type="com.care.hair.review.dto.ReviewDTO" id="review">
 		<id property="num" column="num"/>
 		<result property="id" column="id"/>
@@ -14,6 +14,27 @@
 		<result property="img" column="img"/>
 	</resultMap>
 	
+	<select id="reviewAllList" resultMap="review">
+		select B.* from(select rownum rn, A.* from
+		(select * from review order by num desc)A)B where rn between #{s} and #{e}		
+	</select>
+
+	<insert id="reviewSave">
+		insert into review(num, id, s_num ,info, grade, content, img)
+			values(review_seq.nextval, #{id}, #{sNum} ,#{info}, #{grade}, #{content}, #{img})
+	</insert>
+	
+	<delete id="delete">
+		delete from review where num=#{num}  
+	</delete>
+	
+	<select id="contentView" resultMap="review">
+		select * from review where num=#{num} 
+	</select>
+
+	
+	
+	<!-- 성근이 작업 -->
 	<select id="getReviewCnt" resultType="Integer">
 		select count(*) from review where s_num=#{sNum}
 	</select>
@@ -29,5 +50,9 @@
 	<select id="getReview" resultMap="review">
 		select * from review where s_num=#{sNum} order by grade desc
 	</select>
-	
+		
+	<select id="selectReviewCount" resultType="Integer">
+		select count(*) from review 
+	</select>
+
 </mapper>

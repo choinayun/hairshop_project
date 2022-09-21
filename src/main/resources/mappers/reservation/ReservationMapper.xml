@@ -38,4 +38,13 @@
 <select id="selectMenu" resultMap="menu">
 	select * from menu where m_num = #{mNum}
 </select>
+
+<update id="Bmodify">
+    update reservation set status=#{status} where num=#{num}
+</update>
+   
+<delete id="bookingDel">
+    delete from reservation where num=#{num}
+</delete>
+
 </mapper>

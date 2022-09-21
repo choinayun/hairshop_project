@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.mypage.MypageMapper">
+
+	<resultMap type="com.care.hair.reservation.dto.ReservationDTO" id="reservation">
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="status" column="status"/>
+		<result property="info" column="info"/>
+		<result property="rDate" column="r_date"/>
+		<result property="price" column="price"/>
+		<result property="sShop" column="s_shop"/>
+		<result property="rTime" column="r_time"/>
+	</resultMap>
+	
+	<resultMap type="com.care.hair.notice.dto.NoticeDTO" id="notice">
+		<id property="num" column="num"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="nDate" column="n_date"/>
+		<result property="img" column="img"/>
+	</resultMap>
+	
+	<resultMap type="com.care.hair.member.dto.MemberDTO" id="member">
+		<id property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="addr" column="addr" />
+		<result property="position" column="position"/>
+	</resultMap>	
+	
+	<resultMap type="com.care.hair.registration.dto.RegistrationDTO" id="registration">						
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="sName" column="s_name"/>
+		<result property="sAddr" column="s_addr"/>
+		<result property="sPhone" column="s_phone"/>
+		<result property="img1" column="img1"/>
+		<result property="img2" column="img2"/>
+		<result property="img3" column="img3"/>
+		<result property="img4" column="img4"/>
+	</resultMap>
+	
+	<select id="reservationCheck" resultMap="reservation">
+		select * from reservation
+	</select>
+	
+	<select id="notice" resultMap="notice">
+		select * from notice 
+	</select>
+
+	<select id="noticeView" resultMap="notice">
+		select * from notice where num=#{num}
+	</select>
+	
+	<delete id="del">
+		delete from member where id=#{id}
+	</delete>
+	
+	<select id="getUser" resultMap="member">
+		select * from member where id =#{id}
+	</select>
+	
+	<select id="history" resultMap="reservation">
+		select * from reservation 
+	</select>
+	
+	<insert id="registerSave">
+		insert into registration(num, id, s_name, s_addr, s_phone, img1, img2, img3, img4)
+		 values(registration_seq.nextval, #{id}, #{sName}, #{sAddr}, #{sPhone}, #{img1}, #{img2}, #{img3}, #{img4})
+	</insert>
+
+</mapper>

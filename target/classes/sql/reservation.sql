@@ -9,7 +9,6 @@ CREATE TABLE reservation
     price     VARCHAR2(20)    NOT NULL, 
     s_shop    NUMBER          NOT NULL, 
     num       NUMBER          NOT NULL, 
-    r_time	  varchar2(20)  NOT NULL
     PRIMARY KEY (num)
 );
 
