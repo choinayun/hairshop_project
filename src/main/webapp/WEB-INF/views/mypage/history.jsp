@@ -7,18 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-	$.ajax({
-		url: "${contextPath}/shop/shopList", type: "get",
-		dataType: "json",
-		success: function(data){
-			
-		},error: function(){
-			alert("ERROR")
-		}
-	})
-</script>
 </head>
 <body>
 <c:import url="../default/header.jsp"/>
@@ -32,22 +20,22 @@
 			<c:forEach var="list" items="${list}">
 			<c:if test="${list.status == 0}">
 				<tr>
-					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>예약대기</td>	<td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}'"></td>
+					<td>${list.num}</td>	<td>${list.sName}</td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>예약대기</td>	<td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}'"></td>
 				</tr>
 			</c:if>
 			<c:if test="${list.status == 1}">
 				<tr>
-					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td><input type="button" value="리뷰작성" onclick="location.href='${contextPath}/review/reviewForm?num=${list.num}&sNum=${list.sShop}'"></td>
+					<td>${list.num}</td>	<td>${list.sName}</td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td><input type="button" value="리뷰작성" onclick="location.href='${contextPath}/review/reviewForm?num=${list.num}&sNum=${list.sShop}'"></td>
 				</tr>
 			</c:if>
 			<c:if test="${list.status == 2}">
 				<tr>
-					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>취소완료</td>	<td></td>
+					<td>${list.num}</td>	<td>${list.sName}</td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>취소완료</td>	<td></td>
 				</tr>
 			</c:if>
 			<c:if test="${list.status == 3}">
 				<tr>
-					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td><input type="button" value="리뷰작성" disabled></td>
+					<td>${list.num}</td>	<td>${list.sName}</td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td></td>
 				</tr>
 			</c:if>
 			</c:forEach>

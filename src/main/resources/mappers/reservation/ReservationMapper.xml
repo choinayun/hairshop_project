@@ -5,7 +5,6 @@
 <mapper namespace="com.care.hair.mybatis.reservation.ReservationMapper">
 <resultMap type="com.care.hair.reservation.dto.ReservationDTO" 
 											id="reservation">
-											
 	<id property="num" column="num"/>
 	<result property="id" column="id"/>
 	<result property="name" column="name"/>
@@ -15,7 +14,6 @@
 	<result property="price" column="price"/>
 	<result property="sShop" column="s_shop"/>
 	<result property="rTime" column="r_time"/>
-	
 </resultMap>
 
 	<resultMap type="com.care.hair.menu.dto.MenuDTO" id="menu" >

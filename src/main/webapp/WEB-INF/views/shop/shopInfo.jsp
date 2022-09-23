@@ -136,7 +136,7 @@
 		margin: auto; height: 800px; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
 		text-align: left;
-		margin-bottom: 100px;
+		margin-bottom: 500px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }
@@ -154,6 +154,7 @@
 			display:inline-block; height:16px; 
 			overflow: hidden; background: url(${path}/resources/images/star.png)no-repeat; }
 	.star span{ background-position:left bottom;  line-height:0; vertical-align:top; width: 0%; }
+	
 </style>
 </head>
 <body onload="infoLoad()">

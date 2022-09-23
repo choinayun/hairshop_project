@@ -26,10 +26,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	public void reviewAllList(Model model, int num) {
 		
-		System.out.println("reviewAllList 실행");
-		
 		int pageLetter = 5;
-		
 		int allCount = 0;
 		
 		try {
@@ -46,7 +43,11 @@ public class ReviewServiceImpl implements ReviewService{
 		int start = end +1 -pageLetter; 
 		
 		model.addAttribute("repeat", repeat);
-		model.addAttribute("reviewList", mapper.reviewAllList( start, end ));
+		try {
+			model.addAttribute("reviewList", mapper.reviewAllList( start, end ));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -71,8 +72,8 @@ public class ReviewServiceImpl implements ReviewService{
 			
 		int result = 0;
 		try {
-			System.out.println("dto s_num >>>" + dto.getsNum());
 			result = mapper.reviewSave(dto);
+			reservationMapper.statusUpdate(Integer.parseInt(request.getParameter("num")), 3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -115,8 +116,11 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 	
 	public void contentView(int num, Model model) {
-		
-		model.addAttribute( "dto", mapper.contentView(num) );
+		try {
+			model.addAttribute( "dto", mapper.contentView(num) );
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	
@@ -166,7 +170,6 @@ public class ReviewServiceImpl implements ReviewService{
 		try {
 			model.addAttribute("reservation", reservationMapper.getReservation(num));
 			model.addAttribute("shop", shopMapper.getShopInfo(sNum));
-			reservationMapper.statusUpdate(num, 3);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

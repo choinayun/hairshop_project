@@ -12,8 +12,8 @@
 	#back_btn { position: relative; top: 0; left: -20px; width: 50px; height: 50px; }
 	#back_btn img { cursor: pointer; }
 	#header_area { padding: 0 50px 50px 50px; }
-	#nav ul { list-style: none; display: flex; }
-	#nav ul li { width: 150px; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer; }
+	#nav ul { padding: 0; margin-right: 0; list-style: none; display: flex; }
+	#nav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer; }
 	.nav_btn { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -66,7 +66,9 @@
 		<div id="back_btn">
 			<img src="${path}/resources/images/arrow.png" onclick="history.back()">
 		</div>
-		<h1>HairShop</h1>
+		<div id="title">
+			<a href="${path}/"><img src="${path}/resources/images/title.png" width="250px" height="150px"></a>
+		</div>
 	</div>
 	<div id="nav">
 		<ul>
