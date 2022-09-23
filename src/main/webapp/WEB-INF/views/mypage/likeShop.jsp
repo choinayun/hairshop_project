@@ -24,23 +24,34 @@
 		<h1>내 관심 매장</h1>
 		<br><br>
 		
-		<c:if test="${like_list.size() == 0}"></c:if> 
+		<c:if test="${like_list.size() == 0}">
 			<div class="likeshop_empty">
 				<b><font color="#A6A6A6" size="5px">관심 매장이 없습니다.</font></b>
 			</div>		
-		
-		<c:if test="${like_list.size() != 0 }"></c:if>
-		<c:forEach var="dto" items="${like_list}">
-			<table>
-				<tr>
-					<td rowspan="3">
-						<img width="100px" height="100px"
-							src="${contextPath }/likelist/">
-					</td>
-				</tr>
-			</table>
-		</c:forEach>
-		
+		</c:if> 
+		<div class="likeWrap">
+			<c:if test="${like_list.size() != 0 }">
+				<table>
+					<c:forEach var="dto" items="${like_list}">
+					
+						<tr>
+							<td rowspan="2">
+								<img width="200px" height="150px"
+									src="${contextPath}/mypage/download?img=${dto.img1}">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<b>${dto.sName }</b><br>
+								${dto.grade } / ${dto.sAddr }<br>
+								${dto.sPhone }<br></a>
+							</td>
+						</tr>
+					
+					</c:forEach>
+				</table>
+			</c:if>
+		</div>
 	</div>
 
 

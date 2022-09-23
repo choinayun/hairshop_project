@@ -38,4 +38,8 @@
 		select * from shop where s_name like '%' || #{word} ||'%'
 	</select>
 	
+	<select id="shopList" resultMap="shop">
+		select * from shop order by s_num asc
+	</select>
+	
 </mapper>

@@ -1,6 +1,9 @@
 package com.care.hair.shop.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +29,6 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public ArrayList<ShopDTO> getShopList(int result) {
 		try {
-			System.out.println(mapper.shopListAlign(result));
 			return mapper.shopListAlign(result);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,7 +76,19 @@ public class ShopServiceImpl implements ShopService {
 		}
 		return null;
 	}
-	
-	
+
+	@Override
+	public Map<Integer, Object> shopList() {
+		Map<Integer, Object> map = new HashMap<Integer, Object>();
+		try {
+			List<ShopDTO> list = mapper.shopList();
+			for(int i = 0; i < list.size(); i++) {
+				map.put(list.get(i).getsNum(), list.get(i).getsName());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return map;
+	}
 
 }

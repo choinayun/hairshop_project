@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.hair.mybatis.reservation.ReservationMapper;
 import com.care.hair.mybatis.review.ReviewMapper;
 import com.care.hair.mybatis.shop.ShopMapper;
 import com.care.hair.reservation.dto.ReservationDTO;
@@ -21,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	@Autowired ReviewMapper mapper;	
 	@Autowired ReviewFileService rfs;
-	
+	@Autowired ReservationMapper reservationMapper;
 	@Autowired ShopMapper shopMapper;
 	
 	public void reviewAllList(Model model, int num) {
@@ -166,6 +167,17 @@ public class ReviewServiceImpl implements ReviewService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void reviewForm(Model model, int num, int sNum) {
+		try {
+			model.addAttribute("reservation", reservationMapper.getReservation(num));
+			model.addAttribute("shop", shopMapper.getShopInfo(sNum));
+			reservationMapper.statusUpdate(num, 3);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

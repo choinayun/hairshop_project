@@ -40,19 +40,20 @@
 		</script>
 	</c:if> 
 	
-	<c:if test="${loginUser != null }" > </c:if>
-	<br><br>
+	<br><br> 
 	
 		<div class="mypagewrap">
 			<button type="button"><a href="${contextPath }/mypage/infoModify?id=${loginUser }">회원정보 수정</a></button><br><br>
 			<button type="button"><a href="${contextPath }/mypage/likeShop">관심 매장</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/booking">예약 현황</a></button><br><br>
 			<button type="button"><a href="${contextPath }/mypage/history">이용 내역</a></button><br><br>
+			<c:if test="${dto.position != 0}">
+			<button type="button"><a href="${contextPath }/mypage/booking?id=${loginUser }">예약 리스트 확인</a></button><br><br>	
+			</c:if>
 			<button type="button"><a href="${contextPath }/review/reviewAllList">리뷰 목록</a></button><br><br>
 			<button type="button"><a href="${contextPath }/mypage/notice">공지사항</a></button><br><br>
 			<button type="button"><a href="${contextPath }/mypage/registerShop">입점 신청</a></button><br><br>
 			<button type="button"><a href="${contextPath }/mypage/secession">회원 탈퇴</a></button><br><br>
 		</div>
-
+	 
 </body>
 </html>

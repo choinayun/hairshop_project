@@ -2,6 +2,8 @@ package com.care.hair.mybatis.reservation;
 
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.care.hair.menu.dto.MenuDTO;
 import com.care.hair.reservation.dto.ReservationDTO;
 
@@ -14,5 +16,6 @@ public interface ReservationMapper {
 	
 	public void Bmodify(ReservationDTO dto);
 	
-	public void bookingDel(String num);
+	public ReservationDTO getReservation(int num);
+	public void statusUpdate(@Param("num") int num, @Param("result") int result);
 }

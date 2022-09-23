@@ -9,10 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:import url="default/header.jsp"/>
-<div id="wrap">
-
-</div>
-<c:import url="default/footer.jsp"/>
+	<c:import url="default/header.jsp"/>
+	
+	<div id="wrap">
+		<div id="title">
+			
+		</div>
+	</div>
+	
+	<c:import url="default/footer.jsp"/>
 </body>
 </html>

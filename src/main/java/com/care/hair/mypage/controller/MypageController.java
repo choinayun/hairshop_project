@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.hair.common.SessionName;
 import com.care.hair.mypage.service.MypageService;
 import com.care.hair.review.service.ReviewFileService;
 
@@ -29,25 +30,36 @@ public class MypageController {
 	@Autowired MypageService ms;
 
 	@GetMapping("/main")
-	public String main() {
+	public String main(Model model, HttpSession session) {
+		ms.main(model, (String)session.getAttribute(SessionName.LOGIN));
 		return "mypage/main"; 
 	}
 	
+	// 예약 리스트 불러오기 
 	@GetMapping("/booking")
-	public String booking(Model model) {
-		ms.reservationCheck(model);
+	public String booking(String id, Model model) {
+		ms.booking(id, model);
 		return "mypage/booking"; 
 	}
 	
-	@PostMapping("/bookingStatus")
-	public String bookingStatus() {
-		return "redirect:booking"; 
+	// 매장관리자 예약변경 
+	@GetMapping("bookingModify")
+	public String bookingModify(int status, int num, HttpSession session) {
+		ms.bookingModify(status, num);
+		return"redirect:booking?id=" + session.getAttribute(SessionName.LOGIN);
 	}
 	
+	// 매장관리자 예약취소
 	@GetMapping("bookingDel")
-	public String bookingDel(String num) {
-	    ms.bookingDel(num);
-	    return"redirect:booking";
+	public String bookingDel(int num, HttpSession session) {
+		ms.bookingDel(num);
+		return"redirect:booking?id=" + session.getAttribute(SessionName.LOGIN);
+	}
+	
+	@GetMapping("statusUpdate")
+	public String statusUpdate(int num) {
+	    ms.statusUpdate(num);
+	    return"redirect:history";
 	}
 	
 	@GetMapping("/history")
@@ -58,8 +70,8 @@ public class MypageController {
 	
 	// 회원정보 수정 (저장된 정보 불러오기) 
 	@GetMapping("/infoModify")
-	public String infoModify(String id , Model model) {
-		ms.infoModify( id, model );
+	public String infoModify(String id, Model model) {
+		ms.infoModify(id, model);
 		return "mypage/infoModify"; 
 	}
 	
@@ -71,7 +83,8 @@ public class MypageController {
 	}
 	
 	@GetMapping("/likeShop")
-	public String likeShop() {
+	public String likeShop(Model model) {
+		ms.likeShop(model);
 		return "mypage/likeShop";
 	}
 	
@@ -83,12 +96,10 @@ public class MypageController {
 	
 	@GetMapping("/noticeView")
 	public String noticeView(int num, Model model) {
-		
 		ms.noticeView( num, model ); 
 		return "mypage/noticeView"; 
 	}
 	
-
 	@GetMapping("/registerShop") 
 	public String register() {
 		return "mypage/registerShop"; 
@@ -131,7 +142,5 @@ public class MypageController {
 	    FileCopyUtils.copy(in, response.getOutputStream());
 	    in.close();
 	}
-	
-	
-	
+
 }

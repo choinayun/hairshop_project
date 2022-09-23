@@ -1,73 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style type="text/css">
-	h1 { margin: auto;  font-size: 30px; }
-	a { text-decoration: none; color: black; }
-</style>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url: "${contextPath}/shop/shopList", type: "get",
+		dataType: "json",
+		success: function(data){
+			
+		},error: function(){
+			alert("ERROR")
+		}
+	})
+</script>
 </head>
 <body>
-
- 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-	<c:import url="../default/header.jsp"/> 
-		
-		<div class="top">
-			<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-			<a href="${contextPath }/"><span>홈</span></a>
-		</div>
-		
-		<br><br>
-		<h1>최근 이용내역</h1><br>
-				
-		<div class="historyWrap">
-			<table border="1">
+<c:import url="../default/header.jsp"/>
+<div id="wrap">		
+	<h1>최근 이용내역</h1>
+	<div class="historyWrap">
+		<table border="1">
+			<tr>
+				<th>글번호</th>	<th>매장 이름</th>	<th>시술 정보</th>	<th>예약 날짜</th>	<th>예약 상태</th>	<th>기타</th>	
+			</tr>
+			<c:forEach var="list" items="${list}">
+			<c:if test="${list.status == 0}">
 				<tr>
-					<th>이용 날짜</th>
-					<th>이용 시간</th>
-					<th>샵 이름</th>
-					<th>시술 정보</th>
-					<th>시술 가격</th>
+					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>예약대기</td>	<td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}'"></td>
 				</tr>
-				
-				<c:if test="${list.size() == 0 }">
-					<tr>
-						<th colspan="5">
-							<font color="#A6A6A6">최근 이용내역이 없습니다.</font>
-						</th>
-					</tr>
-				</c:if>
-				
-				<c:forEach var="dto" items="${list}">
-					<c:choose>
-						<c:when test="${dto.status == 1 }">
-							<tr>
-								<th>${dto.rDate }</th>
-								<th>${dto.rTime }</th>
-								<th>${dto.sShop }</th>
-								<th>${dto.info }</th>
-								<th>${dto.price }</th>
-							</tr>
-						</c:when>
-						<c:otherwise>
-							<tr>
-								<th colspan="5">
-									<font color="#A6A6A6">최근 이용내역이 없습니다.</font>
-								</th>
-							</tr>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-				
-			</table>
-		</div>
-	
-	
+			</c:if>
+			<c:if test="${list.status == 1}">
+				<tr>
+					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td><input type="button" value="리뷰작성" onclick="location.href='${contextPath}/review/reviewForm?num=${list.num}&sNum=${list.sShop}'"></td>
+				</tr>
+			</c:if>
+			<c:if test="${list.status == 2}">
+				<tr>
+					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>취소완료</td>	<td></td>
+				</tr>
+			</c:if>
+			<c:if test="${list.status == 3}">
+				<tr>
+					<td>${list.num}</td>	<td class="${list.sShop}"></td>	<td>${list.info}</td>	<td>${list.rDate}</td>	<td>이용완료</td>	<td><input type="button" value="리뷰작성" disabled></td>
+				</tr>
+			</c:if>
+			</c:forEach>
+		</table>
+	</div>
+</div>
 </body>
 </html>

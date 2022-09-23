@@ -42,9 +42,13 @@
 <update id="Bmodify">
     update reservation set status=#{status} where num=#{num}
 </update>
-   
-<delete id="bookingDel">
-    delete from reservation where num=#{num}
-</delete>
+
+<select id="getReservation" resultMap="reservation">
+	select * from reservation where num=#{num}
+</select>
+
+<update id="statusUpdate">
+	update reservation set status=#{result} where num=#{num}
+</update>
 
 </mapper>
