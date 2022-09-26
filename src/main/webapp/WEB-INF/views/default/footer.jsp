@@ -7,8 +7,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-footer { 
-	margin: 0 auto; margin-top: 100px;
+body { margin: 0 auto; }
+footer { background-color: rgb(189, 189, 189, 0.2); }	
+#footer_div { 
+	margin: 0 auto; margin-top: 100px; width: 1000px;
 	color: rgb(0, 0, 0, 0.7); text-align: center;  
 	font-size: 7pt; padding: 10px 10px 0 10px; }
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
@@ -19,17 +21,19 @@ footer {
 <body>
 <c:set var="contextPath" value="${ pageContext.request.contextPath}"/>
 <footer>
-	<div class="container">
-		<div class="f_text">
-				<a href="#">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
-		</div>
-		<div class="f_copy">
-			<p>
-				회사이름 : HairShop ㅣ 대표 : 최나윤 ㅣ 사업자등록번호 : 123-45-67890 ㅣ 주소 : 서울특별시 종로구 돈화문로 26 (단성사빌딩 3층)ㅣ 전화 : 02)123-4567 ㅣ 이메일 : hairshop@naver.com
-			</p>
-		</div>
-		<div class="copyright">
-			COPYRIGHTⓒHair Shop All rights reserved.
+	<div id="footer_div">
+		<div class="container">
+			<div class="f_text">
+					<a href="#">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
+			</div>
+			<div class="f_copy">
+				<p>
+					회사이름 : HairShop ㅣ 대표 : 최나윤 ㅣ 사업자등록번호 : 123-45-67890 ㅣ 주소 : 서울특별시 종로구 돈화문로 26 (단성사빌딩 3층)ㅣ 전화 : 02)123-4567 ㅣ 이메일 : hairshop@naver.com
+				</p>
+			</div>
+			<div class="copyright">
+				COPYRIGHTⓒHair Shop All rights reserved.
+			</div>
 		</div>
 	</div>
 </footer>

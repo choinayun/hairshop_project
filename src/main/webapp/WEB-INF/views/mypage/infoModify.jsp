@@ -112,23 +112,18 @@
 		    }else if(addr.length == 0){
 		        alert("주소를 입력해주세요");
 		        $("#addr").focus();
-		    }else{
-		    	fo.submit()
+		    }else {
+		    	fo.submit();
 		    }
-		}
+			}
 	</script>
 	
  	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 		
 		<div class="wrap">
-		
-			<div class="top">
-					<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-					<a href="${contextPath }/"><span>홈</span></a>
-			</div>
-			<br><br>
 			
+			<br><br>
 			<div id="modifyWrap">
 			<h1>회원 정보 수정</h1>
 			<br>
@@ -140,7 +135,7 @@
 					</tr>
 					<tr>
 						<td><input type="text" name="id" id="id" size="20"
-							value="${loginUser }" readonly></td>
+									value="${loginUser }" readonly></td>
 					</tr>
 					<tr>
 						<td>비밀번호<br></td>
@@ -154,11 +149,13 @@
 					</tr>
 					<tr>
 						<td><input type="password" name="new_pw2" id="pw2" size="20"
-							oninput="pwchk()"></td>
+								   oninput="pwchk()"></td>
 					</tr>
 					<tr>
-						<td colspan="2"><span class="pw_ok">비밀번호가 일치합니다.</span> <span
-							class="pw_no">비밀번호가 일치하지 않습니다.</span></td>
+						<td colspan="2">
+							<span class="pw_ok">비밀번호가 일치합니다.</span>
+							<span class="pw_no">비밀번호가 일치하지 않습니다.</span>
+						</td>
 					</tr>
 					<tr>
 						<td>이름<br></td>
@@ -179,7 +176,7 @@
 					</tr>
 					<tr>
 						<td><input type="text" name="addr" id="addr" size="20"
-							value="${dto.addr }" readonly="readonly">
+									value="${dto.addr }" readonly="readonly">
 							<button type="button" id="search" onclick="daumPost()">검색</button></td>
 					</tr>
 					<tr>

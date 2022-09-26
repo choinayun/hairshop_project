@@ -37,7 +37,7 @@
 			</tr>
 			<tr>
 				<th>별점</th>
-				<td>${dto.grade }</td>
+				<td><c:forEach begin="1" end="${dto.grade}">★</c:forEach></td>
 				<th>등록날짜</th>
 				<td>${dto.rDate }</td>
 			</tr>
@@ -49,7 +49,7 @@
 						<b>이미지가 없습니다</b>
 					</c:if>
 					<c:if test="${ dto.img != 'nan' }">
-						<img width="250px" height="200px"
+						<img width="250px" height="250px"
 							src="${contextPath}/review/download?img=${dto.img }">
 					</c:if>
 				</td>

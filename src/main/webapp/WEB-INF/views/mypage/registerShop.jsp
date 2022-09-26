@@ -44,11 +44,7 @@
 	<c:import url="../default/header.jsp"/> 
 		
 		<div class="wrap">
-		
-			<div class="top">
-					<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-					<a href="${contextPath }/"><span>홈</span></a>
-			</div>
+	
 			<br><br>
 			<div class="registerwrap">
 			<h1>입점 신청서 작성</h1>

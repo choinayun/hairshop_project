@@ -47,9 +47,36 @@
 		<result property="img4" column="img4"/>
 	</resultMap>
 	
-	<select id="reservationCheck" resultMap="reservation">
-		select * from reservation
+	<resultMap type="com.care.hair.likelist.dto.LikelistDTO" id="like_list">
+		<result property="sNum" column="s_num"/>
+		<result property="id" column="id"/>
+	</resultMap>
+	
+	<resultMap type="com.care.hair.shop.dto.ShopDTO" id="shop">
+		<id property="sNum" column="s_num"/>
+		<result property="sName" column="s_name"/>
+		<result property="sAddr" column="s_addr"/>
+		<result property="sPhone" column="s_phone"/>
+		<result property="grade" column="grade"/>
+		<result property="id" column="id"/>
+		<result property="img1" column="img1"/>
+		<result property="img2" column="img2"/>
+		<result property="img3" column="img3"/>
+		<result property="img4" column="img4"/>
+	</resultMap>
+	
+	<select id="booking" resultMap="reservation">
+		select * from reservation r inner join (select s_num from shop where id=#{id}) s 
+		on r.s_shop=s.s_num order by r.num DESC
 	</select>
+	
+	<update id="bookingModify">
+		update reservation set status=#{status} where num=#{num}
+	</update>
+	
+	<delete id="bookingDel">
+		delete from reservation where num=#{num}
+	</delete>
 	
 	<select id="notice" resultMap="notice">
 		select * from notice 
@@ -64,7 +91,7 @@
 	</delete>
 	
 	<select id="getUser" resultMap="member">
-		select * from member where id =#{id}
+		select * from member where id=#{id}
 	</select>
 	
 	<select id="history" resultMap="reservation">
@@ -79,5 +106,10 @@
 	<update id="modify">
 		update member set pw=#{pw}, name=#{name}, email=#{email}, addr=#{addr}, phone=#{phone} where id=#{id} 
 	</update>
+	
+	<select id="likeShop" resultMap="shop">
+		select l.s_num, l.id, s.s_name, s.s_addr, s.s_phone, s.grade, s.img1 
+		from like_list l left outer join shop s on l.s_num = s.s_num 
+	</select>
 
 </mapper>

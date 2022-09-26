@@ -72,7 +72,6 @@
 				</c:if>
 			</table>
 		</div>
-		<input type="button" value="리뷰작성" onclick="location.href='${contextPath }/review/reviewForm'">
 	</div>
 
 

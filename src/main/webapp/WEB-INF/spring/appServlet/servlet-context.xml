@@ -29,6 +29,13 @@
 		<interceptor>
 			<mapping path="/member/memberinfo"/>
 			<mapping path="/menu/infoChoice"/>
+			<mapping path="/mypage/infoModify"/>
+			<mapping path="/mypage/likeShop"/>
+			<mapping path="/mypage/history"/>
+			<mapping path="/mypage/reviewAllList"/>
+			<mapping path="/mypage/registerShop"/>
+			<mapping path="/mypage/delete"/>
+			<mapping path="/mypage/booking"/>
 			<beans:ref bean="LoginCheck"/>
 		</interceptor>
 	</interceptors>

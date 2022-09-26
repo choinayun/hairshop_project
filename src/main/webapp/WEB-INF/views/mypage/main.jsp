@@ -8,10 +8,8 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	* { margin: 0; }
 	.mypagewrap { width: 1000px; margin: auto; text-align: center; }
-	a { text-decoration: none; color: black; }
-	button{ 
+	.mypagewrap button{ 
 			width: 50%;
 			height:50px;
 			font-size:20px;
@@ -23,8 +21,8 @@
 		 	background-color: white;
 		    color: black;
 		    border: 1px solid #e7e7e7; }
-	button:hover { background-color: #e7e7e7; }
-	
+	.mypagewrap button:hover { background-color: #e7e7e7; }
+	.mypagewrap button { margin-bottom: 20px; padding: 10px; cursor: pointer; }
 </style>
 
 </head>
@@ -40,18 +38,20 @@
 		</script>
 	</c:if> 
 	
-	<c:if test="${loginUser != null }" > </c:if>
-	<br><br>
+	<br><br> 
 	
 		<div class="mypagewrap">
-			<button type="button"><a href="${contextPath }/mypage/infoModify?id=${loginUser}">회원정보 수정</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/likeShop">관심 매장</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/history">이용 내역</a></button><br><br>
-			<button type="button"><a href="${contextPath }/review/reviewAllList">리뷰 목록</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/notice">공지사항</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/registerShop">입점 신청</a></button><br><br>
-			<button type="button"><a href="${contextPath }/mypage/secession">회원 탈퇴</a></button><br><br>
+			<button type="button" onclick="location.href='${contextPath }/mypage/infoModify?id=${loginUser }'">회원정보 수정</button>
+			<button type="button" onclick="location.href='${contextPath }/mypage/likeShop'">관심 매장</button>
+			<button type="button" onclick="location.href='${contextPath }/mypage/history'">이용 내역</button>
+			<button type="button" onclick="location.href='${contextPath }/review/reviewAllList'">리뷰 목록</button>
+			<button type="button" onclick="location.href='${contextPath }/mypage/notice'">공지사항</button>
+			<button type="button" onclick="location.href='${contextPath }/mypage/registerShop'">입점 신청</button>
+			<button type="button" onclick="location.href='${contextPath }/mypage/secession'">회원 탈퇴</button>
+			<c:if test="${dto.position != 0}">
+				<button type="button" onclick="location.href='${contextPath }/mypage/booking?id=${loginUser }'">매장 관리</button>	
+			</c:if>
 		</div>
-
+	 <c:import url="../default/footer.jsp"/>
 </body>
 </html>

@@ -20,5 +20,4 @@ public interface MemberService {
 	public void memberinfo(Model model);
 	public void del(String id);
 	public void Pmodify(String id,int position);
-	
 }

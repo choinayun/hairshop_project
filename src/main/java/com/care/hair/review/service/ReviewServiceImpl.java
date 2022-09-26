@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.care.hair.mybatis.reservation.ReservationMapper;
 import com.care.hair.mybatis.review.ReviewMapper;
 import com.care.hair.mybatis.shop.ShopMapper;
+import com.care.hair.reservation.dto.ReservationDTO;
 import com.care.hair.review.dto.ReviewDTO;
 
 @Service
@@ -122,7 +123,14 @@ public class ReviewServiceImpl implements ReviewService{
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void reviewForm(Model model, int num) {
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	// 성근이 작업 
 	@Override

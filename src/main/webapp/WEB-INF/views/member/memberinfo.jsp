@@ -125,7 +125,7 @@ button:hover {
 				<c:if test="${dto.id.equals('admin')}">
 				<td hidden=""><button type="button" onclick="func('${dto.id}')">변경</button></td>
 				</c:if>
-				
+		
 				
 				<c:if test="${!dto.id.equals('admin')}">
 				<td><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
