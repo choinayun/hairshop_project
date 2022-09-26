@@ -22,7 +22,7 @@ footer {
 
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
 
-.ht { height: 100%; }
+.ht { height: 100%; margin: 0 auto; }
 
 .copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; }
 
@@ -35,7 +35,6 @@ footer {
 
 #wrap {
 	min-height: 100%;
-	position: relative;
 	padding-bottom: 60px;
 }
 </style>

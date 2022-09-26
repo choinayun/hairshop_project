@@ -3,7 +3,6 @@ package com.care.hair.shop.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,17 +77,13 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public Map<Integer, Object> shopList() {
-		Map<Integer, Object> map = new HashMap<Integer, Object>();
+	public void getHomeImg(Model model) {
 		try {
-			List<ShopDTO> list = mapper.shopList();
-			for(int i = 0; i < list.size(); i++) {
-				map.put(list.get(i).getsNum(), list.get(i).getsName());
-			}
+			model.addAttribute("gradeImg", mapper.getGradeImg());
+			model.addAttribute("reviewImg", mapper.getReviewImg());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return map;
 	}
 
 }

@@ -54,7 +54,7 @@
 							<a href="${contextPath }/review/contentView?num=${dto.num }">${dto.num }</a>
 						</td>
 						<td>${dto.id }</td>						
-						<td>${dto.sNum }</td>						
+						<td>${dto.sName }</td>						
 						<td>${dto.info }</td>						
 						<td><c:forEach begin="1" end="${dto.grade}">★</c:forEach></td>						
 						<td>${dto.rDate }</td>										

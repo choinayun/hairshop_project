@@ -29,9 +29,4 @@ public class ShopRestController {
 		return ss.getShopSearch(word.toUpperCase());
 	}
 	
-	@GetMapping(value = "shopList", produces = "application/json; charset=utf-8")
-	public Map<Integer, Object> getShopList() {
-		return ss.shopList();
-	}
-	
 }

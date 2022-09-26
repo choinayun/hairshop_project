@@ -11,7 +11,14 @@ public class ShopDTO {
 	private String img2;
 	private String img3;
 	private String img4;
+	private int cnt;
 	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public String getsName() {
 		return sName;
 	}

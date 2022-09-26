@@ -14,6 +14,7 @@
 		<result property="price" column="price"/>
 		<result property="sShop" column="s_shop"/>
 		<result property="rTime" column="r_time"/>
+		<result property="sName" column="s_name"/>
 	</resultMap>
 	
 	<resultMap type="com.care.hair.notice.dto.NoticeDTO" id="notice">
@@ -94,7 +95,7 @@
 	</select>
 	
 	<select id="history" resultMap="reservation">
-		select * from reservation order by num desc
+		select r.num, s.s_name, r.info, r.r_date, r.status, r.s_shop from reservation r inner join shop s on r.s_shop=s.s_num order by num desc
 	</select>
 	
 	<insert id="registerSave">

@@ -56,11 +56,6 @@ public class MypageServiceImpl implements MypageService {
 		MultipartFile file3 = mul.getFile("img3");
 		MultipartFile file4 = mul.getFile("img4");
 		
-		System.out.println("file.getSize() >>>" + file1.getSize());
-		System.out.println("rfs >>>" + rfs);
-		System.out.println("mul.getFile(\"img1\")" + mul.getFile("img2").getSize() + "\t>>>" + mul.getFile("img2").getName());
-		System.out.println("mul.getFile(\"img3\")" + mul.getFile("img3").getSize() + "\t>>>" + mul.getFile("img3").getName());
-
 		if(file1.getSize() != 0 ) {
 			dto.setImg1( rfs.saveFile(file1));
 		}else {
@@ -105,9 +100,11 @@ public class MypageServiceImpl implements MypageService {
 	
 	// 회원정보 수정 (저장된 정보 불러오기) 
 	public void infoModify(String id, Model model) {
-		
-		MemberDTO dto = mmapper.getUser(id);
-		model.addAttribute("dto", dto);
+		try {
+			model.addAttribute("dto", mmapper.getUser(id));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 회원정보 수정 저장하기 

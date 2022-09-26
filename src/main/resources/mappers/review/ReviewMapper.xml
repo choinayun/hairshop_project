@@ -12,11 +12,12 @@
 		<result property="grade" column="grade"/>
 		<result property="info" column="info"/>
 		<result property="img" column="img"/>
+		<result property="sName" column="s_name"/>
 	</resultMap>
 	
 	<select id="reviewAllList" resultMap="review">
 		select B.* from(select rownum rn, A.* from
-		(select * from review order by num desc)A)B where rn between #{s} and #{e}		
+		(select * from review r inner join shop s on r.s_num=s.s_num order by num desc)A)B where rn between #{s} and #{e}		
 	</select>
 
 	<insert id="reviewSave">

@@ -12,4 +12,6 @@ public interface ShopMapper {
 	public ArrayList<ShopDTO> getShopSearch(String word);
 	public ShopDTO getShopInfo(int sNum);
 	public List<ShopDTO> shopList();
+	public List<ShopDTO> getGradeImg();
+	public List<ShopDTO> getReviewImg();
 }
