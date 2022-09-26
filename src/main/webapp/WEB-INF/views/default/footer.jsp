@@ -2,44 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html class="ht">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-footer {
-	position: relative;
-	bottom: 0px;
-	color: rgb(0, 0, 0, 0.7);
-	text-align: center;
-	margin: 0 auto;
-	width: 1000px;
-	font-size: 7pt;
-	z-index: 2;
-	bottom: 0;
-	padding: 10px 10px 0 10px;
-}
-
+footer { 
+	margin: 0 auto; margin-top: 100px;
+	color: rgb(0, 0, 0, 0.7); text-align: center;  
+	font-size: 7pt; padding: 10px 10px 0 10px; }
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
-
-.ht { height: 100%; margin: 0 auto; }
-
 .copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; }
-
-.topBtn {
-	position: fixed;
-	bottom: 130px;
-	right: 20px;
-	z-index: 3
-}
-
-#wrap {
-	min-height: 100%;
-	padding-bottom: 60px;
-}
+.topBtn { position: fixed; bottom: 130px; right: 20px; z-index: 3 }
 </style>
 </head>
-<body class="ht">
+<body>
 <c:set var="contextPath" value="${ pageContext.request.contextPath}"/>
 <footer>
 	<div class="container">

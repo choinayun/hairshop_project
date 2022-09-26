@@ -44,6 +44,7 @@
 		url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
 		dataType: "json",
 		success: function(data) {
+			var index = 0
 			for(var i = 0; i < data.length; i++){
 				if(index == 6) {
 					return
@@ -84,19 +85,18 @@
 			}
 		})
 	}
-	
-	var index = 0
+	var imgIndex = 0;
 	var img = ["${shopInfo.img1}", "${shopInfo.img2}", "${shopInfo.img3}", "${shopInfo.img4}"]
 	function arrow_left_click(){
-		if(index > 0 && img[index - 1] != 'nan'){
-			index--
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex > 0 && img[imgIndex - 1] != 'nan'){
+			imgIndex--
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 	function arrow_right_click(){
-		if(index < 3 && img[index + 1] != 'nan'){
-			index++
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex < 3 && img[imgIndex + 1] != 'nan'){
+			imgIndex++
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 </script>
