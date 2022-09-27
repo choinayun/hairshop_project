@@ -168,13 +168,13 @@ function userchk() {
     var addr = $("#addr").val();
    
     if(id.length == 0){
-        alert("아이디를 입력해 주세요"); 
+        alert("아이디를 입력해주세요"); 
         $("#id").focus();
         return false;
     }
     
     if(pw.length == 0){
-        alert("비밀번호를 입력해 주세요"); 
+        alert("비밀번호를 입력해주세요"); 
         $("#pw").focus();
         return false;
     

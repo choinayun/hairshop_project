@@ -15,11 +15,13 @@
 }
   table {
     width: 100%;
-    border: 1px solid #A6A6A6;
+    border-top: 1px solid #A6A6A6;
+    border-bottom: 1px solid #A6A6A6;
     border-collapse: collapse;
   }
   th, td {
-    border: 1px solid #A6A6A6;
+  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+  	border-right: 1px solid rgb(0, 0, 0, 0.4);
     text-align: center;
   }
 </style>
@@ -46,16 +48,15 @@ button:hover {
   background-color: #e7e7e7;
 
 }
+.del_td { border-right: none; }
 </style>
 </head>
 <body>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
-	<h3 style="text-align: left;">매장 리스트</h3>
-	<br>
 	
 	<br>
-	<table border="1" style="margin: auto;">
+	<table style="margin: auto;">
 			<tr>
 				<th>매장 아이디</th>
 				<th>매장 이름</th>
@@ -63,7 +64,7 @@ button:hover {
 				<th>매장 번호</th>
 				
 				<th>수정</th>
-				<th>삭제</th>
+				<th class="del_td">삭제</th>
 			</tr>
 			<c:forEach var="dto" items="${list}">
 			<tr>
@@ -73,7 +74,7 @@ button:hover {
 				<td>${dto.sPhone}</td>
 				
 				<td><button type="button"onclick="location.href='${contextPath }/admin/modifyshop?sNum=${dto.sNum}'">수정</button></td>
-				<td><button type="button"onclick="location.href='${contextPath }/admin/deleteshop?sNum=${dto.sNum}'">삭제</button></td>
+				<td class="del_td"><button type="button"onclick="location.href='${contextPath }/admin/deleteshop?sNum=${dto.sNum}'">삭제</button></td>
 			</tr>
 			</c:forEach>
 		</table>

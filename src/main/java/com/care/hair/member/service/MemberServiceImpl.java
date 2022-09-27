@@ -163,4 +163,9 @@ public class MemberServiceImpl implements MemberService {
 		mapper.Pmodify(dto);
 	}
 	
+		
+			
+	
+	
+	
 }

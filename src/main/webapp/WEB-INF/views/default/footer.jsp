@@ -45,11 +45,11 @@ footer {
 <footer>
 	<div class="container">
 		<div class="f_text">
-<<<<<<< HEAD
-				<a class="a" href="member/memberQ&A">문의사항</a> ● <a class="a" href="#">공지사항</a> ● <a class="a" href="${contextPath}/hairshop_policy">이용약관</a> ● <a class="a" href="#">개인정보처리방침</a>
-=======
-				<a href="#">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
->>>>>>> 6ed848bc7d21165b501d5baf3e2c0fe8f93ba8df
+
+				
+
+				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
+
 		</div>
 		<div class="f_copy">
 			<p>

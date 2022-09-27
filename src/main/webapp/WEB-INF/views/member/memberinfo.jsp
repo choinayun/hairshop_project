@@ -65,7 +65,8 @@ button:hover {
 			value="${ pageContext.request.contextPath}"/>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
-	<h3 style="margin:auto;text-align: left;">회원 정보 보기 및 탈퇴</h3>
+	<img src="${contextPath }/resources/images/member.png" style="margin-left: 100px;height: 80px;"></img>
+	<!--  <h3 style="margin:auto;text-align: left;">회원 정보 보기 및 탈퇴</h3>-->
 	<br><br>
 	<table border="1" style="margin:auto; text-align: left ;">
 			<tr>
