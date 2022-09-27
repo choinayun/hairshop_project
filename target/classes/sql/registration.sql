@@ -15,3 +15,7 @@ CREATE TABLE registration
 ALTER TABLE registration
     ADD CONSTRAINT FK_registration_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+
+CREATE SEQUENCE registration_SEQ
+START WITH 1 
+INCREMENT BY 1;       

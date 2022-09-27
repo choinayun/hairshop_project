@@ -23,4 +23,7 @@ public interface MemberMapper {
 	public void Pmodify(MemberDTO dto);
 	public String getPhone(String id);
 	public String getName(String id);
+	
+	public MemberDTO bookingCheck(String id);
+	
 }

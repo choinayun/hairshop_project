@@ -22,4 +22,8 @@ public interface ReservationMapper {
 	
 	
 	
+	public void Bmodify(ReservationDTO dto);
+	
+	public ReservationDTO getReservation(int num);
+	public void statusUpdate(@Param("num") int num, @Param("result") int result);
 }

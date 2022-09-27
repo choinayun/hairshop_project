@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.hair.mybatis.qna.QnaMapper">
+	<resultMap type="com.care.hair.qna.dto.QnaDTO" id="qna">
+	
+		<id property="num" column="num"/>
+		<result property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="img" column="img"/>
+		<result property="qDate" column="q_date"/>
+		<result property="groupNum" column="group_num"/>
+		
+	</resultMap>
+
+	<insert id="qnaSave">
+		insert into qna(num, id, title, content, img, group_num)
+			values((select nvl(max(num)+1,1) from qna), #{id}, #{title}, #{content}, #{img}, #{num})
+	</insert>
+	<select id="list" resultMap="qna">
+		select * from qna order by q_date desc
+	</select>
+	<select id="contentView" resultMap="qna">
+		select * from qna where num=#{num}
+	</select>
+	
+	<insert id="replySave">
+		insert into qna(id, title, content, num, group_num) values(#{id}, 'nan', #{content}, (select nvl(max(num)+1,1) from qna), #{groupNum})
+	</insert>
+	
+	<select id="replyView" resultMap="qna">
+		select * from qna where group_num=#{num}
+	</select>
+
+</mapper>

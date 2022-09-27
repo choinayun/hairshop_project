@@ -11,6 +11,9 @@
 <script type="text/javascript">
 	function infoLoad() {
 		
+		$(".nav_btn").css({ borderBottom: '1px solid rgb(0, 0, 0, 0.2)' })
+		$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
+		
 		var grade = ${shopInfo.grade}
 		var index = 0	
 		$("#header_area").css({ paddingTop: '0' })
@@ -41,6 +44,7 @@
 		url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
 		dataType: "json",
 		success: function(data) {
+			var index = 0
 			for(var i = 0; i < data.length; i++){
 				if(index == 6) {
 					return
@@ -81,19 +85,18 @@
 			}
 		})
 	}
-	
-	var index = 0
+	var imgIndex = 0;
 	var img = ["${shopInfo.img1}", "${shopInfo.img2}", "${shopInfo.img3}", "${shopInfo.img4}"]
 	function arrow_left_click(){
-		if(index > 0 && img[index - 1] != 'nan'){
-			index--
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex > 0 && img[imgIndex - 1] != 'nan'){
+			imgIndex--
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 	function arrow_right_click(){
-		if(index < 3 && img[index + 1] != 'nan'){
-			index++
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex < 3 && img[imgIndex + 1] != 'nan'){
+			imgIndex++
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 </script>
@@ -107,7 +110,7 @@
 		-webkit-user-select: none;
 		user-select: none; 
 	}
-	#shop_img_area { height: 300px; }
+	#shop_img_area { height: 300px; overflow: hidden; }
 	#shop_info_area { width: 700px; margin: auto; }
 	#shop_info { text-align: left; margin-top: 20px; }
 	#shop_info div { margin-bottom: 20px; }
@@ -133,7 +136,7 @@
 		margin: auto; height: 800px; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
 		text-align: left;
-		margin-bottom: 100px;
+		margin-bottom: 500px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }
@@ -144,13 +147,14 @@
 		display: inline-block; background-color: rgb(140, 140, 140, 0.6); height: 80px;  
 	}
 	#shop_img_area b { opacity: 0.9; }
-	.arrow_btn_left { position: relative; top: -65%; left: -44.5%; }
-	.arrow_btn_right { position: relative; top: -65%; left: 44.5%; }
+	.arrow_btn_left { position: relative; top: -65%; left: -45%; }
+	.arrow_btn_right { position: relative; top: -65%; left: 45%; }
 	.star { width: 80px; }
 	.star,.star span { 
 			display:inline-block; height:16px; 
 			overflow: hidden; background: url(${path}/resources/images/star.png)no-repeat; }
 	.star span{ background-position:left bottom;  line-height:0; vertical-align:top; width: 0%; }
+	
 </style>
 </head>
 <body onload="infoLoad()">

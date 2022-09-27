@@ -6,9 +6,13 @@ CREATE TABLE QnA
     img        VARCHAR2(100)    default('nan'), 
     q_date       DATE                default(sysdate), 
     num        NUMBER           NOT NULL, 
-     PRIMARY KEY (num)
+    PRIMARY KEY (num)
 );
 
 ALTER TABLE QnA
     ADD CONSTRAINT FK_QnA_id_member_id FOREIGN KEY (id)
         REFERENCES member (id) ON DELETE CASCADE;
+
+create SEQUENCE qna_SEQ
+START WITH 1 
+INCREMENT BY 1; 

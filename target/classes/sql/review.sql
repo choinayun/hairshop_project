@@ -18,3 +18,8 @@ ALTER TABLE review
 ALTER TABLE review
     ADD CONSTRAINT FK_review_s_num_shop_s_num FOREIGN KEY (s_num)
         REFERENCES shop (s_num) ON DELETE CASCADE;
+
+CREATE SEQUENCE review_SEQ
+START WITH 1 
+INCREMENT BY 1;         
+

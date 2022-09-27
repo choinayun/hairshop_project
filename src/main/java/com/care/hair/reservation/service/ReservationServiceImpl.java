@@ -1,6 +1,5 @@
 package com.care.hair.reservation.service;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +10,7 @@ import org.springframework.ui.Model;
 import com.care.hair.member.dto.MemberDTO;
 import com.care.hair.mybatis.member.MemberMapper;
 import com.care.hair.mybatis.reservation.ReservationMapper;
+
 import com.care.hair.mybatis.shop.ShopMapper;
 import com.care.hair.reservation.dto.ReservationDTO;
 import com.care.hair.shop.dto.ShopDTO;
@@ -76,6 +76,5 @@ public class ReservationServiceImpl
 		MemberDTO dto = memberMapper.getUser(id);
 		model.addAttribute("getemail", dto);
 	}
-
 
 }

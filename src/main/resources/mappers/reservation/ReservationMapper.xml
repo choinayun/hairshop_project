@@ -5,7 +5,6 @@
 <mapper namespace="com.care.hair.mybatis.reservation.ReservationMapper">
 <resultMap type="com.care.hair.reservation.dto.ReservationDTO" 
 											id="reservation">
-											
 	<id property="num" column="num"/>
 	<result property="id" column="id"/>
 	<result property="name" column="name"/>
@@ -15,7 +14,6 @@
 	<result property="price" column="price"/>
 	<result property="sShop" column="s_shop"/>
 	<result property="rTime" column="r_time"/>
-	
 </resultMap>
 
 	<resultMap type="com.care.hair.menu.dto.MenuDTO" id="menu" >
@@ -45,5 +43,16 @@
 	select * from menu where m_num = #{mNum}
 </select>
 
+<update id="Bmodify">
+    update reservation set status=#{status} where num=#{num}
+</update>
+
+<select id="getReservation" resultMap="reservation">
+	select * from reservation where num=#{num}
+</select>
+
+<update id="statusUpdate">
+	update reservation set status=#{result} where num=#{num}
+</update>
 
 </mapper>

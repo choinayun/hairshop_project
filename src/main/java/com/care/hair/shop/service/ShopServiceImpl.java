@@ -1,6 +1,8 @@
 package com.care.hair.shop.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,7 +75,15 @@ public class ShopServiceImpl implements ShopService {
 		}
 		return null;
 	}
-	
-	
+
+	@Override
+	public void getHomeImg(Model model) {
+		try {
+			model.addAttribute("gradeImg", mapper.getGradeImg());
+			model.addAttribute("reviewImg", mapper.getReviewImg());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

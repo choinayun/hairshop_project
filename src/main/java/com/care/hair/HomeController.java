@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,11 +18,16 @@ import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
 
+import com.care.hair.shop.service.ShopService;
+
 @Controller
 public class HomeController {
 
+	@Autowired ShopService ss;
+	
 	@RequestMapping("/")
-	public String home() {
+	public String home(Model model) {
+		ss.getHomeImg(model);
 		return "home";
 	}
 	private IamportClient api;

@@ -14,6 +14,7 @@
 		<result property="img2" column="img2"/>
 		<result property="img3" column="img3"/>
 		<result property="img4" column="img4"/>
+		<result property="cnt" column="cnt"/>
 	</resultMap>
 
 	<delete id="shopDelete">
@@ -36,6 +37,14 @@
 	
 	<select id="getShopSearch" resultMap="shop">
 		select * from shop where s_name like '%' || #{word} ||'%'
+	</select>
+	
+	<select id="getGradeImg" resultMap="shop">
+		select rownum, tab.* from (select * from shop s inner join (select s_num, count(s_num) cnt from review group by s_num) r on s.s_num=r.s_num order by grade desc) tab where rownum &lt;= 4
+	</select>
+	
+	<select id="getReviewImg" resultMap="shop">
+		select rownum rnum, r_table.cnt, s_table.s_name, s_table.s_addr, s_table.grade, s_table.img1 from (select count(r.num) cnt, r.s_num from review r group by s_num order by cnt desc) r_table inner join shop s_table on r_table.s_num=s_table.s_num where rownum &lt;= 4
 	</select>
 	
 </mapper>
