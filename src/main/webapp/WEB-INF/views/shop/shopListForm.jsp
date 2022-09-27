@@ -105,7 +105,7 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function addrUpdate() {
-		if(${loginUser} != null) {
+		if(${loginUser != null}) {
 		    new daum.Postcode({
 		        oncomplete: function(data) {
 		        	var address = ""

@@ -7,10 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+</style>
 </head>
 <body>
 <c:import url="default/header.jsp"/>
 <div id="wrap">
+
+<p align="middle"><video width="700px" controls="controls" poster="${path}/resources/images/chahong1.png"  src="${path}/resources/video/chahong1.mp4"></video> </p>
+
 
 </div>
 <c:import url="default/footer.jsp"/>
