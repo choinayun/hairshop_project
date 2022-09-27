@@ -44,6 +44,7 @@
 		url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
 		dataType: "json",
 		success: function(data) {
+			var index = 0
 			for(var i = 0; i < data.length; i++){
 				if(index == 6) {
 					return
@@ -84,19 +85,18 @@
 			}
 		})
 	}
-	
-	var index = 0
+	var imgIndex = 0;
 	var img = ["${shopInfo.img1}", "${shopInfo.img2}", "${shopInfo.img3}", "${shopInfo.img4}"]
 	function arrow_left_click(){
-		if(index > 0 && img[index - 1] != 'nan'){
-			index--
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex > 0 && img[imgIndex - 1] != 'nan'){
+			imgIndex--
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 	function arrow_right_click(){
-		if(index < 3 && img[index + 1] != 'nan'){
-			index++
-			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[index])
+		if(imgIndex < 3 && img[imgIndex + 1] != 'nan'){
+			imgIndex++
+			$(".img_slide").attr("src", "${path}/shop/download?fileName=" + img[imgIndex])
 		}
 	}
 </script>
@@ -136,7 +136,7 @@
 		margin: auto; height: 800px; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
 		text-align: left;
-		margin-bottom: 100px;
+		margin-bottom: 500px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }
@@ -154,6 +154,7 @@
 			display:inline-block; height:16px; 
 			overflow: hidden; background: url(${path}/resources/images/star.png)no-repeat; }
 	.star span{ background-position:left bottom;  line-height:0; vertical-align:top; width: 0%; }
+	
 </style>
 </head>
 <body onload="infoLoad()">

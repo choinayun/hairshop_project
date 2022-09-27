@@ -1,6 +1,7 @@
 package com.care.hair.shop.controller;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,4 +28,5 @@ public class ShopRestController {
 	public ArrayList<ShopDTO> getShopSearch(@RequestParam String word){
 		return ss.getShopSearch(word.toUpperCase());
 	}
+	
 }

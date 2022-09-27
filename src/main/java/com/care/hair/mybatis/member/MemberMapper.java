@@ -21,5 +21,6 @@ public interface MemberMapper {
 	public void del(String id);
 	public void shopChange(String id);
 	public void Pmodify(MemberDTO dto);
+	public MemberDTO bookingCheck(String id);
 	
 }

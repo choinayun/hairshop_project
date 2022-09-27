@@ -6,5 +6,4 @@ public interface ReservationService {
 
 	public void menuSave(int mNum, Model model);
 	
-	public void reservDate(String r_date);
 }

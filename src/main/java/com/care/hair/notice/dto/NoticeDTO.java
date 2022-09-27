@@ -1,9 +1,13 @@
 package com.care.hair.notice.dto;
 
+import java.sql.Timestamp;
+
 public class NoticeDTO {
 	
 	private String title,content,img;
-	private int num,nDate;
+	private int num; 
+	private Timestamp nDate;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -28,15 +32,11 @@ public class NoticeDTO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getnDate() {
+	public Timestamp getnDate() {
 		return nDate;
 	}
-	public void setnDate(int nDate) {
+	public void setnDate(Timestamp nDate) {
 		this.nDate = nDate;
 	}
 	
-	
-	    
-	
-
 }

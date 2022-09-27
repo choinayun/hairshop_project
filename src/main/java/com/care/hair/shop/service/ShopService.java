@@ -12,4 +12,5 @@ public interface ShopService {
 	public ArrayList<ShopDTO> getShopSearch(String word);
 	public void getShopInfo(int sNum, Model model, String id);
 	public void saveWord(String word, Model model, String id);
+	public void getHomeImg(Model model);
 }

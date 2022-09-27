@@ -6,11 +6,17 @@ import com.care.hair.menu.dto.MenuDTO;
 
 public class ReservationDTO {
 	
-	private String id,name,info,rDate,price,rTime;
+	private String id,name,info,rDate,price,rTime,sName;
 	private int status,sShop,num;
 	
 	private MenuDTO menu;
 	
+	public String getsName() {
+		return sName;
+	}
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
 	public String getId() {
 		return id;
 	}

@@ -4,15 +4,17 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class ReviewDTO {
-	private Timestamp rDate;
-	private String content;
-	private String id;
-	private int num;
-	private int sNum;
-	private String img;
-	private float grade;
-	private String info;
 	
+	private Timestamp rDate;
+	private String content, id, img, info, sName;
+	private int num, sNum, grade;
+	
+	public String getsName() {
+		return sName;
+	}
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
 	public String getrDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(rDate);
@@ -50,7 +52,7 @@ public class ReviewDTO {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public float getGrade() {
+	public int getGrade() {
 		return grade;
 	}
 	public void setGrade(int grade) {

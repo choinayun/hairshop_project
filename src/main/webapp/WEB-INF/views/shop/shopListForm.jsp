@@ -29,7 +29,6 @@
 				url: "${path}/shop/getShopList?result=${result}", type: "get",
 				dataType: "json",
 				success: function(data) {
-					console.log(data)
 					arr = data
 					distance()
 				},error: function(){
