@@ -8,15 +8,14 @@
 <title>예약</title>
 <style type="text/css">
 	body{
-	 height: 800px;
+	 margin: 0 auto; text-align: center;
 	}
     .swiper-container {
       width: 100%;
-      margin-top: 250px;
+      margin-top: 20px;
       
     }
     .swiper-slide {
-    
       text-align: left;
       font-size: 18px;
       background: #fff;
@@ -32,6 +31,7 @@
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      
     }
 
 .swiper-container-vertical>.swiper-pagination-bullets{
@@ -45,24 +45,10 @@
   display : inline-block !important;
   margin: 6px 2px !important;
 }
-.infoList{
-  position: absolute;
-  width: 800px;
-  top:250px;
-  z-index:2;
-  display: flex;
-  background-color: white;
-  left: 250px;
-}
-.me{
-  color:black;
-  width: 10%;
-  cursor:pointer;
-  list-style: none;
-}
+
 .selectMenu { 
 	height:800px;
-	width: 90%;
+	width: 100%;
 	position: left;
 	margin-left:10px; 
  }
@@ -89,24 +75,40 @@
  .bottomvar{
  	display: flex;
  }
+#menuNav { width: 800px; margin: 0 auto; text-align: center;  }
+#menuNav ul { padding: 0; margin-right: 0; list-style: none; display: flex;  }
+#menuNav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 12pt; cursor: pointer;  }
+hr { 
+	width: 800px;
+	border: 1px solid #EAEAEA;
+	margin: 0 auto;
+	
+}
+p{ width: 800px;  margin: 0 auto; text-align:left; font-size: 14pt; font-weight: bold; margin-top: 10px; }
+label{
+	cursor: pointer;
+	height: 60px;
+}
 </style>
 </head>
 <body>
-<c:import url="../default/header.jsp" />
+<!--   <c:import url="../default/header.jsp" /> -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
-<div>
-<ul class="infoList">
-  <li class="me">컷</li>
-  <li class="me">펌</li>
-  <li class="me">염색</li>
-  <li class="me">클리닉</li>
-  <li class="me">스타일링</li>
+<div id="menuNav">
+<ul >
+  <li >컷</li>
+  <li >펌</li>
+  <li >염색</li>
+  <li >클리닉</li>
+  <li >스타일링</li>
 </ul>
 </div>
+<p>메뉴</p>
+<hr>
 <!-- swiper슬라이더 메인컨테이너 -->
 
 <div class="selectMenu" >
@@ -118,46 +120,56 @@
     <div class="swiper-slide">
     	
     		<c:forEach var="dto" begin="0" end="3" items="${mInfo }">
+    		<label for="cut">
   				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-  				<label for="cut">
+  				
   						${dto.info } <br>
   				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+  				<hr>
     		</label>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
+    <label for="perm">
     			<input type="radio" id="cut" name="num" value="${dto.mNum}" onclick="func('${dto.price}')">
-    			<label for="cut">
+    			
   						${dto.info } <br>
   						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+  						<hr>
   						</label>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
+    <label for="color">
     				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				<label for="cut">
+    				
   						${dto.info } <br>
   						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+  						<hr>
   						</label>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
+    <label for="clinc">
     				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				<label for="cut">
+    				
   						${dto.info } <br>
   						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+  						<hr>
   						</label>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="20" end="21" items="${mInfo }">
+    <label for="styling">
     			<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    			<label for="cut">
+    			
   						${dto.info } <br>
   						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+  						<hr>
   						</label>
     		</c:forEach>
     </div>
