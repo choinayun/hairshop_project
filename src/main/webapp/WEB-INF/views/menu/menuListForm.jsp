@@ -14,7 +14,7 @@
 		padding-top: 20px; padding-bottom: 20px;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
 	}
-	#menu_list { margin: auto; margin-top: 30px; height: 1000px; width: 600px; }
+	#menu_list { margin: auto; margin-top: 30px; height: 1000px; width: 800px; }
 	.menu_info { 
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1); font-size: 18pt; 
 		text-align: left; padding: 10px; cursor: pointer; 

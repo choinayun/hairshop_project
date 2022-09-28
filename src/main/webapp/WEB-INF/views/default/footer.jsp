@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-body { margin: 0 auto; }
-footer { background-color: rgb(189, 189, 189, 0.2); }	
-#footer_div { 
-	margin: 0 auto; margin-top: 100px; width: 1000px;
+body { margin: 0; }
+footer { 
+	background-color: rgb(189, 189, 189, 0.2); 
 	color: rgb(0, 0, 0, 0.7); text-align: center;  
-	font-size: 7pt; padding: 10px 10px 0 10px; }
+	font-size: 7pt; padding: 10px 10px 0 10px; margin-top: 100px;
+}	
+#footer_div { margin: 0 auto; width: 1000px; }
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
 .copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; }
 .topBtn { position: fixed; bottom: 130px; right: 20px; z-index: 3 }

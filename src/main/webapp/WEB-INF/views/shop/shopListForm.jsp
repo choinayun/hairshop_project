@@ -11,6 +11,20 @@
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe7ed52025268bb4958928de839fbbf4&libraries=services"></script>
 <script type="text/javascript">
 	
+	function init(){
+		$(".align_select_set").css({ fontWeight: 'normal' })
+		if(${result == 1}){
+			$(".align_btn1").css({ fontWeight: 'bold' })
+		}else if(${result == 2}) {
+			$(".align_btn2").css({ fontWeight: 'bold' })
+		}else if(${result == 3}) {
+			$(".align_btn3").css({ fontWeight: 'bold' })
+		}else if(${result == 4}) {
+			$(".align_btn4").css({ fontWeight: 'bold' })
+		}else {
+			$(".align_btn0").css({ fontWeight: 'bold' })
+		}
+	}
    	var memberLoc, shopLoc 
    	
    	// 주소-좌표 변환 객체를 생성합니다
@@ -131,14 +145,14 @@
 </script>
 
 <style type="text/css">
-	#wrap { margin: auto; width: 600px; text-align: center; }
-	.img_img { width: 600px; height: 250px; margin-bottom: 10px; border-radius: 3px; }
+	#wrap { margin: auto; width: 800px; text-align: center; margin-top: 50px; }
+	.img_img { width: 800px; height: 350px; margin-bottom: 10px; border-radius: 3px; }
 	strong { color: black; }
 	dd { display: inline-block; margin-left: 2px; color: black; }
 	dt { display: inline-block; color: black; }
 	dl { display: inline-block; margin: 0px; color: black; }
 	.star { color: #F2CB61; }
-	.info_area { width: 600px; text-align: left; margin: auto; }
+	.info_area { width: 800px; text-align: left; margin: auto; }
 	.shop { padding-top: 50px; padding-bottom: 30px; border-bottom: 1px solid rgb(0, 0, 0, 0.1); }
 	a { text-decoration: none; }
 	.address_area { text-align: left; }
@@ -153,9 +167,9 @@
 	#shop_list { width:100%; height: 100%; }
 	#align_select_wrap { visibility: hidden; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgb(0, 0, 0, 0.4); z-index: 9; }
 	#addr_flex { display: flex; padding-top: 20px; padding-bottom: 20px; }
-	#search { margin-left: auto; }
-	#search input { width: 250px; height: 40px; border-radius: 10px; font-size: 12pt; }
-	.search_icon { position: absolute; top: 23px; right: 0; }
+	#search { position: relative; margin-left: auto; }
+	#search input { width: 350px; height: 40px; border-radius: 10px; font-size: 13pt; }
+	.search_icon { position: absolute; top: 5px; right: 0; }
 	.alignment { text-align: left; margin-top: 30px; margin-bottom: -40px; }
 	.alignment input { 
 		width: 80px; height: 40px; border-radius: 8px; cursor: pointer;
@@ -163,7 +177,7 @@
 	}
 </style>
 </head>
-<body>
+<body onload="init()">
 <c:import url="../default/header.jsp"/>
 <div id="wrap">
 	<div id="addr_flex">
@@ -174,7 +188,8 @@
 			</div>
 		</div>
 		<div id="search">
-			<input type="text" id="word" placeholder="내주변 매장 이름 검색" onkeyup="search_btn()"><img src="${path}/resources/images/search.png" width="40px" height="40px" class="search_icon">
+			<input type="text" id="word" placeholder="내주변 매장 이름 검색" onkeyup="search_btn()">
+			<img src="${path}/resources/images/search.png" width="40px" height="40px" class="search_icon">
 		</div>
 	</div>
 	<div class="alignment">

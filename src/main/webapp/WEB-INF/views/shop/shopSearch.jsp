@@ -115,22 +115,24 @@
 </script>
 
 <style type="text/css">
-	#wrap { margin: auto; width: 600px; text-align: center; }
-	.img_img { width: 600px; height: 250px; margin-bottom: 10px; border-radius: 3px; }
+	html, body { margin: 0; height: 100%; }
+	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
+	#wrap { margin: auto; width: 800px; text-align: center; margin-top: 50px; }
+	.img_img { width: 800px; height: 350px; margin-bottom: 10px; border-radius: 3px; }
 	strong { color: black; }
 	dd { display: inline-block; margin-left: 2px; color: black; }
 	dt { display: inline-block; color: black; }
 	dl { display: inline-block; margin: 0px; color: black; }
 	.star { color: #F2CB61; }
-	.info_area { width: 600px; text-align: left; margin: auto; }
+	.info_area { width: 800px; text-align: left; margin: auto; }
 	.shop { padding-top: 50px; padding-bottom: 30px; border-bottom: 1px solid rgb(0, 0, 0, 0.1); }
 	a { text-decoration: none; }
 	.address_area { text-align: left; }
 	.addr { cursor: pointer; display: inline-block; }
 	#addr_flex { display: flex; padding-top: 20px; padding-bottom: 20px; }
-	#search { margin-left: auto; }
-	.search_icon { position: absolute; top: 23px; right: 0; }
-	#search input { width: 250px; height: 40px; border-radius: 10px; font-size: 12pt; }
+	#search { position: relative; margin-left: auto; }
+	.search_icon { position: absolute; top: 5px; right: 0; }
+	#search input { width: 350px; height: 40px; border-radius: 10px; font-size: 13pt; }
 </style>
 </head>
 <body onload="searchLoad()">
@@ -144,7 +146,8 @@
 			</div>
 		</div>
 		<div id="search">
-			<input type="text" id="word" placeholder="내주변 매장 이름 검색" onkeyup="search_btn()" value="${word}"><img src="${path}/resources/images/search.png" width="40px" height="40px" class="search_icon">
+			<input type="text" id="word" placeholder="내주변 매장 이름 검색" onkeyup="search_btn()" value="${word}">
+			<img src="${path}/resources/images/search.png" width="40px" height="40px" class="search_icon">
 		</div>
 	</div>
 	<div id="shop_area">

@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
+	html, body { margin: 0; height: 100%; }
+	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
  	table {
     	width: 80%;
     	border: 1px solid #A6A6A6;
@@ -82,5 +84,6 @@
 		<br><br>
 		<button type="button" onclick="location.href='${contextPath }/qna/qnaForm'">작성</button>
 	</div>
+	<c:import url="../default/footer.jsp"/>
 </body>
 </html>
