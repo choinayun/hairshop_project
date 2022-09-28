@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function infoLoad() {
@@ -170,7 +170,7 @@
 					<span class="like" style="color: red;" onclick="starClick()">♥</span>
 				</c:otherwise>
 			</c:choose>
-			<input type="button" value="예약하기" onclick="location.href='${path}/menu/infoChoice?id=${loginUser}&sName=${shopInfo.sName}'" class="reser_btn">
+			<input type="button" value="예약하기" onclick="location.href='${path}/menu/infoChoice?id=${loginUser}&sNum=${shopInfo.sNum }&sName=${shopInfo.sName}'" class="reser_btn">
 		</div>
 		<div id="shop_img_area">
 			<img src="${path}/shop/download?fileName=${shopInfo.img1}" width="100%" height="350px" class="img_slide">

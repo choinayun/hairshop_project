@@ -1,5 +1,6 @@
 package com.care.hair.mybatis.reservation;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
@@ -13,6 +14,13 @@ public interface ReservationMapper {
 	public void reservationDate(String rDate);
 	
 	public MenuDTO selectMenu(int mNum);
+
+	public List<ReservationDTO> dateCheck(@Param("param1") String param1, @Param("param2") int param2);
+
+	public void paymentComplete(Map<String, String> dto);
+
+	
+	
 	
 	public void Bmodify(ReservationDTO dto);
 	

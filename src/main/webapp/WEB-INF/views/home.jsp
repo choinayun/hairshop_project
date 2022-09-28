@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script type="text/javascript">
 	var main_index = 0
 	var main_img = ["main_div_img1", "main_div_img2", "main_div_img3"]

@@ -13,4 +13,5 @@ public interface QnaMapper {
 	public QnaDTO contentView(int num);
 	public void replySave(QnaDTO dto);
 	public List<QnaDTO> replyView(int num);
+	public void delreply(int num);
 }

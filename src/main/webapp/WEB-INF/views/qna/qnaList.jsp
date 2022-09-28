@@ -7,15 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style type="text/css">
 	html, body { margin: 0; height: 100%; }
 	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
  	table {
-    	width: 80%;
-    	border: 1px solid #A6A6A6;
-    	border-collapse: collapse;
+    width: 100%;
+    border-top: 1px solid #A6A6A6;
+    border-bottom:1px solid #A6A6A6;
+    
+    border-collapse: collapse;
   }
   	th, td {
     	border: 1px solid #A6A6A6;
@@ -31,10 +33,11 @@
    		text-decoration: none;
     }
     button {
+    border:1px solid #e7e7e7;
  	cursor:pointer;
 	width: 20%;
 	background: white;
-	border: 0;
+	
 		
 	-webkit-transition-duration: 0.4s; 
 
@@ -53,8 +56,8 @@
 <body>
 	<%@ include file="../default/header.jsp" %>
 	<div class="total">
-<h3>Q&A 리스트 </h3>
-<table border="1" style="margin: auto;">
+
+<table style="margin: auto;">
 			<tr>
 				<th>글 번호</th>
 				<th>제목</th>
