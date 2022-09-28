@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 <script type="text/javascript">
 

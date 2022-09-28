@@ -161,14 +161,5 @@ public class MemberServiceImpl implements MemberService {
 		dto.setPosition(position);
 		mapper.Pmodify(dto);
 	}
-<<<<<<< HEAD
-	
-		
-			
-	
-	
-	
-=======
 
->>>>>>> c9e9537cdda92e848b1e2332cb5a0d496937437c
 }

@@ -21,8 +21,7 @@ footer { background-color: rgb(189, 189, 189, 0.2); }
 <body>
 <c:set var="contextPath" value="${ pageContext.request.contextPath}"/>
 <footer>
-<<<<<<< HEAD
-	<div class="container">
+<div class="container">
 		<div class="f_text">
 
 				
@@ -37,21 +36,7 @@ footer { background-color: rgb(189, 189, 189, 0.2); }
 		</div>
 		<div class="copyright">
 			COPYRIGHTⓒHair Shop All rights reserved.
-=======
-	<div id="footer_div">
-		<div class="container">
-			<div class="f_text">
-					<a href="#">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
-			</div>
-			<div class="f_copy">
-				<p>
-					회사이름 : HairShop ㅣ 대표 : 최나윤 ㅣ 사업자등록번호 : 123-45-67890 ㅣ 주소 : 서울특별시 종로구 돈화문로 26 (단성사빌딩 3층)ㅣ 전화 : 02)123-4567 ㅣ 이메일 : hairshop@naver.com
-				</p>
-			</div>
-			<div class="copyright">
-				COPYRIGHTⓒHair Shop All rights reserved.
-			</div>
->>>>>>> c9e9537cdda92e848b1e2332cb5a0d496937437c
+
 		</div>
 	</div>
 </footer>

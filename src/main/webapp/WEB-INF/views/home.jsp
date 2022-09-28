@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style type="text/css">
 	#wrap { margin: 0 auto; width: 800px; margin-top: 20px; margin-bottom: 100px; text-align: center; }
 	#main_img_area { text-align: center; }

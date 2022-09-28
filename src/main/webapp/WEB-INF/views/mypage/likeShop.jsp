@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 
 <style type="text/css">
 	h1 { margin: auto;  font-size: 30px; text-align: center; }

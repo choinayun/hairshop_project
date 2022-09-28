@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style>
 .wrap{
 	width: 800px;
@@ -54,8 +54,8 @@ button:hover {
 <body>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
+	<h3>매장 리스트</h3>
 	
-	<br>
 	<table style="margin: auto;">
 			<tr>
 				<th>매장 아이디</th>

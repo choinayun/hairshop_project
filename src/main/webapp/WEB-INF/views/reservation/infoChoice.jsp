@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약</title>
+<title>Four Season Hair</title>
 <style type="text/css">
 	body{
 	 height: 800px;

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 <style type="text/css">
