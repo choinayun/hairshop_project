@@ -23,14 +23,20 @@
 		<result property="info" column="info"/>
 	</resultMap>
 
-<select id="paymentComplete" resultMap="reservation">
-	insert into reservation(num, id, name, status, info, r_date, price, s_shop, r_time)
-		values((SELECT NVL(MAX(num), 0) + 1 FROM reservation, 
-			#{id}, #{name}, #{status}, #{info}, #{rDate}, #{price}, #{sShop}, #{rTime})
-</select>
+<insert id="paymentComplete">
+	insert into reservation(num, id, name, info, r_date, price, s_shop, r_time)
+		values((SELECT NVL(MAX(num), 0) + 1 FROM reservation) , #{id}, #{name}, #{info}, #{rDate}, #{price}, #{sShop}, #{rTime})
+</insert>
 
 <select id="reservationDate" resultMap="reservation">
 	select r_date, r_time from reservation where r_date=#{rDate}
+</select>
+
+<select id="dateCheck" resultMap="reservation">
+	SELECT * 
+		FROM RESERVATION
+	  WHERE R_DATE = #{param1}
+	    AND S_SHOP = #{param2}
 </select>
 
 <select id="selectMenu" resultMap="menu">

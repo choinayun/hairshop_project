@@ -61,4 +61,11 @@
 		update member set position=#{position} where id=#{id}
 	</update>
 
+	<select id="getPhone" resultType="String">
+		select phone from member where id=#{id}
+	</select>
+
+	<select id="getName" resultType="String">
+		select name from member where id=#{id}
+	</select>
 </mapper>

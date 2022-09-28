@@ -40,6 +40,8 @@ button:hover {
 </head>
 <body>
 <%@ include file="../default/header.jsp" %>
+<c:set var="contextPath" 
+			value="${ pageContext.request.contextPath}"/>
 <div class="wrap">
 	<img src="${contextPath }/resources/images/admin.png" style="margin-top: 50px;"></img>
 	

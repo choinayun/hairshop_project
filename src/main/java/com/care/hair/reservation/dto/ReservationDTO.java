@@ -5,7 +5,7 @@ import com.care.hair.menu.dto.MenuDTO;
 
 
 public class ReservationDTO {
-	
+	private String imp_uid="";
 	private String id,name,info,rDate,price,rTime,sName;
 	private int status,sShop,num;
 	
@@ -48,12 +48,6 @@ public class ReservationDTO {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public int getNum() {
-		return num;
-	}
-	public void setNum(int num) {
-		this.num = num;
-	}
 	public MenuDTO getMenu() {
 		return menu;
 	}
@@ -77,6 +71,18 @@ public class ReservationDTO {
 	}
 	public void setsShop(int sShop) {
 		this.sShop = sShop;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public String getImp_uid() {
+		return imp_uid;
+	}
+	public void setImp_uid(String imp_uid) {
+		this.imp_uid = imp_uid;
 	}
 	
 }
