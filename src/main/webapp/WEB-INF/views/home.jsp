@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Four Season Hair</title>
-
 <style type="text/css">
 	.wrapper {
     max-width:2000px;
@@ -86,11 +85,11 @@
 	    margin-top:50px;
 	}
 	
-	#wrap { margin: 0 auto; margin-top: 20px; margin-bottom: 100px; text-align: center; }
+	#wrap { margin: 0 auto; margin-bottom: 100px; text-align: center; }
 	#main_img_area { position: relative; text-align: center; margin-bottom: 100px; }
 	#main_img_area img { border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
-	#grade_img_area { width: 1300px; margin: auto; margin-bottom: 100px; }
-	#review_img_area { width: 1300px; margin: auto; }
+	#grade_img_area { width: 1300px; margin: auto; margin-top: 60px; }
+	#review_img_area { width: 1300px; margin: auto; margin-top: 60px; }
 	#img_area h2 { padding: 10px; }
 	.img_div { 
 		display: inline-block; width: 45%; text-align: left; 
@@ -130,8 +129,6 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <div id="wrap">
-	
-		
 	<div class="wrapper">
 	  <!-- Swiper -->
 	  <div class="swiper mySwiper">

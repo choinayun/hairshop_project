@@ -29,6 +29,7 @@
  	z-index: 4;
  	text-align: center;
  	border-radius: 10px;
+ 	font-size: 14pt;
  }
  .bottomvar{
  	display: flex;
@@ -157,11 +158,13 @@ function buildCalendar(){
 
 
 function timeChoice(time){
-   alert('time >>>' + time);
    
    $("#selectTime").val(time)
 }
 
+$(function (){
+	$(".price").val(price+"원")
+})
 
 /*
  * 날짜 영역의 객체를 받아서 년월일의 파라미터로 해당 날짜의 예약정보를 리턴받음 
@@ -244,7 +247,7 @@ function createReservNum(){
 
 //카드 결제
 function paymentCard(data) {
-	alert('paymentCard');
+	alert('결제 페이지로 이동');
 	// 모바일로 결제시 이동페이지
 	const pathName = location.pathname;
 	const href = location.href;
@@ -276,7 +279,7 @@ function paymentCard(data) {
   	      type : "POST",
   	      url : "${contextPath}/verifyIamport/" + rsp.imp_uid
   	    }).done(function(data){
-  	      console.log(data);
+  	      
   	      if(rsp.paid_amount == data.response.amount){
   	        alert("결제 및 결제검증완료");
   	        data.impUid = rsp.imp_uid;
