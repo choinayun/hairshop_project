@@ -7,25 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Four Season Hair</title>
-<script type="text/javascript">
-	var main_index = 0
-	var main_img = ["main_div_img1", "main_div_img2", "main_div_img3"]
-	
-	function main_left_btn(){
-		if(main_index > 0) {
-			main_index--
-			$("." + main_img[main_index]).css({ position: 'absolute', top: '0', left: '0', transition: '0.5s' })
-		}	
-	}
-	
-	function main_right_btn(){
-		if(main_index < 3) {
-			main_index++
-			$("." + main_img[main_index]).css({ position: 'absolute', top: '0', left: '100%', transition: '0.5s' })
-		}		
-	} 
-</script>
-
 <style type="text/css">
 	#wrap { margin: 0 auto; margin-top: 20px; margin-bottom: 100px; text-align: center; }
 	#main_img_area { position: relative; text-align: center; margin-bottom: 100px; }
@@ -69,15 +50,6 @@
 <c:import url="default/header.jsp"/>
 <div id="wrap">
 	<div id="main_img_area">
-		<img src="${path}/resources/images/main_img1.png" width="100%" height="700px" class="main_img1 main_img">
-		<img src="${path}/resources/images/main_img2.png" width="100%" height="700px" class="main_img2 main_img">
-		<img src="${path}/resources/images/main_img3.jpg" width="100%" height="700px" class="main_img3 main_img">
-		<div class="main_arrow_left" onclick="main_left_btn()">
-			<img src="${path}/resources/images/main_arrow_left.png" width="60%" height="50%">
-		</div>
-		<div class="main_arrow_right" onclick="main_right_btn()">
-			<img src="${path}/resources/images/main_arrow_right.png" width="60%" height="50%">
-		</div>
 		<div class="main_img_line">
 			<div class="line1 line"></div>
 			<div class="line2 line"></div>
