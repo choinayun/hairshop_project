@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약</title>
+<title>Four Season Hair</title>
 <style type="text/css">
 	body{
 	 margin: 0 auto; text-align: center;
@@ -92,7 +92,7 @@ label{
 </style>
 </head>
 <body>
-<!--   <c:import url="../default/header.jsp" /> -->
+ <c:import url="../default/header.jsp" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

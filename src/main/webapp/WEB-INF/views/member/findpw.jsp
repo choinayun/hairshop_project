@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>

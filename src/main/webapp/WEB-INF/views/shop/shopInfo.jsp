@@ -6,17 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function infoLoad() {
-		
-		$(".nav_btn").css({ borderBottom: '1px solid rgb(0, 0, 0, 0.2)' })
-		$(".nav_btn2").css({ borderBottom: '2px solid black', fontWeight: 'bold' })
-		
 		var grade = ${shopInfo.grade}
 		var index = 0	
-		$("#header_area").css({ paddingTop: '0' })
+
 		if(grade > 0 && grade < 1) {
 			$(".star_size").css({ width: '10%' })
 		}else if(grade == 1) {
@@ -38,52 +34,57 @@
 		}else if(grade == 5) {
 			$(".star_size").css({ width: '100%' })
 		}
-	}
-
-	$.ajax({
-		url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
-		dataType: "json",
-		success: function(data) {
-			var index = 0
-			for(var i = 0; i < data.length; i++){
-				if(index == 6) {
-					return
-				}
-				if(data[i].grade == 1) {
-					$("." + data[i].num).css({ width: '20%' })
-				}else if (data[i].grade == 2){
-					$("." + data[i].num).css({ width: '40%' })
-				}else if(data[i].grade == 3){
-					$("." + data[i].num).css({ width: '60%' })
-				}else if(data[i].grade == 4){
-					$("." + data[i].num).css({ width: '80%' })
-				}else if(data[i].grade == 5){
-					$("." + data[i].num).css({ width: '100%' })
-				}
-				index++
-			}
-		},error: function() {
-			alert("ERROR")
-		}
-	})
-	
-	function starClick() {
+		
 		$.ajax({
-			url: "${path}/likelist/likeCheck?id=${loginUser}&sNum=${shopInfo.sNum}", type: "get",
+			url: "${path}/review/getReview?sNum=${shopInfo.sNum}", type: "get",
+			dataType: "json",
 			success: function(data) {
-				let obj = $(".like")
-				
-				if(data == "true"){
-					obj.css({ color: 'red' })
-					obj.text("♥")
-				}else if(data == "false"){
-					obj.css({ color: 'black' })
-					obj.text("♡")
+				var index = 0
+				for(var i = 0; i < data.length; i++){
+					if(index == 6) {
+						return
+					}
+					if(data[i].grade == 1) {
+						$("." + data[i].num).css({ width: '20%' })
+					}else if (data[i].grade == 2){
+						$("." + data[i].num).css({ width: '40%' })
+					}else if(data[i].grade == 3){
+						$("." + data[i].num).css({ width: '60%' })
+					}else if(data[i].grade == 4){
+						$("." + data[i].num).css({ width: '80%' })
+					}else if(data[i].grade == 5){
+						$("." + data[i].num).css({ width: '100%' })
+					}
+					index++
 				}
 			},error: function() {
-				alert('error')
+				alert("ERROR")
 			}
 		})
+	}
+
+	function starClick() {
+		if(${loginUser == null}) {
+			alert("로그인이 필요합니다.")
+			location.href = "${path}/member/login"
+		}else {
+			$.ajax({
+				url: "${path}/likelist/likeCheck?id=${loginUser}&sNum=${shopInfo.sNum}", type: "get",
+				success: function(data) {
+					let obj = $(".like")
+					
+					if(data == "true"){
+						obj.css({ color: 'red' })
+						obj.text("♥")
+					}else if(data == "false"){
+						obj.css({ color: 'black' })
+						obj.text("♡")
+					}
+				},error: function() {
+					alert('error')
+				}
+			})
+		}
 	}
 	var imgIndex = 0;
 	var img = ["${shopInfo.img1}", "${shopInfo.img2}", "${shopInfo.img3}", "${shopInfo.img4}"]
@@ -103,15 +104,15 @@
 
 <style type="text/css">
 	#wrap { 
-		margin: 0 auto; width: 1200px; text-align:center;
+		margin: 50px auto; width: 800px; text-align:center;
 		-ms-user-select : none;
 		-moz-user-select: -moz-none;
 		-khtml-user-select: none;
 		-webkit-user-select: none;
 		user-select: none; 
 	}
-	#shop_img_area { height: 300px; overflow: hidden; }
-	#shop_info_area { width: 700px; margin: auto; }
+	#shop_img_area { position: relative; height: 350px; overflow: hidden; }
+	#shop_info_area { width: 800px; margin: auto; }
 	#shop_info { text-align: left; margin-top: 20px; }
 	#shop_info div { margin-bottom: 20px; }
 	#reservation_area { width: 100%; position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0); background-color: #FFFFFF; }
@@ -133,10 +134,9 @@
 	}
 	.menu { font-size: 14pt; text-align: left; padding: 20px 10px 20px 10px; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 	#review_area { 
-		margin: auto; height: 800px; width: 700px;
-		border-top: 1px solid rgba(0, 0, 0, 0.1); 
-		text-align: left;
-		margin-bottom: 500px;
+		margin: auto; height: 100%; width: 800px;
+		border-top: 1px solid rgba(0, 0, 0, 0.1); text-align: left;
+		margin-bottom: 200px;
 	}
 	.review_info { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding-top: 20px; padding-bottom: 20px; }
 	.review_id dl { margin: 0; }
@@ -147,8 +147,8 @@
 		display: inline-block; background-color: rgb(140, 140, 140, 0.6); height: 80px;  
 	}
 	#shop_img_area b { opacity: 0.9; }
-	.arrow_btn_left { position: relative; top: -65%; left: -45%; }
-	.arrow_btn_right { position: relative; top: -65%; left: 45%; }
+	.arrow_btn_left { position: absolute; top: 50%; left: 0; transform: translate(0, -50%); }
+	.arrow_btn_right { position: absolute; top: 50%; right: 0; transform: translate(0, -50%); }
 	.star { width: 80px; }
 	.star,.star span { 
 			display:inline-block; height:16px; 
@@ -173,7 +173,7 @@
 			<input type="button" value="예약하기" onclick="location.href='${path}/menu/infoChoice?id=${loginUser}&sNum=${shopInfo.sNum }&sName=${shopInfo.sName}'" class="reser_btn">
 		</div>
 		<div id="shop_img_area">
-			<img src="${path}/shop/download?fileName=${shopInfo.img1}" width="100%" height="300px" class="img_slide">
+			<img src="${path}/shop/download?fileName=${shopInfo.img1}" width="100%" height="350px" class="img_slide">
 			<div class="arrow_btn_left arrow" onclick="arrow_left_click()"><b>&lt;</b></div>
 			<div class="arrow_btn_right arrow" onclick="arrow_right_click()"><b>&gt;</b></div>
 		</div>

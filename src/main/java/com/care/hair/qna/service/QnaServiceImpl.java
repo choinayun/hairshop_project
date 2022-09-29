@@ -83,5 +83,12 @@ public class QnaServiceImpl implements QnaService {
 			e.printStackTrace();
 		}
 	}
+	public void delreply(int num) {
+		try {
+			qmapper.delreply(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

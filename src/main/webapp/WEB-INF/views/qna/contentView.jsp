@@ -6,8 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style type="text/css">
+.reply_form{
+	margin-top: 200px;
+}
+.write_form{
+	margin-top: 10px;
+}
 	.total{
 		width: 800px;
  		margin: auto;
@@ -57,25 +63,30 @@
 
 		</table>
 
-		<br> <br> <br> <br> <br>
+		
 
 
-
+<div class="reply_form">
 <c:if test="${reply != null}">
 	<table class="tab">
 		<c:forEach var="reply" items="${reply}">
 			<tr>
 				<td>관리자</td>
 				<td>${reply.content}</td>
-				<td>${reply.qDate}</td>
+				<td>${reply.qDate}
+				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;margin-top: 2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
+				</td>
+				
 			</tr>
 		</c:forEach>
 	</table>
 </c:if>
+</div>
 
+<div class="write_form">
 		<c:if test="${loginUser.equals('admin')}">
 			<form method="post" action="reply">
-				<table border="1" class="tab">
+				<table class="tab">
 					<tr>
 						<td colspan="4"><textarea name="content"></textarea></td>
 					</tr>
@@ -92,6 +103,7 @@
 			</form>
 		</c:if>
 
+</div>
 
 	</div>
 
