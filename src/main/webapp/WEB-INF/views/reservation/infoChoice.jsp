@@ -21,8 +21,6 @@
       background: #fff;
 
       /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       -webkit-justify-content: center;
@@ -31,7 +29,6 @@
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
-      
     }
 
 .swiper-container-vertical>.swiper-pagination-bullets{
@@ -71,28 +68,35 @@
  	z-index: 4;
  	text-align: center;
  	border-radius: 10px;
+ 	font-size: 14pt;
  }
  .bottomvar{
  	display: flex;
  }
-#menuNav { width: 800px; margin: 0 auto; text-align: center;  }
-#menuNav ul { padding: 0; margin-right: 0; list-style: none; display: flex;  }
-#menuNav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 12pt; cursor: pointer;  }
+#menuNav { width: 800px; margin: auto; text-align: center; margin-top: 60px; margin-bottom: 60px; }
+#menuNav ul { padding: 20px; margin-right: 0; list-style: none; display: flex; }
+#menuNav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer;  }
 hr { 
 	width: 800px;
 	border: 1px solid #EAEAEA;
 	margin: 0 auto;
 	
 }
-p{ width: 800px;  margin: 0 auto; text-align:left; font-size: 14pt; font-weight: bold; margin-top: 10px; }
-label{
-	cursor: pointer;
-	height: 60px;
+.menu_list { 
+	width: 840px;  margin: 0 auto; text-align:left; font-size: 14pt; font-weight: bold; 
+	margin-top: 10px;  
 }
+.menu_info { 
+	width: 800px; margin: auto; padding: 20px; 
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+.first1, .first5, .first12, .first16, .first21 { border-top: 1px solid rgb(0, 0, 0, 0.2); }
+.listAll { font-size: 10pt; border-bottom: 2px solid rgb(0, 0, 0, 0.4); }
+.list1 { font-weight: bold; border-bottom: 2px solid black; }
 </style>
 </head>
 <body>
-<!--   <c:import url="../default/header.jsp" /> -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -100,15 +104,14 @@ label{
 			value="${ pageContext.request.contextPath}"/>
 <div id="menuNav">
 <ul >
-  <li >컷</li>
-  <li >펌</li>
-  <li >염색</li>
-  <li >클리닉</li>
-  <li >스타일링</li>
+  <li class="list1 listAll">컷</li>
+  <li class="list2 listAll">펌</li>
+  <li class="list3 listAll">염색</li>
+  <li class="list4 listAll">클리닉</li>
+  <li class="list5 listAll">스타일링</li>
 </ul>
 </div>
-<p>메뉴</p>
-<hr>
+<p class="menu_list">메뉴</p>
 <!-- swiper슬라이더 메인컨테이너 -->
 
 <div class="selectMenu" >
@@ -120,64 +123,65 @@ label{
     <div class="swiper-slide">
     	
     		<c:forEach var="dto" begin="0" end="3" items="${mInfo }">
-    		<label for="cut">
-  				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-  				
-  						${dto.info } <br>
-  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  				<hr>
-    		</label>
+    			<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+		    		<label for="cut">
+		  				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+		  						${dto.info } <br>
+				  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+		    		</label>
+	    		</div>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
-    <label for="perm">
-    			<input type="radio" id="cut" name="num" value="${dto.mNum}" onclick="func('${dto.price}')">
-    			
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						<hr>
-  						</label>
-    		</c:forEach>
+	    <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+			    <label for="perm">
+			    			<input type="radio" id="cut" name="num" value="${dto.mNum}" class="${dto.mNum}">
+			  						${dto.info } <br>
+			  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+				</label>
+			</div>
+	 	</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
-    <label for="color">
-    				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						<hr>
-  						</label>
-    		</c:forEach>
+	    <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+			    <label for="color">
+			    				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+			  						${dto.info } <br>
+			  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+				</label>
+			</div>
+	  	</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
-    <label for="clinc">
-    				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						<hr>
-  						</label>
-    		</c:forEach>
+	    <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+			    <label for="clinc">
+			 		<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+					${dto.info } <br>
+					&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+				</label>
+			</div>
+		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="20" end="21" items="${mInfo }">
-    <label for="styling">
-    			<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    			
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						<hr>
-  						</label>
-    		</c:forEach>
+    	<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+		    <label for="styling">
+		    			<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+		    			
+		  						${dto.info } <br>
+		  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+			</label>
+		</div>
+ 	</c:forEach>
     </div>
   </div>
 </div>
 <div class= "bottomvar"  id="etc_view" style="display:none;" >
-<input class="price" type="text"  id="showbtn" readonly="readonly"> 
-<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()" >
+	<input class="price" type="text"  id="showbtn" readonly="readonly"> 
+	<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()" >
 </div>
 </div>
 <script type="text/javascript">
@@ -192,6 +196,8 @@ const swiper = new Swiper('.swiper-container', {
 
 	$('ul li').click(function(){
 	  var index = $(this).index();
+	  $("ul li").css({ fontWeight: 'normal', borderBottom: '2px solid rgb(0, 0, 0, 0.4)' })
+	  $(this).css({ fontWeight: 'bold', borderBottom: '2px solid black' })
 	  swiper.slideTo(index);
 	})
 	
@@ -215,10 +221,11 @@ const swiper = new Swiper('.swiper-container', {
 		 
 		});
 	//선택한 시술의 가격
-    function func(price) {
-    	$(".price").val(price)
+    function func(price, mNum) {
+		$("." + mNum).prop("checked", true)
+    	$(".price").val(price+"원")
+    	$(".bottomvar").css({ display: 'block' })
     }
-	
 </script>
 
 <!--  <c:import url="../default/footer.jsp"/> -->
