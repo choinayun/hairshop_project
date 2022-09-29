@@ -23,11 +23,7 @@ footer { background-color: rgb(189, 189, 189, 0.2); }
 <footer>
 <div class="container">
 		<div class="f_text">
-
-				
-
-				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
-
+			<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
 		</div>
 		<div class="f_copy">
 			<p>
