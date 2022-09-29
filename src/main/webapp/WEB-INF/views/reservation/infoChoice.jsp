@@ -49,30 +49,18 @@
 	position: left;
 	margin-left:10px; 
  }
- .Menubtn {
- 	position: fixed;
- 	bottom: 20px;
- 	right: 30px;
- 	width: 500px;
- 	z-index: 4;
- 	background-color: #FF4848; width: 650px; height: 80px; 
-	border-radius: 10px; cursor: pointer;
-	color: white; font-size: 20pt;
- }
- .price{
- 	position: fixed;
- 	bottom: 20px;
- 	left: 30px;
- 	width: 300px;
- 	height: 78px;
- 	z-index: 4;
- 	text-align: center;
- 	border-radius: 10px;
- 	font-size: 14pt;
- }
  .bottomvar{
- 	display: flex;
+ 	position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0);
+ 	display: flex; width: 700px; padding: 15px; margin: auto;  
  }
+ .priceSum { text-align: left; width: 50%; }
+ .sum { color: rgb(0, 0, 0, 0.6); font-weight: bold; font-size: 12pt; }
+ .price { font-weight: bold; font-size: 17pt; }
+ .Menubtn { 
+ 	width: 300px; padding: 20px 10px 20px 10px; background-color: black; color: white; 
+ 	font-size: 15pt; font-weight: bold; border-radius: 6px; cursor: pointer; 
+ }
+ #btn_div { display: none; }
 #menuNav { width: 800px; margin: auto; text-align: center; margin-top: 60px; margin-bottom: 60px; }
 #menuNav ul { padding: 20px; margin-right: 0; list-style: none; display: flex; }
 #menuNav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer;  }
@@ -124,64 +112,58 @@ hr {
     	
     		<c:forEach var="dto" begin="0" end="3" items="${mInfo }">
     			<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
-		    		<label for="cut">
-		  				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
-		  						${dto.info } <br>
-				  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-		    		</label>
+	  				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+	  						${dto.info } <br>
+			  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
 	    		</div>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
 	    <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
 		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
-			    <label for="perm">
-			    			<input type="radio" id="cut" name="num" value="${dto.mNum}" class="${dto.mNum}">
-			  						${dto.info } <br>
-			  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-				</label>
+    			<input type="radio" id="cut" name="num" value="${dto.mNum}" class="${dto.mNum}">
+						${dto.info } <br>
+  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
 			</div>
 	 	</c:forEach>
     </div>
     <div class="swiper-slide">
 	    <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
 		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
-			    <label for="color">
-			    				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
-			  						${dto.info } <br>
-			  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-				</label>
+   				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+ 						${dto.info } <br>
+ 						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
 			</div>
 	  	</c:forEach>
     </div>
     <div class="swiper-slide">
 	    <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
 		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
-			    <label for="clinc">
-			 		<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
-					${dto.info } <br>
-					&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-				</label>
+		 		<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+				${dto.info } <br>
+				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
 			</div>
 		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="20" end="21" items="${mInfo }">
     	<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
-		    <label for="styling">
-		    			<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
-		    			
-		  						${dto.info } <br>
-		  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-			</label>
+   			<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+ 						${dto.info } <br>
+ 						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
 		</div>
  	</c:forEach>
     </div>
   </div>
 </div>
-<div class= "bottomvar"  id="etc_view" style="display:none;" >
-	<input class="price" type="text"  id="showbtn" readonly="readonly"> 
-	<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()" >
+<div id="btn_div">
+	<div class="bottomvar" id="etc_view">
+		<div class="priceSum">
+			<div class="sum">총 결제금액</div>
+			<div class="price"></div>
+		</div> 
+		<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()">
+	</div>
 </div>
 </div>
 <script type="text/javascript">
@@ -207,24 +189,12 @@ const swiper = new Swiper('.swiper-container', {
 		location.href = "${contextPath}/reservation/dateChoice?mNum="+ value+"&sNum=${param.sNum}&sName=${param.sName}";
 	}
 	
-	$(function (){
-		 
-		$('input[type="radio"][id="cut"]').on('click', function(){
-		  var chkValue = $('input[type=radio][id="cut"]:checked').val();
-		  if(chkValue == ""){
-		             $('#etc_view').css({display:'none'});
-		  }else{
-		             $('#etc_view').css({display:'block'});
-		  }
-		 
-		});
-		 
-		});
+	
 	//선택한 시술의 가격
     function func(price, mNum) {
 		$("." + mNum).prop("checked", true)
-    	$(".price").val(price+"원")
-    	$(".bottomvar").css({ display: 'block' })
+    	$(".price").text(price+"원")
+    	$("#btn_div").css({ display: 'block' })
     }
 </script>
 
