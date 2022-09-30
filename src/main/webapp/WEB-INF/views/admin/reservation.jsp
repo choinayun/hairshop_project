@@ -6,20 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style>
   .wrap{
-  	width: 800px;
+  	width: 1000px;
  	margin: auto;
  	text-align: center;
   }
   table {
     width: 100%;
-    border: 1px solid #A6A6A6;
+    border-top: 1px solid #A6A6A6;
+    border-bottom: 1px solid #A6A6A6;
     border-collapse: collapse;
   }
   th, td {
-    border: 1px solid #A6A6A6;
+  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+  	border-right: 1px solid rgb(0, 0, 0, 0.4);
+    text-align: center;
   }
 </style>
 <style type="text/css">
@@ -46,8 +49,12 @@ button:hover {
   background-color: #e7e7e7;
 
 }
-
-	
+.del_B{
+ border-right: none;
+}
+.table_wrap{
+	margin-top: 50px;
+}	
 </style>
 <script type="text/javascript">
 	function func(num) {
@@ -59,10 +66,11 @@ button:hover {
 <body>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
-	<h3 style="margin: auto; text-align: left;">예약 정보 확인 및 수정 페이지</h3>
+	<div class="table_wrap">
+	<h3 style="margin: auto; text-align: center;">예약 정보 확인 및 수정</h3>
 	<br>
 	<form method="post" action="bookingModify">
-	<table border="1"style="margin: auto;">
+	<table style="margin: auto;">
 			<tr>
 				<th>예약 번호</th>
 				<th>회원 아이디</th>
@@ -72,12 +80,12 @@ button:hover {
 				<th>예약 시간</th>
 				<th>예약 정보</th>
 				<th>가격</th>
-				<th>매장 고유 번호</th>
+				<th>매장 번호</th>
 				<th>예약 상태</th>
-				<th>예약 상태 변경</th>
+				<th>예약 상태</th>
 				
-				<th>변경 사항 저장</th>
-				<th>예약 취소</th>
+				<th>저장</th>
+				<th class="del_B">삭제</th>
 			</tr>
 			
 			<c:forEach var="dto" items="${list}">
@@ -121,13 +129,13 @@ button:hover {
 				 -->
 				
 				<td><button type="button" onclick="func('${dto.num}')" >변경</button></td>
-				<td><button type="button" onclick="location.href='${contextPath }/admin/bookingDel?num=${dto.num}'">삭제</button></td>
+				<td class="del_B"><button type="button" onclick="location.href='${contextPath }/admin/bookingDel?num=${dto.num}'">삭제</button></td>
 			</tr>
 			</c:forEach>
 		</table>
 
 </form>
-
+</div>
 </div>
 
 </body>

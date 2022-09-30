@@ -15,5 +15,5 @@ public interface QnaService {
 	public void contentView(int num,Model model);
 	public void replySave(QnaDTO dto);
 	public void replyView(int num,Model model);
-	
+	public void delreply(int num);
 }

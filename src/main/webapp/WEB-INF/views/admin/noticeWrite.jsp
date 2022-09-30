@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style type="text/css">
 .wrap{
 		width: 800px;
@@ -21,7 +21,7 @@
 
 
 <div class="wrap" style="text-align: center;" >
-<h3 style="text-align: left;">공지사항 작성</h3>
+<h3 style="text-align: center;">공지사항</h3>
 
 <br>
 <br>

@@ -5,25 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약</title>
+<title>Four Season Hair</title>
 <style type="text/css">
 	body{
-	 height: 800px;
+	 margin: 0 auto; text-align: center;
 	}
     .swiper-container {
       width: 100%;
-      margin-top: 250px;
+      margin-top: 20px;
       
     }
     .swiper-slide {
-    
       text-align: left;
       font-size: 18px;
       background: #fff;
 
       /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       -webkit-justify-content: center;
@@ -46,64 +43,63 @@
   margin: 6px 2px !important;
 }
 
-.infoList{
-  position: absolute;
-  width: 100%;
-  top:250px;
-  z-index:2;
-  display: flex;
-  background-color: white;
-  left: 250px;
-}
-
-.me{
-  color:black;
-  width: 10%;
-  cursor:pointer;
-  list-style: none;
-}
 .selectMenu { 
 	height:800px;
-	width: 90%;
+	width: 100%;
 	position: left;
 	margin-left:10px; 
  }
- .Menubtn {
- 	position: fixed;
- 	bottom: 20px;
- 	right: 30px;
- 	height: 50px;
- 	width: 500px;
- 	z-index: 4;
- }
- .price{
- 	position: fixed;
- 	bottom: 20px;
- 	left: 30px;
- 	width: 300px;
- 	height: 50px;
- 	z-index: 4;
- 	text-align: center;
- }
  .bottomvar{
- 	display: flex;
+ 	position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0);
+ 	display: flex; width: 700px; padding: 15px; margin: auto;  
  }
+ .priceSum { text-align: left; width: 50%; }
+ .sum { color: rgb(0, 0, 0, 0.6); font-weight: bold; font-size: 12pt; }
+ .price { font-weight: bold; font-size: 17pt; }
+ .Menubtn { 
+ 	width: 300px; padding: 20px 10px 20px 10px; background-color: black; color: white; 
+ 	font-size: 15pt; font-weight: bold; border-radius: 6px; cursor: pointer; 
+ }
+ #btn_div { display: none; }
+#menuNav { width: 800px; margin: auto; text-align: center; margin-top: 60px; margin-bottom: 60px; }
+#menuNav ul { padding: 20px; margin-right: 0; list-style: none; display: flex; }
+#menuNav ul li { width: 20%; padding-top: 10px; padding-bottom: 10px; font-size: 14pt; cursor: pointer;  }
+hr { 
+	width: 800px;
+	border: 1px solid #EAEAEA;
+	margin: 0 auto;
+	
+}
+.menu_list { 
+	width: 840px;  margin: 0 auto; text-align:left; font-size: 14pt; font-weight: bold; 
+	margin-top: 10px;  
+}
+.menu_info { 
+	width: 800px; margin: auto; padding: 20px; 
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+.first1, .first5, .first12, .first16, .first21 { border-top: 1px solid rgb(0, 0, 0, 0.2); }
+.listAll { font-size: 10pt; border-bottom: 2px solid rgb(0, 0, 0, 0.4); }
+.list1 { font-weight: bold; border-bottom: 2px solid black; }
 </style>
 </head>
 <body>
-<c:import url="../default/header.jsp" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
-<ul class="infoList">
-  <li class="me">컷</li>
-  <li class="me">펌</li>
-  <li class="me">염색</li>
-  <li class="me">클리닉</li>
-  <li class="me">스타일링</li>
+<div id="menuNav">
+<ul >
+  <li class="list1 listAll">컷</li>
+  <li class="list2 listAll">펌</li>
+  <li class="list3 listAll">염색</li>
+  <li class="list4 listAll">클리닉</li>
+  <li class="list5 listAll">스타일링</li>
 </ul>
+</div>
+<p class="menu_list">메뉴</p>
 <!-- swiper슬라이더 메인컨테이너 -->
 
 <div class="selectMenu" >
@@ -115,54 +111,59 @@
     <div class="swiper-slide">
     	
     		<c:forEach var="dto" begin="0" end="3" items="${mInfo }">
-  				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-  				<label for="cut">
-  						${dto.info } <br>
-  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-    		</label>
+    			<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+	  				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+	  						${dto.info } <br>
+			  				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+	    		</div>
     		</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
-    			<input type="radio" id="cut" name="num" value="${dto.mNum}" onclick="func('${dto.price}')">
-    			<label for="cut">
-  						${dto.info } <br>
+	    <c:forEach var="dto" begin="4" end="10" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+    			<input type="radio" id="cut" name="num" value="${dto.mNum}" class="${dto.mNum}">
+						${dto.info } <br>
   						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						</label>
-    		</c:forEach>
+			</div>
+	 	</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
-    				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				<label for="cut">
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						</label>
-    		</c:forEach>
+	    <c:forEach var="dto" begin="11" end="14" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+   				<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+ 						${dto.info } <br>
+ 						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+			</div>
+	  	</c:forEach>
     </div>
     <div class="swiper-slide">
-    <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
-    				<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    				<label for="cut">
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						</label>
-    		</c:forEach>
+	    <c:forEach var="dto" begin="15" end="19" items="${mInfo }">
+		    <div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+		 		<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+				${dto.info } <br>
+				&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+			</div>
+		</c:forEach>
     </div>
     <div class="swiper-slide">
     <c:forEach var="dto" begin="20" end="21" items="${mInfo }">
-    			<input type="radio" id="cut" name="num" value="${dto.mNum }" onclick="func('${dto.price}')">
-    			<label for="cut">
-  						${dto.info } <br>
-  						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
-  						</label>
-    		</c:forEach>
+    	<div class="menu_info first${dto.mNum}" onclick="func('${dto.price}', ${dto.mNum})">
+   			<input type="radio" id="cut" name="num" value="${dto.mNum }" class="${dto.mNum}">
+ 						${dto.info } <br>
+ 						&nbsp;&nbsp;&nbsp; ${dto.price}원 <br>
+		</div>
+ 	</c:forEach>
     </div>
   </div>
 </div>
-<div class= "bottomvar"  id="etc_view" style="display:none;" >
-<input class="price" type="text"  id="showbtn" readonly="readonly"> 
-<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()" >
+<div id="btn_div">
+	<div class="bottomvar" id="etc_view">
+		<div class="priceSum">
+			<div class="sum">총 결제금액</div>
+			<div class="price"></div>
+		</div> 
+		<input class="Menubtn" type="submit" id="showbtn" value="예약하기" onclick="reserv()">
+	</div>
 </div>
 </div>
 <script type="text/javascript">
@@ -177,31 +178,23 @@ const swiper = new Swiper('.swiper-container', {
 
 	$('ul li').click(function(){
 	  var index = $(this).index();
+	  $("ul li").css({ fontWeight: 'normal', borderBottom: '2px solid rgb(0, 0, 0, 0.4)' })
+	  $(this).css({ fontWeight: 'bold', borderBottom: '2px solid black' })
 	  swiper.slideTo(index);
 	})
 	
 	function reserv(){
 		var id = $('input[name="num"]:checked').attr('id');
 		var value = $('input[name="num"]:checked').val();
-		location.href = "${contextPath}/reservation/dateChoice?mNum="+ value
+		location.href = "${contextPath}/reservation/dateChoice?mNum="+ value+"&sNum=${param.sNum}&sName=${param.sName}";
 	}
 	
-	$(function (){
-		 
-		$('input[type="radio"][id="cut"]').on('click', function(){
-		  var chkValue = $('input[type=radio][id="cut"]:checked').val();
-		  if(chkValue == ""){
-		             $('#etc_view').css({display:'none'});
-		  }else{
-		             $('#etc_view').css({display:'block'});
-		  }
-		 
-		});
-		 
-		});
+	
 	//선택한 시술의 가격
-    function func(price) {
-    	$(".price").val(price)
+    function func(price, mNum) {
+		$("." + mNum).prop("checked", true)
+    	$(".price").text(price+"원")
+    	$("#btn_div").css({ display: 'block' })
     }
 </script>
 

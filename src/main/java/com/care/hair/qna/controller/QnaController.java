@@ -63,7 +63,11 @@ public class QnaController {
 		qs.replyView(num,model);
 		return"redirect:contentView";
 	}
-	
+	@GetMapping("delreply")
+	public String delreply(int num, int groupNum) {
+		qs.delreply(num);
+		return"redirect:contentView?num="+groupNum;
+	}
 
 	
 }

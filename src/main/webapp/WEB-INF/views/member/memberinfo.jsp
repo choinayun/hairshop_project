@@ -6,20 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style>
   .wrap{
     width: 800px;
     margin: auto;
  	text-align: center;
   }
-  table {
+   table {
     width: 100%;
-    border: 1px solid #A6A6A6;
+    border-top: 1px solid #A6A6A6;
+    border-bottom: 1px solid #A6A6A6;
     border-collapse: collapse;
   }
   th, td {
-    border: 1px solid #A6A6A6;
+  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
+  	border-right: 1px solid rgb(0, 0, 0, 0.4);
+    text-align: center;
   }
 </style>
 <style type="text/css">
@@ -54,7 +57,12 @@ button:hover {
   background-color: #e7e7e7;
 
 }
-  
+.del_B{
+	border-right: none;
+} 
+.table_wrap{
+	margin-top: 50px;
+}
 </style>
 
 </head>
@@ -65,25 +73,26 @@ button:hover {
 			value="${ pageContext.request.contextPath}"/>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
-	<h3 style="margin:auto;text-align: left;">회원 정보 보기 및 탈퇴</h3>
+   <div class="table_wrap">
+	<img src="${contextPath }/resources/images/member.png" style="margin-left: 100px;height: 80px;"></img>
+	
 	<br><br>
-	<table border="1" style="margin:auto; text-align: left ;">
+	<table style="margin:auto; text-align: left ;">
 			<tr>
-				<th>아이디</th>
+				<th width="60px">아이디</th>
 				<th width="60px">이름</th>
 				<th>이메일</th>
 				<th width="120px">전화번호</th>
 				<th>주소</th>
 				<th width="100px">회원 분류</th>
-				<th>회원 등급 변경</th>
+				<th>등급 변경</th>
 				<th>변경</th>
-				<th>탈퇴</th>
+				<th class="del_B">탈퇴</th>
 				
 			</tr>
 			<c:forEach var="dto" items="${list}">
 			<tr>
 				<td>${dto.id }</td>
-				<!-- <td>${dto.pw }</td> -->
 				<td>${dto.name}</td>
 				<td>${dto.email}</td>
 				<td>${dto.phone}</td>
@@ -123,22 +132,22 @@ button:hover {
 				<td><button type="button" onclick="func('${dto.id}')">변경</button></td>
 				</c:if>
 				<c:if test="${dto.id.equals('admin')}">
-				<td hidden=""><button type="button" onclick="func('${dto.id}')">변경</button></td>
+				<td></td>
 				</c:if>
 		
 				
 				<c:if test="${!dto.id.equals('admin')}">
-				<td><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
+				<td class="del_B"><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
 				</c:if>
 				<c:if test="${dto.id.equals('admin')}">
-				<td hidden=""><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
+				<td class="del_B"></td>
 				</c:if>
 				
 			</tr>
 			</c:forEach>
 		</table>
 								<!-- 관리자는 탈퇴 버튼이 안보이게 설정 -->
-						
+	</div>						
 </div>
 
 </body>

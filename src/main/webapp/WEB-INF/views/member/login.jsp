@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <style>
   table {
     text-align:center;
     width: 580px;
     height: 100%;
-    margin: 100px auto 42px;
+    margin: 200px auto 42px;
     padding: 0 69px;
     border: 1px solid rgba(0,0,0,0.12);
     font-size: 12px;

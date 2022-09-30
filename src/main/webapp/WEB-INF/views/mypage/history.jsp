@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 
 <style type="text/css">
 	h1 { margin: 50px 100px 20px 100px; text-align: center; }
@@ -30,7 +30,6 @@
 	
 </style>
 
-</head>
 <body>
 <c:import url="../default/header.jsp"/>
 

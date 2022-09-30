@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Four Season Hair</title>
 <script>
 function daumPost(){
     new daum.Postcode({
@@ -65,7 +65,7 @@ Button:hover {
 
 }
  #Button {
- 	margin-left:300px;
+
 	width: 20%;
 	background: white;
 	border:1px solid #e7e7e7;	
@@ -80,6 +80,9 @@ Button:hover {
   background-color: #e7e7e7;
 
 }
+.mButton{
+	margin: auto;
+}
 
   
 </style>
@@ -92,7 +95,7 @@ Button:hover {
 				uri="http://java.sun.com/jsp/jstl/core" %>
 				
 <div class="wrap">
-<h3 style="margin:auto;text-align: left;">샵 수정하기</h3>
+
 <br>
 <form action="modify" method="post" enctype="multipart/form-data">
 	<table>
@@ -100,14 +103,14 @@ Button:hover {
 	<th>고유 번호</th>
 	<td>
 		<input type="text" value="${dto.sNum}" id="s_num"name="s_num" readonly="readonly" width="10px">
-		<h4 style="color: red;">※변경 불가</h4>
+		
 	</td>
 	
 
 	<th>아이디</th>
 	<td>
 		<input type="text" value="${dto.id}" name="id" id="id"readonly="readonly">
-		<h4 style="color: red;">※변경 불가</h4>
+		
 	</td>
 	</tr>
 	

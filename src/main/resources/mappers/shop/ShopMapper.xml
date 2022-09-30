@@ -44,7 +44,7 @@
 	</select>
 	
 	<select id="getReviewImg" resultMap="shop">
-		select rownum rnum, r_table.cnt, s_table.s_name, s_table.s_addr, s_table.grade, s_table.img1 from (select count(r.num) cnt, r.s_num from review r group by s_num order by cnt desc) r_table inner join shop s_table on r_table.s_num=s_table.s_num where rownum &lt;= 4
+		select * from (select * from shop s inner join (select count(r_table.num) cnt, r_table.s_num from review r_table group by s_num) r on s.s_num=r.s_num order by cnt desc) s_table where rownum between 1 and 4
 	</select>
 	
 </mapper>
