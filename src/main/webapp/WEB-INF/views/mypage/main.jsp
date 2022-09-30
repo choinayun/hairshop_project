@@ -11,7 +11,7 @@
 	html, body { margin: 0; height: 100%; }
 	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
 	#wrap { width: 800px; margin: auto; text-align: center; }
-	.mypagewrap { width: 600px; margin: auto; margin-top: 100px; }
+	.mypagewrap { width: 600px; margin: auto; margin-top: 100px; margin-bottom: 200px; }
 	.mypagewrap button{
 		width: 100%; height:50px; font-size:20px; padding: 10px;
 		border: 0; cursor:pointer; -webkit-transition-duration: 0.4s; 
@@ -28,7 +28,7 @@
 	
 	<c:if test="${loginUser == null }">
 		<script type="text/javascript">
-			alert('로그인 먼저 진행해야합니다');
+			alert('로그인 먼저 진행해야합니다.');
 			document.location.href="../member/login";
 		</script>
 	</c:if> 
@@ -47,6 +47,6 @@
 			</c:if>
 		</div>
 	</div>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 </html>

@@ -9,8 +9,25 @@
 	
 <style type="text/css">
 	a { color: black; }
-	table { border-collapse: collapse; }
-	h1 { margin: auto; font-size: 30px; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	table {
+	    width: 700px;
+	    text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
+	}
+	table th {
+   		background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px;
+	}
+	table td {
+	    padding: 10px;
+	    background-color: #F6F6F6;
+	}
+	.number { background-color: white; }
 </style>
 
 </head>
@@ -20,24 +37,21 @@
 	<c:import url="../default/header.jsp"/> 
 	
 	<div class="wrap">
-	
-		<div class="top">
-			<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-			<a href="${contextPath }/"><span>홈</span></a>
-		</div>
-		<br><br>
+
 		<h1>리뷰 목록</h1>
-		<br>
+
 		<div class="rlistwrap">
 			<table border="1">
-				<tr>
-					<th>글 번호</th>
-					<th>작성자</th>
-					<th>헤어샵</th>
-					<th>시술정보</th>
-					<th>별점</th>
-					<th>날짜</th>
-				</tr>
+				<thead>
+					<tr>
+						<th>글 번호</th>
+						<th>작성자</th>
+						<th>헤어샵</th>
+						<th>시술정보</th>
+						<th>별점</th>
+						<th>날짜</th>
+					</tr>
+				</thead>
 				<c:if test="${reviewList.size() == 0}" >
 					<tr>
 						<td colspan="6">
@@ -61,7 +75,7 @@
 					</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="6">
+					<td colspan="6" class="number">
 						<div align="center">
 							<c:forEach var="num" begin="1" end="${repeat }">
 								<a href="reviewAllList?num=${num }">[${num }]</a>&nbsp;							

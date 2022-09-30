@@ -9,7 +9,24 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 <style type="text/css">
-	h1 { margin: auto; text-align: center; font-size: 30px; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	.secession_div {
+		width: 800px;
+		height: 100%;
+		margin: 10px auto 42px; }	
+  	.btn {
+	    position: relative;
+	    border: none;
+	    display: inline-block;
+	    padding: 15px 30px;
+	    border-radius: 15px;
+	    font-family: "paybooc-Light", sans-serif;
+	    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	    width: 100%;
+	    margin: 20px auto 50px; }			
 </style>
 
 </head>
@@ -32,12 +49,10 @@
  
  	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
-	
-	<br><br>
-	<div class="wrap">
+
+	<div class="secession_div">
 	
 		<h1>회원 탈퇴</h1>
-		<br>
 		<hr>
 		
 		<ul>

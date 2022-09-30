@@ -9,8 +9,22 @@
 
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: auto; text-align: center; font-size: 30px; }
-	table { margin: auto; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	table {
+	    width: 850px;
+	    text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto; }
+	table th {
+   		background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px; }
+	table td {
+	    padding: 10px;
+	    background-color: #F6F6F6;
+	}
 </style> 
 	
 </head>
@@ -25,33 +39,32 @@
 	
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
-			
-	<br><br>
-	<h1>예약 리스트 확인</h1>
-	<br>
-	   
-	<div class="booingWrap">
+	
+	<div class="booing_div">		
+	
+		<h1>예약 리스트 확인</h1>
+	
 		<form action="bookingModify" method="post">
 		<table border="1">
 			<tr>
-				<td>예약 번호</td>
-				<td>회원 아이디</td>
-				<td>회원 이름</td>
+				<th>예약<br>번호</th>
+				<th>회원<br>아이디</th>
+				<th>회원<br>이름</th>
 				
-	            <td>예약 날짜</td>
-	            <td>예약 시간</td>
-	            <td>시술 정보</td>
-	            <td>예약 상태</td>
-	            <td>예약 상태 변경</td>
+	            <th>예약<br>날짜</th>
+	            <th>예약<br>시간</th>
+	            <th>시술<br>정보</th>
+	            <th>예약<br>상태</th>
+	            <th>예약상태<br>변경</th>
 	            
-	            <td>변경 사항 저장</td>
-	            <td>예약 취소</td>
+	            <th>변경사항<br>저장</th>
+	            <th>예약<br>취소</th>
 			</tr>
 			<c:if test="${list.size() == 0 }">
 				<tr>
-					<th colspan="10">
+					<td colspan="10">
 						<font color="#A6A6A6">예약 내역이 없습니다.</font>
-					</th>
+					</td>
 				</tr>
 			</c:if>
 			<c:forEach var="dto" items="${list}">
