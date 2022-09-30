@@ -24,15 +24,15 @@ footer {
 <footer>
 <div class="container">
 		<div class="f_text">
-<<<<<<< HEAD
+
 			<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
-=======
+
 
 				
 
 				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="${contextPath }/mypage/notice">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a>
 
->>>>>>> 39fa42ee79310428bd1b79a929b7b905a13de386
+
 		</div>
 		<div class="f_copy">
 			<p>
