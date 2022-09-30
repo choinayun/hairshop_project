@@ -62,7 +62,7 @@
 	<div class="total">
 <div class="table_div">
 <table style="margin: auto;">
-			<tr>
+			<tr style="border-bottom:1px solid #A6A6A6; ">
 				<th>글 번호</th>
 				<th>제목</th>
 				<th>작성자</th>
