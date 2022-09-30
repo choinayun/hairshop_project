@@ -10,28 +10,30 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 
-	var grade = ${shop.grade}
-	
-	if(grade > 0 && grade < 1) {
-		$(".star_size").css({ width: '10%' })
-	}else if(grade == 1) {
-		$(".star_size").css({ width: '20%' })
-	}else if(grade > 1 && grade < 2){
-		$(".star_size").css({ width: '30%' })
-	}else if(grade == 2) {
-		$(".star_size").css({ width: '40%' })
-	}else if(grade > 2 && grade < 3){
-		$(".star_size").css({ width: '50%' })
-	}else if(grade == 3){
-		$(".star_size").css({ width: '60%' })
-	}else if(grade > 3 && grade < 4){
-		$(".star_size").css({ width: '70%' })
-	}else if(grade == 4) {
-		$(".star_size").css({ width: '80%' })
-	}else if(grade > 4 && grade < 5) {
-		$(".star_size").css({ width: '90%' })
-	}else if(grade == 5) {
-		$(".star_size").css({ width: '100%' })
+	function init(){
+		var grade = ${shop.grade}
+		
+		if(grade > 0 && grade < 1) {
+			$(".star_size").css({ width: '10%' })
+		}else if(grade == 1) {
+			$(".star_size").css({ width: '20%' })
+		}else if(grade > 1 && grade < 2){
+			$(".star_size").css({ width: '30%' })
+		}else if(grade == 2) {
+			$(".star_size").css({ width: '40%' })
+		}else if(grade > 2 && grade < 3){
+			$(".star_size").css({ width: '50%' })
+		}else if(grade == 3){
+			$(".star_size").css({ width: '60%' })
+		}else if(grade > 3 && grade < 4){
+			$(".star_size").css({ width: '70%' })
+		}else if(grade == 4) {
+			$(".star_size").css({ width: '80%' })
+		}else if(grade > 4 && grade < 5) {
+			$(".star_size").css({ width: '90%' })
+		}else if(grade == 5) {
+			$(".star_size").css({ width: '100%' })
+		}
 	}
 	
 	$.ajax({
@@ -100,7 +102,7 @@
 	.star span{ background-position:left bottom;  line-height:0; vertical-align:top; }
 </style>
 </head>
-<body>
+<body onload="init()">
 <c:import url="../default/header.jsp"/>
 <div id="wrap">
 	<div id="total_area">
