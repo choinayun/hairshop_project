@@ -9,9 +9,13 @@
 
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: auto;  font-size: 30px; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
 	.title { font-size: 20px; }
 	.ndate { font-size: 13px; color: #A6A6A6; }
+	.part {		
+		width: 580px;
+		height: 100%;
+		margin: 30px auto 42px; }
 </style>
 
 </head>
@@ -21,9 +25,8 @@
 	<c:import url="../default/header.jsp"/> 
 		
 		<div class="noticeWrap">	
-			<br>
+
 			<h1>공지사항</h1>
-			<br>
 			
 			<div class="part">
 				<c:forEach var="dto" items="${list }">

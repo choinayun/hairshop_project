@@ -8,7 +8,26 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	table { border: 1px solid #dadada; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	table {
+	    width: 700px;
+	    text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
+	}
+	table th {
+   		background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px;
+	}
+	table td {
+	    padding: 10px;
+	    background-color: #F6F6F6;
+	}
+	.number { background-color: white; 
+			  border-left: none;}
 </style>
 
 </head>
@@ -17,11 +36,11 @@
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 	
-	<div class="wrap">
+	<div class="contentView_div">
 	
 		<table border="1">
 			<caption>
-				<font size="5"><b>상세리뷰</b></font>
+				<h1>상세리뷰</h1>
 			</caption>
 			<tr>
 				<th width="100">글 번호</th>
@@ -55,7 +74,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4" align="center">
+				<td colspan="4" align="center" class="number">
 					<c:if test="${ loginUser == dto.id }">
 						<input type="button" 
 							   onclick="location.href='delete?num=${dto.num }&img=${dto.img }'" value="삭제하기">

@@ -8,7 +8,35 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	h1 { margin: auto; font-size: 30px; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	.reviewForm_div { 
+		width: 580px;
+		height: 100%;
+		margin: 10px auto 42px; }
+	input {
+  		border: 1;
+  		height: 50px;
+  		width: 100%;
+  		font-size: 30;
+  		}	
+  	.btn,.sub {
+	    position: relative;
+	    border: none;
+	    display: inline-block;
+	    padding: 15px 30px;
+	    border-radius: 15px;
+	    font-family: "paybooc-Light", sans-serif;
+	    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	    width: 100%;
+	    margin: 10px auto 15px; }		
+	b { font-size: 20px; }
+	hr { 
+	 	border: 0;
+	 	border-top: 3px double #8c8c8c; } 
+  		
 </style>
 	
 </head>
@@ -32,21 +60,19 @@
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 	
-	<br><br>
-	<div class="wrap">
+	<div class="reviewForm_div">
 		<h1>리뷰 작성</h1>
-		<br>
 		 
 		<form action="${contextPath }/review/reviewSave" method="post"
 										 enctype="multipart/form-data">
 			<b>작성자</b>
-			<input type="text" value="${loginUser }" name="id" readonly><br>
+			<input type="text" value="${loginUser }" name="id" readonly><br><br>
 			<b>방문한 헤어샵</b>
-			<input type="text" name="s_name" value="${shop.sName}" readonly><br>
+			<input type="text" name="s_name" value="${shop.sName}" readonly><br><br>
 			<b>시술 정보</b>
-			<input type="text" name="info" value="${reservation.info}" readonly><br>
+			<input type="text" name="info" value="${reservation.info}" readonly><br><br>
 			
-			<b>별점</b>
+			<b>별점</b>&nbsp;&nbsp;
 			<select name="grade">
 				<option value="" selected>-- 선택 --</option>
 				<option value="1">★</option>
@@ -54,19 +80,21 @@
 				<option value="3">★★★</option>
 				<option value="4">★★★★</option>
 				<option value="5">★★★★★</option>
-			</select><br>
+			</select><br><br>
 			
 			<b>글쓰기</b><br>
-			<textarea name="content" rows="10" cols="50"></textarea><br>
+			<textarea name="content" rows="10" cols="80"></textarea><br><br>
+			
 			<b>이미지 첨부</b><br>
-			<input type="file" name="img" onchange="readURL(this);" ><br>
+			<input type="file" name="img" onchange="readURL(this);" >
 			<img id="preview" src="#" width=100
 							  height=100 alt="선택된 이미지가 없습니다" />
-			<br><hr> 						  
+			<br>
+			<hr>					  
 			<input type="hidden" name="s_num" value="${shop.sNum}">
 			<input type="hidden" name="num" value="${reservation.num}">
-			<input type="submit" value="작성하기">
-			<input type="button" value="목록보기" 
+			<input type="submit" value="작성하기" class="sub">
+			<input type="button" value="목록보기" class="btn"
 				   onclick="location.href='${contextPath }/review/reviewAllList'">
 		</form>
 	</div>

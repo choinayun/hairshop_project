@@ -33,7 +33,7 @@
 	
 	<c:if test="${loginUser == null }">
 		<script type="text/javascript">
-			alert('로그인 먼저 진행해야합니다');
+			alert('로그인 먼저 진행해야합니다.');
 			document.location.href="../member/login";
 		</script>
 	</c:if> 

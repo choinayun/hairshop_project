@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-	a { text-decoration: none; color: black; }
-	h1 { margin: auto; font-size: 30px; text-align: center; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
 	table {
 		width: 580px;
 		height: 100%;
@@ -43,6 +42,21 @@
   		
 	.pw_ok{ color:#008000; display: none; }
 	.pw_no{ color:#FF0000; display: none; }
+	
+	.btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    width: 90%;
+    margin: 10px auto 42px;
+	}
 	
 </style>
 
@@ -120,32 +134,28 @@
 	
  	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
-		
-		<div class="wrap">
-			
-			<br><br>
-			<div id="modifyWrap">
+
+		<div id="modify_div">
 			<h1>회원 정보 수정</h1>
-			<br>
 
 			<form action="memberInfoModify" method="post" id="fo">
 				<table border="1">
 					<tr>
-						<td>아이디<br></td>
+						<td><b>아이디</b></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="id" id="id" size="20"
 									value="${loginUser }" readonly></td>
 					</tr>
 					<tr>
-						<td>비밀번호<br></td>
+						<td><b>비밀번호</b></td>
 					</tr>
 					<tr>
 						<td><input type="password" name="new_pw" id="pw" size="20">
 							<input type="hidden" value="${dto.pw }" name="old_pw"></td>
 					</tr>
 					<tr>
-						<td>비밀번호 확인<br></td>
+						<td><b>비밀번호 확인</b></td>
 					</tr>
 					<tr>
 						<td><input type="password" name="new_pw2" id="pw2" size="20"
@@ -158,41 +168,39 @@
 						</td>
 					</tr>
 					<tr>
-						<td>이름<br></td>
+						<td><b>이름</b></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="name" id="name" size="20"
 							value="${dto.name }"></td>
 					</tr>
 					<tr>
-						<td>이메일<br></td>
+						<td><b>이메일</b></td>
 					</tr>
 					<tr>
 						<td><input type="email" name="email" id="email" size="20"
 							value="${dto.email }"></td>
 					</tr>
 					<tr>
-						<td>지역 설정<br></td>
+						<td><b>지역 설정</b></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="addr" id="addr" size="20"
-									value="${dto.addr }" readonly="readonly">
-							<button type="button" id="search" onclick="daumPost()">검색</button></td>
+									value="${dto.addr }" readonly="readonly" onclick="daumPost()"></td>
 					</tr>
 					<tr>
-						<td>전화번호<br></td>
+						<td><b>전화번호</b></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="phone" id="phone" size="20"
-							value="${dto.phone }"></td>
+								   value="${dto.phone }"></td>
+					<tr>
+						<td><input type="button" class="btn" value="수정하기" onclick="modifychk()"></td>
 					</tr>
 				</table>
-
-				<input type="button" value="수정하기" onclick="modifychk()">
-
+				
 			</form>
 		</div>
-		</div>	
 
 </body>
 </html>
