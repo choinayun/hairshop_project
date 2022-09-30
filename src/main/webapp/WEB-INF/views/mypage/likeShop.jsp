@@ -10,6 +10,7 @@
 <style type="text/css">
 	h1 { margin: 50px 100px 20px 100px; text-align: center; }
 	.likeshop_empty { height: 400px; text-align: center; margin: auto; }
+	.like_div { margin: 20px 0 0 0; }
 	table { 
 		border-collapse: collapse;
 		width: 580px;
@@ -23,7 +24,7 @@
  	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 	
-	<div class="like_div">
+
 		<h1>내 관심 매장</h1>
 		
 		<c:if test="${like_list.size() == 0}">
@@ -32,6 +33,7 @@
 			</div>		
 		</c:if> 
 		
+		<div class="like_div">	
 		<c:if test="${like_list.size() != 0 }">
 			<table>
 				<c:forEach var="dto" items="${like_list}">
@@ -53,7 +55,7 @@
 				</c:forEach>
 			</table>
 		</c:if>
-	</div>
+		</div>
 
 </body>
 </html>
