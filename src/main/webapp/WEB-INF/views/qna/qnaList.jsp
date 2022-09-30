@@ -25,7 +25,7 @@
     	text-align: center;
   }
 	.total{
-		width: 800px;
+		width: 1000px;
  		margin: auto;
  		text-align: center;
 	}
