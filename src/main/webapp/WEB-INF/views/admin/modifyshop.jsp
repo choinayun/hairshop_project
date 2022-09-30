@@ -42,6 +42,7 @@ a{
     border-collapse: collapse;
   }
   th, td {
+    font-family: "paybooc-Light", sans-serif;
     border: 1px solid #A6A6A6;
   }
   input{
@@ -99,7 +100,7 @@ Button:hover {
 <br>
 <form action="modify" method="post" enctype="multipart/form-data">
 	<table>
-	<tr>
+	<tr style="background-color:#D5D5D5">
 	<th>고유 번호</th>
 	<td>
 		<input type="text" value="${dto.sNum}" id="s_num"name="s_num" readonly="readonly" width="10px">

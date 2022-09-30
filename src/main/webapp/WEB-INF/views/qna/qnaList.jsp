@@ -15,14 +15,22 @@
 	
  	table {
     width: 100%;
-    border-top: 1px solid #A6A6A6;
-    border-bottom:1px solid #A6A6A6;
-    
-    border-collapse: collapse;
-  }
-  	th, td {
-    	
     	text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
+  }
+  	th{
+    	
+    	background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px;
+  }
+  td{
+ 		padding: 10px;
+	    background-color: #F6F6F6;
+  
   }
 	.total{
 		width: 1000px;
@@ -34,22 +42,22 @@
    		text-decoration: none;
     }
     button {
-    border:1px solid #e7e7e7;
+    border:0;
  	cursor:pointer;
 	width: 20%;
-	background: white;
+	background: none;
 	
 		
 	-webkit-transition-duration: 0.4s; 
 
  	transition-duration: 0.4s;
-    background-color: white;
+    background-color: none;
     color: black;
   
   }
    button:hover {
 
-  background-color: #e7e7e7;
+  color: white;
 
   }
   .table_div{
@@ -62,7 +70,7 @@
 	<div class="total">
 <div class="table_div">
 <table style="margin: auto;">
-			<tr>
+			<tr style="border-bottom:1px solid #A6A6A6; background-color:#D5D5D5">
 				<th>글 번호</th>
 				<th>제목</th>
 				<th>작성자</th>

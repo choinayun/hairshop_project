@@ -14,15 +14,21 @@
  	text-align: center;
 }
   table {
-    width: 100%;
-    border-top: 1px solid #A6A6A6;
-    border-bottom: 1px solid #A6A6A6;
-    border-collapse: collapse;
+        width: 100%;
+    	text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
   }
-  th, td {
-  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
-  	border-right: 1px solid rgb(0, 0, 0, 0.4);
-    text-align: center;
+  th{
+    	background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px;
+  }
+  td{
+  		padding: 10px;
+	    background-color: #F6F6F6;
   }
 </style>
 <style type="text/css">
@@ -33,19 +39,19 @@ a{
  button {
  	cursor:pointer;
 	width: 100%;
-	background: white;
+	background: none;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
  	transition-duration: 0.4s;
-    background-color: white;
+    background-color: none;
     color: black;
   
 }
 button:hover {
 
-  background-color: #e7e7e7;
+ 	color: white;
 
 }
 .del_td { border-right: none; }
@@ -57,7 +63,7 @@ button:hover {
 	<h3>매장 리스트</h3>
 	
 	<table style="margin: auto;">
-			<tr>
+			<tr style="background-color:#D5D5D5;">
 				<th>매장 아이디</th>
 				<th>매장 이름</th>
 				<th width="300px">매장 주소</th>
