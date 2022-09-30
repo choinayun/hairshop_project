@@ -25,9 +25,13 @@ footer {
 <div class="container">
 		<div class="f_text">
 
+			<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
+
+
 				
 
-				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
+				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="${contextPath }/mypage/notice">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a>
+
 
 		</div>
 		<div class="f_copy">

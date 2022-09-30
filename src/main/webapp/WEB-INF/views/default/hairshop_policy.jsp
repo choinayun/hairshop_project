@@ -1,38 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="ko" class="os_mac chrome pc version_67_0_3396_99">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>헤어샵</title>
-    <meta name="viewport"
-          content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-    <link rel="icon" href="http://t1.kakaocdn.net/kakaohairshop/assets/images/partners/favicon.ico" type="image/x-icon" sizes="16x16">
-    <link rel="shortcut icon" href="http://t1.kakaocdn.net/kakaohairshop/assets/images/partners/favicon.ico" type="image/x-icon" sizes="16x16">
-    <link rel="icon" href="https://t1.kakaocdn.net/kakaohairshop/assets/images/partners/ico_32x32.png" type="image/png" sizes="32x32 48x48">
-    <link rel="icon" href="https://t1.kakaocdn.net/kakaohairshop/assets/images/partners/ico_152x152.png" type="image/png" sizes="64x64 152x152">
-    <link rel="stylesheet" type="text/css" href="/css/terms.css">
+<meta charset="UTF-8">
+<title>Four season hairshop</title>
+<style type="text/css">
+	ul li { list-style: none; }
+</style>
 </head>
 <body>
-<div id="kakaoWrap">
-    <main id="kakaoContent" class="cont_policies">
-        <div ui-view="" class="ng-scope">
+<c:import url="header.jsp"/>
+<div id="policyWrap">
+    <main id="Content">
+        <div>
             <article id="mArticle">
-                <h1 class="screen_out">헤어샵</h1>
+                <h1 class="screen_out">Four season hairshop</h1>
                 <!-- 2020-06-23 전문 수정 -->
                 <div class="carton_policy">
-                    <ul class="tab_policy type_black">
-                        <li class="on">
-                            <a href="/terms/hairshop_policy.html" class="link_tab">헤어샵<br>이용약관</a>
-                        </li>
-                        <li>
-                            <a href="/terms/hairshop_location.html" class="link_tab">위치기반서비스<br>이용약관</a>
-                        </li>
-                    </ul>
-                    <h2 class="tit_policy">서비스 이용약관</h2>
                     <strong class="title_policy">제1조 [목적]</strong>
                     <ul class="list_circle_policy">
-                        <li>① 본 약관은 (주)와이어트(이하 "회사"라 한다.) <span class="txt_sub">(구. 주식회사 하시스)</span>가 운영하는 모바일 선결제 예약 서비스 헤어샵(이하 “서비스”라고도 합니다)을 이용함에 있어 회사와 이용자 간의 권리, 의무 및 책임사항, 서비스 이용에 따른 이용조건 및 절차, 기타 필요한 사항을 규정함을 목적으로 합니다.</li>
+                        <li>① 본 약관은 (주)와이어트(이하 "회사"라 한다.) <span class="txt_sub">(구. 주식회사 하시스)</span>가 운영하는 모바일 선결제 예약 서비스 Four season hairshop(이하 “서비스”라고도 합니다)을 이용함에 있어 회사와 이용자 간의 권리, 의무 및 책임사항, 서비스 이용에 따른 이용조건 및 절차, 기타 필요한 사항을 규정함을 목적으로 합니다.</li>
                         <li>② 회사는 본 약관에서 정한 사항을 이행함에 있어 이용자의 만족을 최우선으로 합니다.</li>
                     </ul>
                     <strong class="title_policy">제2조 [정의]</strong>
@@ -40,7 +29,7 @@
                         <li>
                             ① 본 약관에서 사용하는 용어의 정의는 다음과 같습니다.
                             <ul class="list_num_policy">
-                                <li>1. "헤어샵" 또는 "서비스"란 회사가 운영하는 모바일 어플리케이션 및 모바일 웹을 통해 이용자와 판매자 간에 판매자의 상품 등(펌, 커트
+                                <li>1. "Four season hairshop" 또는 "서비스"란 회사가 운영하는 모바일 어플리케이션 및 모바일 웹을 통해 이용자와 판매자 간에 판매자의 상품 등(펌, 커트
                                     등)의 구매가 이루어질 수 있도록 온라인 거래장소를 제공하고, 판매자의 매장에서 이용자가 원하는 메뉴를 골라 사전 예약 및 사전 결제할 수 있도록 하는
                                     통신판매 중개서비스를 말합니다.
                                 </li>
@@ -62,7 +51,7 @@
                         <li>① 회사는 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제에 관한 법률, 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 소비자보호법 등 관련법령에
                             위배되지 않는 범위에서 본 약관을 개정할 수 있습니다.
                         </li>
-                        <li>② 회사가 본 약관을 개정할 경우에는 개정약관, 적용일자 및 개정사유를 명시하여 현행약관과 함께 헤어샵 초기화면 또는 공지사항 등 서비스 내의 적절한 장소에
+                        <li>② 회사가 본 약관을 개정할 경우에는 개정약관, 적용일자 및 개정사유를 명시하여 현행약관과 함께 Four season hairshop 초기화면 또는 공지사항 등 서비스 내의 적절한 장소에
                             개정약관의 적용일자 칠(7)일 전부터 적용일자 이후 상당한 기간 동안 공지합니다. 다만, 개정 내용이 이용자에게 불리한 경우에는 적용일자 삼십(30)일 전부터 적용일
                             이후 상당한 기간 동안 공지하고, 이용자가 카카오계정으로 사용하는 이메일 주소로의 이메일 발송 또는 카카오톡 메시지 또는 핸드폰 SMS발송 등 합리적으로 가능한
                             방법으로 이용자에게 개별 통지합니다.
@@ -120,7 +109,7 @@
                     <strong class="title_policy">제8조 [취소]</strong>
                     <ul class="list_circle_policy">
                         <li>① 회사는 상품 등의 결제의 취소 및 환불과 관련하여 전자상거래 등에서의 소비자보호에 관한 법률 등 관련법령을 준수합니다.</li>
-                        <li>② 이용자는 결제한 상품에 대하여 예약시간 2시간 이전까지는(예약 시간이 오전 11시인 경우 오전 9시 이전까지를 의미함) 헤어샵 서비스 내에서 직접 결제를 취소하거나 예약 날짜, 시간을 변경할 수 있고, 이 경우 취소수수료는 없습니다. 단, 상품 등의 내용을 변경할 수는 없습니다.<!-- 2020-09-16 문구 수정 --></li>
+                        <li>② 이용자는 결제한 상품에 대하여 예약시간 2시간 이전까지는(예약 시간이 오전 11시인 경우 오전 9시 이전까지를 의미함) Four season hairshop 서비스 내에서 직접 결제를 취소하거나 예약 날짜, 시간을 변경할 수 있고, 이 경우 취소수수료는 없습니다. 단, 상품 등의 내용을 변경할 수는 없습니다.<!-- 2020-09-16 문구 수정 --></li>
                         <!--2016-07-06 수정-->
                         <li>
                             ③ 다음 각 호의 경우에 이용자는 판매자를 상대로 예약 및 결제 취소, 예약변경 등의 요청을 할 수 있고, 이 때 판매자는 특별한 사정이 없는 한 이용자의 요청에
@@ -175,7 +164,7 @@
                             부담합니다.
                             <ul class="list_num_policy">
                                 <li>1. 결제일자 기준 당월(1일~말일) 취소의 경우, 본 조 제1항 또는 제2항에 따라 환불 가능</li>
-                                <li>2. 결제일자 기준 익월 취소의 경우, 이용자는 헤어샵 고객센터에 문의하여 환불 가능 여부를 확인하고, 환불이 가능한 경우 이용자가 환불 받을
+                                <li>2. 결제일자 기준 익월 취소의 경우, 이용자는 Four season hairshop 고객센터에 문의하여 환불 가능 여부를 확인하고, 환불이 가능한 경우 이용자가 환불 받을
                                     계좌정보를 회사에 제공한 후에 본 조 제 1항 또는 제2항에 따라 산정한 환불금액을 해당 계좌로 입금
                                 </li>
                             </ul>
@@ -204,14 +193,12 @@
                         </li>
                         <li>
                             ② 회사는 이용자의 개인정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않고, 이를 보호하기 위하여 노력합니다. 이용자의 개인정보보호에 관한 기타의 사항은
-                            정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 서비스 화면에 공지된 회사의 <a class="link_policy"
-                                                                            href="/terms/privacy_policy.html">개인정보처리방침</a>에서
+                            정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 서비스 화면에 공지된 회사의 개인정보처리방침에서
                             정한 바에 따릅니다.
                         </li>
                         <li>
                             ③ 회사는 서비스 제공을 위하여 이용자의 위치정보를 이용하며, 이에 대하여 이용자의 내 주변관련 위치정보 선택 시점에 이용자의 동의를 받습니다. 이용자의 위치정보
-                            이용 및 보호에 관한 기타 사항은 위치정보의 보호 및 이용 등에 관한 법률 및 동법 시행령과 서비스 전용 어플리케이션 화면에 공지된 회사의 <a
-                                class="link_policy" href="/terms/hairshop_location.html">위치기반서비스 이용약관</a>에서 정한 바에 따릅니다.
+                            이용 및 보호에 관한 기타 사항은 위치정보의 보호 및 이용 등에 관한 법률 및 동법 시행령과 서비스 전용 어플리케이션 화면에 공지된 회사의 위치기반서비스 이용약관에서 정한 바에 따릅니다.
                         </li>
                         <li>④ 정보통신망 이용촉진 및 정보보호 등에 관한 법률 및 동법 시행령에 따라 이용자가 서비스에 1년동안 로그인하지 않은 경우 해당 이용자의 개인정보를 다른 이용자들과
                             분리하여 보관합니다. 개인정보 분리 보관 이후에도 4년 동안 로그인 하지 않으면 해당 이용자의 개인정보를 파기하고 서비스 이용계약을 해지합니다.
@@ -317,7 +304,7 @@
                             부담합니다.
                         </li>
                         <li>② 이용자는 회사에게 자신이 작성한 게시물을 무상으로 이용할 수 있는 권리를 부여합니다. 이에 따라 회사는 이용자가 작성한 게시물을 회사가 제공하는
-                            서비스(헤어샵 서비스에 한정하지 않습니다)에서 검색 결과 노출, 판촉, 홍보 기타의 자료로서 무상으로 이용할 수 있으며, 필요한 범위 내에서 게시물을 저장,
+                            서비스(Four season hairshop 서비스에 한정하지 않습니다)에서 검색 결과 노출, 판촉, 홍보 기타의 자료로서 무상으로 이용할 수 있으며, 필요한 범위 내에서 게시물을 저장,
                             복제, 수정, 공중송신, 전시, 배포 등의 방식으로 이용할 수 있습니다. 회사는 저작권법을 준수하며 이용자는 언제든지 서비스 고객센터(1644-0579)를 통해
                             게시물 삭제, 비공개 등의 조치를 취할 수 있습니다.
                         </li>
@@ -414,9 +401,6 @@
                     </ul>
                     <strong class="sub_title_policy">[부칙]</strong>
                     <p class="desc_policy">본 약관은 2021년 10월 5일 부터 시행됩니다.</p>
-                    <div class="piece_policy">
-                        <a class="link_prev_policy" href="/terms/legacy/hairshop_policy_2021_04_12.html">이전 서비스 이용약관</a>
-                    </div>
                 </div>
             </article>
         </div>

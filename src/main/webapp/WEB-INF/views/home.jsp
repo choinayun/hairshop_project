@@ -134,7 +134,7 @@
 	  <div class="swiper mySwiper">
 	    <div class="swiper-wrapper">
 	 	  <div class="swiper-slide"><img src="${path}/resources/images/main_img.png" width="1370px" height="700px"  class="main_img"></div>
-	      <div class="swiper-slide"><img src="${path}/resources/images/main_img2.png" width="1370px" height="700px" class="main2_img"></div>
+	      <div class="swiper-slide"><img src="${path}/resources/images/main_img4.png" width="1370px" height="700px" class="main2_img"></div>
 	      <div class="swiper-slide"><img src="${path}/resources/images/main_img3.png" width="1370px" height="700px" class="main3_img"></div>
 	    </div>
 	    <div class="swiper-pagination"></div>

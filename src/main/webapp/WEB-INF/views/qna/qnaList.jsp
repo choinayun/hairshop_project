@@ -12,6 +12,7 @@
 <style type="text/css">
 	html, body { margin: 0; height: 100%; }
 	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
+	
  	table {
     width: 100%;
     border-top: 1px solid #A6A6A6;
@@ -20,11 +21,11 @@
     border-collapse: collapse;
   }
   	th, td {
-    	border: 1px solid #A6A6A6;
+    	
     	text-align: center;
   }
 	.total{
-		width: 800px;
+		width: 1000px;
  		margin: auto;
  		text-align: center;
 	}
@@ -51,12 +52,15 @@
   background-color: #e7e7e7;
 
   }
+  .table_div{
+  	margin-top: 100px;
+  }
 </style>
 </head>
 <body>
 	<%@ include file="../default/header.jsp" %>
 	<div class="total">
-
+<div class="table_div">
 <table style="margin: auto;">
 			<tr>
 				<th>글 번호</th>
@@ -86,6 +90,7 @@
 		</table>
 		<br><br>
 		<button type="button" onclick="location.href='${contextPath }/qna/qnaForm'">작성</button>
+	</div>
 	</div>
 	<c:import url="../default/footer.jsp"/>
 </body>

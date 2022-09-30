@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,9 @@ public class HomeController {
 				return api.paymentByImpUid(imp_uid);
 		}
 	
-		
+	@GetMapping("/hairshop_policy")
+	public String hairshop_policy() {
+		return "default/hairshop_policy";
 	}
+	
+}
