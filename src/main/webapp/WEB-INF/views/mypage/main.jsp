@@ -11,7 +11,7 @@
 	html, body { margin: 0; height: 100%; }
 	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
 	#wrap { width: 800px; margin: auto; text-align: center; }
-	.mypagewrap { width: 600px; margin: auto; margin-top: 100px; }
+	.mypagewrap { width: 600px; margin: auto; margin-top: 100px; margin-bottom: 200px; }
 	.mypagewrap button{
 		width: 100%; height:50px; font-size:20px; padding: 10px;
 		border: 0; cursor:pointer; -webkit-transition-duration: 0.4s; 
@@ -28,7 +28,7 @@
 	
 	<c:if test="${loginUser == null }">
 		<script type="text/javascript">
-			alert('로그인 먼저 진행해야합니다');
+			alert('로그인 먼저 진행해야합니다.');
 			document.location.href="../member/login";
 		</script>
 	</c:if> 
@@ -36,7 +36,7 @@
 	<div id="wrap">	
 		<div class="mypagewrap">
 			<button type="button" onclick="location.href='${contextPath }/mypage/infoModify?id=${loginUser }'">회원정보 수정</button><br><br>
-			<button type="button" onclick="location.href='${contextPath }/mypage/likeShop'">관심 매장</button><br><br>
+			<button type="button" onclick="location.href='${contextPath }/mypage/likeShop?id=${loginUser}'">관심 매장</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/history'">이용 내역</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/review/reviewAllList'">리뷰 목록</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/notice'">공지사항</button><br><br>
@@ -47,6 +47,6 @@
 			</c:if>
 		</div>
 	</div>
-<c:import url="../default/footer.jsp"/>
+
 </body>
 </html>

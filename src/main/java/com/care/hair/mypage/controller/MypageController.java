@@ -83,8 +83,8 @@ public class MypageController {
 	}
 	
 	@GetMapping("/likeShop")
-	public String likeShop(Model model) {
-		ms.likeShop(model);
+	public String likeShop(@RequestParam String id, Model model) {
+		ms.likeShop(model, id);
 		return "mypage/likeShop";
 	}
 	

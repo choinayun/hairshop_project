@@ -23,5 +23,5 @@ public interface MypageMapper {
 	public void delete( String id );
 	public List<ReservationDTO> history();
 	public int registerSave( RegistrationDTO dto );
-	public List<LikelistDTO> likeShop();
+	public List<LikelistDTO> likeShop(String id);
 }

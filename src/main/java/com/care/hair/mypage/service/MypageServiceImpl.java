@@ -192,9 +192,9 @@ public class MypageServiceImpl implements MypageService {
 	}
 	
 	// 좋아요 누른 샵 리스트 가져오기 
-	public void likeShop(Model model) {
+	public void likeShop(Model model, String id) {
 		try {
-			model.addAttribute("like_list", mymapper.likeShop());
+			model.addAttribute("like_list", mymapper.likeShop(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

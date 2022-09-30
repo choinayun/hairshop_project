@@ -9,11 +9,55 @@
 
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	table { border-collapse: collapse; }
-	h1 { margin: auto; font-size: 30px; }
-	.registerwrap { height: 500px; }
+	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	table {
+		width: 580px;
+		height: 100%;
+		margin: 10px auto 42px;
+		padding: 0 69px;
+		border: 0px solid rgba(0,0,0,0.12);
+		font-size: 15px;
+		box-sizing: border-box;
+		border: 0px solid #444444;
+		border-collapse: collapse; }
+	th, td {
+		position: relative;
+		z-index: 1;
+		width: 100%;  
+		padding: 2px 3px 5px;
+		border: 0 none; 
+		line-height: 25px;
+		color: #191919;
+		background-color: transparent;
+		letter-spacing: 0;
+		box-sizing: border-box;
+		outline: 0 none;
+		caret-color: #191919;
+		opacity: 1; }	
+	input {
+  		border: 1;
+  		height: 50px;
+  		width: 100%;
+  		font-size: 30;
+  		margin-bottom: 20; }
+  	.sub {
+	    position: relative;
+	    border: none;
+	    display: inline-block;
+	    padding: 15px 30px;
+	    border-radius: 15px;
+	    font-family: "paybooc-Light", sans-serif;
+	    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	    width: 100%;
+	    margin: 30px auto 42px; }		
+	.border { border-top: 1px solid rgb(0, 0, 0, 0.2); }
+	.border td { padding: 10px; }
+	.border_last { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
 </style>
- 
+
 </head>
 <body>
 
@@ -43,54 +87,61 @@
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 		
-		<div class="wrap">
-	
-			<br><br>
-			<div class="registerwrap">
+		<div class="registerwrap">
 			<h1>입점 신청서 작성</h1>
-			<br>
+			
 			<form action="${contextPath }/mypage/registerSave" method="post"
 										 enctype="multipart/form-data">
 			<table border="1">
 				<tr>
-					<th>아이디</th>
+					<td><b>아이디</b></td>
+				</tr>
+				<tr>
 					<td><input type="text" name="id" value="${loginUser }" readonly></td>
 				</tr>
 				<tr>
-					<th>매장 이름</th>
+					<td><b>매장 이름</b></td>
+				</tr>
+				<tr>	
 					<td><input type="text" name="s_name"></td>
 				</tr>
 				<tr>
-					<th>매장 주소</th>
+					<td><b>매장 주소</b></td>
+				</tr>
+				<tr>	
 					<td><input type="text" name="s_addr"></td>
 				</tr>
 				<tr>
-					<th>매장 번호</th>
+					<td><b>매장 번호</b></td>
+				</tr>
+				<tr>	
 					<td><input type="text" name="s_phone"></td>
 				</tr>		
 				<tr>
-					<th rowspan="4">이미지 첨부</th>
+					<td><b>이미지 첨부</b></td>
+				</tr>
+				<tr class="border">	
 					<td>
 						<input type="file" name="img1" onchange="readURL(this);" ><br>
 						<img id="preview1" src="#" width=100
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>
-				<tr>
+				<tr class="border">
 					<td>
 						<input type="file" name="img2" onchange="readURL(this);" ><br>
 						<img id="preview2" src="#" width=100
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>
-				<tr>
+				<tr class="border">
 					<td>
 						<input type="file" name="img3" onchange="readURL(this);" ><br>
 						<img id="preview3" src="#" width=100
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>	
-				<tr>
+				<tr class="border border_last">
 					<td>
 						<input type="file" name="img4" onchange="readURL(this);" ><br>
 						<img id="preview4" src="#" width=100
@@ -99,14 +150,12 @@
 				</tr>	
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="제출하기">
+						<input type="submit" class="sub" value="제출하기">
 					</td>
 				</tr>
 			</table>
 			</form>
-			</div>	
-		</div>
-
+		</div>	
 	
 </body>
 </html>

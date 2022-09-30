@@ -125,7 +125,7 @@
 	#menu_list { margin-top: 30px; }
 	.menu_info { 
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1); font-size: 18pt; text-align: left; 
-		padding: 20px 10px 20px 10px; cursor: pointer;
+		padding: 20px 10px 20px 10px;
 	}
 	.list_all_btn { 
 		border-radius: 6px; padding: 10px; margin-top: 20px; margin-bottom: 60px;
@@ -197,7 +197,7 @@
 		<div id="menu_list">
 			<div class="menu"><strong>메뉴</strong></div>
 			<c:forEach var="menu" items="${menu}" begin="1" end="6">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>

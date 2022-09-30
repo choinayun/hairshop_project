@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 <style type="text/css">
 	body{
-	 margin: 0 auto; text-align: center;
+	 margin: 0 auto; text-align: center; 
 	}
     .swiper-container {
       width: 100%;
@@ -173,6 +173,7 @@ const swiper = new Swiper('.swiper-container', {
 	  debugger: true,
 	  mousewheel: false,
 	  loop: false,
+	  touchRatio: 0,
 	  centeredSlides: true,
 	});
 

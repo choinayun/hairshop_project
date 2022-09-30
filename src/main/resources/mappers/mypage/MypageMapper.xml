@@ -109,7 +109,7 @@
 	
 	<select id="likeShop" resultMap="shop">
 		select l.s_num, l.id, s.s_name, s.s_addr, s.s_phone, s.grade, s.img1 
-		from like_list l left outer join shop s on l.s_num = s.s_num 
+		from like_list l left outer join shop s on l.s_num = s.s_num where l.id=#{id}
 	</select>
 
 </mapper>
