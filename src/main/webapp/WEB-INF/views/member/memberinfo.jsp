@@ -60,6 +60,9 @@ button:hover {
 .del_B{
 	border-right: none;
 } 
+.table_wrap{
+	margin-top: 50px;
+}
 </style>
 
 </head>
@@ -70,8 +73,9 @@ button:hover {
 			value="${ pageContext.request.contextPath}"/>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
+   <div class="table_wrap">
 	<img src="${contextPath }/resources/images/member.png" style="margin-left: 100px;height: 80px;"></img>
-	<!--  <h3 style="margin:auto;text-align: left;">회원 정보 보기 및 탈퇴</h3>-->
+	
 	<br><br>
 	<table style="margin:auto; text-align: left ;">
 			<tr>
@@ -89,7 +93,6 @@ button:hover {
 			<c:forEach var="dto" items="${list}">
 			<tr>
 				<td>${dto.id }</td>
-				<!-- <td>${dto.pw }</td> -->
 				<td>${dto.name}</td>
 				<td>${dto.email}</td>
 				<td>${dto.phone}</td>
@@ -129,7 +132,7 @@ button:hover {
 				<td><button type="button" onclick="func('${dto.id}')">변경</button></td>
 				</c:if>
 				<c:if test="${dto.id.equals('admin')}">
-				<td hidden=""><button type="button" onclick="func('${dto.id}')">변경</button></td>
+				<td></td>
 				</c:if>
 		
 				
@@ -137,14 +140,14 @@ button:hover {
 				<td class="del_B"><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
 				</c:if>
 				<c:if test="${dto.id.equals('admin')}">
-				<td hidden=""><button type="button" onclick="location.href='${contextPath }/member/del?id=${dto.id}'">탈퇴</button></td>
+				<td class="del_B"></td>
 				</c:if>
 				
 			</tr>
 			</c:forEach>
 		</table>
 								<!-- 관리자는 탈퇴 버튼이 안보이게 설정 -->
-						
+	</div>						
 </div>
 
 </body>

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Four Season Hair</title>
 <style type="text/css">
+
 .wrap{
 	width: 800px;
  	margin: auto;
@@ -40,6 +41,9 @@ button:hover {
 </head>
 <body>
 <%@ include file="../default/header.jsp" %>
+
+<div id="wrap">
+
 <c:set var="contextPath" 
 			value="${ pageContext.request.contextPath}"/>
 <div class="wrap">
@@ -77,6 +81,7 @@ button:hover {
 	
 	<br><br>
 	
+</div>
 </div>
 </body>
 </html>

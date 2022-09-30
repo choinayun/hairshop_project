@@ -76,7 +76,7 @@
 <style type="text/css">
 	#wrap { margin-top: 100px; }
 	#review_area { 
-		margin: auto; height: 800px; width: 700px;
+		margin: auto; height: 100%; width: 700px;
 		border-top: 1px solid rgba(0, 0, 0, 0.1); 
 		text-align: left; margin-bottom: 100px;
 	}

@@ -9,7 +9,7 @@
 <title>Four Season Hair</title>
 <style>
   .wrap{
-  	width: 800px;
+  	width: 1000px;
  	margin: auto;
  	text-align: center;
   }
@@ -52,7 +52,9 @@ button:hover {
 .del_B{
  border-right: none;
 }
-	
+.table_wrap{
+	margin-top: 50px;
+}	
 </style>
 <script type="text/javascript">
 	function func(num) {
@@ -64,6 +66,7 @@ button:hover {
 <body>
 <%@ include file="../default/header.jsp" %>
 <div class="wrap">
+	<div class="table_wrap">
 	<h3 style="margin: auto; text-align: center;">예약 정보 확인 및 수정</h3>
 	<br>
 	<form method="post" action="bookingModify">
@@ -132,7 +135,7 @@ button:hover {
 		</table>
 
 </form>
-
+</div>
 </div>
 
 </body>
