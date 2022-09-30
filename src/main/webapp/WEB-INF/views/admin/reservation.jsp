@@ -9,20 +9,27 @@
 <title>Four Season Hair</title>
 <style>
   .wrap{
-  	width: 1000px;
+  	width: 1200px;
  	margin: auto;
  	text-align: center;
   }
   table {
     width: 100%;
-    border-top: 1px solid #A6A6A6;
-    border-bottom: 1px solid #A6A6A6;
-    border-collapse: collapse;
-  }
-  th, td {
-  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
-  	border-right: 1px solid rgb(0, 0, 0, 0.4);
     text-align: center;
+	border: 1px solid #fff;
+	border-spacing: 1px;
+	font-family: 'Cairo', sans-serif;
+	margin: auto;
+  }
+  th{
+  	background-color: #A6A6A6;
+    color: #F6F6F6;
+	padding: 10px;
+  }
+  td{
+  	padding: 10px;
+	background-color: #F6F6F6;
+  
   }
 </style>
 <style type="text/css">
@@ -34,19 +41,19 @@
  button {
  	cursor:pointer;
 	width: 100%;
-	background: white;
+	background: none;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
-    transition-duration: 0.4s;
-    background-color: white;
-    color: black;
+  transition-duration: 0.4s;
+  background-color: none;
+  color: black;
   
 }
 button:hover {
 
-  background-color: #e7e7e7;
+  color: white;
 
 }
 .del_B{
@@ -71,7 +78,7 @@ button:hover {
 	<br>
 	<form method="post" action="bookingModify">
 	<table style="margin: auto;">
-			<tr>
+			<tr style="background-color:#D5D5D5;">
 				<th>예약 번호</th>
 				<th>회원 아이디</th>
 				<th>회원 이름</th>
