@@ -46,7 +46,6 @@ public class ReservationServiceImpl
 
 	
 	public List<ReservationDTO> dateCheck(String ymd, String sNum) {
-		System.out.println("ymd >>>" + ymd);
 		try {
 			return mapper.dateCheck(ymd, Integer.parseInt(sNum));
 		} catch (Exception e) {

@@ -5,10 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +22,11 @@ import com.care.hair.reservation.service.ReservationService;
 @Controller
 @RequestMapping("reservation")
 public class ReservationController {
+	
 	@Autowired ReservationService res;
-
-
 
 	@GetMapping("infoChoice")
 	public String infoChoice(@RequestParam int sNum, Model model) {
-		System.out.println("mNum : " + sNum);
-
 		res.shopInfo(sNum, model);
 
 		return "menu/infoChoice";
@@ -47,12 +41,11 @@ public class ReservationController {
 	}
 
 
-	@GetMapping("/dateCheck")
+	@GetMapping(value = "/dateCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public List<ReservationDTO> dateChk(@Param("ymd") String ymd, @Param("sNum") String sNum, Model model) {
+	public List<ReservationDTO> dateChk(@RequestParam String ymd, @RequestParam String sNum, Model model) {
 		List<ReservationDTO> list = res.dateCheck(ymd, sNum);
 		return list;
-
 	}
 	
 
