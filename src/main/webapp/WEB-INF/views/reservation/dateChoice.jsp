@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${ pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
  	height: 30px;
  	border-style: none;
  	border-radius: 20px; cursor: pointer;
+ 	background-color: rgb(0, 0, 0, 0.1);
  }
 .bottomvar{
  	position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0);
@@ -60,6 +62,24 @@ var selectedCell;
 var realMonth = date.getMonth()+1;
 var realToDay = date.getDate();
 
+var todayTime = date.getFullYear() + "" + ('0' + (date.getMonth() + 1)).slice(-2) + "" + realToDay
+$.ajax({
+    url:'${contextPath}/reservation/dateCheck?ymd='+todayTime+'&sNum=${param.sNum}', //Controller에서 요청 받을 주소///member/
+    type:'get', //get 방식으로 전달
+    dataType : 'json',
+    success:function(data){ // 해당 날짜의 예약정보 리스트를 받음
+ 		$.each(data, function(i, item) {
+ 			// 예약된 시간이 있으면 disabled 처리함.
+			$("#selectDate").val(todayTime)
+			$('#time_'+item.rTime).attr("disabled", true)
+			$('#time_'+item.rTime).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' })
+ 		});
+    },
+    error:function(){
+        alert("에러");
+    }
+});	
+
 //사용자가 클릭한 일자의 월, 일 객체
 var selectedMonth = null;
 var selectedDate = null;
@@ -83,7 +103,7 @@ function buildCalendar(){
    
 //셀 입력을 위해 테이블 개행
   row = calendarTable.insertRow();
-
+	
 //현재날짜부터 14일까지 가져오기
 	for(i = 0; i < 15; i++){ // 14일 후까지의 날짜를 가져오기 위한 loop
 	   var nextDate = new Date();
@@ -91,8 +111,7 @@ function buildCalendar(){
 		
 
  		var yyyyMMdd = (nextDate.getFullYear()) + ("0" + (1 + nextDate.getMonth())).slice(-2) + ("0" + (nextDate.getDate())).slice(-2);  // yyyyMMdd 포멧의 14일 후까지의 날짜
-		$("#selectDate").val(yyyyMMdd)
-
+ 		
 		cell = row.insertCell();
 
 		if(i <= lastDate.getDate()){
@@ -106,8 +125,6 @@ function buildCalendar(){
 }
 </script>
 <body>
-<c:set var="contextPath" 
-			value="${ pageContext.request.contextPath}"/>
 
 <div class="mInfo">
 	<form>
@@ -179,8 +196,7 @@ function buildCalendar(){
 
 function timeChoice(time){
 	var choiceTime = $(time).val()
-	
-	$(".time").css({ backgroundColor: 'white', color: 'black' })
+	$(".time").css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black' })
     $("#selectTime").val(choiceTime)
     $(time).css({ backgroundColor: 'black', color: 'white' })
     $(".resbtn").removeAttr("disabled")
@@ -195,7 +211,7 @@ function jsDateClick(obj){ // obj는 yyyyMMdd 포멧의 오늘날짜
 	$("#calendar tr td").css({ backgroundColor: "white", color: 'black'  })
 	$(obj).css({ backgroundColor: "black", color: 'white'  })
 	$("#selectDate").val(ymd);
-	$(".time").css({ backgroundColor: 'white', color: 'black' })
+	$(".time").css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '1.0' })
 	$("#selectTime").val("")
 	
 	$("input[name=time]").attr("disabled",false); // 달력의 disabled를 false
@@ -207,6 +223,7 @@ function jsDateClick(obj){ // obj는 yyyyMMdd 포멧의 오늘날짜
 	 		$.each(data, function(i, item) {
 	 			// 예약된 시간이 있으면 disabled 처리함.
 				$('#time_'+item.rTime).attr("disabled", true);
+				$('#time_'+item.rTime).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' });
 	 		});
 	    },
 	    error:function(){
@@ -227,16 +244,15 @@ var email ="${email}"
 function payment(){
 	const data={
 			payMethod : 'card', 
-			 //
 			sName : $("input[name='sName']").val(),
-			sNum : $("input[name='sNum']").val(), //
-			id : $("input[name='id']").val(), //
-			rDate : $("input[name='rDate']").val(), //
-			rTime : $("input[name='rTime']").val(), //
-			info : $("input[info='info']").val(), //
+			sNum : $("input[name='sNum']").val(), 
+			id : $("input[name='id']").val(), 
+			rDate : $("input[name='rDate']").val(), 
+			rTime : $("input[name='rTime']").val(), 
+			info : $("input[info='info']").val(), 
 			email : email,
-			name : name, //
-			amount : price, //
+			name : name, 
+			amount : price, 
 			tel : phone
 	}
 	if(!data.rDate){
