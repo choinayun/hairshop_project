@@ -36,7 +36,7 @@
 	input {
   		border: 1;
   		height: 50px;
-  		width: 90%;
+  		width: 100%;
   		font-size: 30;
   		margin-bottom: 20; }		
   		
@@ -54,7 +54,7 @@
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
-    width: 90%;
+    width: 100%;
     margin: 10px auto 42px;
 	}
 	
