@@ -15,7 +15,7 @@ public interface ReservationMapper {
 	
 	public MenuDTO selectMenu(int mNum);
 
-	public List<ReservationDTO> dateCheck(@Param("param1") String param1, @Param("param2") int param2);
+	public List<ReservationDTO> dateCheck(@Param("ymd") String param1, @Param("sNum") int param2);
 
 	public void paymentComplete(Map<String, String> dto);
 

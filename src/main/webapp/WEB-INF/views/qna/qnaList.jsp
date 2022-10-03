@@ -77,7 +77,7 @@
 				<th>작성 날짜</th>
 			</tr>
 			<c:forEach var="dto" items="${list}">
-			<c:if test="${dto.id=='admin'}">
+			<c:if test="${dto.id == admin}">
 			<tr hidden="">
 				<td>${dto.num}</td>
 				<td><a href="${contextPath }/qna/contentView?num=${dto.num}">${dto.title}</a></td>
@@ -86,7 +86,7 @@
 				
 			</tr>
 			</c:if>
-			<c:if test="${dto.id!='admin'}">
+			<c:if test="${dto.id != admin}">
 				<tr>
 				<td>${dto.num}</td>
 				<td><a href="${contextPath }/qna/contentView?num=${dto.num}">${dto.title}</a></td>

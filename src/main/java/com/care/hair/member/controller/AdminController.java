@@ -96,11 +96,13 @@ public class AdminController {
 	@GetMapping("download")
 	public void download(@RequestParam("img") String imageFileName,
 				HttpServletResponse rep) throws IOException {
-	    rep.addHeader(
-		"Content-disposition","attachment;fileName="+imageFileName);
-	    File f = new File(AdminService.IMAGE_REPO+"/"+imageFileName);
-	    FileInputStream in = new FileInputStream(f);
-	    FileCopyUtils.copy(in, rep.getOutputStream());
-	    in.close();
+		if(!imageFileName.equals("nan")) {
+		    rep.addHeader(
+			"Content-disposition","attachment;fileName="+imageFileName);
+		    File f = new File(AdminService.IMAGE_REPO+"/"+imageFileName);
+		    FileInputStream in = new FileInputStream(f);
+		    FileCopyUtils.copy(in, rep.getOutputStream());
+		    in.close();
+		}
 	}
 }

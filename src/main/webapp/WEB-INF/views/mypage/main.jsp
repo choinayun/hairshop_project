@@ -37,13 +37,13 @@
 		<div class="mypagewrap">
 			<button type="button" onclick="location.href='${contextPath }/mypage/infoModify?id=${loginUser }'">회원정보 수정</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/likeShop?id=${loginUser}'">관심 매장</button><br><br>
-			<button type="button" onclick="location.href='${contextPath }/mypage/history'">이용 내역</button><br><br>
-			<button type="button" onclick="location.href='${contextPath }/review/reviewAllList'">리뷰 목록</button><br><br>
+			<button type="button" onclick="location.href='${contextPath }/mypage/history?id=${loginUser}'">이용 내역</button><br><br>
+			<button type="button" onclick="location.href='${contextPath }/review/reviewAllList?id=${loginUser}'">리뷰 목록</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/notice'">공지사항</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/registerShop'">입점 신청</button><br><br>
 			<button type="button" onclick="location.href='${contextPath }/mypage/secession'">회원 탈퇴</button><br><br>
 			<c:if test="${dto.position != 0}">
-				<button type="button" onclick="location.href='${contextPath }/mypage/booking?id=${loginUser }'">매장 관리</button>	
+				<button type="button" onclick="location.href='${contextPath }/mypage/booking?id=${loginUser}'">매장 관리</button>	
 			</c:if>
 		</div>
 	</div>

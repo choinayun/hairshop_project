@@ -145,6 +145,7 @@
 </script>
 
 <style type="text/css">
+	body, html { margin: 0; overflow: auto; }
 	#wrap { position: relative; margin: auto; width: 800px; height: 100%;  text-align: center; margin-top: 50px; }
 	.img_img { width: 800px; height: 350px; margin-bottom: 10px; border-radius: 3px; }
 	strong { color: black; }

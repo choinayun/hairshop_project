@@ -50,7 +50,7 @@
 			</tr>
 			<tr>
 				<th>헤어샵</th>
-				<td>${dto.sNum }</td>
+				<td>${dto.sName }</td>
 				<th>시술 정보</th>
 				<td>${dto.info }</td>
 			</tr>
@@ -69,7 +69,7 @@
 					</c:if>
 					<c:if test="${ dto.img != 'nan' }">
 						<img width="250px" height="250px"
-							src="${contextPath}/review/download?img=${dto.img }">
+							src="${contextPath}/review/download?img=${dto.img}">
 					</c:if>
 				</td>
 			</tr>
@@ -77,9 +77,9 @@
 				<td colspan="4" align="center" class="number">
 					<c:if test="${ loginUser == dto.id }">
 						<input type="button" 
-							   onclick="location.href='delete?num=${dto.num }&img=${dto.img }'" value="삭제하기">
+							   onclick="location.href='${contextPath}/review/delete?num=${dto.num }&img=${dto.img }'" value="삭제하기">
 					</c:if>
-					<input type="button" onclick="location.href='${contextPath }/review/reviewAllList'"
+					<input type="button" onclick="location.href='${contextPath }/review/reviewAllList?id=${loginUser}'"
 										 value="목록으로 돌아가기">
 				</td>
 			</tr>

@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 <style type="text/css">
 	body{
-	 margin: 0 auto; text-align: center; 
+	 margin: 0 auto; text-align: center; overflow-x: hidden; 
 	}
     .swiper-container {
       width: 100%;

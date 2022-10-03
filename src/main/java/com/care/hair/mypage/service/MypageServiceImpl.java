@@ -183,9 +183,9 @@ public class MypageServiceImpl implements MypageService {
 	}
 	
 	// 이용 내역 
-	public void history(Model model) {
+	public void history(Model model, String id) {
 		try {
-			model.addAttribute("list", mymapper.history());
+			model.addAttribute("list", mymapper.history(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

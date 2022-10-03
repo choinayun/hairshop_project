@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.care.hair.common.SessionName;
 import com.care.hair.review.service.ReviewFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,9 +38,8 @@ public class ReviewController {
 	@Autowired ReviewService rs;
 
 	@GetMapping("reviewAllList")
-	public String reviewAllList(Model model,
-					@RequestParam(value="num", required=false, defaultValue="1") int num) {
-		rs.reviewAllList( model, num );
+	public String reviewAllList(Model model, @RequestParam(value="num", required=false, defaultValue="1") int num, @RequestParam String id) {
+		rs.reviewAllList( model, num, id );
 		
 		return "review/reviewAllList";
 	}
@@ -78,11 +79,12 @@ public class ReviewController {
 	
 	// 리뷰 삭제하기 
 	@GetMapping("delete")
-	public void delete(int num, String img, 
+	public void delete(int num, String img,
 					   HttpServletResponse response,
 					   HttpServletRequest request ) throws IOException {
-		
-		String msg = rs.delete(num, img, request);
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute(SessionName.LOGIN);
+		String msg = rs.delete(num, img, id, request);
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print( msg );

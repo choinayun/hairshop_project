@@ -79,7 +79,6 @@ button:hover {
 	<form method="post" action="bookingModify">
 	<table style="margin: auto;">
 			<tr style="background-color:#D5D5D5;">
-				<th>예약 번호</th>
 				<th>회원 아이디</th>
 				<th>회원 이름</th>
 				
@@ -97,13 +96,12 @@ button:hover {
 			
 			<c:forEach var="dto" items="${list}">
 			<tr>
-				<td>${dto.num}</td>
 				<td>${dto.id}</td>
 				<td>${dto.name}</td>
 				<td>${dto.rDate}</td>
 				<td>${dto.rTime}</td>
 				<td>${dto.info}</td>
-				<td>${dto.price}</td>
+				<td>${dto.price}원</td>
 				<td>${dto.sShop}</td>
 				
 				<td hidden="">${dto.status}</td>
@@ -111,7 +109,7 @@ button:hover {
 				<c:if test="${dto.status==0}">
 					<span class="booking">예약중</span>
 				</c:if>	
-				<c:if test="${dto.status==1}">
+				<c:if test="${dto.status==1 || dto.status==3}">
 					<span class="bookingDone">이용완료</span>
 				</c:if>
 				<c:if test="${dto.status==2}">

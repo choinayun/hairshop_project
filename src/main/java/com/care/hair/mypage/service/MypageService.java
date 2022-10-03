@@ -20,6 +20,6 @@ public interface MypageService {
 	public void notice(Model model);
 	public void noticeView(int num, Model model);
 	public void delete(String id);
-	public void history(Model model);
+	public void history(Model model, String id);
 	
 }

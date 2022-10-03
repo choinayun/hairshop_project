@@ -11,11 +11,11 @@ body { margin: 0; }
 footer { 
 	background-color: rgb(189, 189, 189, 0.2); 
 	color: rgb(0, 0, 0, 0.7); text-align: center;  
-	font-size: 7pt; padding: 10px 10px 0 10px; margin-top: 100px;
+	font-size: 7pt; padding-top: 10px; margin-top: 100px;
 }	
 #footer_div { margin: 0 auto; width: 1000px; }
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
-.copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; }
+.copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; width: 1200px; margin: auto; }
 .topBtn { position: fixed; bottom: 130px; right: 20px; z-index: 3 }
 </style>
 </head>

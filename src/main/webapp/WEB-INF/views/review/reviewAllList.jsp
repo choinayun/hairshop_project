@@ -80,7 +80,7 @@
 					<td colspan="6" class="number">
 						<div align="center">
 							<c:forEach var="num" begin="1" end="${repeat }">
-								<a href="reviewAllList?num=${num }">[${num }]</a>&nbsp;							
+								<a href="reviewAllList?num=${num}&id=${loginUser}">[${num }]</a>&nbsp;							
 							</c:forEach>
 						</div>
 					</td>
