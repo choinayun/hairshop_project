@@ -29,7 +29,7 @@
  	width: 300px; padding: 20px 10px 20px 10px; background-color: rgb(0, 0, 0, 0.2); color: white; 
  	font-size: 15pt; font-weight: bold; border-radius: 6px;  
 }
-#wrap { text-align: center; margin-top: 100px; }
+#wrap { text-align: center; margin-top: 60px; }
 #timetable { margin: auto; }
 #timetable tr td { 
 	padding: 10px; border-radius: 20%;
@@ -49,6 +49,7 @@
 </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 var today = new Date();
@@ -58,27 +59,44 @@ var date = new Date();
 //선택되있던 셀 객체 저장
 var selectedCell;
 
+var time = moment().format("HHmm")
+
 //오늘에 해당하는 월
 var realMonth = date.getMonth()+1;
 var realToDay = date.getDate();
 
-var todayTime = date.getFullYear() + "" + ('0' + (date.getMonth() + 1)).slice(-2) + "" + realToDay
+var todayTime = date.getFullYear() + "" + ('0' + (date.getMonth() + 1)).slice(-2) + "" + ('0' + date.getDate()).slice(-2)
+
 $.ajax({
     url:'${contextPath}/reservation/dateCheck?ymd='+todayTime+'&sNum=${param.sNum}', //Controller에서 요청 받을 주소///member/
     type:'get', //get 방식으로 전달
     dataType : 'json',
     success:function(data){ // 해당 날짜의 예약정보 리스트를 받음
- 		$.each(data, function(i, item) {
+		$("#selectDate").val(todayTime)
+    	for(var i = 0; i < data.length; i++){
  			// 예약된 시간이 있으면 disabled 처리함.
-			$("#selectDate").val(todayTime)
-			$('#time_'+item.rTime).attr("disabled", true)
-			$('#time_'+item.rTime).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' })
- 		});
+			$('#time_'+data[i].rTime.split("~")[0].replace(":", "")).attr("disabled", true)
+			$('#time_'+data[i].rTime.split("~")[0].replace(":", "")).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' })
+    	}
+    	setTime()
     },
     error:function(){
         alert("에러");
     }
-});	
+});
+
+function setTime(){
+	
+	for(var i = 0; i < 12; i++){
+		var getTime = $("input[name=time]").eq(i).val().split("~")[0].replace(":", "")
+		var getTime2 = $("input[name=time]").eq(i).val().split("~")[1].replace(":", "")
+		
+		if(time >= getTime2){
+			$('#time_' + getTime).attr("disabled", true)
+			$('#time_' + getTime).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' })
+		}
+	}
+}
 
 //사용자가 클릭한 일자의 월, 일 객체
 var selectedMonth = null;
@@ -148,7 +166,7 @@ function buildCalendar(){
 	</div>
 	</form>
 </div> 
-
+<c:import url="../default/header.jsp"/>
 <div id="wrap">
 	<div class="div_width">날짜 선택</div>
 	<table id="calendar">
@@ -222,14 +240,18 @@ function jsDateClick(obj){ // obj는 yyyyMMdd 포멧의 오늘날짜
 	    success:function(data){ // 해당 날짜의 예약정보 리스트를 받음
 	 		$.each(data, function(i, item) {
 	 			// 예약된 시간이 있으면 disabled 처리함.
-				$('#time_'+item.rTime).attr("disabled", true);
-				$('#time_'+item.rTime).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' });
+				$('#time_'+item.rTime.split("~")[0].replace(":", "")).attr("disabled", true);
+				$('#time_'+item.rTime.split("~")[0].replace(":", "")).css({ backgroundColor: 'rgb(0, 0, 0, 0.1)', color: 'black', opacity: '0.5' });
 	 		});
 	    },
 	    error:function(){
 	        alert("에러");
 	    }
 	});
+	console.log(todayTime)
+	if(ymd == todayTime){
+		setTime()
+	}
 }
 </script>
 <!-- jQuery -->
@@ -337,10 +359,10 @@ function paymentComplete(data){
 			sShop : $("input[name='sNum']").val(), 
 			id : $("input[name='id']").val(), 
 			rDate : $("input[name='rDate']").val(), 
-			rTime : $("#selectTime").val().split('~')[0].replace(':',''), 
+			rTime : $("#selectTime").val(), 
 			info : $("input[name='info']").val(), 
 			name : name, 
-			price : price, 
+			price : '${dto.price}', 
 		}
 	
 	$.ajax({
@@ -358,6 +380,5 @@ function paymentComplete(data){
 }
 
 </script>
-    <%-- <c:import url="../default/footer.jsp"/>  --%>
 </body>
 </html>

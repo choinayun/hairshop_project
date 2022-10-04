@@ -37,15 +37,19 @@ public class QnaServiceImpl implements QnaService {
 		}
 		
 		int result = 0;
-		result = qmapper.qnaSave(dto);
+		try {
+			result = qmapper.qnaSave(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 			
 		String msg = null, url = null; 
 			if( result == 1 ) {
-				msg = "문의하기 작성이 완료되었습니다";
-				url = request.getContextPath() + "/";
+				msg = "작성되었습니다";
+				url = request.getContextPath() + "/qna/qnaList";
 			} else {
 				msg = "문제가 발생했습니다";
-				url = request.getContextPath() + "/mypage/qna"; 
+				url = request.getContextPath() + "/qna/qnaList"; 
 			}
 		
 		return qfs.getMessage( msg, url ); 

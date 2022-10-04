@@ -127,15 +127,14 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <div id="wrap">
 	<div class="wrapper">
 	  <!-- Swiper -->
 	  <div class="swiper mySwiper">
 	    <div class="swiper-wrapper">
-	 	  <div class="swiper-slide"><img src="${path}/resources/images/main_img.png" width="1370px" height="700px"  class="main_img"></div>
+	 	  <div class="swiper-slide"><img src="${path}/resources/images/main_img5.png" width="1370px" height="700px"  class="main_img"></div>
 	      <div class="swiper-slide"><img src="${path}/resources/images/main_img4.png" width="1370px" height="700px" class="main2_img"></div>
-	      <div class="swiper-slide"><img src="${path}/resources/images/main_img3.png" width="1370px" height="700px" class="main3_img"></div>
+	      <div class="swiper-slide"><img src="${path}/resources/images/main_img6.png" width="1370px" height="700px" class="main3_img"></div>
 	    </div>
 	    <div class="swiper-pagination"></div>
 	    <div class="swiper-button-next"><img src="${path}/resources/images/main_arrow_right.png" style="width: 80px; height: 70px; "></div>

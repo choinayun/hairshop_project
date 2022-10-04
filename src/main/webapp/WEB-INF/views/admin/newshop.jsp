@@ -87,7 +87,7 @@ button:hover {
 				<td>${dto.sAddr}</td>
 				<td>${dto.sPhone}</td>
 				
-				<td><button type="button" onclick="location.href='newshopOK?num=${dto.num}&id=${dto.id}'">등록</button></td>
+				<td><button type="button" onclick="location.href='${contextPath}/admin/newshopOK?num=${dto.num}&id=${dto.id}'">등록</button></td>
 				<td class="no"><button type="button" onclick="location.href='newshopNO?num=${dto.num}'">삭제</button></td>
 			</tr>
 			</c:forEach>

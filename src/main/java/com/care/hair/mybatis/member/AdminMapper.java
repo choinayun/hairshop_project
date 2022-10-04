@@ -13,7 +13,7 @@ public interface AdminMapper {
 	public List<ShopDTO> shopinfo(Model model);
 	public void delshop(String sNum);
 	public List<RegistrationDTO>newshop(Model model);
-	public void shopOK(String num);
+	public void shopOK(RegistrationDTO dto);
 	public void shopOKdel(String num);
 	public List<ReservationDTO>reservation(Model model);
 	public void Bmodify(ReservationDTO dto);
@@ -21,4 +21,5 @@ public interface AdminMapper {
 	public void N_F(NoticeDTO dto);
 	public ShopDTO getShop(int sNum);
 	public void modify(ShopDTO dto);
+	public RegistrationDTO getRegistration(int num);
 }

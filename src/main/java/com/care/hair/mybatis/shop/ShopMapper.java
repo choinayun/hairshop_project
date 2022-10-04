@@ -14,4 +14,5 @@ public interface ShopMapper {
 	public List<ShopDTO> shopList();
 	public List<ShopDTO> getGradeImg();
 	public List<ShopDTO> getReviewImg();
+	public void ShopGradeUpdate(int sNum);
 }

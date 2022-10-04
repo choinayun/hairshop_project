@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	body { margin: 0; }
+	body, html { margin: 0; overflow: auto; }
 	#header { margin: 0 auto; border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
 	#header_flex { margin: auto; width: 1300px; height: 100px; text-align: center; display: flex; padding: 20px 0 20px 0; }
 	#header_area { margin: auto; }

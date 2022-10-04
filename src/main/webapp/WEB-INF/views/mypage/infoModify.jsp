@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	table {
 		width: 580px;
 		height: 100%;
@@ -57,7 +57,7 @@
     width: 100%;
     margin: 10px auto 42px;
 	}
-	
+	#addr { cursor: pointer; }
 </style>
 
 </head>
@@ -84,14 +84,10 @@
 	</script>
 	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 		function daumPost(){
     		new daum.Postcode({
 	        	oncomplete: function(data) {
-	        		console.log(data.roadAddress)
-	           		console.log(data.jibunAddress)
-	      
 					if(data.addressType=="R"){
 						var addr=data.roadAddress
 					}else{

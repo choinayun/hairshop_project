@@ -116,7 +116,6 @@
 
 <style type="text/css">
 	html, body { margin: 0; height: 100%; }
-	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
 	#wrap { margin: auto; width: 800px; text-align: center; margin-top: 50px; }
 	.img_img { width: 800px; height: 350px; margin-bottom: 10px; border-radius: 3px; }
 	strong { color: black; }
@@ -154,6 +153,5 @@
 		
 	</div>
 </div>
-<c:import url="../default/footer.jsp"/>
 </body>
 </html>

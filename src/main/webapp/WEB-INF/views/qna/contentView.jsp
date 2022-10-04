@@ -97,7 +97,7 @@
 <div class="write_form">
 <img src="${contextPath }/resources/images/reply.png" style="margin-top: 50px;float: left;margin-left: 80px;" ></img><br>
 		<c:if test="${loginUser.equals('admin')}">
-			<form method="post" action="reply">
+			<form method="post" action="${contextPath}/qna/reply">
 				<table class="tab">
 					<tr>
 						<td colspan="4"><textarea name="content"></textarea></td>
@@ -108,8 +108,8 @@
 						<td><input type="hidden" name="groupNum" value="${dto.num}"></td>
 						
 					</tr>
-					<tr><td colspan="5"><input type="submit" value="reply"></td></tr>
 				</table>
+				<input type="submit" value="reply">
 			</form>
 		</c:if>
 

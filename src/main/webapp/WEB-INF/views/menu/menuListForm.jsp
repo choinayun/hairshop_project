@@ -17,7 +17,7 @@
 	#menu_list { margin: auto; margin-top: 30px; height: 1000px; width: 800px; }
 	.menu_info { 
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1); font-size: 18pt; 
-		text-align: left; padding: 10px; cursor: pointer; 
+		text-align: left; padding: 10px; 
 	}
 </style>
 </head>
@@ -28,7 +28,7 @@
 		<div class="menu"><strong>커트</strong></div>
 		<c:forEach var="menu" items="${menuList}">
 			<c:if test="${menu.category == 0}">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>
@@ -37,7 +37,7 @@
 		<div class="menu"><strong>펌</strong></div>
 		<c:forEach var="menu" items="${menuList}">
 			<c:if test="${menu.category == 1}">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>
@@ -46,7 +46,7 @@
 		<div class="menu"><strong>염색</strong></div>
 		<c:forEach var="menu" items="${menuList}">
 			<c:if test="${menu.category == 2}">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>
@@ -55,7 +55,7 @@
 		<div class="menu"><strong>클리닉</strong></div>
 		<c:forEach var="menu" items="${menuList}">
 			<c:if test="${menu.category == 3}">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>
@@ -64,7 +64,7 @@
 		<div class="menu"><strong>스타일링</strong></div>
 		<c:forEach var="menu" items="${menuList}">
 			<c:if test="${menu.category == 4}">
-				<div class="menu_info" onclick="location.href='${path}/menu/infoChoice'">
+				<div class="menu_info">
 					<div class="menu_name">${menu.info}</div>
 					<div class="menu_price">${menu.price}</div>
 				</div>

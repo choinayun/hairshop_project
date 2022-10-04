@@ -61,14 +61,16 @@
 	</select>
 	
 	<insert id="shopOK">
-		INSERT INTO shop(s_num,id,s_name,s_addr,s_phone)SELECT
-		 num,id,s_name,s_addr,s_phone FROM registration WHERE num=#{num}
+		insert into shop(s_name, s_addr, s_phone, s_num, id, img1, img2, img3, img4) values(#{sName}, #{sAddr}, #{sPhone}, (select nvl(max(s_num)+1,1) from shop), #{id}, #{img1}, #{img2}, #{img3}, #{img4})
 	</insert>
+	
+	<select id="getRegistration" resultMap="newshop">
+		select * from registration where num=#{num}
+	</select>
 	
 	<delete id="shopOKdel">
 		delete from registration where num=#{num}
 	</delete>
-	
 	
 	<select id="reservation" resultMap="reservation">
 		select * from reservation

@@ -14,9 +14,9 @@ public interface ReviewService {
 	public String reviewSave(MultipartHttpServletRequest mul, 
 							 HttpServletRequest request);
 	
-	public void reviewAllList(Model model, int num); 
+	public void reviewAllList(Model model, int num, String id); 
 	
-	public String delete(int num, String img,
+	public String delete(int num, String img, String id,
 						 HttpServletRequest request); 	
 	
 	public void contentView(int num, Model model);

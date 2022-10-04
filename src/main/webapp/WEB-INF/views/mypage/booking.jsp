@@ -9,7 +9,7 @@
 
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	table {
 	    width: 850px;
 	    text-align: center;

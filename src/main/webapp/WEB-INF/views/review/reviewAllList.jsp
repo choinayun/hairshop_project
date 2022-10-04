@@ -11,13 +11,14 @@
 	a { color: black; }
 	h1 { margin: 50px 100px 20px 100px; text-align: center; }
 	table {
-	    width: 700px;
+	    width: 900px;
 	    text-align: center;
 	    border: 1px solid #fff;
 	    border-spacing: 1px;
 	    font-family: 'Cairo', sans-serif;
 	  	margin: auto;
 	}
+	table tr { cursor:pointer; }
 	table th {
    		background-color: #A6A6A6;
    		color: #F6F6F6;
@@ -27,7 +28,9 @@
 	    padding: 10px;
 	    background-color: #F6F6F6;
 	}
-	.number { background-color: white; }
+	.number { background-color: white; border-left: none; }
+	.border { border-left: none; }
+	.border a { text-decoration: none; }
 </style>
 
 </head>
@@ -63,9 +66,9 @@
 				</c:if>
 				<c:if test="${reviewList.size() != 0 }" >
 				<c:forEach var="dto" items="${reviewList}">
-					<tr>
-						<td>
-							<a href="${contextPath }/review/contentView?num=${dto.num }">${dto.num }</a>
+					<tr onclick="location.href='${contextPath }/review/contentView?num=${dto.num }'">
+						<td class="border">
+							<a>${dto.num }</a>
 						</td>
 						<td>${dto.id }</td>						
 						<td>${dto.sName }</td>						
@@ -78,7 +81,7 @@
 					<td colspan="6" class="number">
 						<div align="center">
 							<c:forEach var="num" begin="1" end="${repeat }">
-								<a href="reviewAllList?num=${num }">[${num }]</a>&nbsp;							
+								<a href="reviewAllList?num=${num}&id=${loginUser}">[${num }]</a>&nbsp;							
 							</c:forEach>
 						</div>
 					</td>
