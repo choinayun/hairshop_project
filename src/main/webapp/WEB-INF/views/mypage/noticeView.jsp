@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: 50px 100px 20px 0; text-align: left; display: inline-block; }
+	h1 { margin: 50px 100px 40px 0; text-align: left; display: inline-block; }
 	.noticeView_div {
 		width: 580px;
 		height: 100%;

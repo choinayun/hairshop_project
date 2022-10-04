@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	table {
 		width: 580px;
 		height: 100%;

@@ -11,13 +11,14 @@
 	a { color: black; }
 	h1 { margin: 50px 100px 20px 100px; text-align: center; }
 	table {
-	    width: 700px;
+	    width: 900px;
 	    text-align: center;
 	    border: 1px solid #fff;
 	    border-spacing: 1px;
 	    font-family: 'Cairo', sans-serif;
 	  	margin: auto;
 	}
+	table tr { cursor:pointer; }
 	table th {
    		background-color: #A6A6A6;
    		color: #F6F6F6;
@@ -65,9 +66,9 @@
 				</c:if>
 				<c:if test="${reviewList.size() != 0 }" >
 				<c:forEach var="dto" items="${reviewList}">
-					<tr>
+					<tr onclick="location.href='${contextPath }/review/contentView?num=${dto.num }'">
 						<td class="border">
-							<a href="${contextPath }/review/contentView?num=${dto.num }">${dto.num }</a>
+							<a>${dto.num }</a>
 						</td>
 						<td>${dto.id }</td>						
 						<td>${dto.sName }</td>						

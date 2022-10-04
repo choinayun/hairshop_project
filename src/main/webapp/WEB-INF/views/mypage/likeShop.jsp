@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	.likeshop_empty { height: 400px; text-align: center; margin: auto; }
 	.like_div { margin: 20px 0 0 0; }
 	table { 
