@@ -60,11 +60,10 @@
 				<th>등록일자</th>
 				<td>${dto.qDate}</td>
 			</tr>
-			
 			<tr>
 				<td colspan="4">
 					${dto.content}<br>
-						<c:if test="${ dto.img != 'nan' }">
+					<c:if test="${ dto.img != 'nan' }">
 						<img width="300px" height="300px" 
 							 src="${contextPath}/admin/download?img=${dto.img}">
 					</c:if>

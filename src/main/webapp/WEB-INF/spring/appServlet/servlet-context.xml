@@ -24,10 +24,10 @@
 	<context:component-scan base-package="com.care.hair" />
 	
 	<beans:bean id="LoginCheck" class="com.care.hair.common.LoginCheck" />
+	<beans:bean id="AdminCheck" class="com.care.hair.common.AdminCheck" />
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/member/memberinfo"/>
 			<mapping path="/menu/infoChoice"/>
 			<mapping path="/mypage/infoModify"/>
 			<mapping path="/mypage/likeShop"/>
@@ -38,6 +38,16 @@
 			<mapping path="/mypage/booking"/>
 			<mapping path="/qna/qnaForm"/>
 			<beans:ref bean="LoginCheck"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/admin/admin"/>
+			<mapping path="/admin/shoplist"/>
+			<mapping path="/admin/newshop"/>
+			<mapping path="/admin/noticeWrite"/>
+			<mapping path="/admin/reservation"/>
+			<mapping path="/member/memberinfo"/>
+			<beans:ref bean="AdminCheck"/>
 		</interceptor>
 	</interceptors>
 	

@@ -161,7 +161,7 @@ function buildCalendar(){
 				<div class="sum">총 결제금액</div>
 				<div class="price" id="price">${dto.price}원</div>
 		</div> 
-			<input class="resbtn" type="button" value="결제하기" onclick="paymentComplete1()" disabled="disabled">
+			<input class="resbtn" type="button" value="결제하기" onclick="payment()" disabled="disabled">
 		</div>
 	</div>
 	</form>
@@ -314,11 +314,12 @@ function paymentCard(data) {
 	const m_redirect = href.replaceAll(pathName, "");
 	
   	const IMP = window.IMP; // 생략 가능reservation
-  	IMP.init("imp08025075");
-	
+  	// IMP.init("imp08025075");
+  	IMP.init("imp84257421");
   	
 	IMP.request_pay({ // param
-		pg: "html5_inicis",
+		//pg: "html5_inicis",
+		pg: "kcp",
 	  	pay_method: data.payMethod,
 	  	
 	  	name: data.sName,
@@ -334,16 +335,14 @@ function paymentCard(data) {
 	  	m_redirect_url: m_redirect, 
   	}, 
 	function (rsp) { // callback
-  	  
+  	  console.log(rsp)
   	    $.ajax({
   	      type : "POST",
   	      url : "${contextPath}/verifyIamport/" + rsp.imp_uid
   	    }).done(function(data){
   	      
   	      if(rsp.paid_amount == data.response.amount){
-  	        alert("결제 및 결제검증완료");
   	        data.impUid = rsp.imp_uid;
-  	        
   	        paymentComplete(data);  
   	      }else(
   	        alert("결제실패")
@@ -354,32 +353,6 @@ function paymentCard(data) {
 
 //계산 완료
 function paymentComplete(data){
-	var dto = {
-			
-			sShop : $("input[name='sNum']").val(), 
-			id : $("input[name='id']").val(), 
-			rDate : $("input[name='rDate']").val(), 
-			rTime : $("#selectTime").val(), 
-			info : $("input[name='info']").val(), 
-			name : name, 
-			price : '${dto.price}', 
-		}
-	
-	$.ajax({
-		url:'${contextPath}/reservation/paymentComplete',
-		method : "POST", contentType: "application/json; charset=utf-8", 
-		data: JSON.stringify(dto),
-		success: function() {
-			alert("결제 성공")
-			location.replace("${contextPath}/");
-		},error: function(){
-			alert("결제 실패")
-		}
-	})
-	
-}
-
-function paymentComplete1(){
 	var dto = {
 			
 			sShop : $("input[name='sNum']").val(), 

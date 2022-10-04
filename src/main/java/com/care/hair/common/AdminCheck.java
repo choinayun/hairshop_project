@@ -13,7 +13,9 @@ public class AdminCheck extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		HttpSession session = request.getSession();
-		if(session.getAttribute("loginUser") == null) {
+		String user = (String)session.getAttribute("loginUser");
+				
+		if(user == null || !(user.equals("admin"))) {
 			PrintWriter out = response.getWriter();
 			response.setContentType("text/html; charset=utf-8");
 			out.print("<script>location.href='" + request.getContextPath() + "/';</script>");
