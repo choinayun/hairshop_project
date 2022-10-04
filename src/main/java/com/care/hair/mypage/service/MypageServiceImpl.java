@@ -183,18 +183,18 @@ public class MypageServiceImpl implements MypageService {
 	}
 	
 	// 이용 내역 
-	public void history(Model model) {
+	public void history(Model model, String id) {
 		try {
-			model.addAttribute("list", mymapper.history());
+			model.addAttribute("list", mymapper.history(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	// 좋아요 누른 샵 리스트 가져오기 
-	public void likeShop(Model model) {
+	public void likeShop(Model model, String id) {
 		try {
-			model.addAttribute("like_list", mymapper.likeShop());
+			model.addAttribute("like_list", mymapper.likeShop(id));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

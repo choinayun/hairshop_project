@@ -9,9 +9,9 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	table {
-	    width: 700px;
+	    width: 900px;
 	    text-align: center;
 	    border: 1px solid #fff;
 	    border-spacing: 1px;
@@ -47,7 +47,7 @@
 				<c:if test="${list.status == 0}">
 					<tr>
 						<td>${list.num}</td><td>${list.sName}</td><td>${list.info}</td>
-						<td>${list.rDate}</td><td>예약대기</td><td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}'"></td>
+						<td>${list.rDate}</td><td>예약대기</td><td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}&id=${loginUser}'"></td>
 					</tr>
 				</c:if>
 				<c:if test="${list.status == 1}">

@@ -9,13 +9,16 @@
 
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	.title { font-size: 20px; }
 	.ndate { font-size: 13px; color: #A6A6A6; }
 	.part {		
-		width: 580px;
+		width: 800px;
 		height: 100%;
 		margin: 30px auto 42px; }
+	.part ul { padding: 20px; border-top: 1px solid rgb(0, 0, 0, 0.2); cursor: pointer; }
+	.part ul:last-child { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
+	.part ul li { list-style: none; }
 </style>
 
 </head>
@@ -30,7 +33,7 @@
 			
 			<div class="part">
 				<c:forEach var="dto" items="${list }">
-					<ul>
+					<ul onclick="location.href='${contextPath }/mypage/noticeView?num=${dto.num }'">
 						<li>
 							<a href="${contextPath }/mypage/noticeView?num=${dto.num }">
 							<span class="title"><b>${dto.title }</b></span>

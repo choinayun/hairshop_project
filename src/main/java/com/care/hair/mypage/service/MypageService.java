@@ -12,7 +12,7 @@ public interface MypageService {
 							   HttpServletRequest request); 
 	public void infoModify(String id, Model model);
 	public void memberInfoModify(HttpServletRequest req);
-	public void likeShop(Model model);
+	public void likeShop(Model model, String id);
 	public void booking(String id, Model model);
 	public void bookingModify(int status, int num); 
 	public void bookingDel(int num);
@@ -20,6 +20,6 @@ public interface MypageService {
 	public void notice(Model model);
 	public void noticeView(int num, Model model);
 	public void delete(String id);
-	public void history(Model model);
+	public void history(Model model, String id);
 	
 }

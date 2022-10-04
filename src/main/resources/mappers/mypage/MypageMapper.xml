@@ -95,7 +95,7 @@
 	</select>
 	
 	<select id="history" resultMap="reservation">
-		select r.num, s.s_name, r.info, r.r_date, r.status, r.s_shop from reservation r inner join shop s on r.s_shop=s.s_num order by num desc
+		select r.num, s.s_name, r.info, r.r_date, r.status, r.s_shop from (select * from reservation where id=#{id}) r inner join shop s on r.s_shop=s.s_num order by num desc
 	</select>
 	
 	<insert id="registerSave">
@@ -109,7 +109,7 @@
 	
 	<select id="likeShop" resultMap="shop">
 		select l.s_num, l.id, s.s_name, s.s_addr, s.s_phone, s.grade, s.img1 
-		from like_list l left outer join shop s on l.s_num = s.s_num 
+		from like_list l left outer join shop s on l.s_num = s.s_num where l.id=#{id}
 	</select>
 
 </mapper>

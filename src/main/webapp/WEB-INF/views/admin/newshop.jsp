@@ -21,32 +21,39 @@ a{
 <style>
    table {
     width: 100%;
-    border-top: 1px solid #A6A6A6;
-    border-bottom: 1px solid #A6A6A6;
-    border-collapse: collapse;
-  }
-  th, td {
-  	border-bottom: 1px solid rgb(0, 0, 0, 0.4);
-  	border-right: 1px solid rgb(0, 0, 0, 0.4);
     text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
+  }
+  th{
+  		background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px;
+  }
+  td{
+  		padding: 10px;
+	    background-color: #F6F6F6;
+  
   }
 
  button {
  	cursor:pointer;
 	width: 100%;
-	background: white;
+	background: none;
 	border: 0;
 		
 	-webkit-transition-duration: 0.4s; 
 
   transition-duration: 0.4s;
-  background-color: white;
+  background-color: none;
   color: black;
   
 }
 button:hover {
 
-  background-color: #e7e7e7;
+  color: white;
 
 }
 .no{
@@ -62,7 +69,7 @@ button:hover {
 	
 	<table style="margin: auto;">
 	
-			<tr>
+			<tr style="background-color:#D5D5D5;">
 				<th>매장 번호</th>
 				<th>매장 아이디</th>
 				<th>매장 이름</th>
@@ -80,7 +87,7 @@ button:hover {
 				<td>${dto.sAddr}</td>
 				<td>${dto.sPhone}</td>
 				
-				<td><button type="button" onclick="location.href='newshopOK?num=${dto.num}&id=${dto.id}'">등록</button></td>
+				<td><button type="button" onclick="location.href='${contextPath}/admin/newshopOK?num=${dto.num}&id=${dto.id}'">등록</button></td>
 				<td class="no"><button type="button" onclick="location.href='newshopNO?num=${dto.num}'">삭제</button></td>
 			</tr>
 			</c:forEach>

@@ -60,11 +60,16 @@ public class AdminServiceImpl implements AdminService {
 	}
 	public void shopOK(String num,String id,Model model) {
 
-		admapper.shopOK(num);
-		mapper.getemail(id);
-		model.addAttribute("email",mapper.getemail(id));
-		mapper.shopChange(id);
-		admapper.shopOKdel(num);
+		try {
+			RegistrationDTO dto = admapper.getRegistration(Integer.parseInt(num));
+			admapper.shopOK(dto);
+			mapper.getemail(id);
+			model.addAttribute("email",mapper.getemail(id));
+			mapper.shopChange(id);
+			admapper.shopOKdel(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void shopNO(String num) {
 		try {

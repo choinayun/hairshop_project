@@ -11,11 +11,11 @@ body { margin: 0; }
 footer { 
 	background-color: rgb(189, 189, 189, 0.2); 
 	color: rgb(0, 0, 0, 0.7); text-align: center;  
-	font-size: 7pt; padding: 10px 10px 0 10px; margin-top: 100px;
+	font-size: 7pt; padding-top: 10px; margin-top: 100px;
 }	
 #footer_div { margin: 0 auto; width: 1000px; }
 .f_text a { font-weight: bold; text-decoration: none; color: black; }
-.copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; }
+.copyright { font-size: 9pt; border-top: 1px solid rgb(0, 0, 0, 0.4); padding-top: 10px; padding-bottom: 10px; width: 1200px; margin: auto; }
 .topBtn { position: fixed; bottom: 130px; right: 20px; z-index: 3 }
 </style>
 </head>
@@ -24,19 +24,7 @@ footer {
 <footer>
 <div class="container">
 		<div class="f_text">
-<<<<<<< HEAD
-				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="${contextPath }/mypage/notice">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a>
-=======
-
-			<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="#">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a> · <a href="#">개인정보처리방침</a>
-
-
-				
-
-				<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="${contextPath }/mypage/notice">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a>
-
-
->>>>>>> 7946f3275c865cc2ee1851e6711319cb0978f25d
+			<a href="${contextPath}/qna/qnaList">문의사항</a> · <a class="a" href="${contextPath }/mypage/notice">공지사항</a> · <a href="${contextPath}/hairshop_policy">이용약관</a>
 		</div>
 		<div class="f_copy">
 			<p>

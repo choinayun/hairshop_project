@@ -36,7 +36,7 @@
 	SELECT * 
 		FROM RESERVATION
 	  WHERE R_DATE = #{param1}
-	    AND S_SHOP = #{param2}
+	    AND S_SHOP = #{param2} and status != 2 
 </select>
 
 <select id="selectMenu" resultMap="menu">

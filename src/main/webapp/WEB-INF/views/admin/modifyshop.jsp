@@ -23,6 +23,7 @@ function daumPost(){
         }
     }).open();
 }
+
 </script>
 <style type="text/css">
 .wrap{
@@ -42,6 +43,7 @@ a{
     border-collapse: collapse;
   }
   th, td {
+    font-family: "paybooc-Light", sans-serif;
     border: 1px solid #A6A6A6;
   }
   input{
@@ -83,8 +85,7 @@ Button:hover {
 .mButton{
 	margin: auto;
 }
-
-  
+.addr_area, #s_addr { cursor: pointer; }
 </style>
 </head>
 <body>
@@ -93,13 +94,13 @@ Button:hover {
 <%@ include file="../default/header.jsp" %>
 <%@ taglib prefix="c" 
 				uri="http://java.sun.com/jsp/jstl/core" %>
-				
+			
 <div class="wrap">
 
 <br>
 <form action="modify" method="post" enctype="multipart/form-data">
 	<table>
-	<tr>
+	<tr style="background-color:#D5D5D5">
 	<th>고유 번호</th>
 	<td>
 		<input type="text" value="${dto.sNum}" id="s_num"name="s_num" readonly="readonly" width="10px">
@@ -119,10 +120,11 @@ Button:hover {
 	<td><input type="text" value="${dto.sName}" name="s_name" id="s_name"></td>
 	
 	
-	<th rowspan="2">샵 주소</th>
+	<th rowspan="2">매장 주소</th>
 	<td rowspan="2">
-		<input type="text" value="${dto.sAddr}" name="s_addr"id="s_addr" readonly="readonly">
-		<button type="button" onclick="daumPost()">검색</button>
+		<div onclick="daumPost()" class="addr_area">
+			<input type="text" value="${dto.sAddr}" name="s_addr"id="s_addr" readonly="readonly">
+		</div>
 	</td>
 	</tr>
 	
@@ -134,9 +136,8 @@ Button:hover {
 	<tr>
 		<th>사진1</th>
 			<td>
-			<c:if test="${ dto.img1 == 'nan' }"> <b>이미지가 없습니다</b> </c:if>
-			<c:if test="${ dto.img1 != 'nan' }">
-				<img width="100px" height="100px" 
+			<c:if test="${ !dto.img1.equals('nan') }">
+				<img width="100px" height="100px" class="img_1 img_"
 				src="${contextPath}/admin/download?img=${dto.img1}">
 			</c:if><br>
 				<input type="file" name="img" id="img1" value="변경"></td>
@@ -145,9 +146,8 @@ Button:hover {
 	
 		<th>사진2</th>
 		<td>
-			<c:if test="${ dto.img1 == 'nan' }"> <b>이미지가 없습니다</b> </c:if>
-			<c:if test="${ dto.img1 != 'nan' }">
-				<img width="100px" height="100px" 
+			<c:if test="${ !dto.img2.equals('nan') }">
+				<img width="100px" height="100px" class="img_2 img_"
 				src="${contextPath}/admin/download?img=${dto.img2}">
 			</c:if><br>
 			<input type="file" name="img" id="img2" value="변경">
@@ -156,18 +156,16 @@ Button:hover {
 	<tr>
 	<th>사진3</th>
 		<td>
-			<c:if test="${ dto.img1 == 'nan' }"> <b>이미지가 없습니다</b> </c:if>
-			<c:if test="${ dto.img1 != 'nan' }">
-				<img width="100px" height="100px" 
+			<c:if test="${ !dto.img3.equals('nan') }">
+				<img width="100px" height="100px" class="img_3 img_"
 				src="${contextPath}/admin/download?img=${dto.img3}">
 			</c:if><br>
 			<input type="file" name="img" id="img3" value="변경">
 		</td>
 	<th>사진4</th>
 		<td>
-			<c:if test="${ dto.img1 == 'nan' }"> <b>이미지가 없습니다</b> </c:if>
-			<c:if test="${ dto.img1 != 'nan' }">
-				<img width="100px" height="100px" 
+			<c:if test="${ !dto.img4.equals('nan') }">
+				<img width="100px" height="100px" class="img_4 img_"
 				src="${contextPath}/admin/download?img=${dto.img4}">
 			</c:if><br>
 			<input type="file" name="img" id="img4" value="변경">
@@ -181,7 +179,7 @@ Button:hover {
 	
 	<br>
 	<div id="mButton">
-	<input type="submit" value="수정하기" id="Button">
+	<input type="submit" value="수정하기" id="Button" style="cursor: pointer;">
 	<button type="button" onclick="history.back()">취소</button>
 	</div>
 

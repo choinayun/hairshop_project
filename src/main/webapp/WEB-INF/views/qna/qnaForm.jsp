@@ -10,16 +10,56 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-.wrap{
-
-	width: 800px;
- 	margin: auto;
- 	text-align: center;
-	
-}
-	a { text-decoration: none; color: black; }
-	table { border-collapse: collapse;}
-	h1 { margin: auto; font-size: 30px; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
+	.qnaForm_div { 
+		width: 580px;
+		height: 100%;
+		margin: 10px auto 42px; }
+	table {
+		width: 580px;
+		height: 100%;
+		margin: 10px auto 42px;
+		padding: 0 69px;
+		border: 0px solid rgba(0,0,0,0.12);
+		font-size: 15px;
+		box-sizing: border-box;
+		border: 0px solid #444444;
+		border-collapse: collapse; }
+	th, td {
+		position: relative;
+		z-index: 1;
+		width: 100%;  
+		padding: 2px 3px 5px;
+		border: 0 none; 
+		line-height: 25px;
+		color: #191919;
+		background-color: transparent;
+		letter-spacing: 0;
+		box-sizing: border-box;
+		outline: 0 none;
+		caret-color: #191919;
+		opacity: 1; }	
+	input {
+  		border: 1;
+  		height: 50px;
+  		width: 98%;
+  		font-size: 30;
+  		margin-bottom: 20; }
+  	.sub {
+	    position: relative;
+	    border: none;
+	    display: inline-block;
+	    padding: 15px 30px;
+	    border-radius: 15px;
+	    font-family: "paybooc-Light", sans-serif;
+	    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	    width: 100%;
+	    margin: 30px auto 42px; }
+	.border { border-top: 1px solid rgb(0, 0, 0, 0.2); }
+	.border td { padding: 10px; }	    	
 </style>
 
 </head>
@@ -42,53 +82,50 @@
 
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
-		
-		<div class="wrap">
-		
-			<div class="top">
-					<a href="${contextPath }/mypage/main"><span>뒤로가기</span></a>
-					<a href="${contextPath }/"><span>홈</span></a>
-			</div>
-			<br><br>
-			
-			<div class="qnawrap">
-			<h1>문의하기</h1>
-			<br>
+
+		<div class="qnaForm_div">
+			<h1>문의 작성</h1>
+
 			<form action="${contextPath }/qna/qnaSave" method="post"
 										 enctype="multipart/form-data">
 			<table border="1">
 				<tr>
-					<th>아이디</th>
+					<td><b>아이디</b></td>
+				</tr>
+				<tr>					
 					<td><input type="text" name="id" value="${loginUser }" readonly ></td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<td><b>제목</b></td>
+				</tr>
+				<tr>	
 					<td><input type="text" name="title"></td>
 				</tr>
 				<tr>
-					<th>내용</th>
-					<td><textarea name="content" rows="10" cols="50"></textarea></td>
+					<td><b>내용</b></td>
+				</tr>
+				<tr>	
+					<td><textarea name="content" rows="10" cols="79"></textarea></td>
 				</tr>
 				<tr>
-					<th>이미지 첨부</th>
+					<td><b>이미지 첨부</b></td>
+				</tr>
+				<tr class="border">	
 					<td>
 						<input type="file" name="img" onchange="readURL(this);" ><br>
-						<img id="preview" src="#" width=100
-									  height=100 alt="선택된 이미지가 없습니다" />
+						<img id="preview" src="#" width=100 class="img"
+									  	  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="제출하기">
+						<input type="submit" class="sub" value="제출하기">
 					</td>
 				</tr>
 			</table>
 			</form>
-			</div>
 		</div>
-		<br><br>
 
-	<c:import url="../default/footer.jsp"/>
 		
 </body>
 </html>

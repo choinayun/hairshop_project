@@ -8,14 +8,18 @@
 <title>Four Season Hair</title>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	.likeshop_empty { height: 400px; text-align: center; margin: auto; }
 	.like_div { margin: 20px 0 0 0; }
 	table { 
 		border-collapse: collapse;
-		width: 580px;
+		width: 800px;
 		height: 100%;
-		margin: 10px auto 42px; }
+		margin: 10px auto 42px; 
+	}
+	.like_div table tr { border-top: 1px solid rgb(0, 0, 0, 0.2); cursor: pointer; }
+	.like_div table tr:last-child { border-bottom: 1px solid rgb(0, 0, 0, 0.2); } 
+	.like_div table tr td { padding: 20px; text-align: center; }
 </style>
 
 </head>
@@ -38,13 +42,11 @@
 			<table>
 				<c:forEach var="dto" items="${like_list}">
 					
-					<tr>
-						<td rowspan="2">
+					<tr onclick="location.href='${contextPath}/shop/shopInfo?sNum=${dto.sNum}'">
+						<td>
 							<img width="200px" height="150px"
 								src="${contextPath}/mypage/download?img=${dto.img1}">
 						</td>
-					</tr>
-					<tr>
 						<td>
 							<b>${dto.sName }</b><br>
 							${dto.grade } / ${dto.sAddr }<br>

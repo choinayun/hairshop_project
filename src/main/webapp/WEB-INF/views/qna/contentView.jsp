@@ -19,15 +19,20 @@
  		margin: auto;
  		text-align: center;
 	}
-	.tab { width: 650px; margin: auto; }
-	textarea { width: 630px; height: 250px; }
+	.tab { width: 650px; margin: auto; margin-top: 50px;}
+	textarea { width: 630px; height: 150px; }
 	table {
     	width: 100%;
     	border: 1px solid #A6A6A6;
     	border-collapse: collapse;
  		}
-  	th, td {
+  	th{
+  		background-color:#D5D5D5;
     	border: 1px solid #A6A6A6;
+    	text-align: center;
+ 	 }
+ 	 td{
+ 	 	border: 1px solid #A6A6A6;
     	text-align: center;
  	 }
 </style>
@@ -36,6 +41,7 @@
 <body>
 <%@ include file="../default/header.jsp" %>
 	<div class="total">
+	
 		<table border="1" class="tab">
 			<tr>
 				<th width="100">글 번호</th>
@@ -49,15 +55,25 @@
 				<th>등록일자</th>
 				<td>${dto.qDate}</td>
 			</tr>
+			
 			<tr>
-				<th>내용</th>
-				<td>${dto.content}</td>
-				<td colspan="2"><c:if test="${ dto.img == 'nan' }">
+				<td colspan="4">
+					${dto.content}<br>
+						<c:if test="${ dto.img != 'nan' }">
+						<img width="300px" height="300px" 
+							 src="${contextPath}/admin/download?img=${dto.img}">
+					</c:if>
+				
+				</td>
+				<!--  <td colspan="2"><c:if test="${ dto.img == 'nan' }">
 						<b>이미지가 없습니다</b>
-					</c:if> <c:if test="${ dto.img != 'nan' }">
+					</c:if>
+					 <c:if test="${ dto.img != 'nan' }">
 						<img width="100px" height="100px" 
 							 src="${contextPath}/admin/download?img=${dto.img}">
-					</c:if></td>
+					</c:if>-->
+					
+					<!--  </td>-->
 			</tr>
 
 
@@ -71,10 +87,12 @@
 	<table class="tab">
 		<c:forEach var="reply" items="${reply}">
 			<tr>
-				<td>관리자</td>
+				<td style="width: 20%; background-color: #D5D5D5;">관리자</td>
 				<td>${reply.content}</td>
-				<td>${reply.qDate}
+				<td style="width: 30%;">${reply.qDate}
+				<c:if test="${loginUser.equals('admin')}">
 				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;margin-top: 2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
+				</c:if>
 				</td>
 				
 			</tr>
@@ -85,7 +103,7 @@
 
 <div class="write_form">
 		<c:if test="${loginUser.equals('admin')}">
-			<form method="post" action="reply">
+			<form method="post" action="${contextPath}/qna/reply">
 				<table class="tab">
 					<tr>
 						<td colspan="4"><textarea name="content"></textarea></td>
@@ -94,12 +112,10 @@
 						<td><input type="hidden" name="id" value="admin"></td>
 						<td><input type="hidden" name="num" value="${dto.num}"></td>
 						<td><input type="hidden" name="groupNum" value="${dto.num}"></td>
+						
 					</tr>
-					<tr>
-						<td colspan="4"><input type="submit" value="답글달기"></td>
-					</tr>
-
 				</table>
+				<input type="submit" value="reply">
 			</form>
 		</c:if>
 

@@ -6,10 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Four Season Hair</title>
-
 <style type="text/css">
 	a { text-decoration: none; color: black; }
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	table {
 		width: 580px;
 		height: 100%;
@@ -52,10 +51,28 @@
 	    font-weight: 600;
 	    transition: 0.25s;
 	    width: 100%;
-	    margin: 10px auto 42px; }		
-	
+	    margin: 30px auto 42px; }		
+	.border { border-top: 1px solid rgb(0, 0, 0, 0.2); }
+	.border td { padding: 10px; }
+	.border_last { border-bottom: 1px solid rgb(0, 0, 0, 0.2); }
+	#addr { cursor: pointer; }
 </style>
- 
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+	function daumPost(){
+   		new daum.Postcode({
+        	oncomplete: function(data) {
+				if(data.addressType=="R"){
+					var addr=data.roadAddress
+				}else{
+					var addr=data.jibunAddress
+		        }
+       		
+       		document.getElementById("addr").value=addr }
+		}).open();
+	}
+</script>
 </head>
 <body>
 
@@ -69,19 +86,39 @@
 				reader.onload = function (e){
 					var name = input.name
 					if(name == "img1"){
-						$('#preview1').attr('src', e.target.result); 
+						$('#preview1').attr('src', e.target.result);
+						$('.img_1').css({ display: 'block' })
 					}else if(name == "img2"){
 						$('#preview2').attr('src', e.target.result); 
+						$('.img_2').css({ display: 'block' }) 
 					}else if(name == "img3"){
 						$('#preview3').attr('src', e.target.result); 
+						$('.img_3').css({ display: 'block' }) 
 					}else if(name == "img4"){
 						$('#preview4').attr('src', e.target.result); 
+						$('.img_4').css({ display: 'block' }) 
 					}
 				}
 			}
 		}
 	</script>
 
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript">
+		function daumPost(){
+    		new daum.Postcode({
+	        	oncomplete: function(data) {
+					if(data.addressType=="R"){
+						var addr=data.roadAddress
+					}else{
+						var addr=data.jibunAddress
+			        }
+        		
+        		document.getElementById("addr").value=addr }
+			}).open();
+		}
+	</script>
+	
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 	<c:import url="../default/header.jsp"/> 
 		
@@ -95,7 +132,7 @@
 					<td><b>아이디</b></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="id" value="${loginUser }" readonly></td>
+					<td><input type="text" name="id" value="${loginUser}" readonly></td>
 				</tr>
 				<tr>
 					<td><b>매장 이름</b></td>
@@ -107,7 +144,7 @@
 					<td><b>매장 주소</b></td>
 				</tr>
 				<tr>	
-					<td><input type="text" name="s_addr"></td>
+					<td><input type="text" name="s_addr" placeholder="주소 검색" readonly onclick="daumPost()" id="addr"></td>
 				</tr>
 				<tr>
 					<td><b>매장 번호</b></td>
@@ -118,31 +155,31 @@
 				<tr>
 					<td><b>이미지 첨부</b></td>
 				</tr>
-				<tr>	
+				<tr class="border">	
 					<td>
-						<input type="file" name="img1" onchange="readURL(this);" ><br>
-						<img id="preview1" src="#" width=100
+						<input type="file" name="img1" onchange="readURL(this);"><br>
+						<img id="preview1" src="#" width=100 style="display: none;" class="img_1"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>
-				<tr>
+				<tr class="border">
 					<td>
 						<input type="file" name="img2" onchange="readURL(this);" ><br>
-						<img id="preview2" src="#" width=100
+						<img id="preview2" src="#" width=100 style="display: none;" class="img_2"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>
-				<tr>
+				<tr class="border">
 					<td>
 						<input type="file" name="img3" onchange="readURL(this);" ><br>
-						<img id="preview3" src="#" width=100
+						<img id="preview3" src="#" width=100 style="display: none;" class="img_3"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>	
-				<tr>
+				<tr class="border border_last">
 					<td>
 						<input type="file" name="img4" onchange="readURL(this);" ><br>
-						<img id="preview4" src="#" width=100
+						<img id="preview4" src="#" width=100 style="display: none;" class="img_4"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>	

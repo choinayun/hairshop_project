@@ -145,7 +145,8 @@
 </script>
 
 <style type="text/css">
-	#wrap { margin: auto; width: 800px; text-align: center; margin-top: 50px; }
+	body, html { margin: 0; overflow: auto; }
+	#wrap { position: relative; margin: auto; width: 800px; height: 100%;  text-align: center; margin-top: 50px; }
 	.img_img { width: 800px; height: 350px; margin-bottom: 10px; border-radius: 3px; }
 	strong { color: black; }
 	dd { display: inline-block; margin-left: 2px; color: black; }
@@ -208,6 +209,5 @@
 		<div onclick="slide_align_select(4)" class="align_btn4 align_select_set">리뷰 적은 순</div>
 	</div>
 </div>
-<c:import url="../default/footer.jsp"/>
 </body>
 </html>

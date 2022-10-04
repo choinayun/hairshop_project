@@ -40,11 +40,15 @@
 	</select>
 	
 	<select id="getGradeImg" resultMap="shop">
-		select rownum, tab.* from (select * from shop s inner join (select s_num, count(s_num) cnt from review group by s_num) r on s.s_num=r.s_num order by grade desc) tab where rownum &lt;= 4
+		select rownum, tab.* from (select s.s_name, s.s_addr, s.s_phone, s.grade, s.s_num, s.id, s.img1, s.img2, s.img3, s.img4, nvl(r.cnt, 0) cnt from shop s left join (select s_num, count(s_num) cnt from review group by s_num) r on s.s_num=r.s_num order by grade desc) tab where rownum &lt;= 4
 	</select>
 	
 	<select id="getReviewImg" resultMap="shop">
-		select * from (select * from shop s inner join (select count(r_table.num) cnt, r_table.s_num from review r_table group by s_num) r on s.s_num=r.s_num order by cnt desc) s_table where rownum between 1 and 4
+		select ss.s_name, ss.s_addr, ss.s_phone, ss.grade, ss.s_num, ss.id, ss.img1, ss.img2, ss.img3, ss.img4, nvl(ss.cnt, 0) cnt  from (select * from (select s.s_name, s.s_addr, s.s_phone, s.grade, s.s_num, s.id, s.img1, s.img2, s.img3, s.img4, r.cnt cnt from shop s left join (select count(r_table.num)  cnt, r_table.s_num from review r_table group by s_num) r on s.s_num=r.s_num) order by cnt desc nulls last) ss where rownum between 1 and 4
 	</select>
+	
+	<update id="ShopGradeUpdate">
+		update shop set grade=(select round(r.total/r.cnt, 1) grade from (select count(s_num) cnt, sum(grade) total from review where s_num=#{sNum} group by s_num) r) where s_num=#{sNum}		
+	</update>
 	
 </mapper>

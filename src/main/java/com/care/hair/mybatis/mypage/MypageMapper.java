@@ -21,7 +21,7 @@ public interface MypageMapper {
 	public void modify( MemberDTO dto );
 	public MemberDTO getUser( String id );
 	public void delete( String id );
-	public List<ReservationDTO> history();
+	public List<ReservationDTO> history(String id);
 	public int registerSave( RegistrationDTO dto );
-	public List<LikelistDTO> likeShop();
+	public List<LikelistDTO> likeShop(String id);
 }

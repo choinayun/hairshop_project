@@ -9,10 +9,9 @@ public interface ReviewMapper {
 
 	public int reviewSave( ReviewDTO dto ); 
 	
-	public List<ReviewDTO> reviewAllList(
-			@Param("s")int start, @Param("e")int end);
+	public List<ReviewDTO> reviewAllList(@Param("s")int start, @Param("e")int end, @Param("id") String id);
 	
-	public int selectReviewCount(); 
+	public int selectReviewCount(String id); 
 	
 	public int delete( int num );
 

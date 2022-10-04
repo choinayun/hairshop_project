@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 <style type="text/css">
-	h1 { margin: 50px 100px 20px 100px; text-align: center; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	.secession_div {
 		width: 800px;
 		height: 100%;

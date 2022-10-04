@@ -12,64 +12,61 @@
 <style type="text/css">
 	html, body { margin: 0; height: 100%; }
 	footer { position: absolute; bottom: 0; width: 100%; height: 90px; }
+	h1 { margin: 50px 100px 40px 100px; text-align: center; }
 	
- 	table {
-    width: 100%;
-    border-top: 1px solid #A6A6A6;
-    border-bottom:1px solid #A6A6A6;
-    
-    border-collapse: collapse;
-  }
-  	th, td {
-    	
-    	text-align: center;
-  }
-	.total{
-		width: 1000px;
- 		margin: auto;
- 		text-align: center;
+	table {
+	    width: 900px;
+	    text-align: center;
+	    border: 1px solid #fff;
+	    border-spacing: 1px;
+	    font-family: 'Cairo', sans-serif;
+	  	margin: auto;
 	}
-	 a{
+  	th {
+    	background-color: #A6A6A6;
+   		color: #F6F6F6;
+	    padding: 10px; }
+ 	td {
+ 		padding: 10px;
+	    background-color: #F6F6F6; }
+
+	a {
    		color: black;
-   		text-decoration: none;
-    }
-    button {
-    border:1px solid #e7e7e7;
- 	cursor:pointer;
-	width: 20%;
-	background: white;
-	
-		
-	-webkit-transition-duration: 0.4s; 
-
- 	transition-duration: 0.4s;
-    background-color: white;
-    color: black;
-  
-  }
-   button:hover {
-
-  background-color: #e7e7e7;
-
-  }
-  .table_div{
-  	margin-top: 100px;
-  }
+   		text-decoration: none; }
+	.sub  {
+		cursor:pointer;
+	    position: relative;
+	    border: none;
+	    display: inline-block;
+	    padding: 15px 30px;
+	    border-radius: 15px;
+	    font-family: "paybooc-Light", sans-serif;
+	    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	    text-decoration: none;
+	    font-weight: 600;
+	    transition: 0.25s;
+	    background-color: #a3a1a1;
+	    color: #e3dede;
+	    margin: 20px auto 10px;  }
+	.btn { text-align: center; }
+  	button:hover { color: white; }
 </style>
 </head>
 <body>
 	<%@ include file="../default/header.jsp" %>
-	<div class="total">
-<div class="table_div">
-<table style="margin: auto;">
-			<tr>
+	<div class="table_div">
+	
+		<h1>문의하기 목록</h1>
+	
+		<table style="margin: auto;">
+			<tr style="border-bottom:1px solid #A6A6A6; background-color:#D5D5D5">
 				<th>글 번호</th>
 				<th>제목</th>
 				<th>작성자</th>
 				<th>작성 날짜</th>
 			</tr>
 			<c:forEach var="dto" items="${list}">
-			<c:if test="${dto.id=='admin'}">
+			<c:if test="${dto.id == admin}">
 			<tr hidden="">
 				<td>${dto.num}</td>
 				<td><a href="${contextPath }/qna/contentView?num=${dto.num}">${dto.title}</a></td>
@@ -78,7 +75,7 @@
 				
 			</tr>
 			</c:if>
-			<c:if test="${dto.id!='admin'}">
+			<c:if test="${dto.id != admin}">
 				<tr>
 				<td>${dto.num}</td>
 				<td><a href="${contextPath }/qna/contentView?num=${dto.num}">${dto.title}</a></td>
@@ -88,10 +85,10 @@
 			</c:if>
 			</c:forEach>
 		</table>
-		<br><br>
-		<button type="button" onclick="location.href='${contextPath }/qna/qnaForm'">작성</button>
+		<div class="btn">
+			<button type="button" class="sub" onclick="location.href='${contextPath }/qna/qnaForm'">작성</button>
+		</div>
 	</div>
-	</div>
-	<c:import url="../default/footer.jsp"/>
+
 </body>
 </html>
