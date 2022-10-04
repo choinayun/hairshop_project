@@ -47,7 +47,7 @@
 				<c:if test="${list.status == 0}">
 					<tr>
 						<td>${list.num}</td><td>${list.sName}</td><td>${list.info}</td>
-						<td>${list.rDate}</td><td>예약대기</td><td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}'"></td>
+						<td>${list.rDate}</td><td>예약대기</td><td><input type="button" value="취소" onclick="location.href='${contextPath}/mypage/statusUpdate?num=${list.num}&id=${loginUser}'"></td>
 					</tr>
 				</c:if>
 				<c:if test="${list.status == 1}">

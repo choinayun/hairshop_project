@@ -35,6 +35,7 @@
  	 	border: 1px solid #A6A6A6;
     	text-align: center;
  	 }
+ 	 textarea { resize: none; }
 </style>
 
 </head>
@@ -42,7 +43,7 @@
 <%@ include file="../default/header.jsp" %>
 	<div class="total">
 	
-		<table border="1" class="tab">
+		<table class="tab">
 			<tr>
 				<th width="100">글 번호</th>
 				<td width="200">${dto.num}</td>
@@ -101,27 +102,18 @@
 </c:if>
 </div>
 
-<div class="write_form">
+	<div class="write_form">
 		<c:if test="${loginUser.equals('admin')}">
-			<form method="post" action="reply">
-				<table class="tab">
-					<tr>
-						<td colspan="4"><textarea name="content"></textarea></td>
-					</tr>
-					<tr>
-						<td><input type="hidden" name="id" value="admin"></td>
-						<td><input type="hidden" name="num" value="${dto.num}"></td>
-						<td><input type="hidden" name="groupNum" value="${dto.num}"></td>
-						
-					</tr>
-					<tr><td colspan="5"><input type="submit" value="reply"></td></tr>
-				</table>
+			<form method="post" action="${contextPath}/qna/reply">
+				<textarea name="content"></textarea>
+					<input type="hidden" name="id" value="admin">
+					<input type="hidden" name="num" value="${dto.num}">
+					<input type="hidden" name="groupNum" value="${dto.num}"><br>
+				<input type="submit" value="reply">
 			</form>
 		</c:if>
-
-</div>
-
 	</div>
+</div>
 
 </body>
 </html>

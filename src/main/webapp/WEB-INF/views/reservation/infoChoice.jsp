@@ -8,7 +8,7 @@
 <title>Four Season Hair</title>
 <style type="text/css">
 	body{
-	 margin: 0 auto; text-align: center; 
+	 margin: 0 auto; text-align: center; overflow-x: hidden; 
 	}
     .swiper-container {
       width: 100%;
@@ -51,7 +51,7 @@
  }
  .bottomvar{
  	position: fixed; bottom: 0; left: 50%; transform: translate(-50%, 0);
- 	display: flex; width: 700px; padding: 15px; margin: auto;  
+ 	display: flex; width: 700px; padding: 15px; margin: auto; z-index: 99;
  }
  .priceSum { text-align: left; width: 50%; }
  .sum { color: rgb(0, 0, 0, 0.6); font-weight: bold; font-size: 12pt; }

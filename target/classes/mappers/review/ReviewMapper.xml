@@ -17,7 +17,7 @@
 	
 	<select id="reviewAllList" resultMap="review">
 		select B.* from(select rownum rn, A.* from
-		(select * from review r inner join shop s on r.s_num=s.s_num order by num desc)A)B where rn between #{s} and #{e}		
+		(select * from review r inner join shop s on r.s_num=s.s_num where r.id=#{id} order by num desc)A)B where rn between #{s} and #{e}
 	</select>
 
 	<insert id="reviewSave">
@@ -30,7 +30,7 @@
 	</delete>
 	
 	<select id="contentView" resultMap="review">
-		select * from review where num=#{num} 
+		select r.r_date, r.content, r.id, r.num, r.s_num, r.img, r.grade, r.info, s.s_name from review r inner join shop s on r.s_num=s.s_num where r.num=#{num}
 	</select>
 
 	
@@ -53,7 +53,7 @@
 	</select>
 		
 	<select id="selectReviewCount" resultType="Integer">
-		select count(*) from review 
+		select count(*) from review where id=#{id} 
 	</select>
 
 </mapper>

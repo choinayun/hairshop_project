@@ -84,14 +84,10 @@
 	</script>
 	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 		function daumPost(){
     		new daum.Postcode({
 	        	oncomplete: function(data) {
-	        		console.log(data.roadAddress)
-	           		console.log(data.jibunAddress)
-	      
 					if(data.addressType=="R"){
 						var addr=data.roadAddress
 					}else{

@@ -57,14 +57,14 @@ public class MypageController {
 	}
 	
 	@GetMapping("statusUpdate")
-	public String statusUpdate(int num) {
+	public String statusUpdate(int num, String id) {
 	    ms.statusUpdate(num);
-	    return"redirect:history";
+	    return"redirect:history?id="+id;
 	}
 	
 	@GetMapping("/history")
-	public String history(Model model) {
-		ms.history(model);
+	public String history(Model model, @RequestParam String id) {
+		ms.history(model, id);
 		return "mypage/history"; 
 	}
 	

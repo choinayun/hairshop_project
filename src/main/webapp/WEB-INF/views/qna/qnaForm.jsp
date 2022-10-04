@@ -11,15 +11,17 @@
 
 <style type="text/css">
 .wrap{
-
+	height: 500px;
 	width: 800px;
  	margin: auto;
  	text-align: center;
 	
 }
 	a { text-decoration: none; color: black; }
-	table { border-collapse: collapse;}
+	table { border-collapse: collapse; margin: auto; }
 	h1 { margin: auto; font-size: 30px; }
+	.img_1 { display: none; }
+	textarea { border: none; resize: none; }
 </style>
 
 </head>
@@ -35,6 +37,7 @@
 				reader.readAsDataURL(file);
 				reader.onload = function (e){
 					$('#preview').attr('src', e.target.result); 
+					$('.img_1').css({ display: 'block' })
 				}
 			}
 		}
@@ -73,7 +76,7 @@
 					<th>이미지 첨부</th>
 					<td>
 						<input type="file" name="img" onchange="readURL(this);" ><br>
-						<img id="preview" src="#" width=100
+						<img id="preview" src="#" width=100 class="img_1"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
 				</tr>

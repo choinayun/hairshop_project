@@ -52,6 +52,7 @@
 				reader.readAsDataURL(file);
 				reader.onload = function (e){
 					$('#preview').attr('src', e.target.result); 
+					$('.img_').css({ display: 'block' })
 				}
 			}
 		}
@@ -74,7 +75,7 @@
 			
 			<b>별점</b>&nbsp;&nbsp;
 			<select name="grade">
-				<option value="" selected>-- 선택 --</option>
+				<option value="1" selected>-- 선택 --</option>
 				<option value="1">★</option>
 				<option value="2">★★</option>
 				<option value="3">★★★</option>
@@ -87,7 +88,7 @@
 			
 			<b>이미지 첨부</b><br>
 			<input type="file" name="img" onchange="readURL(this);" >
-			<img id="preview" src="#" width=100
+			<img id="preview" src="#" width=100 style="display: none;" class="img_"
 							  height=100 alt="선택된 이미지가 없습니다" />
 			<br>
 			<hr>					  
@@ -95,7 +96,7 @@
 			<input type="hidden" name="num" value="${reservation.num}">
 			<input type="submit" value="작성하기" class="sub">
 			<input type="button" value="목록보기" class="btn"
-				   onclick="location.href='${contextPath }/review/reviewAllList'">
+				   onclick="location.href='${contextPath }/review/reviewAllList?id=${loginUser}'">
 		</form>
 	</div>
 	
