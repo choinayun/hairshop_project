@@ -36,6 +36,7 @@
 			<mapping path="/mypage/registerShop"/>
 			<mapping path="/mypage/delete"/>
 			<mapping path="/mypage/booking"/>
+			<mapping path="/qna/qnaForm"/>
 			<beans:ref bean="LoginCheck"/>
 		</interceptor>
 	</interceptors>
