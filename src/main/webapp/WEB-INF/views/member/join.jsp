@@ -34,6 +34,7 @@ display: none;
 	width: 800px;
  	margin: auto;
  	text-align: center;
+ 	margin-top: 50px;
 	}
   body{
     background-color:rgba(234,234,234,0.12);
@@ -89,7 +90,9 @@ display: none;
   #joinbutton{
   	width: 50%;
   	margin: auto;
+  	margin-bottom: 100px;
   }
+  #joinbutton input { background-color: black; color: white; cursor: pointer; }
   </style>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>

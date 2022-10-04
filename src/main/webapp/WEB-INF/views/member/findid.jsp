@@ -79,7 +79,7 @@ body{
    text-align:center;
    width: 50%;
    padding-right:20px;
-   margin: 10px 230px 20px;
+   margin: auto;
   }
   </style>
 

@@ -99,18 +99,18 @@
 </div>
 
 <div class="write_form">
-	<div class="reply_">
-		<img src="${contextPath }/resources/images/reply.png"></img>
-	</div>
-		<c:if test="${loginUser.equals('admin')}">
-			<form method="post" action="${contextPath}/qna/reply">
-				<textarea name="content"></textarea>
-					<input type="hidden" name="id" value="admin">
-					<input type="hidden" name="num" value="${dto.num}">
-					<input type="hidden" name="groupNum" value="${dto.num}"><br>
-				<input type="submit" value="reply">
-			</form>
-		</c:if>
+	<c:if test="${loginUser.equals('admin')}">
+		<div class="reply_">
+			<img src="${contextPath }/resources/images/reply.png"></img>
+		</div>
+		<form method="post" action="${contextPath}/qna/reply">
+			<textarea name="content"></textarea>
+				<input type="hidden" name="id" value="admin">
+				<input type="hidden" name="num" value="${dto.num}">
+				<input type="hidden" name="groupNum" value="${dto.num}"><br>
+			<input type="submit" value="reply">
+		</form>
+	</c:if>
 </div>
 </div>
 
