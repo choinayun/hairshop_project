@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>Four Season Hair</title>
 <style type="text/css">
-
+.btn { text-align: center; }
+.btn button { padding: 10px; }
  button {
  	
 	width: 20%;
@@ -50,9 +51,10 @@ button:hover {
  <br>
  <br>
  <br>
-
- <button style="margin-left: 300px;" type="button"onclick="location.href='${contextPath }/member/login'">로그인으로 이동</button>
+<div class="btn">
+ <button type="button"onclick="location.href='${contextPath }/member/login'">로그인으로 이동</button>
  <button type="button" onclick="location.href='${contextPath }/member/findpw'">비밀번호 찾기</button>
+ </div>
 </div>
 </body>
 </html>

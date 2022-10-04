@@ -28,6 +28,20 @@
 	}
 	.number { background-color: white; 
 			  border-left: none;}
+    .sub  {
+	cursor:pointer;
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 10px 30px 10px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: #a3a1a1;
+    color: white;
+    margin: 20px auto 10px;  }
 </style>
 
 </head>
@@ -77,10 +91,10 @@
 				<td colspan="4" align="center" class="number">
 					<c:if test="${ loginUser == dto.id }">
 						<input type="button" 
-							   onclick="location.href='${contextPath}/review/delete?num=${dto.num }&img=${dto.img }'" value="삭제하기">
+							   onclick="location.href='${contextPath}/review/delete?num=${dto.num }&img=${dto.img }'" value="삭제하기" class="sub">
 					</c:if>
 					<input type="button" onclick="location.href='${contextPath }/review/reviewAllList?id=${loginUser}'"
-										 value="목록으로 돌아가기">
+										 value="목록으로 돌아가기" class="sub">
 				</td>
 			</tr>
 		</table>

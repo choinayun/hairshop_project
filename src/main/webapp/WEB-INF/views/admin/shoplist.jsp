@@ -12,6 +12,7 @@
 	width: 800px;
  	margin: auto;
  	text-align: center;
+ 	margin-bottom: 100px;
 }
   table {
         width: 100%;

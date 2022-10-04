@@ -12,7 +12,10 @@
 	margin-top: 200px;
 }
 .write_form{
+	width: 650px;
+	margin: auto;
 	margin-top: 10px;
+	border: none;
 }
 	.total{
 		width: 800px;
@@ -20,7 +23,7 @@
  		text-align: center;
 	}
 	.tab { width: 650px; margin: auto; margin-top: 50px;}
-	textarea { width: 630px; height: 150px; }
+	textarea { width: 100%; height: 150px; }
 	table {
     	width: 100%;
     	border: 1px solid #A6A6A6;
@@ -36,6 +39,7 @@
     	text-align: center;
  	 }
  	 textarea { resize: none; }
+ 	 .reply_ { text-align: left; padding: 10px 0 10p 0; }
 </style>
 
 </head>
@@ -66,15 +70,7 @@
 					</c:if>
 				
 				</td>
-				<!--  <td colspan="2"><c:if test="${ dto.img == 'nan' }">
-						<b>이미지가 없습니다</b>
-					</c:if>
-					 <c:if test="${ dto.img != 'nan' }">
-						<img width="100px" height="100px" 
-							 src="${contextPath}/admin/download?img=${dto.img}">
-					</c:if>-->
-					
-					<!--  </td>-->
+				
 			</tr>
 
 
@@ -92,7 +88,7 @@
 				<td>${reply.content}</td>
 				<td style="width: 30%;">${reply.qDate}
 				<c:if test="${loginUser.equals('admin')}">
-				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;margin-top: 2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
+				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;position: relative; top:2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
 				</c:if>
 				</td>
 				
@@ -102,7 +98,10 @@
 </c:if>
 </div>
 
-	<div class="write_form">
+<div class="write_form">
+	<div class="reply_">
+		<img src="${contextPath }/resources/images/reply.png"></img>
+	</div>
 		<c:if test="${loginUser.equals('admin')}">
 			<form method="post" action="${contextPath}/qna/reply">
 				<textarea name="content"></textarea>
@@ -112,7 +111,7 @@
 				<input type="submit" value="reply">
 			</form>
 		</c:if>
-	</div>
+</div>
 </div>
 
 </body>

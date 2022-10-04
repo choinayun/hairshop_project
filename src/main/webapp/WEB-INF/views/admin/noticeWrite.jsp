@@ -9,11 +9,12 @@
 <title>Four Season Hair</title>
 <style type="text/css">
 .wrap{
-		width: 800px;
+		width: 400px;
  		margin: auto;
  		text-align: center;
 }
-	
+textarea { resize: none; }
+#title_ { width: 250px; }
 </style>
 </head>
 <body>
@@ -21,13 +22,10 @@
 
 
 <div class="wrap" style="text-align: center;" >
-<h3 style="text-align: center;">공지사항</h3>
+<h2 style="text-align: center;">공지사항</h2>
 
-<br>
-<br>
-	
 	<form action="N_F" method="post" enctype="multipart/form-data">
-	<input type="text" name="title" id="title" size="30" placeholder="제목"><br>
+	<input type="text" name="title" id="title_" placeholder="제목"><br>
 	<br><br>
 	<textarea rows="30px" cols="50px" id="content" name="content">
 	</textarea>

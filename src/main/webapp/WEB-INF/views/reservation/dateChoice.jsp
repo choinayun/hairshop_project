@@ -161,7 +161,7 @@ function buildCalendar(){
 				<div class="sum">총 결제금액</div>
 				<div class="price" id="price">${dto.price}원</div>
 		</div> 
-			<input class="resbtn" type="button" value="결제하기" onclick="payment()" disabled="disabled">
+			<input class="resbtn" type="button" value="결제하기" onclick="paymentComplete1()" disabled="disabled">
 		</div>
 	</div>
 	</form>
@@ -379,6 +379,31 @@ function paymentComplete(data){
 	
 }
 
+function paymentComplete1(){
+	var dto = {
+			
+			sShop : $("input[name='sNum']").val(), 
+			id : $("input[name='id']").val(), 
+			rDate : $("input[name='rDate']").val(), 
+			rTime : $("#selectTime").val(), 
+			info : $("input[name='info']").val(), 
+			name : name, 
+			price : '${dto.price}', 
+		}
+	
+	$.ajax({
+		url:'${contextPath}/reservation/paymentComplete',
+		method : "POST", contentType: "application/json; charset=utf-8", 
+		data: JSON.stringify(dto),
+		success: function() {
+			alert("결제 성공")
+			location.replace("${contextPath}/");
+		},error: function(){
+			alert("결제 실패")
+		}
+	})
+	
+}
 </script>
 </body>
 </html>

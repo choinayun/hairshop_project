@@ -18,7 +18,7 @@
 	    font-family: 'Cairo', sans-serif;
 	  	margin: auto;
 	}
-	table tr { cursor:pointer; }
+	table tr td { cursor:pointer; }
 	table th {
    		background-color: #A6A6A6;
    		color: #F6F6F6;
@@ -28,7 +28,6 @@
 	    padding: 10px;
 	    background-color: #F6F6F6;
 	}
-	.number { background-color: white; border-left: none; }
 	.border { border-left: none; }
 	.border a { text-decoration: none; }
 </style>
@@ -77,17 +76,13 @@
 						<td>${dto.rDate }</td>										
 					</tr>
 				</c:forEach>
-				<tr>
-					<td colspan="6" class="number">
-						<div align="center">
-							<c:forEach var="num" begin="1" end="${repeat }">
-								<a href="${contextPath }/review/reviewAllList?num=${num}&id=${loginUser}">[${num }]</a>&nbsp;							
-							</c:forEach>
-						</div>
-					</td>
-				</tr>
 				</c:if>
 			</table>
+			<div align="center" style="padding: 10px;">
+				<c:forEach var="num" begin="1" end="${repeat }">
+					<a href="${contextPath }/review/reviewAllList?num=${num}&id=${loginUser}">[${num }]</a>&nbsp;							
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 

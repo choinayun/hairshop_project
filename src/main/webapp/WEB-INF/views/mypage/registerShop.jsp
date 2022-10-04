@@ -157,7 +157,7 @@
 				</tr>
 				<tr class="border">	
 					<td>
-						<input type="file" name="img1" onchange="readURL(this);"><br>
+						<input type="file" name="img1" onchange="readURL(this);" ><br>
 						<img id="preview1" src="#" width=100 style="display: none;" class="img_1"
 									  height=100 alt="선택된 이미지가 없습니다" />
 					</td>
