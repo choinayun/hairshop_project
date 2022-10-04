@@ -13,6 +13,7 @@
 }
 .write_form{
 	margin-top: 10px;
+	border: none;
 }
 	.total{
 		width: 800px;
@@ -65,15 +66,7 @@
 					</c:if>
 				
 				</td>
-				<!--  <td colspan="2"><c:if test="${ dto.img == 'nan' }">
-						<b>이미지가 없습니다</b>
-					</c:if>
-					 <c:if test="${ dto.img != 'nan' }">
-						<img width="100px" height="100px" 
-							 src="${contextPath}/admin/download?img=${dto.img}">
-					</c:if>-->
-					
-					<!--  </td>-->
+				
 			</tr>
 
 
@@ -89,9 +82,9 @@
 			<tr>
 				<td style="width: 20%; background-color: #D5D5D5;">관리자</td>
 				<td>${reply.content}</td>
-				<td style="width: 30%;">${reply.qDate}
+				<td style="width: 30%;margin: auto;">${reply.qDate}
 				<c:if test="${loginUser.equals('admin')}">
-				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;margin-top: 2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
+				<img src="${contextPath }/resources/images/delete.png" style="margin-left: 50px;position: relative; top:2px;" onclick="location.href='${contextPath }/qna/delreply?num=${reply.num}&groupNum=${reply.groupNum }'"></img>
 				</c:if>
 				</td>
 				
@@ -102,6 +95,7 @@
 </div>
 
 <div class="write_form">
+<img src="${contextPath }/resources/images/reply.png" style="margin-top: 50px;float: left;margin-left: 80px;" ></img><br>
 		<c:if test="${loginUser.equals('admin')}">
 			<form method="post" action="reply">
 				<table class="tab">
